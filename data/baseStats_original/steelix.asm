@@ -1,0 +1,29 @@
+;SteelixBaseStats: ; 38e26 (e:4e26)
+db DEX_STEELIX ; pokedex id
+db 75 ; base hp
+db 85 ; base attack
+db 200 ; base defense
+db 30 ; base speed
+db 65 ; base special
+db STEEL ; species type 1
+db GROUND ; species type 2
+db 15 ; catch rate
+db 196 ; base exp yield
+INCBIN "pic/ymon/steelix.pic",0,1 ; 77, sprite dimensions
+dw SteelixPicFront
+dw SteelixPicBack
+; move
+	db BIND
+	db CONSTRICT
+	db 0
+	db 0
+db 0 ; growth rate
+; learnset
+	tmlearn 3,6,7,8
+	tmlearn 9,10,15,16
+	tmlearn 18,23
+	tmlearn 26,27,28,31,32
+	tmlearn 34,35,36,40
+	tmlearn 44,47,48
+	tmlearn 54
+db BANK(SteelixPicFront)
