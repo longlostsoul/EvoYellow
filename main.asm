@@ -313,8 +313,9 @@ INCLUDE "engine/overworld/npc_movement.asm"
 INCLUDE "engine/overworld/doors.asm"
 INCLUDE "engine/overworld/ledges.asm"
 
-EeveeSprite:       INCBIN "gfx/sprites/eevee.2bpp"
+
 MeowthSprite:       INCBIN "gfx/sprites/meowth.2bpp"
+EeveeSprite:       INCBIN "gfx/sprites/eevee.2bpp"
 PersianSprite:       INCBIN "gfx/sprites/persian.2bpp"
 BugSprite:       INCBIN "gfx/sprites/bug.2bpp"
 FishSprite:       INCBIN "gfx/sprites/fish.2bpp"

@@ -21,7 +21,7 @@ _OaksLabText41::
 	done
 
 _OaksLabText39::
-	text "That's a tamed"
+	text "That's a fox"
 	line "POKEMON, known"
 	cont "as EEVEE!"
 	done
@@ -177,7 +177,7 @@ _OaksLabChooseMonText::
 
 	para "It's called an"
 	line "EEVEE. It's"
-	cont "very tame."
+	cont "very tameable."
 
 	para "You may have it!"
 	line "Go on, take it!"
@@ -216,10 +216,10 @@ _OaksLabRivalTakesText4::
 	prompt
 
 _OaksLabRivalTakesText5::
-	text "OAK: But, I... Oh,"
-	line "all right then."
+	text "OAK: But, I... No!"
+	line "Give it back!"
 	cont "That #MON is"
-	cont "yours."
+	cont "not yours."
 
 	para "I was going to"
 	line "give you one"
@@ -234,10 +234,10 @@ _OaksLabOakGivesText::
 	line "is the #MON I"
 	cont "caught earlier."
 
-	para "You can have it."
-	line "I caught it in"
-	cont "the wild and it's"
-	cont "not tame yet."
+	para "<RIVAL>, switch"
+	line "with <PLAYER>!"
+	cont "It's got a temper"
+	cont "like you <RIVAL>."
 	prompt
 
 _OaksLabReceivedText::
@@ -264,8 +264,8 @@ _OaksLabRivalChallengeText::
 _OaksLabText_1d3be::
 	text "WHAT?"
 	line "Unbelievable!"
-	cont "I picked the"
-	cont "wrong #MON!"
+	cont "I got stuck with"
+	cont "the wrong #MON!"
 	prompt
 
 _OaksLabText_1d3c3::
@@ -293,7 +293,7 @@ _OaksLabPikachuDislikesPokeballsText2::
 
 	para "It's odd, but it"
 	line "appears that your"
-	cont "PIKACHU dislikes"
+	cont "EEVEE dislikes"
 	cont "# BALLs."
 
 	para "You should just"

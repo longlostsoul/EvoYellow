@@ -18,7 +18,7 @@ IsStarterPikachuInOurParty2::
 	push hl
 	inc a
 	jr z, .noPlayerPikachu
-	cp PIKACHU + 1
+	cp EEVEE + 1
 ;	jr z, .curMonPlayerPikachu
 ;	cp RAICHU + 1
 	jr nz, .curMonNotPlayerPikachu
@@ -110,9 +110,9 @@ IsPikachuFirst::
 	push hl
 	inc a
 	jr z, .noPlayerPoke	
-	cp PIKACHU + 1
+	cp EEVEE + 1
 	jr z, .curMonPlayerPikachu
-	cp RAICHU + 1
+	cp SYLVEON + 1
 	jr nz, .noPlayerPoke
 .curMonPlayerPikachu
   ld a,25
@@ -425,7 +425,7 @@ IsStarterRaichuInOurParty::
 	push hl
 	inc a
 	jr z, .noPlayerPikachu
-	cp RAICHU + 1
+	cp SYLVEON + 1
 	jr nz, .curMonNotPlayerPikachu
 .curMonPlayerPikachu
 ;	ld h, d
@@ -512,12 +512,12 @@ asm_fce21:
 	ld a, [wWhichPokemon]
 	call AddNTimes
 	ld a, [hl]
-	cp RAICHU
+	cp SYLVEON
   ;cp PERSIAN
 	jr nz, .isPika
 	jr .yes
 .isPika
-	cp PIKACHU
+	cp EEVEE
   ;cp MEOWTH
 	jr nz, .notPlayerPikachu
 .yes
@@ -618,7 +618,7 @@ CheckPikachuFaintedOrStatused::
 	and a
 	ret
 
-IsSurfingPikachuInThePlayersParty::
+IsSurfingPikachuInThePlayersParty:: ;actually you do not have to alter this one, you could keep surfchu a separate thing from starter. also useless now as I removed the check at the surfhouse so you can always play.
 	ld hl, wPartySpecies
 	ld de, wPartyMon1Moves
 	ld bc, wPartyMonOT
@@ -629,11 +629,11 @@ IsSurfingPikachuInThePlayersParty::
 	push hl
 	inc a
 	jr z, .noSurfingPlayerPikachu
-	cp RAICHU+1
+	cp SYLVEON+1
 	jr nz, .isitsurfpika
 	jr .yes
 .isitsurfpika
-	cp PIKACHU+1
+	cp EEVEE+1
 	jr nz, .curMonNotSurfingPlayerPikachu
 .yes
 	ld h, d
