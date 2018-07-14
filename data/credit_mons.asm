@@ -1,0 +1,20 @@
+CreditsMons:
+	db VENUSAUR
+	db CHARIZARD
+	db BLASTOISE
+	db RAICHU
+	db UMBREON
+	db GRAVELER
+	db ABRA
+	db TANGROWTH
+	db STARMIE
+	db GYARADOS
+	db DITTO
+	db CORSOLA
+	db MILTANK
+	db NIDOKING
+	db PIKACHU
+
+rept 9
+	db GENGAR
+endr

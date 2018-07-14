@@ -1,0 +1,14 @@
+MoonMons1:
+	db $0A
+	db 8,ZUBAT
+	db 9,ZUBAT
+	db 10,GEODUDE
+	db 6,SANDSHREW
+	db 7,SWINNUB
+	db 10,SWINNUB
+	db 10,GEODUDE
+	db 11,GLIGAR
+	db 12,SANDSHREW
+	db 11,CLEFAIRY
+	db $00
+

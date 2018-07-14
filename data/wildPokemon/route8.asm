@@ -1,0 +1,14 @@
+Route8Mons:
+	db $0F
+	db 20,PIDGEY
+	db 23,MURKROW
+	db 25,RATTATA
+	db 15,ABRA
+	db 19,ABRA
+	db 24,PIDGEOTTO
+	db 19,JIGGLYPUFF
+	db 25,JIGGLYPUFF
+	db 20,KADABRA
+	db 27,KADABRA
+	db $00
+

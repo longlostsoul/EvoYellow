@@ -1,0 +1,15 @@
+Route20Mons:
+	db $00
+
+	db $05
+	db 5,TENTACOOL
+	db 10,TENTACOOL
+	db 15,MARILL
+	db 5,TENTACOOL
+	db 10,TENTACOOL
+	db 15,STARYU
+	db 20,CHINCHOU
+	db 30,KABUTO
+	db 35,OMANYTE
+	db 40,TENTACOOL
+

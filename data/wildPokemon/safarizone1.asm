@@ -1,0 +1,14 @@
+ZoneMons1:
+	db $1E
+	db 21,CHANSEY
+	db 29,MILTANK
+	db 22,EXEGGCUTE
+	db 21,TAUROS
+	db 32,NIDORINA
+	db 19,CUBONE
+	db 26,EXEGGCUTE
+	db 24,MAROWAK
+	db 40,CHANSEY
+	db 15,SCYTHER
+	db $00
+

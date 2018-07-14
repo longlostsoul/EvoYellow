@@ -1,0 +1,14 @@
+TowerMons5:
+	db $0F
+	db 22,GASTLY
+	db 23,HOOTHOOT
+	db 24,MISDREAVUS
+	db 25,GASTLY
+	db 26,GASTLY
+	db 21,GASTLY
+	db 20,CUBONE
+	db 27,GASTLY
+	db 22,HAUNTER
+	db 27,HAUNTER
+	db $00
+

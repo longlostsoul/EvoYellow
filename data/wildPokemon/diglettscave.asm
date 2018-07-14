@@ -1,0 +1,14 @@
+CaveMons:
+	db $14
+	db 18,PHANPY
+	db 19,DIGLETT
+	db 17,PHANPY
+	db 20,KOFFING
+	db 22,DIGLETT
+	db 15,DIGLETT
+	db 21,DIGLETT
+	db 18,LARVITAR
+	db 29,DUGTRIO
+	db 31,DUGTRIO
+	db $00
+

@@ -1,0 +1,14 @@
+ForestMons:
+	db $19
+	db 3,WEEDLE
+	db 7,KAKUNA
+	db 4,CATERPIE
+	db 9,BUTTERFREE
+	db 5,PIDGEY
+	db 6,VENONAT
+	db 9,BEEDRILL
+	db 7,METAPOD
+	db 8,YANMA
+	db 9,PIDGEOTTO
+	db $00
+

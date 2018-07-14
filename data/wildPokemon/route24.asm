@@ -1,0 +1,14 @@
+Route24Mons:
+	db $19
+	db 12,ODDISH
+	db 12,BELLSPROUT
+	db 13,MARILL
+	db 14,ODDISH
+	db 14,BELLSPROUT
+	db 15,PIDGEY
+	db 13,MARILL
+	db 16,STANTLER
+	db 17,PIDGEY
+	db 17,PIDGEOTTO
+	db $00
+

@@ -1,0 +1,14 @@
+MoonMonsB2:
+	db $0A
+	db 10,PHANPY
+	db 11,GEODUDE
+	db 13,PARAS
+	db 11,ZUBAT
+	db 11,TEDDIURSA
+	db 12,GEODUDE
+	db 13,GEODUDE
+	db 9,PHANPY
+	db 11,CLEFAIRY
+	db 13,CLEFAIRY
+	db $00
+

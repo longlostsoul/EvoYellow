@@ -1,0 +1,14 @@
+Route4Mons:
+	db $14
+	db 8,TEDDIURSA
+	db 9,SNUBBULL
+	db 9,POLIWAG
+	db 10,MEOWTH
+	db 8,SANDSHREW
+	db 10,SNUBBULL
+	db 10,SANDSHREW
+	db 12,RATTATA
+	db 11,EKANS
+	db 12,MEOWTH
+	db $00
+

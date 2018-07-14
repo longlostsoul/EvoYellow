@@ -1,0 +1,14 @@
+Route18Mons:
+	db $19
+	db 22,SPEAROW
+	db 22,DODUO
+	db 23,LICKITUNG
+	db 24,DODUO
+	db 24,STANTLER
+	db 26,YANMA
+	db 23,SPEAROW
+	db 24,FEAROW
+	db 25,RATICATE
+	db 26,RATICATE
+	db $00
+

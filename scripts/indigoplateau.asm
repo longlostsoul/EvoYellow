@@ -1,0 +1,4 @@
+IndigoPlateauScript:
+	ret
+
+IndigoPlateauTextPointers:

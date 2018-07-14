@@ -1,0 +1,14 @@
+Route5Mons:
+	db $0F
+	db 15,PIDGEY
+	db 14,RATTATA
+	db 10,ABRA
+	db 16,PIDGEY
+	db 16,RATTATA
+	db 17,FARFETCHD
+	db 17,PIDGEOTTO
+	db 10,JIGGLYPUFF
+	db 15,MURKROW
+	db 17,JIGGLYPUFF
+	db $00
+

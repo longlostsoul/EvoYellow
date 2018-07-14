@@ -1,0 +1,14 @@
+PlateauMons1:
+	db $0F
+	db 26,ARBOK
+	db 31,HITMONLEE
+	db 36,HITMONCHAN
+	db 39,HERACROSS
+	db 44,HERACROSS
+	db 41,PERSIAN
+	db 43,ONIX
+	db 45,HOUNDOOM
+	db 41,GRAVELER
+	db 47,GRAVELER
+	db $00
+

@@ -1,0 +1,14 @@
+TowerMons3:
+	db $0A
+	db 20,HOOTHOOT
+	db 21,GASTLY
+	db 22,CUBONE
+	db 23,GASTLY
+	db 24,GASTLY
+	db 19,MISDREAVUS
+	db 18,GASTLY
+	db 25,VULPIX
+	db 20,HAUNTER
+	db 25,HAUNTER
+	db $00
+

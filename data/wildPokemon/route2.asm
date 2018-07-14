@@ -1,0 +1,14 @@
+Route2Mons:
+	db $19
+	db 3,RATTATA
+	db 5,TOGEPI
+	db 4,PIDGEY
+	db 4,NIDORAN_M
+	db 4,NIDORAN_F
+	db 5,SANDSHREW
+	db 6,ZUBAT
+	db 6,MANKEY
+	db 7,RATTATA
+	db 7,PIDGEY
+	db $00
+

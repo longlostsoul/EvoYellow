@@ -1,0 +1,14 @@
+DungeonMons1:
+	db $0A
+	db 50,ALAKAZAM
+	db 55,GOLBAT
+	db 45,GOLEM
+	db 55,GLOOM
+	db 55,WEEPINBELL
+	db 52,SANDSLASH
+	db 54,VENOMOTH
+	db 54,PARASECT
+	db 55,MACHAMP
+	db 60,DITTO
+	db $00
+
