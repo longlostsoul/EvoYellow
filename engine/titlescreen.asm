@@ -201,7 +201,7 @@ DisplayTitleScreen:
 ; unreferenced
 	ld a, [wTitleScreenScene + 4]
 	inc a
-	cp 11;$2a ;cry 35
+	cp 33;$2a ;cry 35
 	jr c, .asm_4305
 	ld a, $f
 .asm_4305

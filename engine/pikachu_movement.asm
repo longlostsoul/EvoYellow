@@ -957,22 +957,22 @@ LoadPikachuSpriteIntoVRAM:
   jr nz, .load2
   call IsStarterPikachuInOurParty2
   jr nc, .Raichu
-  ld de, EeveeSprite
+  ld de, PikachuSprite
 	;lb bc, BANK(PikachuSprite), (SandshrewSprite - PikachuSprite) / 32
 	jr .go
 .Raichu
-	ld de, EeveeSprite ;no sylveon sprite yet
+	ld de, RaichuSprite
 .go
-  lb bc, BANK(EeveeSprite), (EeveeSprite - MeowthSprite) / 32 ;can't remem if I altered this before...
+  lb bc, BANK(PikachuSprite), (SandshrewSprite - PikachuSprite) / 32
 	ld hl, vNPCSprites + $c * $10
 	push bc
 	call CopyVideoDataAlternate
 	call IsStarterRaichuInOurParty
 	jr nc, .Pikachu2
-	ld de, EeveeSprite + $c * $10
+	ld de, RaichuSprite + $c * $10
   jr .goo
 .Pikachu2
-	ld de, EeveeSprite + $c * $10
+	ld de, PikachuSprite + $c * $10
 .goo
 	ld hl, vNPCSprites2 + $c * $10
 	ld a, [h_0xFFFC]
@@ -980,10 +980,10 @@ LoadPikachuSpriteIntoVRAM:
 	jr z, .load
 	callab IsStarterRaichuInOurParty
 	jr nc, .Pikachu3
-	ld de, EeveeSprite + $c * $10
+	ld de, RaichuSprite + $c * $10
   jr .goo2
 .Pikachu3
-	ld de, EeveeSprite + $c * $10
+	ld de, PikachuSprite + $c * $10
 .goo2
 	ld hl, vNPCSprites2 + $4c * $10
 .load

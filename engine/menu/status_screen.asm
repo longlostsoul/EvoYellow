@@ -211,10 +211,10 @@ StatusScreen:
 .playPikachuSoundClip
   callab IsStarterRaichuInOurParty ;really should make one to check box too...
   jr nc, .Pikachu
-  ld e,1
+  ld e,0
   jr .cry
 .Pikachu
-	ld e, 1
+	ld e, 16
 .cry
 	callab PlayPikachuSoundClip
 	jr .continue

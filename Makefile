@@ -24,7 +24,7 @@ $(foreach obj, $(objs:.o=), \
 .PRECIOUS: %.2bpp
 .PHONY: all clean yellow compare
 
-rom := evobrown.gbc
+rom := evoyellow.gbc
 
 all: $(rom)
 yellow: $(rom)
