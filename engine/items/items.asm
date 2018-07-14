@@ -941,9 +941,8 @@ ItemUseEvoStone:
 	ld [wcf91], a
 	;call Func_d85d
 	;jr nc, .noEffect
-	;callab IsThisPartymonStarterPikachu_Party
-	;jr nc, .notPlayerPikachu
-	jr .notPlayerPikachu ;hopefully allow eevee to evo by stones, but I don't remember it working super well last time I tried this, prolly need to do another check. would have to update check for raichu to check for all eeveelutions to keep emotion sprites if this works. -shrug-
+	callab IsThisPartymonStarterPikachu_Party
+	jr nc, .notPlayerPikachu ;yeah knockin this out did no good, just swallowed the stone without warning. proly need to alter stone evos I bet they have a check somewhere
 	ld e, $1b
 	callab PlayPikachuSoundClip
 	ld a, [wWhichPokemon]
@@ -956,19 +955,6 @@ ItemUseEvoStone:
 	ld a, $82
 	ld [wPikachuMood], a
 	jr .canceledItemUse
-	;copypast of evolve. this is just left over junk when I tried to force evolve pikachu from here last time.
-	;ld a, SFX_HEAL_AILMENT
-	;call PlaySoundWaitForCurrent
-	;call WaitForSoundToFinish
-	;ld a, $01
-	;ld [wForceEvolution], a
-	;callab TryEvolvingMon ; try to evolve pokemon
-	;pop af
-	;ld [wWhichPokemon], a
-	;ld hl, wNumBagItems
-	;ld a, 1 ; remove 1 stone
-	;ld [wItemQuantity], a
-	;jp RemoveItemFromInventory
 
 .notPlayerPikachu
 	ld a, SFX_HEAL_AILMENT
