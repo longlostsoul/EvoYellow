@@ -281,7 +281,7 @@ MapSpecificPikachuExpression:
 
 .check_pikachu_status
   call IsPikachuFirst
-  cp 25
+  cp 133 ;eevee or sylveon check again.
   jr z, .Pika
   call FirstPartymonHappy
   cp 1

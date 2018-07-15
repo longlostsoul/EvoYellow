@@ -100,7 +100,7 @@ IsaPokemonInOurParty::
 	and a
 	ret	
 	
-	
+WhatPokemonFirst::	
 IsPikachuFirst::
 	ld hl, wPartySpecies
 	push hl
@@ -113,11 +113,14 @@ IsPikachuFirst::
 	cp EEVEE + 1
 	jr z, .curMonPlayerPikachu
 	cp SYLVEON + 1
-	jr nz, .noPlayerPoke
+	jr nz, .OtherPlayerPoke
 .curMonPlayerPikachu
-  ld a,25
+  ld a,133 ;make it spit out the same pokedex num because why not. :P You want it to give same answer for evolved starter for laziness purposes. That's good, right? >_> <_<
   pop hl
   ret
+.OtherPlayerPoke
+  pop hl
+  ret ;should give poke + 1 in a. not tested yet.
 .noPlayerPoke
   ld a,0
 	pop hl

@@ -952,7 +952,7 @@ INCBIN "gfx/unknown_fd86b.2bpp"
 
 LoadPikachuSpriteIntoVRAM:
   call IsPikachuFirst
-  cp 133 ;whoops, 25  is for pikachu, forgot to alter last time. eevee is 133 if I remember right.
+  cp 133 ;actually lawl I hardset it to give 25, I didn't actually need to alter this.
   ld a,0
   jr nz, .load2
   call IsStarterPikachuInOurParty2
