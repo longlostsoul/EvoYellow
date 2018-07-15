@@ -771,7 +771,7 @@ PikachuCry2_End:
 
 PikachuCry3::
 	dw (PikachuCry3_End - PikachuCry3) - 2 ; length of pcm data
-	INCBIN "audio/pikachu_cries/pikachu_cry_3.pcm"
+	INCBIN "audio/pikachu_cries/bark.pcm"
 PikachuCry3_End:
 
 	db $03  ; unused

@@ -354,11 +354,11 @@ IsPlayerPikachuAsleepInParty:
 	ld a, [hl]
 	cp $ff
 	jr z, .done
-	cp RAICHU
+	cp EEVEE
 	jr nz, .isitpika
 	jr .okitis
 .isitpika
-	cp PIKACHU
+	cp SYLVEON
 	jr nz, .curMonNotStarterPikachu
 .okitis
 	callab IsThisPartymonStarterPikachu
