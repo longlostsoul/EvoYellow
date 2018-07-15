@@ -435,21 +435,21 @@ PikachuWalksToNurseJoy:
 	ld a, 3
 	ret
 
-.PikaMovementData1:
+.PikaMovementData1: ;unfortunately, loading lots of different sprites makes it glitchy as I'd have to write a func to load their banks too, and I don't feel like wasting that much space on this at the moment. So, no real movement for pikachu/eevee except looking...
 	db $00 ; init
 	db $36 ; look up
-	db $2b ; walk up left
-	db $34 ; hop up right
+	;db $2b ; walk up left
+	;db $34 ; hop up right
 	db $3f ; ret
 
 .PikaMovementData2:
 	db $00 ; init
 	db $36 ; look up
-	db $34 ; hop up right
+	;db $34 ; hop up right
 	db $3f ; ret
 
 .PikaMovementData3:
 	db $00 ; init
 	db $36 ; look up
-	db $33 ; hop up left
+	;db $2b;$33 ; hop up left
 	db $3f ; ret
