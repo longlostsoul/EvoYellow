@@ -404,6 +404,9 @@ PikachuWalksToNurseJoy:
 	ret
 
 .GetMovementData:
+  call IsPikachuFirst
+  cp 25
+  jr nz, .pikachu_above_player ;make it skip?
 	ld a, [wPikachuMapY]
 	ld e, a
 	ld a, [wPikachuMapX]

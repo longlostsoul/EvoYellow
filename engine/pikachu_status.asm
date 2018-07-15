@@ -100,7 +100,7 @@ IsaPokemonInOurParty::
 	and a
 	ret	
 	
-	
+WhatPokemonFirst::
 IsPikachuFirst::
 	ld hl, wPartySpecies
 	push hl
@@ -113,9 +113,12 @@ IsPikachuFirst::
 	cp PIKACHU + 1
 	jr z, .curMonPlayerPikachu
 	cp RAICHU + 1
-	jr nz, .noPlayerPoke
+	jr nz, .otherPlayerPoke
 .curMonPlayerPikachu
   ld a,25
+  pop hl
+  ret
+.otherPlayerPoke ;use cp against desired poke +1
   pop hl
   ret
 .noPlayerPoke
