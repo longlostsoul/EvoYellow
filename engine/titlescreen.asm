@@ -166,7 +166,7 @@ DisplayTitleScreen:
 	jr z, .go_to_main_menu
 	and A_BUTTON | START
 	jr nz, .go_to_main_menu
-	call DoTitleScreenFunction
+	;call DoTitleScreenFunction
 	jr .titleScreenLoop
 
 .go_to_main_menu
