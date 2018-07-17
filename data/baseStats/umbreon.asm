@@ -7,7 +7,7 @@ db 65 ; base speed
 db 130 ; base special
 db DARK ; species type 1
 db DARK ; species type 2
-db 55 ; catch rate
+db 52 ; catch rate full heal
 db 196 ; base exp yield
 INCBIN "pic/ymon/umbreon.pic",0,1 ; 66, sprite dimensions
 dw UmbreonPicFront

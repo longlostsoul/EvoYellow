@@ -238,4 +238,4 @@ const_value = 1
 	const DEX_STEELIX
   const DEX_WOBBUFFET
 
-NUM_POKEMON    EQU 238 ;201, after that pokes in wild will obnoxiously turn into trainers. Unless that is fixed, others past that have to be given as trades/gifts/prizes. presudo, 213,+7 is 220 + 18, 238
+NUM_POKEMON    EQU 238 ;only 'safe' to 201, after that pokes in wild will obnoxiously turn into trainers. Unless that is fixed, others past that have to be given as trades/gifts/prizes.

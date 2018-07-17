@@ -149,16 +149,18 @@ StatusScreen:
 	;ld de, StatusText;old status text
 	;call PlaceString ; "STATUS/" 
 	ld a, [wLoadedMonCatchRate]
+	cp 0
+	jr z, .noitem
 	cp 100
-	jr c, .cnt ;hopefully less than than...
-	ld a, 20
+	jr c, .cnt
+	ld a, 20 ;I think I put this as an override if the item held id is over 100, which could correspond to a nonexistent item or a junk 'floor' item.
 	ld [wLoadedMonCatchRate],a
 .cnt
 	ld [wd11e],a ; store item ID for GetItemName
 	call GetItemName
 	ld de,wcd6d;PokeHoldItemText;
 	call PlaceString
-	
+.noitem	
 	coord hl, 14, 2
 	call PrintLevel ; Pokémon level
 	ld a, [wMonHIndex]

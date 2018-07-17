@@ -7,7 +7,7 @@ db 110 ; base speed
 db 130 ; base special
 db PSYCHIC ; species type 1
 db PSYCHIC ; species type 2
-db 46 ; catch rate
+db FULL_HEAL ; catch rate
 db 196 ; base exp yield
 INCBIN "pic/ymon/espeon.pic",0,1 ; 66, sprite dimensions
 dw EspeonPicFront

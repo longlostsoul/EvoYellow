@@ -60,6 +60,8 @@ GivePokeHoldItem:
 	
 	;take away the old item held and give it to bag
 	ld a, [wTempCoins1]
+	cp 0
+	jr z, .noitemtake
   ld [wcf91],a ;item id
   ld [wd11e],a ;fo item name
   ld hl, wNumBagItems ;put the address of bag in hl
@@ -70,9 +72,9 @@ GivePokeHoldItem:
 	call CopyStringToCF4B ; copy name to wcf4b
 	ld hl, TookItemText
 	Call PrintText
-	
+.noitemtake	
   ld a, [wd0b5]
-	ld [wcf91],a ;overwrite fix fo map again...
+	ld [wcf91],a ;overwrite fix fo map/bag again...
 	
 .nope
   ld a,[wTempLevel]
@@ -3291,7 +3293,7 @@ SendNewMonToBox:
 	ld [wBoxMon1CatchRate], a
 	jr .enditem
 .NUGGET
-  ld a, $31 ; hold a nugget
+  ld a, $31 ; hold a nugget on rare occasions
 	ld [wBoxMon1CatchRate], a
 	jr .enditem
 .PP_UP

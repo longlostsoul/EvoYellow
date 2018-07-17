@@ -7,7 +7,7 @@ db 60 ; base speed
 db 130 ; base special
 db FAIRY ; species type 1
 db FAIRY ; species type 2
-db 46 ; catch rate
+db FULL_HEAL ; catch rate
 db 196 ; base exp yield
 INCBIN "pic/ymon/sylveon.pic",0,1 ; 66, sprite dimensions
 dw SylveonPicFront

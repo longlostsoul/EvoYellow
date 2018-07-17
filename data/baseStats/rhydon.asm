@@ -6,7 +6,7 @@ db 40 ; base speed
 db 45 ; base special
 db GROUND ; species type 1
 db ROCK ; species type 2
-db 60 ; catch rate
+db FULL_HEAL ; catch rate
 db 204 ; base exp yield
 INCBIN "pic/ymon/rhydon.pic",0,1 ; 77, sprite dimensions
 dw RhydonPicFront

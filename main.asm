@@ -809,7 +809,10 @@ INCLUDE "engine/menu/options.asm"
 INCLUDE "data/cries.asm"
 INCLUDE "engine/battle/trainer_ai.asm"
 INCLUDE "data/moves.asm" ;moved from bank 0e
-
+SimulatedInputBattleItemList:
+	db 1 ; # of items
+	db POKE_BALL, 1
+	db $ff
 
 SECTION "bank11",ROMX,BANK[$11]
 

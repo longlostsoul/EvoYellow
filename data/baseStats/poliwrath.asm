@@ -6,7 +6,7 @@ db 70 ; base speed
 db 70 ; base special
 db WATER ; species type 1
 db FIGHTING ; species type 2
-db 60 ; catch rate
+db FULL_HEAL ; catch rate
 db 185 ; base exp yield
 INCBIN "pic/ymon/poliwrath.pic",0,1 ; 77, sprite dimensions
 dw PoliwrathPicFront

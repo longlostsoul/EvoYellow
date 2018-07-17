@@ -6,7 +6,7 @@ db 100 ; base speed
 db 100 ; base special
 db GHOST ; species type 1
 db FIRE ; species type 2
-db 52 ; catch rate
+db FULL_HEAL ; catch rate
 db 178 ; base exp yield
 INCBIN "pic/ymon/ninetales.pic",0,1 ; 77, sprite dimensions
 dw NinetalesPicFront

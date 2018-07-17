@@ -2,7 +2,13 @@ GainExperience:
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
 	ret z ; return if link battle
-	;call DivideExpDataByNumMonsGainingExp
+	
+	ld a, [wBoostExpByExpAll]
+	cp 0
+	jr z, .noShare
+	call DivideExpDataByNumMonsGainingExp
+	;attempt at EXP SHARE fix.
+.noShare
 	ld hl, wPartyMon1
 	xor a
 	ld [wWhichPokemon], a

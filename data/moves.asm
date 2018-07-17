@@ -30,7 +30,7 @@ MoveEnd:
 	move WING_ATTACK,  NO_ADDITIONAL_EFFECT,        60, FLYING,   100, 35
 	move  WITHDRAW,  HEAL_EFFECT,   0, FLYING,    85, 20 ;Roost.old:WHIRLWIND,SWITCH_AND_TELEPORT_EFFECT
 	move FLY,          FLY_EFFECT,                  70, FLYING,    95, 15
-	move BIND,         TRAPPING_EFFECT,             45, NORMAL,    85, 20
+	move BIND,         TRAPPING_EFFECT,             60, NORMAL,    85, 20
 	move SLAM,         NO_ADDITIONAL_EFFECT,        80, NORMAL,    75, 20
 	move VINE_WHIP,    NO_ADDITIONAL_EFFECT,        35, GRASS,    100, 10
 	move STOMP,        FLINCH_SIDE_EFFECT2,         65, NORMAL,   100, 20
@@ -45,7 +45,7 @@ MoveEnd:
 	move HORN_DRILL,   OHKO_EFFECT,                  1, NORMAL,    30,  5
 	move TACKLE,       ATTACK_UP_SIDE_EFFECT,        35, NORMAL,    95, 35
 	move BODY_SLAM,    PARALYZE_SIDE_EFFECT2,       85, NORMAL,   100, 15
-	move WRAP,         TRAPPING_EFFECT,             25, NORMAL,    95, 20
+	move WRAP,         TRAPPING_EFFECT,             40, NORMAL,    95, 20
 	move TAKE_DOWN,    RECOIL_EFFECT,               90, NORMAL,    85, 20
 	move THRASH,       THRASH_PETAL_DANCE_EFFECT,   90, NORMAL,   100, 20
 	move DOUBLE_EDGE,  RECOIL_EFFECT,              100, NORMAL,   100, 15
@@ -93,7 +93,7 @@ MoveEnd:
 	move PETAL_DANCE,  THRASH_PETAL_DANCE_EFFECT,   70, GRASS,    100, 20
 	move STRING_SHOT,  SPEED_DOWN1_EFFECT,           0, BUG,       95, 40
 	move DRAGON_RAGE,  RAGE_EFFECT,        50, DRAGON,   100, 10
-	move FIRE_SPIN,    TRAPPING_EFFECT,             15, FIRE,      70, 15
+	move FIRE_SPIN,    TRAPPING_EFFECT,             50, FIRE,      70, 15
 	move THUNDERSHOCK, PARALYZE_SIDE_EFFECT1,       40, ELECTRIC, 100, 30
 	move THUNDERBOLT,  PARALYZE_SIDE_EFFECT1,       95, ELECTRIC, 100, 15
 	move THUNDER_WAVE, PARALYZE_EFFECT,              0, ELECTRIC, 100, 20
@@ -142,7 +142,7 @@ MoveEnd:
 	move SWIFT,        SWIFT_EFFECT,                60, NORMAL,   100, 20
 	move SKULL_BASH,   CHARGE_EFFECT,              100, NORMAL,   100, 15
 	move SPIKE_CANNON, TWO_TO_FIVE_ATTACKS_EFFECT,  20, STEEL,   100, 15
-	move CONSTRICT,    SPEED_DOWN_SIDE_EFFECT,      10, NORMAL,   100, 35
+	move CONSTRICT,    SPEED_DOWN_SIDE_EFFECT,      35, NORMAL,   100, 35
 	move AMNESIA,      SPECIAL_UP2_EFFECT,           0, PSYCHIC,  100, 20
 	move KINESIS,      ACCURACY_DOWN1_EFFECT,        0, PSYCHIC,   80, 15
 	move SOFTBOILED,   HEAL_EFFECT,                  0, NORMAL,   100, 10
@@ -199,9 +199,9 @@ MoveEnd:
 	move WING_ATTACK,  NO_ADDITIONAL_EFFECT,        70, STEEL,     90, 25 ; Steel Wing
 	move BARRIER,      DEFENSE_UP2_EFFECT,           0, STEEL,    100, 15 ; Iron Defense
 	move CUT,          FLINCH_SIDE_EFFECT2,         75, FLYING,    95, 15 ; Air Slash
-	move BITE,         FIRE_FANG_EFFECT,            65, FIRE,      95, 15 ; Fire Fang
-	move EMBER,        RECOIL_EFFECT,              120, FIRE,     100, 15 ; Flare Blitz
 	move FIRE_BLAST,   HYPER_BEAM_EFFECT,          150, FIRE,      90,  5 ; Blast Burn
+	move EMBER,        RECOIL_EFFECT,              120, FIRE,     100, 15 ; Flare Blitz
+	move BITE,         FIRE_FANG_EFFECT,            65, FIRE,      95, 15 ; Fire Fang
 	move BITE,         ICE_FANG_EFFECT,             65, ICE,       95, 15 ; Ice Fang
 	move BITE,         THUNDER_FANG_EFFECT,         65, ELECTRIC,  95, 15 ; Thunder Fang
 	move BUBBLEBEAM,   CONFUSION_SIDE_EFFECT,       60, WATER,    100, 20 ; Water Pulse

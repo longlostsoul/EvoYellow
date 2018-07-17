@@ -1222,14 +1222,14 @@ RemoveFaintedPlayerMon:
 .printText
 	ld hl, PlayerMonFaintedText
 	call PrintText
-	ld a, [wPlayerMonNumber]
-	ld [wWhichPokemon], a
-	ld a, [wBattleMonLevel]
-	ld b, a
-	ld a, [wEnemyMonLevel]
-	sub b ; enemylevel - playerlevel
+	;ld a, [wPlayerMonNumber]
+	;ld [wWhichPokemon], a
+	;ld a, [wBattleMonLevel]
+	;ld b, a
+	;ld a, [wEnemyMonLevel]
+	;sub b ; enemylevel - playerlevel
 	      ; are we stronger than the opposing pokemon?
-	jr c, .regularFaint ; if so, deduct happiness regularly
+	;jr c, .regularFaint ; if so, deduct happiness regularly
 
 	;cp 30 ; is the enemy 30 levels greater than us?
 	;jr nc, .carelessTrainer ; if so, punish the player for being careless, as they shouldn't be fighting a very high leveled trainer with such a level difference
@@ -1267,9 +1267,9 @@ DoUseNextMonDialogue:
 	and a ; reset carry
 	ret
 .tryRunning
-	ld a, [wCurrentMenuItem]
-	and a
-	jr z, .displayYesNoBox ; xxx when does this happen?
+;	ld a, [wCurrentMenuItem]
+;	and a
+;	jr z, .displayYesNoBox ; xxx when does this happen? I don't think it does.
 	ld hl, wPartyMon1Speed
 	ld de, wEnemyMonSpeed
 	jp TryRunningFromBattle
@@ -2476,11 +2476,6 @@ BagWasSelected:
 	ld a, h
 	ld [wListPointer + 1], a
 	jr DisplayBagMenu
-
-SimulatedInputBattleItemList:
-	db 1 ; # of items
-	db POKE_BALL, 1
-	db $ff
 
 DisplayPlayerBag:
 	; get the pointer to player's bag when in a normal battle
@@ -5272,8 +5267,12 @@ ApplyAttackToEnemyPokemonDone:
   ld a, [wBattleMonCatchRate]
   cp FULL_HEAL ;is it potionz?
   jr c, .IsItOther
+  ld a,[wBattleMonStatus]
+  cp 0
+  jr z, .NoUseBerry
   ld a,0
   ld [wBattleMonStatus],a
+  callab PrintHoldItemText
   jr .NoUseBerry
 .IsItOther
   cp POTION ;is it potionz
@@ -5283,10 +5282,10 @@ ApplyAttackToEnemyPokemonDone:
 .IsItOther2
   cp SUPER_POTION ;is it potionz?
   jr c, .NoUseBerry
-  ld b,20
+  ld b,30
 .UseHealBerry
   ld a, [wBattleMonHP + 1]
-	cp 15;less than 15 health, use a held item.
+	cp 50;less than 15 health, use a held item.
   jr nc, .NoUseBerry ;if bigger than above, don't use
   ld a,[wBattleMonHP + 1]
   ;ld b, 10
@@ -5301,8 +5300,15 @@ ApplyAttackToEnemyPokemonDone:
   ld a, b
 	ld [wBattleMonHP + 1],a
 	ld [wHPBarNewHP],a
-  ld a,FULL_RESTORE
-  ld [wBattleMonCatchRate], a ;replace with diff item after use...doesn't seem to work permanently
+	
+	ld hl, wPartyMon1CatchRate
+	ld a, [wPlayerMonNumber]
+	ld bc, wPartyMon2 - wPartyMon1
+	call AddNTimes ;now HL should point to our chosen mon's catch rate.
+	
+  ld a,0 ;could put ether, coin or nugget, if a 'finder' kind of mon like Meowth. bank is currently overfull so I'll do that later.
+  ld [hl], a ;replace with diff item after use...use battlemon instead to not work permanently? 
+  ld [wBattleMonCatchRate],a ;have to set this too or it will have unlimited use during the battle.
 	callab PrintHoldItemText
 .NoUseBerry 
 	jp DrawHUDsAndHPBars
@@ -5427,11 +5433,23 @@ ApplyAttackToPlayerPokemonDone:
   ld a, [wEnemyMonCatchRate]
   cp 99 ;Enemies with catch rate lower than that should use items.
   jr nc, .NoUseBerry
-  ;ld b,10
+  cp FULL_HEAL ;is it potionz?
+  jr c, .IsItOther
+  ld a,[wEnemyMonStatus]
+  cp 0
+  jr z, .NoUseBerry
+  ld a,0
+  ld [wEnemyMonStatus],a
+  callab PrintHoldItemText
+  jr .NoUseBerry
+.IsItOther
+  ;ld b,20
   ld a, [wEnemyMonHP + 1]
-	cp 10;less than 20 health, use a held item.
-  jr nc, .NoUseBerry ;if bigger than 20, don't use
-  ;ld a,[wEnemyMonHP + 1]
+	cp 15;less than 20 health, use a held item.
+  jr nc, .NoUseBerry ;if bigger than, don't use
+  ld a, [wEnemyMonLevel]
+  ld b,a
+  ld a,[wEnemyMonHP + 1]
   ;add b
   ;ld b,a 
   ;ld a,[wEnemyMonMaxHP +1]
@@ -5439,11 +5457,12 @@ ApplyAttackToPlayerPokemonDone:
   ;jr nc, .ContUseItem ;if maxhp bigger than b, continue
 	;ld a,[wEnemyMonMaxHP +1] ; full restore
 	;ld b,a
-;.ContUseItem
-  ld a, 15 ;originally load b, for dynamic, but no point to that here. not enough bank space atm, would have to move stuff around
-	ld [wEnemyMonHP + 1],a
+;.ContUseItem ;above code is better but not enough bank space atm. need to shuffle around.
+  sub b
+  ;ld a,b
+	ld [wEnemyMonHP + 1],a;may be a little stupid if maxhp -lv is actually less than 15 at low levels. 
   ld a,100
-  ld [wEnemyMonCatchRate], a ;replace with diff item after use...doesn't seem to work permanently. anyway, will make a poke easier to catch. >_>
+  ld [wEnemyMonCatchRate], a ;replace with diff item after use...doesn't seem to work permanently, but could do check after catching elsewhere and if this specific value turn it into 0. anyway, will make a poke easier to catch by at least 1. >_>
 	callab PrintHoldItemText
 .NoUseBerry
 	jp DrawHUDsAndHPBars
@@ -5883,16 +5902,16 @@ AIGetTypeEffectiveness:
 	jr .loop
 
 .done
-	ld a, [wTrainerClass]
-	cp LORELEI
-	jr nz, .ok
-	ld a, [wEnemyMonSpecies]
-	cp DEWGONG
-	jr nz, .ok
-	call BattleRandom
-	cp $66 ; 40 percent
-	ret c
-.ok
+	;ld a, [wTrainerClass] ;lorelei can be like everyone else kthanks.
+	;cp LORELEI
+	;jr nz, .ok
+	;ld a, [wEnemyMonSpecies]
+	;cp DEWGONG
+	;jr nz, .ok
+	;call BattleRandom
+	;cp $66 ; 40 percent
+	;ret c
+;.ok
 
 	ld a,[hl]
 	ld [wd11e],a           ; store damage multiplier
