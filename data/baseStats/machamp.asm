@@ -6,7 +6,7 @@ db 55 ; base speed
 db 65 ; base special
 db FIGHTING ; species type 1
 db FIGHTING ; species type 2
-db 35 ; catch rate
+db FULL_HEAL ; catch rate
 db 193 ; base exp yield
 INCBIN "pic/ymon/machamp.pic",0,1 ; 77, sprite dimensions
 dw MachampPicFront

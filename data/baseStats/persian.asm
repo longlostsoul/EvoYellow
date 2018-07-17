@@ -6,7 +6,7 @@ db 115 ; base speed
 db 65 ; base special
 db DARK ; species type 1
 db STEEL ; species type 2
-db 52 ; catch rate
+db FULL_HEAL ; catch rate
 db 148 ; base exp yield
 INCBIN "pic/ymon/persian.pic",0,1 ; 77, sprite dimensions
 dw PersianPicFront

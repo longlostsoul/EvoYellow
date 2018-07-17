@@ -6,7 +6,7 @@
 SpecialTrainerMoves:
 	db BUG_CATCHER,$f
 	db 2,2,TACKLE
-	db 2,3,STRING_SHOT
+	db 2,3,BIDE
 	db 0
 
 	db YOUNGSTER,$e
@@ -32,7 +32,7 @@ SpecialTrainerMoves:
 	db 0
 
 	db LT_SURGE,$1
-	db 1,1,THUNDERBOLT
+	db 1,1,VOLT_TACKLE
 	db 1,2,MEGA_PUNCH
 	db 1,3,MEGA_KICK
 	db 1,4,SURF

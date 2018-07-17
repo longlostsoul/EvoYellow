@@ -30,3 +30,4 @@ BadlyPoisoned    EQU 0
 HasLightScreenUp EQU 1
 HasReflectUp     EQU 2
 Transformed      EQU 3
+Safeguard EQU 4

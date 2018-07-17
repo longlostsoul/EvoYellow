@@ -1999,7 +1999,8 @@ wPlayerBattleStatus3:: ; d063
 ; bit 0 - toxic
 ; bit 1 - light screen
 ; bit 2 - reflect
-; bit 3 - tranformed
+; bit 3 - transformed
+; maybe bit 4, weather, 5 spikes, 6 somethin' else?
 	ds 1
 
 wEnemyStatsToDouble:: ; d064

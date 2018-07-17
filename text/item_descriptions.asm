@@ -1,3 +1,4 @@
+;this file is unused currently.
 _MasterBallDescription::
 	text "The best BALL."
 	line "It never misses."

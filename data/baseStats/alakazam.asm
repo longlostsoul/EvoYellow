@@ -6,7 +6,7 @@ db 120 ; base speed
 db 135 ; base special
 db PSYCHIC ; species type 1
 db PSYCHIC ; species type 2
-db 49 ; catch rate, nugget
+db FULL_HEAL ; catch rate
 db 186 ; base exp yield
 INCBIN "pic/ymon/alakazam.pic",0,1 ; 77, sprite dimensions
 dw AlakazamPicFront

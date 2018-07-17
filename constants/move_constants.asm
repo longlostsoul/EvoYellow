@@ -116,7 +116,7 @@ const_value = 1
 	const HAZE         ; 72
 	const REFLECT      ; 73
 	const FOCUS_ENERGY ; 74
-	const BIDE         ; 75
+	const BIDE         ; 75 replace with safe guard? it does come with a turn-move-check already
 	const METRONOME    ; 76
 	const MIRROR_MOVE  ; 77
 	const SELFDESTRUCT ; 78
@@ -126,7 +126,7 @@ const_value = 1
 	const SLUDGE       ; 7c
 	const BONE_CLUB    ; 7d
 	const FIRE_BLAST   ; 7e
-	const WATERFALL    ; 7f
+	const WATERFALL    ; 7f maybe rep. rain dance
 	const CLAMP        ; 80
 	const SWIFT        ; 81
 	const SKULL_BASH   ; 82
@@ -147,9 +147,9 @@ const_value = 1
 	const BUBBLE       ; 91
 	const DIZZY_PUNCH  ; 92
 	const SPORE        ; 93
-	const FLASH        ; 94
+	const FLASH        ; 94 thinking of trying to replace with a sunny day effect in-battle
 	const PSYWAVE      ; 95
-	const SPLASH       ; 96
+	const SPLASH       ; 96 maybe replace this with sleep talk, to make rest more viable
 	const ACID_ARMOR   ; 97
 	const CRABHAMMER   ; 98
 	const EXPLOSION    ; 99
@@ -188,9 +188,9 @@ const_value = 1
 	const STEEL_WING   ; ba
 	const IRON_DEFENSE ; bb
 	const AIR_SLASH    ; bc
-	const FIRE_FANG    ; bd
-	const FLARE_BLITZ  ; be
-	const BLAST_BURN   ; bf
+	const FLARE_BLITZ  ; bd
+	const BLAST_BURN   ; be
+	const FIRE_FANG    ; bf
 	const ICE_FANG     ; c0
 	const THUNDER_FANG ; c1
 	const WATER_PULSE  ; c2
@@ -246,7 +246,7 @@ const_value = 1
 	const CROSS_CHOP   ; f4
 	const LOW_SWEEP    ; f5
 	const HURRICANE    ; f6
-	const BABYDOLLEYES ; f7
+	const BABYDOLLEYES ; f7 
 	const BONE_RUSH    ; f8
 	const AEROBLAST    ; f9
 	const ANCIENTPOWER ; fa

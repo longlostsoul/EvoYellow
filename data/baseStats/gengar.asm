@@ -6,7 +6,7 @@ db 110 ; base speed
 db 130 ; base special
 db GHOST ; species type 1
 db POISON ; species type 2
-db 46 ; catch rate
+db FULL_HEAL ; catch rate
 db 190 ; base exp yield
 INCBIN "pic/ymon/gengar.pic",0,1 ; 66, sprite dimensions
 dw GengarPicFront
