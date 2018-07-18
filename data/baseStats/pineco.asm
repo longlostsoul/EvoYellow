@@ -1,4 +1,4 @@
-PinecoBaseStats::
+;PinecoBaseStats::
 	dw DEX_PINECO ; pokedex id
 	db 50 ; base hp
 	db 65 ; base attack
@@ -15,7 +15,7 @@ PinecoBaseStats::
 	; attacks known at lvl 0
 	db TACKLE
 	db 0 ; PROTECT
-	db 0
+	db 0 ;Spikes
 	db 0
 	db 0 ; growth rate
 	; learnset

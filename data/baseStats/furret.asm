@@ -6,7 +6,7 @@ db DEX_FURRET ; pokedex id
 	db 50 ; base special
 	db NORMAL ; species type 1
 	db GHOST ; species type 2
-	db 100 ; catch rate
+	db FULL_HEAL ; catch rate
 	db 116 ; base exp yield
 	INCBIN "pic/ymon/furret.pic",0,1 ; sprite dimensions
 	dw FurretPicFront
