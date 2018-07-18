@@ -5269,28 +5269,35 @@ ApplyDamageToEnemyPokemon:
 	predef UpdateHPBar2 ; animate the HP bar shortening
 ApplyAttackToEnemyPokemonDone:
 	;######HOLD ITEM SCRIPT! @@@####;
-  ld a, [wBattleMonCatchRate]
-  cp FULL_HEAL ;is it potionz?
-  jr c, .IsItOther
+	
+	ld hl, wPartyMon1CatchRate
+	ld a, [wPlayerMonNumber]
+	ld bc, wPartyMon2 - wPartyMon1
+	call AddNTimes ;now HL should point to our chosen mon's catch rate.
+  ld a, [hl];[wBattleMonCatchRate] except doesn't seem to update well
+
+  cp PARLYZ_HEAL;FULL_HEAL;,;cp antidote laters for moar kinds. would need to put elsewhere for sleeping mons as sleepers can't attack unless we add on sleeptalk. ;is it potionz?
+  jr nz, .IsItOther
   ld a,[wBattleMonStatus]
   cp 0
   jr z, .NoUseBerry
   ld a,0
   ld [wBattleMonStatus],a
   callab PrintHoldItemText
-  jr .NoUseBerry
+  jr .RidBerry
 .IsItOther
-  cp POTION ;is it potionz
-  jr c, .IsItOther2
-  ld b,10 
+  cp SUPER_POTION;is it potionz
+  jr nz, .IsItOther2
+  ld b,30 
   jr .UseHealBerry
 .IsItOther2
-  cp SUPER_POTION ;is it potionz?
-  jr c, .NoUseBerry
-  ld b,30
+  cp POTION;is it potionz?
+  jr nz, .NoUseBerry
+  ld b,15
 .UseHealBerry
+	;callab PrintHoldItemText;test
   ld a, [wBattleMonHP + 1]
-	cp 50;less than 15 health, use a held item.
+	cp 30;less than this health, use a held item.
   jr nc, .NoUseBerry ;if bigger than above, don't use
   ld a,[wBattleMonHP + 1]
   ;ld b, 10
@@ -5305,15 +5312,14 @@ ApplyAttackToEnemyPokemonDone:
   ld a, b
 	ld [wBattleMonHP + 1],a
 	ld [wHPBarNewHP],a
-	
+.RidBerry
 	ld hl, wPartyMon1CatchRate
 	ld a, [wPlayerMonNumber]
 	ld bc, wPartyMon2 - wPartyMon1
 	call AddNTimes ;now HL should point to our chosen mon's catch rate.
-	
   ld a,0 ;could put ether, coin or nugget, if a 'finder' kind of mon like Meowth. bank is currently overfull so I'll do that later.
-  ld [hl], a ;replace with diff item after use...use battlemon instead to not work permanently? 
-  ld [wBattleMonCatchRate],a ;have to set this too or it will have unlimited use during the battle.
+  ld [hl], a ;replace with diff item after use...use battlemon instead to not work permanently? or just don't repl. with anything!
+  ;ld [wBattleMonCatchRate],a 
 	callab PrintHoldItemText
 .NoUseBerry 
 	jp DrawHUDsAndHPBars
@@ -5435,42 +5441,7 @@ ApplyDamageToPlayerPokemon:
 	predef UpdateHPBar2 ; animate the HP bar shortening
 ApplyAttackToPlayerPokemonDone:
 ;######HOLD ITEM SCRIPT! @@@####;
-  ld a, [wEnemyMonCatchRate]
-  cp 99 ;Enemies with catch rate lower than that should use items.
-  jr nc, .NoUseBerry
-  cp FULL_HEAL ;is it potionz?
-  jr c, .IsItOther
-  ld a,[wEnemyMonStatus]
-  cp 0
-  jr z, .NoUseBerry
-  ld a,0
-  ld [wEnemyMonStatus],a
-  callab PrintHoldItemText
-  jr .NoUseBerry
-.IsItOther
-  ;ld b,20
-  ld a, [wEnemyMonHP + 1]
-	cp 15;less than 20 health, use a held item.
-  jr nc, .NoUseBerry ;if bigger than, don't use
-  ;ld a, [wEnemyMonLevel]
-  ;ld b,a
-  ;ld a,[wEnemyMonHP + 1]
-  
-  ;add b
-  ;ld b,a 
-  ld a,[wEnemyMonMaxHP +1]
-  ;cp b
-  ;jr nc, .ContUseItem ;if maxhp bigger than b, continue
-	;ld a,[wEnemyMonMaxHP +1] ; full restore
-	;ld b,a
-;.ContUseItem ;above code is better but not enough bank space atm. need to shuffle around.
-  ;sub b
-  ;ld a,b
-	ld [wEnemyMonHP + 1],a;may be a little stupid if maxhp -lv is actually less than 15 at low levels. 
-  ld a,100
-  ld [wEnemyMonCatchRate], a ;replace with diff item after use...doesn't seem to work permanently, but could do check after catching elsewhere and if this specific value turn it into 0. anyway, will make a poke easier to catch by at least 1. >_>
-	callab PrintHoldItemText
-.NoUseBerry
+  callab EnemyBerries
 	jp DrawHUDsAndHPBars
 
 AttackSubstitute:
