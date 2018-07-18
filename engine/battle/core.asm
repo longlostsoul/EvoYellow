@@ -2477,6 +2477,11 @@ BagWasSelected:
 	ld [wListPointer + 1], a
 	jr DisplayBagMenu
 
+SimulatedInputBattleItemList:
+	db 1 ; # of items
+	db POKE_BALL, 1
+	db $ff
+
 DisplayPlayerBag:
 	; get the pointer to player's bag when in a normal battle
 	ld hl, wNumBagItems
@@ -5447,18 +5452,19 @@ ApplyAttackToPlayerPokemonDone:
   ld a, [wEnemyMonHP + 1]
 	cp 15;less than 20 health, use a held item.
   jr nc, .NoUseBerry ;if bigger than, don't use
-  ld a, [wEnemyMonLevel]
-  ld b,a
-  ld a,[wEnemyMonHP + 1]
+  ;ld a, [wEnemyMonLevel]
+  ;ld b,a
+  ;ld a,[wEnemyMonHP + 1]
+  
   ;add b
   ;ld b,a 
-  ;ld a,[wEnemyMonMaxHP +1]
+  ld a,[wEnemyMonMaxHP +1]
   ;cp b
   ;jr nc, .ContUseItem ;if maxhp bigger than b, continue
 	;ld a,[wEnemyMonMaxHP +1] ; full restore
 	;ld b,a
 ;.ContUseItem ;above code is better but not enough bank space atm. need to shuffle around.
-  sub b
+  ;sub b
   ;ld a,b
 	ld [wEnemyMonHP + 1],a;may be a little stupid if maxhp -lv is actually less than 15 at low levels. 
   ld a,100
