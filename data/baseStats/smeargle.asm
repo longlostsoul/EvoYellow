@@ -1,7 +1,7 @@
-SmeargleBaseStats::
-	dw DEX_SMEARGLE ; pokedex id
+;SmeargleBaseStats:: kind of pointless to add unless I programm in sketch, but could give it a crazy movelist with all the most common sketched moves instead... idk. Smeargle doesn't seem to be very popular either, although I kind of like it that base attack is just freakin' awful. maybe boost from 20 to 50, at least..
+	db DEX_SMEARGLE ; pokedex id
 	db 55 ; base hp
-	db 20 ; base attack
+	db 50 ; base attack
 	db 35 ; base defense
 	db 75 ; base speed
 	db 33 ; base special

@@ -1,5 +1,5 @@
-AriadosBaseStats::
-	dw DEX_ARIADOS ; pokedex id
+;AriadosBaseStats:: I actually like Ariados quite a bit. I felt it deserved a more interesting typing.
+	db DEX_ARIADOS ; pokedex id
 	db 70 ; base hp
 	db 90 ; base attack
 	db 70 ; base defense

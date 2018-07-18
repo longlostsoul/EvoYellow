@@ -7,7 +7,7 @@ db 50 ; base speed
 db 95 ; base special
 db NORMAL ; species type 1
 db NORMAL ; species type 2
-db 34 ; catch rate
+db FULL_HEAL ; catch rate
 db 193 ; base exp yield
 INCBIN "pic/ymon/lickilicky.pic",0,1 ; 77, sprite dimensions
 dw LickilickyPicFront

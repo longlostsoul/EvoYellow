@@ -6,7 +6,7 @@ db DEX_AMPHAROS ; pokedex id
 	db 105 ; base special
 	db ELECTRIC ; species type 1
 	db DRAGON ; species type 2
-	db 46 ; catch rate
+	db FULL_HEAL ; catch rate
 	db 194 ; base exp yield
 	INCBIN "pic/ymon/ampharos.pic",0,1 ; 77, sprite dimensions
 	dw AmpharosPicFront

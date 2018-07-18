@@ -7,7 +7,7 @@ db 60 ; base speed
 db 130 ; base special
 db ELECTRIC ; species type 1
 db STEEL ; species type 2
-db 32 ; catch rate
+db FULL_HEAL ; catch rate
 db 211 ; base exp yield
 INCBIN "pic/ymon/magnezone.pic",0,1 ; 66, sprite dimensions
 dw MagnezonePicFront
