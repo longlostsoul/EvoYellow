@@ -1,5 +1,4 @@
-CroconawBaseStats::
-	dw DEX_CROCONAW ; pokedex id
+db DEX_CROCONAW ; pokedex id
 	db 65 ; base hp
 	db 80 ; base attack
 	db 80 ; base defense

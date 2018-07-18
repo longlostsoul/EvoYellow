@@ -1,5 +1,5 @@
 ;SpinarakBaseStats:: not sure if I'll use spinarak or not... but probably will as I like Ariados and bug/ghost or bug/dark or psychic could make it much more useable.
-	dw DEX_SPINARAK ; pokedex id
+	db DEX_SPINARAK ; pokedex id
 	db 40 ; base hp
 	db 60 ; base attack
 	db 40 ; base defense

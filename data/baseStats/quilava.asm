@@ -1,5 +1,4 @@
-QuilavaBaseStats::
-	dw DEX_QUILAVA ; pokedex id
+db DEX_QUILAVA ; pokedex id
 	db 58 ; base hp
 	db 64 ; base attack
 	db 58 ; base defense

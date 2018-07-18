@@ -1,5 +1,4 @@
-BayleefBaseStats::
-	dw DEX_BAYLEEF ; pokedex id
+db DEX_BAYLEEF ; pokedex id
 	db 60 ; base hp
 	db 62 ; base attack
 	db 80 ; base defense

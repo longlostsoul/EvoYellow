@@ -1,5 +1,5 @@
-;PinecoBaseStats::
-	dw DEX_PINECO ; pokedex id
+;PinecoBaseStats:: not added yet
+	db DEX_PINECO ; pokedex id
 	db 50 ; base hp
 	db 65 ; base attack
 	db 90 ; base defense

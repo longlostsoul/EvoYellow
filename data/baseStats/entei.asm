@@ -1,5 +1,4 @@
-EnteiBaseStats::
-	dw DEX_ENTEI ; pokedex id
+db DEX_ENTEI ; pokedex id
 	db 115 ; base hp
 	db 115 ; base attack
 	db 85 ; base defense

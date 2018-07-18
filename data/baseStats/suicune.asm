@@ -1,5 +1,4 @@
-SuicuneBaseStats::
-	dw DEX_SUICUNE ; pokedex id
+  db DEX_SUICUNE ; pokedex id
 	db 100 ; base hp
 	db 75 ; base attack
 	db 115 ; base defense

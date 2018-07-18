@@ -1,5 +1,5 @@
-CyndaquilBaseStats::
-	dw DEX_CYNDAQUIL ; pokedex id
+;not added yet
+db DEX_CYNDAQUIL ; pokedex id
 	db 39 ; base hp
 	db 52 ; base attack
 	db 43 ; base defense

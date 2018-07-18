@@ -1,5 +1,4 @@
-FeraligatrBaseStats::
-	dw DEX_FERALIGATR ; pokedex id
+db DEX_FERALIGATR ; pokedex id
 	db 85 ; base hp
 	db 105 ; base attack
 	db 100 ; base defense

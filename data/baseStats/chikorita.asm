@@ -1,5 +1,5 @@
-ChikoritaBaseStats::
-	dw DEX_CHIKORITA ; pokedex id
+;not added
+db DEX_CHIKORITA ; pokedex id
 	db 45 ; base hp
 	db 49 ; base attack
 	db 65 ; base defense

@@ -1,5 +1,5 @@
-Ho_OhBaseStats::
-	dw DEX_HO_OH ; pokedex id
+;Ho_OhBaseStats::
+	db DEX_HO_OH ; pokedex id
 	db 106 ; base hp
 	db 130 ; base attack
 	db 90 ; base defense

@@ -1,5 +1,4 @@
-CelebiBaseStats::
-	dw DEX_CELEBI ; pokedex id
+  db DEX_CELEBI ; pokedex id
 	db 100 ; base hp
 	db 100 ; base attack
 	db 100 ; base defense

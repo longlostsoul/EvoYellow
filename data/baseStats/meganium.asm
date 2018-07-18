@@ -1,5 +1,4 @@
-MeganiumBaseStats::
-	dw DEX_MEGANIUM ; pokedex id
+ db DEX_MEGANIUM ; pokedex id
 	db 80 ; base hp
 	db 82 ; base attack
 	db 100 ; base defense

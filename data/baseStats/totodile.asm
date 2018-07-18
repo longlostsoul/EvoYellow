@@ -1,5 +1,5 @@
-TotodileBaseStats::
-	dw DEX_TOTODILE ; pokedex id
+;not added yet/ever?
+db DEX_TOTODILE ; pokedex id
 	db 50 ; base hp
 	db 65 ; base attack
 	db 64 ; base defense

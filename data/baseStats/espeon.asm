@@ -16,7 +16,7 @@ dw EspeonPicBack
 db TACKLE
 db 0
 db 0
-	db 0
+db 0
 db 0 ; growth rate
 ; learnset
 	tmlearn 5,6,8

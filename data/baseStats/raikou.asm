@@ -1,5 +1,4 @@
-RaikouBaseStats::
-	dw DEX_RAIKOU ; pokedex id
+db DEX_RAIKOU ; pokedex id
 	db 90 ; base hp
 	db 85 ; base attack
 	db 75 ; base defense
