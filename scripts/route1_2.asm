@@ -6,6 +6,8 @@ Func_f1ad2:
 	lb bc, POTION, 1
 	call GiveItem
 	jr nc, .BagFull
+	lb bc, SENTRET, 5
+	call GivePokemon
 	ld hl, Route1Text_f1aff
 	jr .asm_1cadd
 .BagFull
