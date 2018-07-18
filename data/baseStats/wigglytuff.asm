@@ -6,7 +6,7 @@ db 45 ; base speed
 db 50 ; base special
 db NORMAL ; species type 1
 db FAIRY ; species type 2
-db 51 ; catch rate
+db FULL_HEAL ; catch rate
 db 109 ; base exp yield
 INCBIN "pic/ymon/wigglytuff.pic",0,1 ; 66, sprite dimensions
 dw WigglytuffPicFront

@@ -1,5 +1,4 @@
-MantineBaseStats::
-	dw DEX_MANTINE ; pokedex id
+  db DEX_MANTINE ; pokedex id;removed a line to make compatible with game for later use
 	db 65 ; base hp
 	db 40 ; base attack
 	db 70 ; base defense
@@ -7,7 +6,7 @@ MantineBaseStats::
 	db 110 ; base special
 	db WATER ; species type 1
 	db FLYING ; species type 2
-	db 19 ; catch rate
+	db SUPER_POTION ; catch rate
 	db 168 ; base exp yield
 	INCBIN "pic/ymon/mantine.pic",0,1 ; sprite dimensions
 	dw MantinePicFront
