@@ -1,5 +1,5 @@
-;AipomBaseStats:: actually not sure if I want to add Aipom, it's not one of my favorite pokemon. Giving it a weird typing could make it more entertaining though. poison/fighting or somethin'. on other hand, if do that maybe just better off adding a newer gen poke I like better.
-	db DEX_AIPOM ; pokedex id
+AipomBaseStats::
+	dw DEX_AIPOM ; pokedex id
 	db 50 ; base hp
 	db 70 ; base attack
 	db 55 ; base defense

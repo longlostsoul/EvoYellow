@@ -6,7 +6,7 @@ db 90 ; base speed
 db 110 ; base special
 db FIGHTING ; species type 1
 db STEEL ; species type 2
-db FULL_HEAL ; catch rate
+db 35 ; catch rate
 db 193 ; base exp yield
 INCBIN "pic/ymon/lucario.pic",0,1 ; 77, sprite dimensions
 dw LucarioPicFront

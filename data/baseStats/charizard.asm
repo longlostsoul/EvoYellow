@@ -6,7 +6,7 @@ db 100 ; base speed
 db 85 ; base special
 db FIRE ; species type 1
 db FLYING ; species type 2
-db FULL_HEAL ;make lance more annoying yes?
+db 31 ; catch rate. hold fire stone
 db 209 ; base exp yield
 INCBIN "pic/ymon/charizard.pic",0,1 ; 77, sprite dimensions
 dw CharizardPicFront

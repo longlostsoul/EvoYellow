@@ -15,7 +15,7 @@ dw SnorlaxPicBack
 db HEADBUTT
 db AMNESIA
 db REST
-db 0 ;sleep ralk
+db 0
 db 5 ; growth rate
 ; learnset
 	tmlearn 1,5,6,8

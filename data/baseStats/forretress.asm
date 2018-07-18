@@ -1,4 +1,5 @@
-  db DEX_FORRETRESS ; pokedex id
+ForretressBaseStats::
+	dw DEX_FORRETRESS ; pokedex id
 	db 75 ; base hp
 	db 90 ; base attack
 	db 140 ; base defense
@@ -6,7 +7,7 @@
 	db 60 ; base special
 	db BUG  ; species type 1
 	db STEEL  ; species type 2
-	db FULL_HEAL ; catch rate.
+	db 60 ; catch rate
 	db 118 ; base exp yield
 	INCBIN "pic/ymon/forretress.pic",0,1 ; 55, sprite dimensions
 	dw ForretressPicFront
@@ -14,7 +15,7 @@
 	; attacks known at lvl 0
 	db TACKLE
 	db 0 ; PROTECT
-	db 0 ; SPIKES. Put Spikes and Forretress in game eventually?
+	db 0
 	db 0
 	db 0 ; growth rate
 	; learnset

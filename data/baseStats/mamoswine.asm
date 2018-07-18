@@ -6,7 +6,7 @@ db 80 ; base speed
 db 70 ; base special
 db GROUND ; species type 1
 db ICE ; species type 2
-db FULL_HEAL ; catch rate
+db 120 ; catch rate
 db 135 ; base exp yield
 INCBIN "pic/ymon/mamoswine.pic",0,1 ; 77, sprite dimensions
 dw MamoswinePicFront

@@ -7,7 +7,7 @@ db 65 ; base speed
 db 130 ; base special
 db ICE ; species type 1
 db ICE ; species type 2
-db FULL_HEAL ; catch rate
+db 33 ; catch rate
 db 196 ; base exp yield
 INCBIN "pic/ymon/glaceon.pic",0,1 ; 66, sprite dimensions
 dw GlaceonPicFront

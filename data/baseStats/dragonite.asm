@@ -6,7 +6,7 @@ db 80 ; base speed
 db 100 ; base special
 db DRAGON ; species type 1
 db FLYING ; species type 2
-db FULL_HEAL
+db 16 ; catch rate, full restore
 db 218 ; base exp yield
 INCBIN "pic/ymon/dragonite.pic",0,1 ; 77, sprite dimensions
 dw DragonitePicFront
