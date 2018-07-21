@@ -41,7 +41,7 @@ MoveRelearnerText1:
 	ld hl, PrepareRelearnableMoveList
 	ld b, Bank(PrepareRelearnableMoveList)
 	call Bankswitch ;
-	ld a, [wEnemyNumHits];[wRelearnableMoves]
+	ld a, [wLastFieldMoveID];[wRelearnableMoves]
 	and a
 	jr nz, .chooseMove
 	pop bc
@@ -56,7 +56,7 @@ MoveRelearnerText1:
 	ld [wLastMenuItem], a
 	ld a, MOVESLISTMENU
 	ld [wListMenuID], a
-	ld de, wEnemyNumHits;wRelearnableMoves
+	ld de, wLastFieldMoveID;wRelearnableMoves
 	ld hl, wListPointer
 	ld [hl], e
 	inc hl

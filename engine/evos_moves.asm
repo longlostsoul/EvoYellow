@@ -764,7 +764,7 @@ PrepareRelearnableMoveList:
 	; Add move to the list, and update the running count.
 	ld a, b
 	ld b, 0
-	ld hl, wEnemyNumHits+1;wRelearnableMoves + 1
+	ld hl, wLastFieldMoveID+1;wRelearnableMoves + 1
 	add hl, bc
 	ld [hl], a
 	pop hl
@@ -777,11 +777,11 @@ PrepareRelearnableMoveList:
 	jr .loop
 .done
 	ld b, 0
-	ld hl, wEnemyNumHits + 1
+	ld hl, wLastFieldMoveID + 1
 	add hl, bc
 	ld a, $ff
 	ld [hl], a
-	ld hl, wEnemyNumHits
+	ld hl, wLastFieldMoveID
 	ld [hl], c
 	;call PrepareRelearnableBaseMoves
 	ret
