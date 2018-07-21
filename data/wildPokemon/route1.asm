@@ -8,7 +8,7 @@ Route1Mons:
 	db 3,HOOTHOOT
 	db 5,HOOTHOOT
 	db 4,RATTATA
-	db 6,SUNKERN
-	db 7,HOPPIP
+	db 6,KOFFING
+	db 7,ZUBAT
 	db $00
 
