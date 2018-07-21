@@ -343,6 +343,7 @@ StartBattle:
 	ld a, [hl] ; species
 	ld [wcf91], a
 	ld [wBattleMonSpecies2], a
+	;could do some kind of check here for item to do mega evolution I think, temp change species here.
 	call LoadScreenTilesFromBuffer1
 	coord hl, 1, 5
 	ld a, $9

@@ -826,17 +826,17 @@ EnemyBerries::
   jr .NoUseBerry
 .IsItOther
   ld b,30
-  ld a, [wEnemyMonHP + 1]
+  ld a, [wEnemyMonHP]
 	cp 19;less than 19 health, use a held item.
   jr nc, .NoUseBerry ;if bigger than, don't use
   add b
   ld b,a 
-  ld a,[wEnemyMonMaxHP +1]
+  ld a,[wEnemyMonMaxHP]
   cp b
   jr nc, .ContUseItem ;if maxhp bigger than hp+30, continue
-	ld a,[wEnemyMonMaxHP +1] ; full restore instead
+	ld a,[wEnemyMonMaxHP] ; full restore instead
 .ContUseItem
-	ld [wEnemyMonHP + 1],a
+	ld [wEnemyMonHP],a
   ld a,100
   ld [wEnemyMonCatchRate], a ;replace with diff item after use...doesn't seem to work permanently, but could do check after catching elsewhere and if this specific value turn it into 0. anyway, will make a poke easier to catch by at least 1. >_>
   callab PrintHoldItemText
