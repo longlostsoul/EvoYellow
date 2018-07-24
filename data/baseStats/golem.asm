@@ -6,7 +6,7 @@ db 45 ; base speed
 db 55 ; base special
 db ROCK ; species type 1
 db ELECTRIC ; species type 2
-db FULL_HEAL ; catch rate
+db MAX_POTION ; catch rate
 db 177 ; base exp yield
 INCBIN "pic/ymon/golem.pic",0,1 ; 66, sprite dimensions
 dw GolemPicFront

@@ -6,7 +6,7 @@ db 61 ; base speed
 db 95 ; base special
 db ROCK ; species type 1
 db DARK ; species type 2
-db FULL_HEAL ; catch rate
+db MAX_POTION ; catch rate
 db 177 ; base exp yield
 INCBIN "pic/ymon/tyranitar.pic",0,1 ; 66, sprite dimensions
 dw TyranitarPicFront

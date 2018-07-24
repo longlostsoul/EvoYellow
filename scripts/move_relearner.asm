@@ -38,9 +38,10 @@ MoveRelearnerText1:
 	ld a, [wWhichPokemon]
 	ld b, a
 	push bc
-	ld hl, PrepareRelearnableMoveList
-	ld b, Bank(PrepareRelearnableMoveList)
-	call Bankswitch ;
+	;ld hl, PrepareRelearnableMoveList
+	;ld b, Bank(PrepareRelearnableMoveList)
+	;call Bankswitch ;
+	callab PrepareRelearnableMoveList 
 	ld a, [wLastFieldMoveID];[wRelearnableMoves]
 	and a
 	jr nz, .chooseMove

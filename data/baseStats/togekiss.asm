@@ -7,7 +7,7 @@ db 80 ; base speed
 db 120 ; base special
 db FAIRY ; species type 1
 db FLYING ; species type 2
-db 34 ; catch rate
+db MAX_POTION ; catch rate
 db 220 ; base exp yield
 INCBIN "pic/ymon/togekiss.pic",0,1 ; 55, sprite dimensions
 dw TogekissPicFront

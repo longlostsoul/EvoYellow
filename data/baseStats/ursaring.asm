@@ -6,7 +6,7 @@ db 55 ; base speed
 db 75 ; base special
 db NORMAL ; species type 1
 db NORMAL ; species type 2
-db 17 ; catch rate
+db MAX_POTION ; catch rate
 db 154 ; base exp yield
 INCBIN "pic/ymon/ursaring.pic",0,1 ; 77, sprite dimensions
 dw UrsaringPicFront

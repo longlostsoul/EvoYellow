@@ -7,7 +7,7 @@ db 55 ; base speed
 db 135 ; base special
 db NORMAL ; species type 1
 db NORMAL ; species type 2
-db 34 ; catch rate, hp up
+db MAX_POTION ; catch rate/hold item
 db 255 ; base exp yield
 INCBIN "pic/ymon/blissey.pic",0,1 ; 66, sprite dimensions
 dw BlisseyPicFront

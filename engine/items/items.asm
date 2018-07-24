@@ -116,6 +116,18 @@ PrintHoldItemText:
  ld hl,UseHoldItemText
  Call PrintText
  ret
+ 
+UseHoldItemText2::
+ text "Foe ate a little!"
+ ;line "@"
+ ;TX_RAM wcf4b ;some variable goes here if we want?
+ ;text "."
+ prompt
+
+PrintHoldItemText2:
+ ld hl,UseHoldItemText2
+ Call PrintText
+ ret
 	
 UseItem_: 
 	ld a, 1
