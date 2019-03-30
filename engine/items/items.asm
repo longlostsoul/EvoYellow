@@ -1,4 +1,4 @@
-GivePokeHoldItem:
+GivePokeHoldItem: ;;give script is here
 	ld a, 1
 	ld [wActionResultOrTookBattleTurn], a ; initialise to success value
 	ld a,[wWhichPokemon]
@@ -104,6 +104,18 @@ TookItemText::
  text "."
  prompt
 	
+	
+UseHoldItemText2::
+ text "Foe ate a little!"
+ ;line "@"
+ ;TX_RAM wcf4b ;some variable goes here if we want?
+ ;text "."
+ prompt
+
+PrintHoldItemText2:
+ ld hl,UseHoldItemText
+ Call PrintText
+ ret
 	
 UseHoldItemText::
  text "PKMN ate a little!"

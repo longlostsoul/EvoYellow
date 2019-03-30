@@ -222,7 +222,7 @@ BuySellQuitText:
 	next "SELL"
 	next "QUIT@@"
 
-UseTossText: ;where I put my hold item text fo' bag. :D
+UseTossText: ;where I put my hold item text for bag. :D
 	db   "USE"
 	next "GIVE"
 	next "TOSS@"

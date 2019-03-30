@@ -400,7 +400,7 @@ StartMenu_Item:
 	cp a, 2
 	jr z, .tossItem
 	cp a, 1
-	jr z, .giveItem1 ;give item to hold
+	jr z, .giveItem1 ;give item to hold on to
 	;jr nz,.tossItem
 ; use item
   jr .useitem

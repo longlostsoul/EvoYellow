@@ -343,6 +343,7 @@ StartBattle:
 	ld a, [hl] ; species
 	ld [wcf91], a
 	ld [wBattleMonSpecies2], a
+	;could do some kind of check here for item to do mega evolution I think, temp change species here.
 	call LoadScreenTilesFromBuffer1
 	coord hl, 1, 5
 	ld a, $9
@@ -436,9 +437,9 @@ MainInBattleLoop:
   ;call BattleRandom
 	;cp $c8 ;40 1/4 chance, 80 1/2 chance.
 	;jp c, .selectPlayerMove ;let them moveee anyway
-	ld a, $ff
-	ld [wPlayerSelectedMove], a
-	jr .selectEnemyMove
+;	ld a, $ff
+;	ld [wPlayerSelectedMove], a
+;	jr .selectEnemyMove
 .selectPlayerMove
 
 	ld a, [wActionResultOrTookBattleTurn]
@@ -490,6 +491,13 @@ MainInBattleLoop:
 	callab SwitchEnemyMon
 .noLinkBattle
 	ld a, [wPlayerSelectedMove]
+	cp RAGE
+	jr z, .canrage
+	cp DRAGON_RAGE
+	jr z, .canrage
+	ld hl, wPlayerBattleStatus2
+	res UsingRage, [hl]
+.canrage
 	cp EXTREMESPEED
 	jr z, .PriorityMoveUsed
 	cp BABYDOLLEYES
@@ -580,7 +588,9 @@ MainInBattleLoop:
 	ld [wEnemyWentFirst], a
 	callab TrainerAI
 	jr c, .AIActionUsedEnemyFirst
-	call ExecuteEnemyMove
+	;######HOLD ITEM SCRIPT! @@@####;
+  callab EnemyBerries
+  call ExecuteEnemyMove
 	ld a, [wEscapedFromBattle]
 	and a ; was Teleport, Road, or Whirlwind used to escape from battle?
 	ret nz ; if so, return
@@ -590,6 +600,8 @@ MainInBattleLoop:
 .AIActionUsedEnemyFirst
 	call HandlePoisonBurnLeechSeed
 	jp z, HandleEnemyMonFainted
+		;Player Hold Items!
+	callab PlayerBerries
 	call DrawHUDsAndHPBars
 	call ExecutePlayerMove
 	ld a, [wEscapedFromBattle]
@@ -605,7 +617,9 @@ MainInBattleLoop:
 	jp MainInBattleLoop
 .playerMovesFirst
   xor a
-	ld [wEnemyWentFirst], a
+	ld [wEnemyWentFirst], a	
+	;Item Hold Script!
+	callab PlayerBerries
 	call ExecutePlayerMove
 	ld a, [wEscapedFromBattle]
 	and a ; was Teleport, Road, or Whirlwind used to escape from battle?
@@ -620,7 +634,9 @@ MainInBattleLoop:
 	ld [H_WHOSETURN], a
 	callab TrainerAI
 	jr c, .AIActionUsedPlayerFirst
-	call ExecuteEnemyMove
+	;######ENEMY HOLD ITEM SCRIPT! @@@####;
+  callab EnemyBerries
+  call ExecuteEnemyMove
 	ld a, [wEscapedFromBattle]
 	and a ; was Teleport, Road, or Whirlwind used to escape from battle?
 	ret nz ; if so, return
@@ -3918,8 +3934,8 @@ CheckPlayerStatusConditions:
 	jp z, .checkPlayerStatusConditionsDone ; if we made it this far, mon can move normally this turn
 	ld a, RAGE
 	ld [wd11e], a
-	;call GetMoveName
-	;call CopyStringToCF4B
+	call GetMoveName
+	call CopyStringToCF4B
 	xor a
 	ld [wPlayerMoveEffect], a
 	ld hl, PlayerCanExecuteMove
@@ -5268,61 +5284,9 @@ ApplyDamageToEnemyPokemon:
 	ld [wHPBarType],a
 	predef UpdateHPBar2 ; animate the HP bar shortening
 ApplyAttackToEnemyPokemonDone:
-	;######HOLD ITEM SCRIPT! @@@####;
-	
-	ld hl, wPartyMon1CatchRate
-	ld a, [wPlayerMonNumber]
-	ld bc, wPartyMon2 - wPartyMon1
-	call AddNTimes ;now HL should point to our chosen mon's catch rate.
-  ld a, [hl];[wBattleMonCatchRate] except doesn't seem to update well
-
-  cp PARLYZ_HEAL;FULL_HEAL;,;cp antidote laters for moar kinds. would need to put elsewhere for sleeping mons as sleepers can't attack unless we add on sleeptalk. ;is it potionz?
-  jr nz, .IsItOther
-  ld a,[wBattleMonStatus]
-  cp 0
-  jr z, .NoUseBerry
-  ld a,0
-  ld [wBattleMonStatus],a
-  callab PrintHoldItemText
-  jr .RidBerry
-.IsItOther
-  cp SUPER_POTION;is it potionz
-  jr nz, .IsItOther2
-  ld b,30 
-  jr .UseHealBerry
-.IsItOther2
-  cp POTION;is it potionz?
-  jr nz, .NoUseBerry
-  ld b,15
-.UseHealBerry
-	;callab PrintHoldItemText;test
-  ld a, [wBattleMonHP + 1]
-	cp 30;less than this health, use a held item.
-  jr nc, .NoUseBerry ;if bigger than above, don't use
-  ld a,[wBattleMonHP + 1]
-  ;ld b, 10
-  add b
-  ld b,a 
-  ld a,[wBattleMonMaxHP +1]
-  cp b
-  jr nc, .ContUseItem ;if maxhp bigger than b, continue
-	ld a,[wBattleMonMaxHP +1] ; full restore
-	ld b,a
-.ContUseItem
-  ld a, b
-	ld [wBattleMonHP + 1],a
-	ld [wHPBarNewHP],a
-.RidBerry
-	ld hl, wPartyMon1CatchRate
-	ld a, [wPlayerMonNumber]
-	ld bc, wPartyMon2 - wPartyMon1
-	call AddNTimes ;now HL should point to our chosen mon's catch rate.
-  ld a,0 ;could put ether, coin or nugget, if a 'finder' kind of mon like Meowth. bank is currently overfull so I'll do that later.
-  ld [hl], a ;replace with diff item after use...use battlemon instead to not work permanently? or just don't repl. with anything!
-  ;ld [wBattleMonCatchRate],a 
-	callab PrintHoldItemText
-.NoUseBerry 
 	jp DrawHUDsAndHPBars
+	
+	
 
 ApplyAttackToPlayerPokemon:
 	ld a,[wEnemyMoveEffect]
@@ -5440,8 +5404,6 @@ ApplyDamageToPlayerPokemon:
 	ld [wHPBarType],a
 	predef UpdateHPBar2 ; animate the HP bar shortening
 ApplyAttackToPlayerPokemonDone:
-;######HOLD ITEM SCRIPT! @@@####;
-  callab EnemyBerries
 	jp DrawHUDsAndHPBars
 
 AttackSubstitute:
