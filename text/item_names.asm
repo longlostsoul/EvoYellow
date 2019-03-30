@@ -17,7 +17,7 @@ ItemNames:
 	db "FULL RESTORE@"
 	db "LEFTOVERS @"
 	db "HYPER POTION@"
-	db "SITRUSBERRY @"
+	db "MoomooMILK  @"
 	db "BERRY @"
 	db "BOULDERBADGE@"
 	db "CASCADEBADGE@"
