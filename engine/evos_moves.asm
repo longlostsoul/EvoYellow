@@ -107,7 +107,7 @@ Evolution_PartyMonLoop: ; loop over party mons
 ;make pikachu evolve by level, but only if happy?
   ld [hl], c
   ld a, [wEvoOldSpecies]
-	cp PIKACHU
+	cp EEVEE
   jr nz, .CheckL
   ;160 is happiness level you have when you get to arms raised pikachu. I think?
   ld a, [wPikachuHappiness]
@@ -711,6 +711,7 @@ PrepareRelearnableMoveList:
 	call AddNTimes
 	ld a, [hl]
 	ld b, a
+	ld [wCurEnemyLVL],a
 	push bc
 	ld a, [wWhichPokemon]
 	ld hl, wPartyMon1Moves
@@ -730,59 +731,51 @@ PrepareRelearnableMoveList:
 	; hl = pointer to moves data for our mon
 	;  b = mon's level
 	ld c, 0 ; c = count of relearnable moves
-.loop
+
+.learnSetLoop ; loop over the learn set until we reach a move that is learnt at the current level or the end of the list
 	ld a, [hli]
-	and a
-	jr z, .done
-	cp b
-	jr c, .addMove
-	jr nz, .done
-.addMove
-	push bc
-	ld a, [hli] ; move id
-	ld b, a
-	; Check if move is already known by our mon.
-	push de
-	ld a, [de]
-	cp b
-	jr z, .knowsMove
-	inc de
-	ld a, [de]
-	cp b
-	jr z, .knowsMove
-	inc de
-	ld a, [de]
-	cp b
-	jr z, .knowsMove
-	inc de
-	ld a, [de]
-	cp b
-	jr z, .knowsMove
-.relearnableMove
-	pop de
+	and a ; have we reached the end of the learn set?
+	jr z, .done ; if we've reached the end of the learn set, jump
+	ld b, a ; level the move is learnt at
+	ld a, [wCurEnemyLVL]
+	cp b ; is the move learnt at the mon's current level?
+	ld a, [hli] ; move ID
+	jr c, .learnSetLoop
+	
 	push hl
-	; Add move to the list, and update the running count.
-	ld a, b
-	ld b, 0
-	ld hl, wEnemyNumHits+1;wRelearnableMoves + 1
-	add hl, bc
-	ld [hl], a
+	ld d, a ; ID of move to learn
+	ld hl, wPartyMon1Moves
+	ld a, [wWhichPokemon]
+	ld bc, wPartyMon2 - wPartyMon1
+	call AddNTimes
+
+	ld b, NUM_MOVES
+.checkCurrentMovesLoop ; check if the move to learn is already known
+	ld a, [hli]
+	cp d
+	jr z, .has_move ; if already known, jump
+	dec b
+	jr nz, .checkCurrentMovesLoop
+;learn move
+	ld a, d
+	ld [wMoveNum], a
+	ld [wd11e], a
+	call GetMoveName
+	call CopyStringToCF4B
+	predef LearnMove
+.has_move
 	pop hl
-	pop bc
-	inc c
-	jr .loop
-.knowsMove
-	pop de
-	pop bc
-	jr .loop
+	jr .learnSetLoop
+	
 .done
-	ld b, 0
-	ld hl, wEnemyNumHits + 1
-	add hl, bc
-	ld a, $ff
-	ld [hl], a
-	ld hl, wEnemyNumHits
-	ld [hl], c
+
+	;ld b, 0
+	;ld hl, wLastFieldMoveID + 1
+	;add hl, bc
+	;ld a, $ff
+	;ld [hl], a
+	;ld hl, wLastFieldMoveID
+	;ld [hl], c
 	;call PrepareRelearnableBaseMoves
 	ret
 	
