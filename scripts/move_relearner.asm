@@ -37,56 +37,21 @@ MoveRelearnerText1:
 	jp c, .exit
 	ld a, [wWhichPokemon]
 	ld b, a
-	push bc
+	;push bc
 	;ld hl, PrepareRelearnableMoveList
 	;ld b, Bank(PrepareRelearnableMoveList)
 	;call Bankswitch ;
+	;ld hl, MoveRelearnerWhichMoveText
+	;call PrintText
 	callab PrepareRelearnableMoveList 
-	ld a, [wLastFieldMoveID];[wRelearnableMoves]
-	and a
-	jr nz, .chooseMove
-	pop bc
-	ld hl, MoveRelearnerNoMovesText
-	call PrintText
-	jp TextScriptEnd
-.chooseMove
-	ld hl, MoveRelearnerWhichMoveText
-	call PrintText
-	xor a
-	ld [wCurrentMenuItem], a
-	ld [wLastMenuItem], a
-	ld a, MOVESLISTMENU
-	ld [wListMenuID], a
-	ld de, wLastFieldMoveID;wRelearnableMoves
-	ld hl, wListPointer
-	ld [hl], e
-	inc hl
-	ld [hl], d
-	xor a
-	ld [wPrintItemPrices], a ; don't print prices
-	call DisplayListMenuID
-	pop bc
-	jr c, .exit  ; exit if player chose cancel
-	push bc
-	; Save the selected move id.
-	ld a, [wcf91]
-	ld [wMoveNum], a
-	ld [wd11e],a
-	call GetMoveName
-	call CopyStringToCF4B ; copy name to wcf4b
-	pop bc
-	ld a, b
-	ld [wWhichPokemon], a
-	ld a, [wLetterPrintingDelayFlags]
-	push af
-	xor a
-	ld [wLetterPrintingDelayFlags], a
-	predef LearnMove
-	pop af
-	ld [wLetterPrintingDelayFlags], a
-	ld a, b
-	and a
-	jr z, .exit
+	;ld a, [wLastFieldMoveID];[wRelearnableMoves]
+	;and a
+	;jr nz, .chooseMove
+	;pop bc
+	;ld hl, MoveRelearnerNoMovesText
+	;call PrintText
+	;jp TextScriptEnd
+	;jp .exit
 	; Charge 500 money
 	xor a
 	ld [wWhichTrade], a
