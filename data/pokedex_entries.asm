@@ -138,6 +138,7 @@ PokedexEntryPointers:
 	dw GeodudeDexEntry
 	dw PorygonDexEntry
 	dw AerodactylDexEntry
+	dw MagnemiteDexEntry
 	dw OddishDexEntry
 	dw GloomDexEntry
 	dw VileplumeDexEntry
@@ -147,10 +148,10 @@ PokedexEntryPointers:
 	dw NewDexEntry;togep
   dw NewDexEntry ;toget
 	dw NewDexEntry ;togkiss
-	dw NewDexEntry;houndour
-	dw NewDexEntry ;houndoom
-	dw NewDexEntry  ;hera
-	dw NewDexEntry;...Crobat but actually Hera?
+	dw GrowlitheDexEntry;houndour
+	dw ArcanineDexEntry ;houndoom
+	dw PinsirDexEntry  ;hera
+	dw GolbatDexEntry;...Crobat but actually Hera?
 	dw NewDexEntry ;sneeze
 	dw NewDexEntry;w
 	dw NewDexEntry ;skar
@@ -192,27 +193,28 @@ PokedexEntryPointers:
 	dw NewDexEntry;noct
 	dw NewDexEntry;sun
 	dw NewDexEntry;sun
-	dw NewDexEntry
-	dw NewDexEntry
-	dw NewDexEntry
-	dw NewDexEntry
-	dw NewDexEntry
-	dw NewDexEntry
-	dw NewDexEntry
-	dw NewDexEntry
-	dw NewDexEntry
-	dw NewDexEntry
-	dw NewDexEntry
-	dw NewDexEntry
-	dw NewDexEntry
-	dw NewDexEntry
-	dw NewDexEntry
-	dw NewDexEntry
-	dw NewDexEntry
-	dw NewDexEntry
+	dw NewDexEntry;hop
+	dw NewDexEntry;hop2
+	dw NewDexEntry;hop3
+	dw NewDexEntry;sheep
+	dw NewDexEntry;sheep
+	dw NewDexEntry;sheep
+	dw NewDexEntry;natu
+	dw NewDexEntry;xatu
+	dw NewDexEntry;rem
+	dw NewDexEntry;oct
+	dw NewDexEntry;sen
+	dw NewDexEntry;furret
+	dw NewDexEntry;qwil
+	dw NewDexEntry;deli
+	dw NewDexEntry;dunsp
+	dw NewDexEntry;gira
+	dw NewDexEntry;riolo
+	dw NewDexEntry;lucario
 	dw NewDexEntry;sudo
 	 dw PoliwhirlDexEntry ;poli
 	dw SlowbroDexEntry ;slowking
+	dw NewDexEntry ;bellos
 	dw SeadraDexEntry;kingdr
 	dw ChanseyDexEntry ;bliss
 	dw PorygonDexEntry  ;porygon2
