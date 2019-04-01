@@ -112,7 +112,7 @@ IsPikachuFirst::
 	jr z, .noPlayerPoke	
 	cp EEVEE + 1
 	jr z, .curMonPlayerPikachu
-	cp SYLVEON + 1
+	cp JOLTEON + 1
 	jr nz, .OtherPlayerPoke
 .curMonPlayerPikachu
   ld a,133 ;make it spit out the same pokedex num because why not. :P You want it to give same answer for evolved starter for laziness purposes. That's good, right? >_> <_<
@@ -428,7 +428,7 @@ IsStarterRaichuInOurParty::
 	push hl
 	inc a
 	jr z, .noPlayerPikachu
-	cp SYLVEON + 1
+	cp JOLTEON + 1
 	jr nz, .curMonNotPlayerPikachu
 .curMonPlayerPikachu
 ;	ld h, d
@@ -515,7 +515,7 @@ asm_fce21:
 	ld a, [wWhichPokemon]
 	call AddNTimes
 	ld a, [hl]
-	cp SYLVEON
+	cp JOLTEON
   ;cp PERSIAN
 	jr nz, .isPika
 	jr .yes
@@ -632,7 +632,7 @@ IsSurfingPikachuInThePlayersParty:: ;actually you do not have to alter this one,
 	push hl
 	inc a
 	jr z, .noSurfingPlayerPikachu
-	cp SYLVEON+1
+	cp JOLTEON+1
 	jr nz, .isitsurfpika
 	jr .yes
 .isitsurfpika

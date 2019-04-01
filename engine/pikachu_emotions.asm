@@ -358,7 +358,7 @@ IsPlayerPikachuAsleepInParty:
 	jr nz, .isitpika
 	jr .okitis
 .isitpika
-	cp SYLVEON
+	cp JOLTEON
 	jr nz, .curMonNotStarterPikachu
 .okitis
 	callab IsThisPartymonStarterPikachu
