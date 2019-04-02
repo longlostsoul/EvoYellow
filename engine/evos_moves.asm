@@ -107,7 +107,7 @@ Evolution_PartyMonLoop: ; loop over party mons
 ;make pikachu evolve by level, but only if happy?
   ld [hl], c
   ld a, [wEvoOldSpecies]
-	cp EEVEE
+	cp PIKACHU
   jr nz, .CheckL
   ;160 is happiness level you have when you get to arms raised pikachu. I think?
   ld a, [wPikachuHappiness]
