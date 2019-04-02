@@ -581,6 +581,8 @@ OaksLabScript20:
 	ld a, $19
 	ld [hSpriteIndexOrTextID], a
 	call DisplayTextID
+	lb bc, POKE_BALL, 5
+	call GiveItem
 	SetEvent EVENT_GOT_POKEDEX
 	ld a, $1
 	ld [wViridianCityCurScript], a
