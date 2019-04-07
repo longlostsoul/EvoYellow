@@ -6,16 +6,23 @@ This is a disassembly of Pokémon Yellow with bonus features; Pikachu now evolve
 + Ride pokemon on a saddle
 + Press B to run
 + Can complete the Pokedex.
-+ Over 200 pokemon, many Johto but also new Kanto evolutions have been added. All Eeveelutions available.
++ Over 200 pokemon, many Johto but also new Kanto evolutions have been added. All Eeveelutions available. A couple Demo-mon (Rinrin and Berurun as dark/ghost kitties, Bombseeker the fire/water, and Turban, an alt-Shelder evo) from the Gold/Silver Special Demo have been added, with stats borrowed from existing pokemon: if you hate them you don't have to use 'em.
 + More moves, like Crunch
 + Some moves have been tweaked; Wrap no longer traps you forever, Dragon Rage causes rage effect.
 + More types, Dark, Steel, Fairy
++ Slightly different TMs, to reflect the new types.
 + Different kinds of shinies, get Pink, Blue, Black, Yellow, Purple, Orange/red
-+ Hold items for Pokemon (very very basic, slightly buggy!)
++ Hold items for Pokemon (very very basic, use 'give' from item menu)
 + New Area, Mt. Silver
 + Slight difficulty curve adjustment, with larger anime-inspired Teams for Gym Leaders, example: Brock has Vulpix, Misty has Corsola and Togekiss
-+ Some type re-adjustments; Sunflora is now fire/grass, for instance, turning it from a weak boring pokemon into a more viable one. Many Alola typings have been put into play.
++ OLDER versions (below 3.3) had type re-adjustments, moving toward possibly utilizing special area-only or item induced morphs instead, as I know some people really hate type changes. Eevee version as of this writing still has the weird typings though.
 + Uses Dannye's Gen 2 Sprites version of the Yellow disassembly as a base; so, updated sprites. Exception is Yellow's Pikachu sprite; that one I revamped myself.
+
+I'm currently fiddling with version 3.3 so don't be surprised to see it change one more time.
+
+* To see a list of all Pokémon included, look [**here**] (constants/pokemon_constants.asm).
+* To see Pokémon skill sets and evolutions, look [**here**](data/evos_moves.asm).
+* To see what the TMs/HMs teach, and where to find them, look [**here**] (data/tms.asm).
 
 It builds the following rom:
 
