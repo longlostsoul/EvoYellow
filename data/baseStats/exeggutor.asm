@@ -18,11 +18,11 @@ db 0
 db 0
 db 5 ; growth rate
 ; learnset
-	tmlearn 6
+	tmlearn 2,6
 	tmlearn 9,10,15
-	tmlearn 20,21,22
+	tmlearn 20,21,22,23
 	tmlearn 29,30,31,32
-	tmlearn 33,34,36,37
+	tmlearn 33
 	tmlearn 44,46,47
 	tmlearn 50,54
 db BANK(ExeggutorPicFront)

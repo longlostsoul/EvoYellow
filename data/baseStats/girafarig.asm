@@ -21,7 +21,7 @@ db DEX_GIRAFARIG ; pokedex id
 	tmlearn 6
 	tmlearn 9
 	tmlearn 24
-	tmlearn 25,26,29,31,32
+	tmlearn 25,26,29,30,31,32
 	tmlearn 34,39
 	tmlearn 42,44
 	tmlearn 50,54

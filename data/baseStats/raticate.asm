@@ -18,8 +18,8 @@ db QUICK_ATTACK
 db 0
 db 0 ; growth rate
 ; learnset
-	tmlearn 6,8
-	tmlearn 9,10,11,12,13,14,15
+	tmlearn 6,7,8
+	tmlearn 9,10,11,12,13,14,15,16
 	tmlearn 20,24
 	tmlearn 25,28,31,32
 	tmlearn 34,39,40

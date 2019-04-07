@@ -18,11 +18,11 @@ db DEX_JUMPLUFF ; pokedex id
 	db 0
 	db 3 ; growth rate
 	; learnset
-	tmlearn 3,6,8
+	tmlearn 2,3,4,6,8
 	tmlearn 9,10,15
 	tmlearn 20,21,22
 	tmlearn 31,32
-	tmlearn 33,34
-	tmlearn 44
+	tmlearn 33
+	tmlearn 43,44,49
 	tmlearn 50,51
 	db Bank(JumpluffPicFront) ; padding

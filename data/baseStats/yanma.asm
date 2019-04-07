@@ -5,7 +5,7 @@ db 45 ; base defense
 db 95 ; base speed
 db 50 ; base special
 db BUG ; species type 1
-db DRAGON ; species type 2
+db FLYING ; species type 2
 db 46 ; catch rate
 db 160 ; base exp yield
 INCBIN "pic/ymon/yanma.pic",0,1 ; 77, sprite dimensions

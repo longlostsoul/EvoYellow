@@ -5,7 +5,7 @@ db DEX_REMORAID ; pokedex id
 	db 65 ; base speed
 	db 50 ; base special
 	db WATER ; species type 1
-	db FIRE ; species type 2
+	db WATER ; species type 2
 	db 190 ; catch rate
 	db 78 ; base exp yield
 	INCBIN "pic/ymon/remoraid.pic",0,1 ; sprite dimensions

@@ -17,7 +17,7 @@ const_value = 1
 	const CUT          ; 0f
 	const GUST         ; 10
 	const WING_ATTACK  ; 11
-	const WHIRLWIND    ; 12
+	const WHIRLWIND    ; 12 Maybe replace with Baton Pass at some point, roar does same thing as whirlwind anyway
 	const FLY          ; 13
 	const BIND         ; 14
 	const SLAM         ; 15
@@ -116,7 +116,7 @@ const_value = 1
 	const HAZE         ; 72
 	const REFLECT      ; 73
 	const FOCUS_ENERGY ; 74
-	const BIDE         ; 75 replace with safe guard? it does come with a turn-move-check already
+	const BIDE         ; 75 ;maybe replace at some point with diff move like protect or spikes.
 	const METRONOME    ; 76
 	const MIRROR_MOVE  ; 77
 	const SELFDESTRUCT ; 78

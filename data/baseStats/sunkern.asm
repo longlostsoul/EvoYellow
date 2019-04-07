@@ -5,7 +5,7 @@ db 30 ; base defense
 db 30 ; base speed
 db 30 ; base special
 db GRASS ; species type 1
-db FIRE ; species type 2
+db GRASS ; species type 2
 db 235 ; catch rate
 db 52 ; base exp yield
 INCBIN "pic/ymon/sunkern.pic",0,1 ; 55, sprite dimensions

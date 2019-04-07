@@ -5,7 +5,7 @@ db DEX_SENTRET ; pokedex id
 	db 20 ; base speed
 	db 40 ; base special
 	db NORMAL ; species type 1
-	db GHOST ; species type 2
+	db NORMAL ; species type 2
 	db 255 ; catch rate
 	db 57 ; base exp yield
 	INCBIN "pic/ymon/sentret.pic",0,1 ; sprite dimensions

@@ -5,7 +5,7 @@ db 110 ; base defense
 db 45 ; base speed
 db 50 ; base special
 db GROUND ; species type 1
-db GHOST ; species type 2
+db GROUND ; species type 2
 db 80 ; catch rate
 db 124 ; base exp yield
 INCBIN "pic/ymon/marowak.pic",0,1 ; 66, sprite dimensions
@@ -18,7 +18,7 @@ db NIGHT_SHADE
 db 0
 db 0 ; growth rate
 ; learnset
-	tmlearn 1,5,6,8
+	tmlearn 1,5,6,7,8
 	tmlearn 9,10,11,12,13,14,15
 	tmlearn 17,18,19,20
 	tmlearn 26,27,28,31,32

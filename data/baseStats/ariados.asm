@@ -1,4 +1,5 @@
-;AriadosBaseStats:: I actually like Ariados quite a bit. I felt it deserved a more interesting typing.
+;AriadosBaseStats:: I actually like Ariados quite a bit. I felt it deserved a more interesting typing like Ghost, but I'm movin' away from weird typings and doing special item-induced forms instead or area variants, so as to be optional to players.
+;Not currently in-game.
 	db DEX_ARIADOS ; pokedex id
 	db 70 ; base hp
 	db 90 ; base attack
@@ -6,7 +7,7 @@
 	db 40 ; base speed
 	db 60 ; base special
 	db BUG ; species type 1
-	db GHOST ; species type 2
+	db POISON ; species type 2
 	db 99 ; catch rate
 	db 134 ; base exp yield
 	INCBIN "pic/ymon/ariados.pic",0,1 ; 66, sprite dimensions

@@ -4,8 +4,8 @@
 	db 62 ; base defense
 	db 85 ; base speed
 	db 75 ; base special
-	db ICE ; species type 1
-	db ICE ; species type 2
+	db NORMAL ; species type 1
+	db NORMAL ; species type 2
 	db 52 ; catch rate, full heal
 	db 165 ; base exp yield
 	INCBIN "pic/ymon/stantler.pic",0,1 ; 55, sprite dimensions
@@ -14,7 +14,7 @@
 	; attacks known at lvl 0
 	db TACKLE
 	db GUST
-	db ICE_SHARD
+	db DOUBLE_TEAM
 	db JUMP_KICK
 	db 5 ; growth rate
 	; learnset

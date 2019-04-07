@@ -6,7 +6,7 @@ db 67 ; base defense
 db 95 ; base speed
 db 95 ; base special
 db ELECTRIC ; species type 1
-db FIGHTING ; species type 2
+db ELECTRIC ; species type 2
 db SUPER_POTION ; catch rate
 db 199 ; base exp yield
 INCBIN "pic/ymon/electivire.pic",0,1 ; 66, sprite dimensions

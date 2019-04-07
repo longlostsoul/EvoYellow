@@ -5,7 +5,7 @@ db DEX_AMPHAROS ; pokedex id
 	db 55 ; base speed
 	db 105 ; base special
 	db ELECTRIC ; species type 1
-	db DRAGON ; species type 2
+	db ELECTRIC ; species type 2
 	db FULL_HEAL ; catch rate
 	db 194 ; base exp yield
 	INCBIN "pic/ymon/ampharos.pic",0,1 ; 77, sprite dimensions
@@ -18,7 +18,7 @@ db DEX_AMPHAROS ; pokedex id
 	db THUNDER_WAVE
 	db 0 ; growth rate
 	; learnset
-	tmlearn 1,5,6,8
+	tmlearn 1,5,6,7,8
 	tmlearn 9,10,15,16
 	tmlearn 17,19,20,24
 	tmlearn 25,31,32

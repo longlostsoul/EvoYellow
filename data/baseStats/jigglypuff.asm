@@ -22,7 +22,7 @@ db 4 ; growth rate
 	tmlearn 9,10,11,12,13,14
 	tmlearn 17,18,19,20,22,24
 	tmlearn 25,29,30,31,32
-	tmlearn 33,34,38,40
+	tmlearn 33,34,35,38,40
 	tmlearn 44,45,46
 	tmlearn 49,50,54,55
 db BANK(JigglypuffPicFront)

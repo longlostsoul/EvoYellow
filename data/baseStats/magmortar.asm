@@ -6,7 +6,7 @@ db 67 ; base defense
 db 83 ; base speed
 db 125 ; base special
 db FIRE ; species type 1
-db FIGHTING ; species type 2
+db FIRE ; species type 2
 db FULL_HEAL ; catch rate
 db 199 ; base exp yield
 INCBIN "pic/ymon/magmortar.pic",0,1 ; 66, sprite dimensions

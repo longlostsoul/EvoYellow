@@ -19,7 +19,7 @@ db 0
 db 5 ; growth rate
 ; learnset
 	tmlearn 3,6
-	tmlearn 9,10,11,12,13,14
+	tmlearn 9,10,11,12,13,14,16
 	tmlearn 20,21
 	tmlearn 31,32
 	tmlearn 33,34,40

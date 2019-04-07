@@ -4,8 +4,8 @@ db 75 ; base attack
 db 85 ; base defense
 db 40 ; base speed
 db 30 ; base special
-db GROUND ; species type 1
-db GROUND ; species type 2
+db ICE ; species type 1
+db STEEL ; species type 2
 db 255 ; catch rate
 db 93 ; base exp yield
 INCBIN "pic/ymon/sandshrew.pic",0,1 ; 55, sprite dimensions
@@ -13,7 +13,7 @@ dw SandshrewPicFront
 dw SandshrewPicBack
 ; attacks known at lvl 0
 db SCRATCH
-db MUD_SLAP
+db 0
 db 0
 db 0
 db 0 ; growth rate

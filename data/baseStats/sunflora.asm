@@ -5,7 +5,7 @@
 	db 30 ; base speed
 	db 95 ; base special
 	db GRASS ; species type 1
-	db FIRE ; species type 2
+	db GRASS ; species type 2
 	db 200 ; catch rate
 	db 146 ; base exp yield
 	INCBIN "pic/ymon/sunflora.pic",0,1 ; 55, sprite dimensions

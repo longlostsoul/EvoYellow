@@ -5,7 +5,7 @@ db 57 ; base defense
 db 93 ; base speed
 db 85 ; base special
 db FIRE ; species type 1
-db FIGHTING ; species type 2
+db FIRE ; species type 2
 db 31 ; catch rate
 db 167 ; base exp yield
 INCBIN "pic/ymon/magmar.pic",0,1 ; 66, sprite dimensions
@@ -18,7 +18,7 @@ db 0
 db 0
 db 0 ; growth rate
 ; learnset
-	tmlearn 1,5,6,8
+	tmlearn 1,5,6,7,8
 	tmlearn 9,10,15
 	tmlearn 17,18,19,20
 	tmlearn 29,30,31,32

@@ -5,7 +5,7 @@ db 25 ; base defense
 db 95 ; base speed
 db 45 ; base special
 db GROUND ; species type 1
-db STEEL ; species type 2
+db GROUND ; species type 2
 db 100 ; catch rate
 db 81 ; base exp yield
 INCBIN "pic/ymon/diglett.pic",0,1 ; 55, sprite dimensions

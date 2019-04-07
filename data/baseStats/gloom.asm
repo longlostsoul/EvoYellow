@@ -18,7 +18,7 @@ db STUN_SPORE
 db 0
 db 3 ; growth rate
 ; learnset
-	tmlearn 3,6
+	tmlearn 3,6,7
 	tmlearn 9,10
 	tmlearn 20,21,22
 	tmlearn 31,32

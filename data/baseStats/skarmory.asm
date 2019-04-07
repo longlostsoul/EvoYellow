@@ -19,7 +19,7 @@ dw SkarmoryPicBack
 	db 0
 db 3 ; growth rate
 ; learnset
-	tmlearn 3,4,6
+	tmlearn 2,3,4,6,7
 	tmlearn 9,10,15,16
 	tmlearn 17,18,19,23
 	tmlearn 26,27,31,32

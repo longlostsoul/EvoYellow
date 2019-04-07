@@ -5,7 +5,7 @@ db 50 ; base defense
 db 120 ; base speed
 db 70 ; base special
 db GROUND ; species type 1
-db STEEL ; species type 2
+db GROUND ; species type 2
 db 49 ; catch rate
 db 153 ; base exp yield
 INCBIN "pic/ymon/dugtrio.pic",0,1 ; 66, sprite dimensions
