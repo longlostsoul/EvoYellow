@@ -8,7 +8,7 @@ IslandMons1:
 	db 28,SLOWPOKE
 	db 30,SLOWPOKE
 	db 28,JYNX
-	db 27,STANTLER
+	db 27,BOMBSEEKER
 	db 36,GOLBAT
 	db $00
 

@@ -1,7 +1,7 @@
 PrizeMonLevelDictionary:
-	db SENTRET,25
+	db RIOLU,25
 	db NATU,25
-	db DELIBIRD,26
+	db REMORAID,26
 
 	db GIRAFARIG,30
 	db WOBBUFFET,30

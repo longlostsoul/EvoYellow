@@ -4,7 +4,7 @@ Route18Mons:
 	db 22,DODUO
 	db 23,LICKITUNG
 	db 24,DODUO
-	db 24,STANTLER
+	db 24,GRIMER
 	db 26,YANMA
 	db 23,SPEAROW
 	db 24,FEAROW

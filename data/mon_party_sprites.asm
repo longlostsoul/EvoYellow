@@ -106,18 +106,18 @@ MonPartyData:
 		dn SPRITE_MON, SPRITE_MON                                ;Teddy,ursa
 	dn SPRITE_FAIRY, SPRITE_FAIRY                               ;snubb,gran
 		dn SPRITE_MON, SPRITE_MON                               ;larv,pup
-		dn SPRITE_MON, SPRITE_QUADRUPED                                ;tyr,stantler
+		dn SPRITE_MON, SPRITE_WATER                                ;tyr,stantler/bomb
 	dn SPRITE_MON, SPRITE_BIRD_M                               ;corsola,hoothoot
-	dn SPRITE_BIRD_M, SPRITE_GRASS              ;noctowl,sunkern
-	dn SPRITE_GRASS, SPRITE_MON,  ;sun,
-	dn SPRITE_MON, SPRITE_MON   
-	dn SPRITE_MON, SPRITE_MON   
-	dn SPRITE_MON, SPRITE_MON   
-	dn SPRITE_MON, SPRITE_MON
-	dn SPRITE_MON, SPRITE_MON   
-	dn SPRITE_MON, SPRITE_MON   
-	dn SPRITE_MON, SPRITE_MON   
-	dn SPRITE_MON, SPRITE_MON      
+	dn SPRITE_BIRD_M, SPRITE_SNAKE              ;noctowl,salandit
+	dn SPRITE_SNAKE, SPRITE_GRASS,  ;sun,hop
+	dn SPRITE_GRASS, SPRITE_GRASS   ;hop skiploom
+	dn SPRITE_GRASS, SPRITE_QUADRUPED   ;meep
+	dn SPRITE_MON, SPRITE_BIRD_M;natu   
+	dn SPRITE_BIRD_M, SPRITE_WATER
+	dn SPRITE_HELIX, SPRITE_QUADRUPED ;oct,rinrim  
+	dn SPRITE_QUADRUPED, SPRITE_MON   
+	dn SPRITE_WATER, SPRITE_HELIX ;qwilfish  
+	dn SPRITE_SNAKE, SPRITE_MON      ;dun,gira
 	dn SPRITE_MON,  SPRITE_GRASS            ;lucario,sudo
 	dn SPRITE_WATER, SPRITE_WATER ;poli,slow
 	dn SPRITE_GRASS, SPRITE_WATER        ;belloss,kingdra

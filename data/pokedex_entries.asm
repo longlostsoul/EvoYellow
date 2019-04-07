@@ -7,10 +7,7 @@ PokedexEntryPointers:
 	dw VoltorbDexEntry
 	dw NidokingDexEntry
 	dw SlowbroDexEntry
-	dw IvysaurDexEntry
-	dw ExeggutorDexEntry
 	dw LickitungDexEntry
-	dw ExeggcuteDexEntry
 	dw GrimerDexEntry
 	dw GengarDexEntry
 	dw NidoranFDexEntry
@@ -124,8 +121,6 @@ PokedexEntryPointers:
 	dw PidgeottoDexEntry
 	dw PidgeotDexEntry
 	dw StarmieDexEntry
-	dw BulbasaurDexEntry
-	dw VenusaurDexEntry
 	dw TentacruelDexEntry
 	dw GoldeenDexEntry
 	dw SeakingDexEntry
@@ -187,12 +182,12 @@ PokedexEntryPointers:
 	dw NewDexEntry;larv
 	dw NewDexEntry;
 	dw NewDexEntry;tyr
-		dw NewDexEntry;stantler
+		dw SeelDexEntry;stantler BOMBSEEKER
 	dw NewDexEntry;cors
 	dw NewDexEntry;hoot
 	dw NewDexEntry;noct
-	dw NewDexEntry;sun
-	dw NewDexEntry;sun
+	dw CharmanderDexEntry;sun SALANDIT
+	dw NewDexEntry;sun SALAZZLE
 	dw NewDexEntry;hop
 	dw NewDexEntry;hop2
 	dw NewDexEntry;hop3
@@ -203,10 +198,10 @@ PokedexEntryPointers:
 	dw NewDexEntry;xatu
 	dw NewDexEntry;rem
 	dw NewDexEntry;oct
-	dw NewDexEntry;sen
-	dw NewDexEntry;furret
+	dw MeowthDexEntry;senRINRIN
+	dw PersianDexEntry;furretBERU
 	dw NewDexEntry;qwil
-	dw NewDexEntry;deli
+	dw CloysterDexEntry;deli TURBAN
 	dw NewDexEntry;dunsp
 	dw NewDexEntry;gira
 	dw NewDexEntry;riolo
@@ -231,8 +226,12 @@ PokedexEntryPointers:
 	dw EeveeDexEntry;sylv
 	dw ScytherDexEntry;sciz
 	dw OnixDexEntry;steelix
+	dw ExeggutorDexEntry
 	dw CharmanderDexEntry
 	dw SquirtleDexEntry
+	dw BulbasaurDexEntry
+	dw IvysaurDexEntry
+	dw VenusaurDexEntry
 	dw CharmeleonDexEntry
 	dw WartortleDexEntry
 	dw CharizardDexEntry

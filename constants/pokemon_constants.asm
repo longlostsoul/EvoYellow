@@ -6,9 +6,7 @@ const_value = 1
 	const SPEAROW      ; $05
 	const VOLTORB      ; $06
 	const NIDOKING     ; $07
-	const SLOWBRO      ; $08
-	const IVYSAUR      ; $09
-	const EXEGGUTOR    ; $0A
+	const SLOWBRO      ; $08 ; $09 ; $0A
 	const LICKITUNG    ; $0B
 	const EXEGGCUTE    ; $0C
 	const GRIMER       ; $0D
@@ -124,8 +122,6 @@ const_value = 1
 	const PIDGEOTTO    ; $96
 	const PIDGEOT      ; $97
 	const STARMIE      ; $98
-	const BULBASAUR    ; $99
-	const VENUSAUR     ; $9A
 	const TENTACRUEL   ; $9B
 	const GOLDEEN      ; $9D
 	const SEAKING      ; $9E
@@ -188,12 +184,12 @@ const_value = 1
   const LARVITAR
   const PUPITAR
   const TYRANITAR
- const STANTLER
+ const BOMBSEEKER;STANTLER
  const CORSOLA
  const HOOTHOOT
  const NOCTOWL
- const SUNKERN
- const SUNFLORA
+ const SALANDIT;SUNKERN
+ const SALAZZLE;SUNFLORA
  const HOPPIP
  const JUMPLUFF
  const SKIPLOOM
@@ -204,10 +200,10 @@ const_value = 1
  const XATU
  const REMORAID 
  const OCTILLERY
- const SENTRET
- const FURRET
+ const RINRIN;SENTRET
+ const BERURUN;FURRET
  const QWILFISH
- const DELIBIRD
+ const TURBAN;DELIBIRD
  const DUNSPARCE
  const GIRAFARIG
  const RIOLU
@@ -232,8 +228,12 @@ const_value = 1
 	const SYLVEON
 	const SCIZOR
 	const STEELIX
+	const EXEGGUTOR 
 	const CHARMANDER   ; $B0
 	const SQUIRTLE     ; $B1
+	const BULBASAUR    ; $99
+	const IVYSAUR 
+	const VENUSAUR     ; $9A
 	const CHARMELEON   ; $B2
 	const WARTORTLE    ; $B3
 	const CHARIZARD    ; $B4

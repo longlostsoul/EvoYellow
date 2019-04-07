@@ -1,6 +1,6 @@
 Route14Mons:
 	db $0F
-	db 26,SUNKERN
+	db 26,SALANDIT
 	db 26,MURKROW
 	db 24,VENONAT
 	db 30,PIDGEOTTO

@@ -9,9 +9,9 @@ PrizeDifferentMenuPtrs:
 	dw PrizeMenuTMsCost
 
 PrizeMenuMon1Entries:
-	db SENTRET
+	db RIOLU
 	db NATU
-	db DELIBIRD
+	db REMORAID
 	db "@"
 
 PrizeMenuMon1Cost:

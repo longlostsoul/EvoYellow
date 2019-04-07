@@ -7,7 +7,7 @@ Route24Mons:
 	db 14,BELLSPROUT
 	db 15,PIDGEY
 	db 13,MARILL
-	db 16,STANTLER
+	db 16,NOCTOWL
 	db 17,PIDGEY
 	db 17,PIDGEOTTO
 	db $00

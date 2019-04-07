@@ -197,12 +197,12 @@ INCLUDE "data/baseStats/larvitar.asm"
 INCLUDE "data/baseStats/pupitar.asm"
 INCLUDE "data/baseStats/tyranitar.asm"
 
-INCLUDE "data/baseStats/stantler.asm"
+INCLUDE "data/baseStats/bombseeker.asm";stantler
 INCLUDE "data/baseStats/corsola.asm"
 INCLUDE "data/baseStats/hoothoot.asm"
 INCLUDE "data/baseStats/noctowl.asm"
-INCLUDE "data/baseStats/sunkern.asm"
-INCLUDE "data/baseStats/sunflora.asm"
+INCLUDE "data/baseStats/salandit.asm";sunkern
+INCLUDE "data/baseStats/salazzle.asm";sunflora
 
 INCLUDE "data/baseStats/HOPPIP.asm"
 INCLUDE "data/baseStats/JUMPLUFF.asm"
@@ -214,10 +214,10 @@ INCLUDE "data/baseStats/NATU.asm"
 INCLUDE "data/baseStats/XATU.asm"
 INCLUDE "data/baseStats/REMORAID.asm"
 INCLUDE "data/baseStats/OCTILLERY.asm"
-INCLUDE "data/baseStats/SENTRET.asm"
-INCLUDE "data/baseStats/FURRET.asm"
+INCLUDE "data/baseStats/rinrin.asm";SENTRET
+INCLUDE "data/baseStats/berurun.asm";FURRET
 INCLUDE "data/baseStats/QWILFISH.asm"
-INCLUDE "data/baseStats/DELIBIRD.asm"
+INCLUDE "data/baseStats/cloysterturbanform.asm";DELIBIRD
 INCLUDE "data/baseStats/DUNSPARCE.asm"
 INCLUDE "data/baseStats/GIRAFARIG.asm"
 INCLUDE "data/baseStats/RIOLU.asm"

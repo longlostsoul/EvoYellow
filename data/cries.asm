@@ -8,8 +8,6 @@ CryData:
 	db $06, $ED, $80; Voltorb
 	db $09, $00, $80; Nidoking
 	db $1F, $00, $80; Slowbro
-	db $0F, $20, $80; Ivysaur
-	db $0D, $00, $80; Exeggutor
 	db $0C, $00, $80; Lickitung
 	db $0B, $00, $80; Exeggcute
 	db $05, $00, $80; Grimer
@@ -125,8 +123,6 @@ CryData:
 	db $14, $28, $C0; Pidgeotto
 	db $14, $11, $FF; Pidgeot
 	db $1E, $00, $80; Starmie
-	db $0F, $80, $01; Bulbasaur
-	db $0F, $00, $C0; Venusaur
 	db $1A, $EE, $FF; Tentacruel
 	db $16, $80, $40; Goldeen
 	db $16, $10, $FF; Seaking
@@ -232,8 +228,12 @@ CryData:
 	db $1A, $88, $60; Sylveon
 	db $14, $00, $80; Scizor
 	db $17, $FF, $C0; Steelix
+	db $0D, $00, $80; Exeggutor
 	db $04, $60, $40; Charmander
 	db $1D, $60, $40; Squirtle
+	db $0F, $80, $01; Bulbasaur
+	db $0F, $20, $80; Ivysaur
+	db $0F, $00, $C0; Venusaur
 	db $04, $20, $40; Charmeleon
 	db $1D, $20, $40; Wartortle
 	db $04, $00, $80; Charizard

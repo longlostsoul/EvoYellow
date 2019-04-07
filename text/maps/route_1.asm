@@ -2,10 +2,10 @@ _Route1ViridianMartSampleText::
 	text "My #MON died,"
 	line "but it still..."
 
-	para "haunts me. Will"
+	para "lives, too. Will"
 	line "you please take"
 	cont "it off my hands?"
-	cont "It's a SENTRET."
+	cont "It's schrodinger."
 
 	para "I know, I'll give"
 	line "you a potion"

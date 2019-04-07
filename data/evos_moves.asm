@@ -7,8 +7,6 @@ EvosMovesPointerTable:
 	dw Mon100_EvosMoves
 	dw Mon034_EvosMoves
 	dw Mon080_EvosMoves
-	dw Mon002_EvosMoves
-	dw Mon103_EvosMoves
 	dw Mon108_EvosMoves
 	dw Mon102_EvosMoves
 	dw Mon088_EvosMoves
@@ -136,8 +134,6 @@ EvosMovesPointerTable:
 	dw Mon017_EvosMoves
 	dw Mon018_EvosMoves
 	dw Mon121_EvosMoves
-	dw Mon001_EvosMoves
-	dw Mon003_EvosMoves
 	dw Mon073_EvosMoves
 	
 	dw Mon118_EvosMoves
@@ -202,12 +198,12 @@ dw Mon208_EvosMoves	;MissingNo
 	dw Mon210_EvosMoves	;MissingNo
 	dw Mon211_EvosMoves	;MissingNo
 	dw Mon212_EvosMoves	;MissingNo Tyranit
-		dw MonStantler_Moves
+		dw BOMBSEEKER_moves;MonStantler_Moves
 dw MonCorsola_Moves
 dw MonHoothoot_Moves
 dw MonNoctowl_Moves
-dw MonSunkern_Moves
-dw MonSunflora_Moves
+dw Salandit_Moves;MonSunkern_Moves
+dw Salazzle_Moves;MonSunflora_Moves
 dw HOPPIP_moves
 dw JUMPLUFF_moves
 dw SKIPLOOM_moves
@@ -218,10 +214,10 @@ dw NATU_moves
 dw XATU_moves
 dw REMORAID_moves
 dw OCTILLERY_moves
-dw SENTRET_moves
-dw FURRET_moves
+dw RINRIN_moves;SENTRET_moves
+dw BERURUN_moves;FURRET_moves
 dw QWILFISH_moves
-dw DELIBIRD_moves
+dw TURBAN_moves;DELIBIRD_moves
 dw DUNSPARCE_moves
 dw GIRAFARIG_moves
 dw RIOLU_moves
@@ -246,8 +242,12 @@ dw Mon161_2EvosMoves
 dw Mon162_2EvosMoves
 dw Mon163_2EvosMoves
 dw Mon164_2EvosMoves ;steelix
+	dw Mon103_EvosMoves
 	dw Mon004_EvosMoves
 	dw Mon007_EvosMoves
+	dw Mon001_EvosMoves
+	dw Mon002_EvosMoves
+	dw Mon003_EvosMoves
 	dw Mon005_EvosMoves
 	dw Mon008_EvosMoves
 	dw Mon006_EvosMoves
@@ -416,48 +416,6 @@ Mon080_EvosMoves:
 	db 49,AQUA_TAIL
 	db 54,MUDDY_WATER
 	db 58,HEX
-	db 0
-
-Mon002_EvosMoves:
-;IVYSAUR
-;Evolutions
-	db EV_LEVEL,32,VENUSAUR
-	db 0
-;Learnset
-	db 7,LEECH_SEED
-	db 13,VINE_WHIP
-	db 20,HIDDEN_POWER
-	db 20,SLUDGE
-	db 22,POISONPOWDER
-	db 30,RAZOR_LEAF
-	db 38,GROWTH
-	db 46,SLEEP_POWDER
-	db 54,SOLARBEAM
-	db 0
-
-Mon103_EvosMoves:
-;EXEGGUTOR
-;Evolutions
-	db 0
-;Learnset
-	db 1,BARRAGE
-	db 1,HYPNOSIS
-	db 1,CONFUSION
-	db 1,STOMP
-	db 11,LEECH_SEED
-	db 17,GROWTH
-	db 19,STUN_SPORE
-	db 21,POISONPOWDER
-	db 23,SLEEP_POWDER
-	db 27,CONFUSION
-	db 28,STOMP
-	db 33,AMNESIA
-	db 37,EGG_BOMB
-	db 41,WOOD_HAMMER
-	db 43,SOLARBEAM
-	db 47,EXTRASENSORY
-	db 50,SOFTBOILED
-	db 57,REFLECT
 	db 0
 
 Mon108_EvosMoves:
@@ -727,6 +685,7 @@ Mon090_EvosMoves:
 ;SHELLDER
 ;Evolutions
 	db EV_ITEM,WATER_STONE,1,CLOYSTER
+	db EV_ITEM,LOVE_STONE,1,TURBAN
 	db 0
 ;Learnset
 	db 18,SUPERSONIC
@@ -1803,19 +1762,19 @@ Mon027_EvosMoves:
 	db 11,SHARPEN
 	db 14,METAL_CLAW
 	db 17,SWIFT
-	db 18,ICE_SHARD
+	;db 18,ICE_SHARD
 	db 20,FURY_SWIPES
 	db 22,ROCK_TOMB
 	db 22,SLASH
-	db 27,ICE_BEAM
+	;db 27,ICE_BEAM
 	db 30,DIG
 	db 34,IRON_DEFENSE
-	db 35,ICE_FANG
+	;db 35,ICE_FANG
 	db 35,POISON_FANG
 	db 38,SWORDS_DANCE
 	db 42,IRON_TAIL
 	db 46,EARTHQUAKE
-	db 50,BLIZZARD
+	;db 50,BLIZZARD
 	db 0
 
 Mon028_EvosMoves:
@@ -1828,7 +1787,7 @@ Mon028_EvosMoves:
 	db 17,SLASH
 	db 25,IRON_TAIL
 	db 27,POISON_FANG
-	db 30,ICE_BEAM
+	;db 30,ICE_BEAM
 	db 36,SWIFT
 	db 38,DIG
 	db 42,IRON_DEFENSE
@@ -2510,7 +2469,7 @@ Mon105_EvosMoves:
 	db 32,LEER
 	db 33,FOCUS_ENERGY
 	db 41,THRASH
-	db 45,NIGHT_SHADE
+	db 45,BONE_RUSH
 	db 48,BONEMERANG
 	db 55,RAGE
 	db 0
@@ -2616,49 +2575,6 @@ Mon121_EvosMoves:
 ;Learnset
 	db 0
 
-Mon001_EvosMoves: ; 3b844 (e:7844)
-;BULBASAUR
-;Evolutions
-	db EV_LEVEL,16,IVYSAUR
-	db 0
-;Learnset
-	db 1,TACKLE
-	db 1,GROWL
-	db 7,LEECH_SEED
-	db 9,VINE_WHIP
-	db 13,POISONPOWDER
-	db 13,SLEEP_POWDER
-	db 15,TAKE_DOWN
-	db 19,RAZOR_LEAF
-	db 20,SLUDGE
-	db 25,GROWTH
-	db 27,DOUBLE_EDGE
-	db 33,MOONLIGHT
-	db 37,LEAF_BLADE
-	db 0
-
-Mon003_EvosMoves: ; 3b857 (e:7857)
-;VENUSAUR
-;Evolutions
-	db 0
-;Learnset
-	db 1,TACKLE
-	db 1,GROWL
-	db 7,LEECH_SEED
-	db 9,VINE_WHIP
-	db 13,POISONPOWDER
-	db 13,SLEEP_POWDER
-	db 15,TAKE_DOWN
-	db 20,RAZOR_LEAF
-	db 20,SLUDGE
-	db 28,GROWTH
-	db 31,DOUBLE_EDGE
-	db 32,PETAL_DANCE
-	db 45,MOONLIGHT
-	db 50,PETALBLIZARD
-	db 53,SOLARBEAM
-	db 60,WOOD_HAMMER
-	db 0
 	
 Mon073_EvosMoves: ; 3b867 (e:7867)
 ;TENTACRUEL
@@ -4020,23 +3936,23 @@ Mon212_EvosMoves:
 	db 57,GIGA_IMPACT
 	db 0
 
-MonStantler_Moves:
+BOMBSEEKER_moves:;MonStantler_Moves:
 ;STANTLER
 ;Evolutions
 	db 0
 ;Learnset
 	db 8,LEER
-	db 15,HYPNOSIS
+	db 15,BUBBLEBEAM
 	db 16,AIR_CUTTER
-	db 18,ICE_SHARD
-	db 20,HIDDEN_POWER
-	db 23,STOMP
-	db 28,LEAF_BLADE
+	db 18,BARRAGE
+	db 20,FLAMETHROWER
+	db 23,WATER_PULSE
+	db 28,CONFUSE_RAY
 	db 31,SAND_ATTACK
 	db 40,TAKE_DOWN
 	db 45,ZEN_HEADBUTT
 	db 45,ICE_BEAM
-	db 49,CONFUSE_RAY
+	db 49,FLARE_BLITZ
 	db 50,BLIZZARD
 	db 0
 
@@ -4110,43 +4026,43 @@ MonNoctowl_Moves:
 	db 0
 
 
-MonSunkern_Moves:
+;MonSunkern_Moves:
 ;SUNKERN 
+Salandit_Moves:
 ;Evolutions
-	db EV_ITEM,SUN_STONE,1,SUNFLORA
+	db EV_LEVEL,33,SALAZZLE
 	db 0
 ;Learnset
-	db 4,GROWTH
-	db 10,MEGA_DRAIN
-	db 14,LEECH_SEED
-	db 22,RAZOR_LEAF
-	db 25,GIGA_DRAIN
-	db 29,FLAMETHROWER
-	db 30,STUN_SPORE
-	db 33,MOONLIGHT
-	db 36,DOUBLE_EDGE
-	db 37,FIRE_BLAST
-	db 40,EGG_BOMB
+	db 8,SMOKESCREEN
+	db 13,SMOG
+	db 16,DRAGON_RAGE
+	db 21,DOUBLESLAP
+	db 24,FLAME_WHEEL
+	db 29,TOXIC
+	db 30,SLUDGE
+	db 32,BITE
+	db 36,POISON_JAB
+	db 37,FLAMETHROWER
+	db 40,FLARE_BLITZ
 	db 0
 	
-MonSunflora_Moves:
-;SUNFLORA
+;MonSunflora_Moves:
+
+Salazzle_Moves:
 ;Evolutions
-	db 0
+ db 0
 ;Learnset
-	db 4,GROWTH
-	db 10,MEGA_DRAIN
-	db 14,LEECH_SEED
-	db 16,FIRE_PUNCH
-	db 22,RAZOR_LEAF
-	db 25,GIGA_DRAIN
-	db 30,FLAMETHROWER
-	db 33,MOONLIGHT
-	db 36,DOUBLE_EDGE
-	db 37,FIRE_BLAST
-	db 41,SOLARBEAM
-	db 45,EARTH_POWER
-	db 50,SLUDGE
+	db 8,SMOKESCREEN
+	db 13,SMOG
+	db 16,DRAGON_RAGE
+	db 21,DOUBLESLAP
+	db 24,FLAME_WHEEL
+	db 29,TOXIC
+	db 30,SLUDGE
+	db 32,BITE
+	db 36,FLAMETHROWER
+	db 37,POISON_JAB
+	db 50,FLARE_BLITZ
 	db 0
 	
 HOPPIP_moves:
@@ -4348,14 +4264,15 @@ OCTILLERY_moves:
 	db 49,AMNESIA
 	db 50,HYDRO_PUMP
 	db 0
-SENTRET_moves:
+	
+RINRIN_moves;SENTRET_moves:
 ;Evolutions
-	db EV_LEVEL,15,FURRET
+	db EV_LEVEL,15,BERURUN
 	db 0
 ;Learnset
 	db 5,QUICK_ATTACK
 	db 7,FOCUS_ENERGY
-	db 10,LICK
+	db 10,BITE
 	db 13,BODY_SLAM
 	db 16,NIGHT_SHADE
 	db 19,SUCKER_PUNCH
@@ -4365,12 +4282,14 @@ SENTRET_moves:
 	db 31,DOUBLE_EDGE
 	db 34,SLASH
 	db 0
-FURRET_moves:
+
+BERURUN_moves
+;FURRET_moves:
 	db 0
 ;Learnset
 	db 5,QUICK_ATTACK
 	db 7,FOCUS_ENERGY
-	db 10,LICK
+	db 10,BITE
 	db 13,BODY_SLAM
 	db 16,NIGHT_SHADE
 	db 19,SUCKER_PUNCH
@@ -4380,6 +4299,7 @@ FURRET_moves:
 	db 31,DOUBLE_EDGE
 	db 34,SLASH
 	db 0
+	
 QWILFISH_moves:
   db 0
   ;
@@ -4397,26 +4317,28 @@ QWILFISH_moves:
 	db 50,HYDRO_PUMP
 	db 0
 	
-DELIBIRD_moves:
+TURBAN_moves:
+;DELIBIRD_moves:
 ;Evolutions
 	db 0
 ;Learnset
 	db 7,CONFUSE_RAY
 	db 10,ICE_SHARD
-	db 14,WING_ATTACK
-	db 18,BODY_SLAM
-	db 20,HIDDEN_POWER
-	db 22,ICY_WIND
-	db 27,RECOVER
-	db 32,ICE_BEAM
-	db 37,AERIAL_ACE
-	db 43,HAZE
-	db 47,HURRICANE
+	;db 14,WING_ATTACK
+	;db 18,BODY_SLAM
+	;db 20,HIDDEN_POWER
+	;db 22,ICY_WIND
+	;db 27,RECOVER
+	;db 32,ICE_BEAM
+	;db 37,AERIAL_ACE
+	;db 43,HAZE
+	;db 47,HURRICANE
 	db 50,SHEER_COLD
 	db 0
+	
 DUNSPARCE_moves:
 db 0
-;
+;learnset
 	db 7,ROCK_THROW
 	db 10,HYPNOSIS
 	db 14,ANCIENTPOWER
@@ -4949,6 +4871,94 @@ Mon007_EvosMoves: ; 3b949 (e:7949)
 	db 37,MIST
 	db 40,HYDRO_PUMP
 
+	db 0
+	
+Mon103_EvosMoves:
+;EXEGGUTOR
+;Evolutions
+	db 0
+;Learnset
+	db 1,BARRAGE
+	db 1,HYPNOSIS
+	db 1,CONFUSION
+	db 1,STOMP
+	db 11,LEECH_SEED
+	db 17,GROWTH
+	db 19,STUN_SPORE
+	db 21,POISONPOWDER
+	db 23,SLEEP_POWDER
+	db 27,CONFUSION
+	db 28,STOMP
+	db 33,AMNESIA
+	db 37,EGG_BOMB
+	db 41,WOOD_HAMMER
+	db 43,SOLARBEAM
+	db 47,EXTRASENSORY
+	db 50,SOFTBOILED
+	db 57,REFLECT
+	db 0
+
+Mon001_EvosMoves: ; 3b844 (e:7844)
+;BULBASAUR
+;Evolutions
+	db EV_LEVEL,16,IVYSAUR
+	db 0
+;Learnset
+	db 1,TACKLE
+	db 1,GROWL
+	db 7,LEECH_SEED
+	db 9,VINE_WHIP
+	db 13,POISONPOWDER
+	db 13,SLEEP_POWDER
+	db 15,TAKE_DOWN
+	db 19,RAZOR_LEAF
+	db 20,SLUDGE
+	db 25,GROWTH
+	db 27,DOUBLE_EDGE
+	db 33,MOONLIGHT
+	db 37,LEAF_BLADE
+	db 0
+	
+	
+Mon002_EvosMoves:
+;IVYSAUR
+;Evolutions
+	db EV_LEVEL,32,VENUSAUR
+	db 0
+;Learnset
+	db 7,LEECH_SEED
+	db 13,VINE_WHIP
+	db 20,HIDDEN_POWER
+	db 20,SLUDGE
+	db 22,POISONPOWDER
+	db 30,RAZOR_LEAF
+	db 38,GROWTH
+	db 46,SLEEP_POWDER
+	db 54,SOLARBEAM
+	db 0
+
+
+Mon003_EvosMoves: ; 3b857 (e:7857)
+;VENUSAUR
+;Evolutions
+	db 0
+;Learnset
+	db 1,TACKLE
+	db 1,GROWL
+	db 7,LEECH_SEED
+	db 9,VINE_WHIP
+	db 13,POISONPOWDER
+	db 13,SLEEP_POWDER
+	db 15,TAKE_DOWN
+	db 20,RAZOR_LEAF
+	db 20,SLUDGE
+	db 28,GROWTH
+	db 31,DOUBLE_EDGE
+	db 32,PETAL_DANCE
+	db 45,MOONLIGHT
+	db 50,PETALBLIZARD
+	db 53,SOLARBEAM
+	db 60,WOOD_HAMMER
 	db 0
 	
 Mon005_EvosMoves: ; 3b95a (e:795a)
