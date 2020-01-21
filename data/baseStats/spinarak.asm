@@ -1,4 +1,4 @@
-;SpinarakBaseStats:: not sure if I'll use spinarak or not... but probably will as I like Ariados and bug/ghost or bug/dark or psychic could make it much more useable.
+;SpinarakBaseStats:: not sure if I'll use spinarak longterm but makes a good dex placeholder in meantime
 	db DEX_SPINARAK ; pokedex id
 	db 40 ; base hp
 	db 60 ; base attack
@@ -6,7 +6,7 @@
 	db 30 ; base speed
 	db 40 ; base special
 	db BUG ; species type 1
-	db GHOST ; species type 2
+	db POISON ; species type 2
 	db 255 ; catch rate
 	db 54 ; base exp yield
 	INCBIN "pic/ymon/spinarak.pic",0,1 ; 66, sprite dimensions

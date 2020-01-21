@@ -235,7 +235,7 @@ SetPal_Overworld:
 	;ld a, [wLastMap]
 	jr .gotPaletteID
 .night
-	ld a, PAL_PURPLEMON
+	ld a, PAL_POLIWHIRL
 	jr .gotPaletteID
 .NotTown
 	call CheckDayNight
@@ -608,7 +608,7 @@ GetPal_Pikachu::
 	;ld a, [wLastMap]
 	jr .gotPaletteID
 .night
-	ld a, PAL_PURPLEMON
+	ld a, PAL_POLIWHIRL
 	jr .gotPaletteID
 .NotTown
 	call CheckDayNight
