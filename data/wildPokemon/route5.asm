@@ -8,7 +8,7 @@ Route5Mons:
 	db 17,FARFETCHD
 	db 17,PIDGEOTTO
 	db 10,JIGGLYPUFF
-	db 15,MURKROW
+	db 15,EKANS
 	db 17,JIGGLYPUFF
 	db $00
 

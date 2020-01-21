@@ -1,14 +1,14 @@
 Route3Mons:
 	db $14
-	db 8,SPEAROW
-	db 9,SPEAROW
+	db 8,SPEAROW;day
+	db 9,RATTATA
 	db 9,MANKEY
-	db 10,RATTATA
+	db 10,SPEAROW ;day
 	db 8,SANDSHREW
 	db 10,RATTATA
-	db 10,SANDSHREW
-	db 12,MURKROW
+	db 10,SPEAROW;day
+	db 12,SANDSHREW
 	db 11,JIGGLYPUFF
-	db 12,HOOTHOOT
+	db 12,MANKEY
 	db $00
 

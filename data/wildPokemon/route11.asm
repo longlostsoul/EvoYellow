@@ -1,14 +1,14 @@
 Route11Mons:
 	db $0F
-	db 16,PIDGEY
+	db 16,PIDGEY;day
 	db 15,RATTATA
-	db 18,PIDGEY
-	db 15,DROWZEE
+	db 18,MAREEP
+	db 15,PIDGEY;day
 	db 17,MAREEP
-	db 17,DROWZEE
-	db 18,PIDGEOTTO
+	db 17,JIGGLYPUFF
+	db 18,PIDGEOTTO;day
 	db 20,PIDGEOTTO
-	db 19,DROWZEE
+	db 19,DROWZEE ;more common at night
 	db 17,RATICATE
 	db $00
 

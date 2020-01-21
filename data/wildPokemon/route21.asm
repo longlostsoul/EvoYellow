@@ -1,15 +1,15 @@
 Route21Mons:
 	db $19
-	db 15,MURKROW
+	db 15,PIDGEY ;day
 	db 13,TAUROS
 	db 13,SKARMORY
-	db 11,TANGELA
+	db 11,PIDGEY ;day
 	db 17,SKARMORY
-	db 15,PIDGEY
-	db 15,RATICATE
-	db 17,TANGELA
-	db 20,NOCTOWL
-	db 15,PIDGEOTTO
+	db 15,TANGELA
+	db 15,PIDGEOTTO ;day only
+	db 17,MILTANK
+	db 20,TANGELA
+	db 15,TANGELA
 
 	db $05
 	db 5,CHINCHOU

@@ -1,9 +1,9 @@
 DungeonMonsB1:
 	db $19
 	db 54,GOLBAT
-	db 59,GOLBAT
+	db 59,PORYGON
 	db 55,GOLEM
-	db 52,RHYHORN
+	db 55,TYRANITAR
 	db 62,XATU
 	db 60,DITTO
 	db 56,CHANSEY

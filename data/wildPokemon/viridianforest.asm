@@ -1,12 +1,12 @@
 ForestMons:
 	db $19
-	db 3,WEEDLE
+	db 3,PIDGEY;day
 	db 7,KAKUNA
 	db 4,CATERPIE
-	db 9,BUTTERFREE
-	db 5,PIDGEY
-	db 6,VENONAT
-	db 9,BEEDRILL
+	db 9,BUTTERFREE;day
+	db 5,WEEDLE
+	db 3,PIKACHU ;eh, why not
+	db 9,BEEDRILL ;day
 	db 7,METAPOD
 	db 8,YANMA
 	db 9,PIDGEOTTO

@@ -1,14 +1,14 @@
 Route1Mons:
 	db $19
+	db 5,NATU ;1 daytime only
 	db 5,PIDGEY
-	db 5,NATU
-	db 2,HOPPIP
-	db 3,RATTATA
+	db 2,PIDGEY
+	db 3,HOPPIP ;4
 	db 2,SALANDIT
-	db 3,HOOTHOOT
-	db 5,HOOTHOOT
+	db 3,PIDGEY
+	db 5,HOPPIP ;7 day
 	db 4,RATTATA
 	db 6,SALANDIT
-	db 7,HOPPIP
+	db 7,RATTATA
 	db $00
 

@@ -1,14 +1,14 @@
 Route24Mons:
 	db $19
-	db 12,ODDISH
-	db 12,BELLSPROUT
+	db 12,BELLSPROUT ;day
+	db 12,ABRA
 	db 13,MARILL
+	db 14,BELLSPROUT;day
 	db 14,ODDISH
-	db 14,BELLSPROUT
 	db 15,PIDGEY
-	db 13,MARILL
-	db 16,NOCTOWL
+	db 13,PIDGEOTTO ;day
+	db 16,HOPPIP
 	db 17,PIDGEY
-	db 17,PIDGEOTTO
+	db 17,MARILL
 	db $00
 
