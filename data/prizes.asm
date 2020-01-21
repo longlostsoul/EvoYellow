@@ -11,7 +11,7 @@ PrizeDifferentMenuPtrs:
 PrizeMenuMon1Entries:
 	db RIOLU
 	db NATU
-	db REMORAID
+	db EEVEE
 	db "@"
 
 PrizeMenuMon1Cost:

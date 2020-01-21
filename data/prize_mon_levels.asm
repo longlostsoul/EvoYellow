@@ -1,7 +1,7 @@
 PrizeMonLevelDictionary:
 	db RIOLU,25
 	db NATU,25
-	db REMORAID,26
+	db EEVEE,20
 
 	db GIRAFARIG,30
 	db WOBBUFFET,30

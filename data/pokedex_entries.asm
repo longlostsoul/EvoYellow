@@ -1,5 +1,4 @@
 PokedexEntryPointers:
-	dw RhydonDexEntry
 	dw KangaskhanDexEntry
 	dw NidoranMDexEntry
 	dw ClefairyDexEntry
@@ -23,7 +22,6 @@ PokedexEntryPointers:
 	dw GastlyDexEntry
 	dw ScytherDexEntry
 	dw StaryuDexEntry
-	dw BlastoiseDexEntry
 	dw PinsirDexEntry
 	dw TangelaDexEntry
 	dw GrowlitheDexEntry
@@ -146,7 +144,7 @@ PokedexEntryPointers:
 	dw GrowlitheDexEntry;houndour
 	dw ArcanineDexEntry ;houndoom
 	dw PinsirDexEntry  ;hera
-	dw GolbatDexEntry;...Crobat but actually Hera?
+	dw GolbatDexEntry;...Crobat
 	dw NewDexEntry ;sneeze
 	dw NewDexEntry;w
 	dw NewDexEntry ;skar
@@ -182,7 +180,7 @@ PokedexEntryPointers:
 	dw NewDexEntry;larv
 	dw NewDexEntry;
 	dw NewDexEntry;tyr
-		dw SeelDexEntry;stantler BOMBSEEKER
+		dw NewDexEntry;stantler Absol
 	dw NewDexEntry;cors
 	dw NewDexEntry;hoot
 	dw NewDexEntry;noct
@@ -198,10 +196,11 @@ PokedexEntryPointers:
 	dw NewDexEntry;xatu
 	dw NewDexEntry;rem
 	dw NewDexEntry;oct
-	dw MeowthDexEntry;senRINRIN
-	dw PersianDexEntry;furretBERU
+	dw MrMimeDexEntry;Mr Rime, old sentret
+	dw FarfetchdDexEntry;SirFetchd old furretBERU
 	dw NewDexEntry;qwil
-	dw CloysterDexEntry;deli TURBAN
+	dw NewDexEntry;Cursola
+	dw RhydonDexEntry;original rhydon
 	dw NewDexEntry;dunsp
 	dw NewDexEntry;gira
 	dw NewDexEntry;riolo
@@ -234,6 +233,7 @@ PokedexEntryPointers:
 	dw VenusaurDexEntry
 	dw CharmeleonDexEntry
 	dw WartortleDexEntry
+	dw BlastoiseDexEntry
 	dw CharizardDexEntry
 	dw NewDexEntry; wobbuffet
 

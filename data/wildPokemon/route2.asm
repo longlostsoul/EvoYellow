@@ -2,7 +2,7 @@ Route2Mons:
 	db $19
 	db 3,RATTATA
 	db 5,TOGEPI
-	db 4,PIDGEY
+	db 4,FARFETCHD
 	db 4,NIDORAN_M
 	db 4,NIDORAN_F
 	db 5,SANDSHREW

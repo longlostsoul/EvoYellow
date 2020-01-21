@@ -1,5 +1,4 @@
 EvosMovesPointerTable:
-	dw Mon112_EvosMoves
 	dw Mon115_EvosMoves
 	dw Mon032_EvosMoves
 	dw Mon035_EvosMoves
@@ -24,7 +23,6 @@ EvosMovesPointerTable:
 	dw Mon092_EvosMoves
 	dw Mon123_EvosMoves
 	dw Mon120_EvosMoves
-	dw Mon009_EvosMoves
 	dw Mon127_EvosMoves
 	dw Mon114_EvosMoves
 
@@ -198,7 +196,7 @@ dw Mon208_EvosMoves	;MissingNo
 	dw Mon210_EvosMoves	;MissingNo
 	dw Mon211_EvosMoves	;MissingNo
 	dw Mon212_EvosMoves	;MissingNo Tyranit
-		dw BOMBSEEKER_moves;MonStantler_Moves
+		dw ABSOL_moves;MonStantler_Moves
 dw MonCorsola_Moves
 dw MonHoothoot_Moves
 dw MonNoctowl_Moves
@@ -214,10 +212,11 @@ dw NATU_moves
 dw XATU_moves
 dw REMORAID_moves
 dw OCTILLERY_moves
-dw RINRIN_moves;SENTRET_moves
-dw BERURUN_moves;FURRET_moves
+dw MR_Rime_moves;SENTRET_moves
+dw SIRFETCHD_moves;FURRET_moves
 dw QWILFISH_moves
-dw TURBAN_moves;DELIBIRD_moves
+dw CURSOLA_moves;DELIBIRD_moves
+dw Mon112_EvosMoves;rhydon
 dw DUNSPARCE_moves
 dw GIRAFARIG_moves
 dw RIOLU_moves
@@ -250,34 +249,10 @@ dw Mon164_2EvosMoves ;steelix
 	dw Mon003_EvosMoves
 	dw Mon005_EvosMoves
 	dw Mon008_EvosMoves
+	dw Mon009_EvosMoves
 	dw Mon006_EvosMoves
 	dw Mon213_EvosMoves	;wobbuffet
 
-
-Mon112_EvosMoves: ; 3b1d8 (e:71d8)
-;RHYDON
-;Evolutions
-	db EV_LEVEL,52,RHYPERIOR
-	db 0
-;Learnset
-	db 1,HORN_ATTACK
-	db 1,TAIL_WHIP
-	db 5,FURY_ATTACK
-	db 9,LEER
-	db 13,MUD_SLAP
-	db 17,STOMP
-	db 21,ROCK_POLISH
-	db 25,SLAM
-	db 29,ROCK_BLAST
-	db 33,MUD_BOMB
-	db 37,TAKE_DOWN
-	db 41,ROCK_TOMB
-	db 42,DYNAMICPUNCH
-	db 48,EARTHQUAKE
-  db 52,ANCIENTPOWER
-	db 58,MEGAHORN
-	db 62,HORN_DRILL
-	db 0
 
 Mon115_EvosMoves:
 ;KANGASKHAN
@@ -685,7 +660,7 @@ Mon090_EvosMoves:
 ;SHELLDER
 ;Evolutions
 	db EV_ITEM,WATER_STONE,1,CLOYSTER
-	db EV_ITEM,LOVE_STONE,1,TURBAN
+	;db EV_ITEM,LOVE_STONE,1,TURBAN
 	db 0
 ;Learnset
 	db 18,SUPERSONIC
@@ -1061,6 +1036,7 @@ Mon067_EvosMoves:
 Mon122_EvosMoves:
 ;MR_MIME
 ;Evolutions
+	db EV_LEVEL,48,MR_RIME
 	db 0
 ;Learnset
 	db 1,CONFUSION
@@ -1375,11 +1351,13 @@ Mon128_EvosMoves:
 Mon083_EvosMoves:
 ;FARFETCH_D
 ;Evolutions
+ db EV_LEVEL,35,SIRFETCHD
 	db 0
 ;Learnset
 	db 7,LEER
 	db 15,FURY_ATTACK
 	db 23,SWORDS_DANCE
+	db 25,AERIAL_ACE
 	db 31,AGILITY
 	db 39,SLASH
 	db 0
@@ -3936,29 +3914,29 @@ Mon212_EvosMoves:
 	db 57,GIGA_IMPACT
 	db 0
 
-BOMBSEEKER_moves:;MonStantler_Moves:
+ABSOL_moves:;MonStantler_Moves:
 ;STANTLER
 ;Evolutions
 	db 0
 ;Learnset
-	db 8,LEER
-	db 15,BUBBLEBEAM
-	db 16,AIR_CUTTER
-	db 18,BARRAGE
-	db 20,FLAMETHROWER
-	db 23,WATER_PULSE
-	db 28,CONFUSE_RAY
+	db 5,LEER
+	db 7,QUICK_ATTACK
+	db 16,BITE
+	db 18,DOUBLE_TEAM
+	db 20,SLASH
+	db 23,SWORDS_DANCE
+	db 28,NIGHT_SLASH
 	db 31,SAND_ATTACK
-	db 40,TAKE_DOWN
-	db 45,ZEN_HEADBUTT
-	db 45,ICE_BEAM
-	db 49,FLARE_BLITZ
-	db 50,BLIZZARD
+	db 40,ZEN_HEADBUTT
+	db 45,SUCKER_PUNCH
+	db 45,RAZOR_WIND
+	db 49,HEX
 	db 0
 
 MonCorsola_Moves:
 ;CORSOLA
 ;Evolutions
+ db EV_LEVEL,38,CURSOLA
 	db 0
 ;Learnset
 	db 7,BUBBLE
@@ -4265,39 +4243,30 @@ OCTILLERY_moves:
 	db 50,HYDRO_PUMP
 	db 0
 	
-RINRIN_moves;SENTRET_moves:
+MR_Rime_moves:
 ;Evolutions
-	db EV_LEVEL,15,BERURUN
 	db 0
 ;Learnset
-	db 5,QUICK_ATTACK
-	db 7,FOCUS_ENERGY
-	db 10,BITE
-	db 13,BODY_SLAM
-	db 16,NIGHT_SHADE
-	db 19,SUCKER_PUNCH
-	db 22,SHADOW_BALL
-	db 25,IRON_TAIL
-	db 28,ZEN_HEADBUTT
-	db 31,DOUBLE_EDGE
-	db 34,SLASH
+	db 16,CONFUSION
+	db 19,BARRIER
+	db 42,PSYCHIC
+	db 45,ICE_BEAM
+	db 48,ZEN_HEADBUTT
+	db 51,AMNESIA
+	db 54,BLIZZARD
 	db 0
+	
 
-BERURUN_moves
-;FURRET_moves:
+SIRFETCHD_moves:
 	db 0
 ;Learnset
-	db 5,QUICK_ATTACK
-	db 7,FOCUS_ENERGY
-	db 10,BITE
-	db 13,BODY_SLAM
-	db 16,NIGHT_SHADE
-	db 19,SUCKER_PUNCH
-	db 22,SHADOW_BALL
-	db 25,IRON_TAIL
-	db 28,ZEN_HEADBUTT
-	db 31,DOUBLE_EDGE
-	db 34,SLASH
+	db 38,SLASH
+	db 40,KARATE_CHOP
+	db 45,SWORDS_DANCE
+	db 45,AERIAL_ACE
+	db 50,SLAM
+	db 52,LEAF_BLADE
+	db 55,CROSS_CHOP
 	db 0
 	
 QWILFISH_moves:
@@ -4317,25 +4286,45 @@ QWILFISH_moves:
 	db 50,HYDRO_PUMP
 	db 0
 	
-TURBAN_moves:
-;DELIBIRD_moves:
+CURSOLA_moves:
 ;Evolutions
 	db 0
 ;Learnset
-	db 7,CONFUSE_RAY
-	db 10,ICE_SHARD
-	;db 14,WING_ATTACK
-	;db 18,BODY_SLAM
-	;db 20,HIDDEN_POWER
-	;db 22,ICY_WIND
-	;db 27,RECOVER
-	;db 32,ICE_BEAM
-	;db 37,AERIAL_ACE
-	;db 43,HAZE
-	;db 47,HURRICANE
-	db 50,SHEER_COLD
+	db 38,HEX
+	db 39,AMNESIA
+	db 40,POWER_GEM
+	db 45,NIGHT_SHADE
+	db 48,MEGA_DRAIN
+	db 50,SHADOW_BALL
+	db 55,MIRROR_COAT
 	db 0
 	
+
+Mon112_EvosMoves: ; 3b1d8 (e:71d8)
+;RHYDON
+;Evolutions
+	db EV_LEVEL,52,RHYPERIOR
+	db 0
+;Learnset
+	db 1,HORN_ATTACK
+	db 1,TAIL_WHIP
+	db 5,FURY_ATTACK
+	db 9,LEER
+	db 13,MUD_SLAP
+	db 17,STOMP
+	db 21,ROCK_POLISH
+	db 25,SLAM
+	db 29,ROCK_BLAST
+	db 33,MUD_BOMB
+	db 37,TAKE_DOWN
+	db 41,ROCK_TOMB
+	db 42,DYNAMICPUNCH
+	db 48,EARTHQUAKE
+  db 52,ANCIENTPOWER
+	db 58,MEGAHORN
+	db 62,HORN_DRILL
+	db 0	
+
 DUNSPARCE_moves:
 db 0
 ;learnset

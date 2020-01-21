@@ -1992,8 +1992,8 @@ YanmegaPicBack::       INCBIN "pic/monback/yanmegab.pic"
 PorygonzPicFront::      INCBIN "pic/ymon/porygonz.pic"
 PorygonzPicBack::       INCBIN "pic/monback/porygonz.pic"
 
-BombseekerPicFront::      INCBIN "pic/ymon/bombseeker.pic";stantler
-BombseekerPicBack::       INCBIN "pic/monback/backbombseeker.pic";stantler
+AbsolPicFront::      INCBIN "pic/ymon/absol.pic";old stantler
+AbsolPicBack::       INCBIN "pic/monback/absolb.pic";stantler
 CorsolaPicFront::      INCBIN "pic/ymon/corsola.pic"
 CorsolaPicBack::       INCBIN "pic/monback/corsola.pic"
 HoothootPicFront::      INCBIN "pic/ymon/hoothoot.pic"
@@ -2027,10 +2027,10 @@ XatuPicFront::      INCBIN "pic/ymon/xatu.pic"
 XatuPicBack::       INCBIN "pic/monback/xatub.pic"
 OctilleryPicFront::      INCBIN "pic/ymon/octillery.pic"
 OctilleryPicBack::       INCBIN "pic/monback/octilleryb.pic"
-RinrinPicFront::      INCBIN "pic/ymon/rinrin.pic";sentret
-RinrinPicBack::       INCBIN "pic/monback/backrinrin.pic"
-BerurunPicFront::      INCBIN "pic/ymon/berurun.pic";furret
-BerurunPicBack::       INCBIN "pic/monback/backberurun.pic";furretb
+SirfetchdPicFront::      INCBIN "pic/ymon/sirfetchd.pic";sentret
+SirfetchdPicBack::       INCBIN "pic/monback/sirfetchd.pic"
+CursolaPicFront::      INCBIN "pic/ymon/cursola.pic";furret
+CursolaPicBack::       INCBIN "pic/monback/cursola.pic";furretb
 
 ;bankfull
 
@@ -2159,8 +2159,8 @@ CrobatPicBack::       INCBIN "pic/monback/crobat.pic"
 PolitoedPicFront::    INCBIN "pic/ymon/politoed.pic"
 PolitoedPicBack::     INCBIN "pic/monback/politoed.pic"
 
-TurbanPicFront::      INCBIN "pic/ymon/cloyster_turban.pic";delibird
-TurbanPicBack::       INCBIN "pic/monback/cloyster_turbanb.pic";delibirdb
+MrRimePicFront::      INCBIN "pic/ymon/mrrime.pic";delibird
+MrRimePicBack::       INCBIN "pic/monback/mrrime.pic";delibirdb
 DunsparcePicFront::      INCBIN "pic/ymon/dunsparce.pic"
 DunsparcePicBack::       INCBIN "pic/monback/dunsparceb.pic"
 GirafarigPicFront::      INCBIN "pic/ymon/girafarig.pic"

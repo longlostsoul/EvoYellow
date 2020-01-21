@@ -106,26 +106,26 @@ MonPartyData:
 		dn SPRITE_MON, SPRITE_MON                                ;Teddy,ursa
 	dn SPRITE_FAIRY, SPRITE_FAIRY                               ;snubb,gran
 		dn SPRITE_MON, SPRITE_MON                               ;larv,pup
-		dn SPRITE_MON, SPRITE_WATER                                ;tyr,stantler/bomb
-	dn SPRITE_MON, SPRITE_BIRD_M                               ;corsola,hoothoot
+		dn SPRITE_MON, SPRITE_QUADRUPED                               ;tyr,absol
+	dn SPRITE_HELIX, SPRITE_BIRD_M                               ;corsola,hoothoot
 	dn SPRITE_BIRD_M, SPRITE_SNAKE              ;noctowl,salandit
-	dn SPRITE_SNAKE, SPRITE_GRASS,  ;sun,hop
+	dn SPRITE_SNAKE, SPRITE_GRASS  ;sun,hop
 	dn SPRITE_GRASS, SPRITE_GRASS   ;hop skiploom
-	dn SPRITE_GRASS, SPRITE_QUADRUPED   ;meep
-	dn SPRITE_MON, SPRITE_BIRD_M;natu   
-	dn SPRITE_BIRD_M, SPRITE_WATER
-	dn SPRITE_HELIX, SPRITE_QUADRUPED ;oct,rinrim  
-	dn SPRITE_QUADRUPED, SPRITE_MON   
-	dn SPRITE_WATER, SPRITE_HELIX ;qwilfish  
-	dn SPRITE_SNAKE, SPRITE_MON      ;dun,gira
-	dn SPRITE_MON,  SPRITE_GRASS            ;lucario,sudo
-	dn SPRITE_WATER, SPRITE_WATER ;poli,slow
-	dn SPRITE_GRASS, SPRITE_WATER        ;belloss,kingdra
-	dn SPRITE_FAIRY, SPRITE_BALL        ;blissey/pory
-	dn SPRITE_MON, SPRITE_MON                                ;/magmor/telect
-	dn SPRITE_BALL_M, SPRITE_MON                                ;/magnez/ryp
-	dn SPRITE_GRASS, SPRITE_MON                                ;tan/licky
-	  dn SPRITE_MON, SPRITE_QUADRUPED              ;Eevee evos U/G
+	dn SPRITE_QUADRUPED, SPRITE_QUADRUPED   ;meep,meep2
+	dn SPRITE_QUADRUPED, SPRITE_BIRD_M;amphi,natu   
+	dn SPRITE_BIRD_M, SPRITE_WATER;XATU, REMORAID
+	dn SPRITE_HELIX, SPRITE_QUADRUPED ;oct,RIME  
+	dn SPRITE_BIRD_M, SPRITE_WATER   ;SIRFETCHD,qwilfish  
+	dn SPRITE_SNAKE, SPRITE_QUADRUPED      ;dun,gira
+  dn SPRITE_MON, SPRITE_MON;riolu,lucario
+	dn SPRITE_GRASS, SPRITE_WATER              ;sudo poli
+	dn SPRITE_WATER, SPRITE_GRASS ;slow,belloss,
+	dn SPRITE_WATER, SPRITE_FAIRY         ;kingdra,blissey
+	dn SPRITE_BALL_M, SPRITE_MON        ;blissey/pory
+	dn  SPRITE_MON, SPRITE_BALL_M                              ;/magmor/telect
+	dn  SPRITE_MON, SPRITE_GRASS                               ;/magnez/ryp
+	dn SPRITE_MON, SPRITE_QUADRUPED                                ;tan/licky, ESPEON
+	dn  SPRITE_QUADRUPED,SPRITE_QUADRUPED              ;Eevee evos U/G
 	dn SPRITE_QUADRUPED, SPRITE_QUADRUPED              ;Eevee evos L/S
-	dn SPRITE_QUADRUPED,SPRITE_BUG ;sudo,scizor
-	dn SPRITE_SNAKE,SPRITE_MON ;steelix,wobbuffet
+	dn SPRITE_QUADRUPED, SPRITE_BUG ;sudo,scizor
+	dn SPRITE_SNAKE, SPRITE_MON ;steelix,wobbuffet

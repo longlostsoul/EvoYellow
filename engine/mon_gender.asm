@@ -51,7 +51,6 @@ GetMonGender::
 	ret
 	
 MonGenderRatios:
-	db MALE_88_PERCENT;Rhydon
 	db FEMALE_ONLY; Kangaskhan
 	db MALE_ONLY; Nidoran?
 	db FEMALE_75_PERCENT; Clefairy
@@ -59,7 +58,6 @@ MonGenderRatios:
 	db NO_GENDER; Voltorb
 	db MALE_ONLY; Nidoking
 	db SAME_BOTH_GENDERS; Slowbro
-	db SAME_BOTH_GENDERS; Ivysaur
 	db SAME_BOTH_GENDERS; Exeggutor
 	db SAME_BOTH_GENDERS; Lickitung
 	db SAME_BOTH_GENDERS; Exeggcute
@@ -78,7 +76,6 @@ MonGenderRatios:
 	db SAME_BOTH_GENDERS; Gastly
 	db SAME_BOTH_GENDERS; Scyther
 	db NO_GENDER; Staryu
-	db SAME_BOTH_GENDERS; Blastoise
 	db SAME_BOTH_GENDERS; Pinsir
 	db SAME_BOTH_GENDERS; Tangela
 	db SAME_BOTH_GENDERS; Growlithe
@@ -176,8 +173,6 @@ MonGenderRatios:
 	db SAME_BOTH_GENDERS; Pidgeotto
 	db SAME_BOTH_GENDERS; Pidgeot
 	db NO_GENDER; Starmie
-	db SAME_BOTH_GENDERS; Bulbasaur
-	db SAME_BOTH_GENDERS; Venusaur
 	db SAME_BOTH_GENDERS; Tentacruel
 	db SAME_BOTH_GENDERS; Goldeen
 	db SAME_BOTH_GENDERS; Seaking
@@ -199,7 +194,7 @@ MonGenderRatios:
 	db SAME_BOTH_GENDERS; Victreebel
 	db SAME_BOTH_GENDERS ; Toge
 	db SAME_BOTH_GENDERS ; T
-	db SAME_BOTH_GENDERS ; 
+	db SAME_BOTH_GENDERS ; togekiss
 	db SAME_BOTH_GENDERS ; H
 	db SAME_BOTH_GENDERS ; Hound
 	db SAME_BOTH_GENDERS ; Hera
@@ -208,12 +203,12 @@ MonGenderRatios:
 	db SAME_BOTH_GENDERS ; weavile
 	db SAME_BOTH_GENDERS ; skarm
 	db FEMALE_75_PERCENT ; misdreavus
-	db FEMALE_75_PERCENT ; H
+	db FEMALE_75_PERCENT ; Mismag
 	db FEMALE_ONLY ; Milk
 	db SAME_BOTH_GENDERS ; chin
-	db SAME_BOTH_GENDERS ; 
+	db SAME_BOTH_GENDERS ; lanturn
 	db SAME_BOTH_GENDERS ; slug
-	db SAME_BOTH_GENDERS ; G
+	db SAME_BOTH_GENDERS ; MagG
 	db MALE_ONLY ; Tyrogue
 	db MALE_ONLY ; Hitmontop
 	db SAME_BOTH_GENDERS ; Murkrow
@@ -232,16 +227,16 @@ MonGenderRatios:
 	db NO_GENDER ; Poryonz
 	db SAME_BOTH_GENDERS ; phanpy
 	db SAME_BOTH_GENDERS ; donphan
-	db SAME_BOTH_GENDERS ; g
-	db SAME_BOTH_GENDERS ; gli
-	db SAME_BOTH_GENDERS ; tedd
-	db SAME_BOTH_GENDERS ; ursa
-	db SAME_BOTH_GENDERS ; snubb
-	db SAME_BOTH_GENDERS ; gran
-	db SAME_BOTH_GENDERS ; l
-	db SAME_BOTH_GENDERS ; p
+	db SAME_BOTH_GENDERS ; gligar
+	db SAME_BOTH_GENDERS ; gliscor
+	db SAME_BOTH_GENDERS ; teddiursa
+	db SAME_BOTH_GENDERS ; ursaring
+	db SAME_BOTH_GENDERS ; snubbull
+	db SAME_BOTH_GENDERS ; granbull
+	db SAME_BOTH_GENDERS ; larvitar
+	db SAME_BOTH_GENDERS ; pupi
 	db SAME_BOTH_GENDERS ; tyran
-	db SAME_BOTH_GENDERS ;STANTLER BOMBSEEKER
+	db SAME_BOTH_GENDERS ;STANTLER ABSOL
 	db NO_GENDER;const DEX_CORSOLA
   db SAME_BOTH_GENDERS;const DEX_HOOTHOOT
   db SAME_BOTH_GENDERS;const DEX_NOCTOWL
@@ -257,10 +252,11 @@ MonGenderRatios:
   db SAME_BOTH_GENDERS;const DEX_XATU
   db SAME_BOTH_GENDERS;const DEX_REMORAID 
   db SAME_BOTH_GENDERS;const DEX_OCTILLERY
-db SAME_BOTH_GENDERS;const DEX_SENTRET RINRIN
-db SAME_BOTH_GENDERS;const DEX_FURRET
+  db MALE_75_PERCENT;const DEX_SENTRET MR_RIME or was supposed to be, doesn't seem like it :P
+db SAME_BOTH_GENDERS;const SIR_FETCHD
 db SAME_BOTH_GENDERS;const DEX_QWILFISH
-db SAME_BOTH_GENDERS;const DEX_DELIBIRD TURBAN
+db NO_GENDER;const DEX_DELIBIRD CURSOLA
+db MALE_88_PERCENT;Rhydon
 db SAME_BOTH_GENDERS;const DEX_DUNSPARCE
 db SAME_BOTH_GENDERS;const DEX_GIRAFARIG
 db MALE_75_PERCENT;const DEX_RIOLU
@@ -286,7 +282,11 @@ db MALE_75_PERCENT;const DEX_LUCARIO
 	db SAME_BOTH_GENDERS ; Steelix 
 	db SAME_BOTH_GENDERS; Charmander
 	db SAME_BOTH_GENDERS; Squirtle
+		db SAME_BOTH_GENDERS; Bulbasaur
+			db SAME_BOTH_GENDERS; Ivysaur
+	db SAME_BOTH_GENDERS; Venusaur
 	db SAME_BOTH_GENDERS; Charmeleon
 	db SAME_BOTH_GENDERS; Wartortle
+	db SAME_BOTH_GENDERS; Blastoise
 	db SAME_BOTH_GENDERS; Charizard
 	db SAME_BOTH_GENDERS ; wobbuffet

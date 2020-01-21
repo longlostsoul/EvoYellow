@@ -1,11 +1,11 @@
 _Route1ViridianMartSampleText::
-	text "My #MON died,"
-	line "but it still..."
+	text "I work in town,"
+	line "at the mart!"
 
-	para "lives, too. Will"
-	line "you please take"
-	cont "it off my hands?"
-	cont "It's schrodinger."
+	para "It's must-see"
+	line "for any trainer,"
+	cont "you just gotta"
+	cont "try our products!"
 
 	para "I know, I'll give"
 	line "you a potion"

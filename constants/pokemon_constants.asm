@@ -1,5 +1,4 @@
 const_value = 1
-	const RHYDON       ; $01
 	const KANGASKHAN   ; $02
 	const NIDORAN_M    ; $03
 	const CLEFAIRY     ; $04
@@ -24,7 +23,6 @@ const_value = 1
 	const GASTLY       ; $19
 	const SCYTHER      ; $1A
 	const STARYU       ; $1B
-	const BLASTOISE    ; $1C
 	const PINSIR       ; $1D
 	const TANGELA      ; $1E
 	const GROWLITHE    ; $21
@@ -184,7 +182,7 @@ const_value = 1
   const LARVITAR
   const PUPITAR
   const TYRANITAR
- const BOMBSEEKER;STANTLER
+ const ABSOL;bombseekerSTANTLER
  const CORSOLA
  const HOOTHOOT
  const NOCTOWL
@@ -200,10 +198,11 @@ const_value = 1
  const XATU
  const REMORAID 
  const OCTILLERY
- const RINRIN;SENTRET
- const BERURUN;FURRET
+ const MR_RIME;RINRIN;SENTRET
+ const SIRFETCHD;BERURUN;FURRET
  const QWILFISH
- const TURBAN;DELIBIRD
+ const CURSOLA;TURBAN;DELIBIRD
+ const RHYDON       ; $01
  const DUNSPARCE
  const GIRAFARIG
  const RIOLU
@@ -236,6 +235,7 @@ const_value = 1
 	const VENUSAUR     ; $9A
 	const CHARMELEON   ; $B2
 	const WARTORTLE    ; $B3
+	const BLASTOISE    ; $1C
 	const CHARIZARD    ; $B4
   const WOBBUFFET
   const FOSSIL_KABUTOPS   ; $B6

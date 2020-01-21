@@ -9,6 +9,6 @@ DungeonMons2:
 	db 58,GLOOM
 	db 58,WEEPINBELL
 	db 60,LICKITUNG
-	db 58,RHYDON
+	db 58,XATU
 	db $00
 

@@ -1,6 +1,5 @@
 CryData:
 	;$BaseCry, $Pitch, $Length
-	db $11, $00, $80; Rhydon
 	db $03, $00, $80; Kangaskhan
 	db $00, $00, $80; Nidoran♂
 	db $19, $CC, $01; Clefairy
@@ -25,7 +24,6 @@ CryData:
 	db $1C, $00, $80; Gastly
 	db $16, $00, $80; Scyther
 	db $1E, $02, $20; Staryu
-	db $13, $00, $80; Blastoise
 	db $14, $00, $80; Pinsir
 	db $12, $00, $80; Tangela
 	db $1F, $20, $40; Growlithe
@@ -214,13 +212,40 @@ CryData:
 	db $14, $00, $80;larv
 	db $14, $00, $80;pup
 	db $14, $00, $80;tyran
-		db $22, $00, $80; 
-			db $22, $00, $80; 
-				db $22, $00, $80; 
-					db $22, $00, $80; 
+			db $22, $00, $80; absol
+			db $22, $00, $80; corsola
+				db $22, $00, $80;hoothoot
 						db $22, $00, $80; 
-							db $22, $00, $80; 
-								db $22, $00, $80; 
+			db $22, $00, $80; salandit
+				db $22, $00, $80;salazz
+						db $22, $00, $80; hoppip
+			db $22, $00, $80; 
+				db $22, $00, $80;
+						db $22, $00, $80; natu
+			db $22, $00, $80; 
+		db $22, $00, $80; rem
+			db $22, $00, $80; oct
+				db $22, $00, $80; rime
+						db $22, $00, $80;sir 
+			db $22, $00, $80; qwil
+				db $22, $00, $80;cursola
+				db $11, $00, $80; Rhydon
+						db $22, $00, $80;dun 
+			db $22, $00, $80; g
+				db $22, $00, $80;rio
+						db $22, $00, $80;luc 
+			db $22, $00, $80; sud
+				db $22, $00, $80;p
+						db $22, $00, $80;'slow
+						db $22, $00, $80;bell
+						db $22, $00, $80;king
+						db $22, $00, $80;b
+						db $22, $00, $80;pory
+						db $22, $00, $80;m
+					db $22, $00, $80; elect
+						db $22, $00, $80; rhyy
+							db $22, $00, $80; ;tan
+								db $22, $00, $80; ;livk
 		db $1A, $88, $60; Espeon
 	db $1A, $10, $20; Umb
 	db $1A, $AA, $FF; Glaceon
@@ -236,5 +261,6 @@ CryData:
 	db $0F, $00, $C0; Venusaur
 	db $04, $20, $40; Charmeleon
 	db $1D, $20, $40; Wartortle
+	db $13, $00, $80; Blastoise
 	db $04, $00, $80; Charizard
 	db $14, $00, $80;wobbuffet
