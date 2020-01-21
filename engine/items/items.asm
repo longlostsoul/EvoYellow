@@ -953,24 +953,9 @@ ItemUseEvoStone:
 	jr c, .canceledItemUse
 	ld a, b
 	ld [wcf91], a
-	;call Func_d85d
-	;jr nc, .noEffect
-	callab IsThisPartymonStarterPikachu_Party
-	jr nc, .notPlayerPikachu ;yeah knockin this out did no good, just swallowed the stone without warning. proly need to alter stone evos I bet they have a check somewhere
-	ld e, $1b
-	callab PlayPikachuSoundClip
-	ld a, [wWhichPokemon]
-	ld hl, wPartyMonNicks
-	call GetPartyMonName
-	ld hl, RefusingText
-	call PrintText
-	ld a, $4
-	ld [wd49c], a
-	ld a, $82
-	ld [wPikachuMood], a
-	jr .canceledItemUse
-
-.notPlayerPikachu
+  ld a, $01 ;we don't use forced-evo for pikachu, but might be good for an eevee game. plus free up space.
+	ld [wForceEvolution], a
+	ld a, SFX_HEAL_AILMENT
 	ld a, SFX_HEAL_AILMENT
 	call PlaySoundWaitForCurrent
 	call WaitForSoundToFinish

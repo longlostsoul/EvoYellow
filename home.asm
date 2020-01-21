@@ -3151,6 +3151,14 @@ YesNoChoicePokeCenter::
 	;coord hl, 12, 7
 	;lb bc, 8, 13
 
+;This was taken from Maize.
+CheckDayNight::
+; set carry flag if it's day
+; Looks at total play time. Alternates between night and day every half hour.
+	ld a, [wPlayTimeMinutes + 1]
+	cp 8
+	ret
+
 DisplayYesNoChoice::
 	ld a, TWO_OPTION_MENU
 	ld [wTextBoxID], a

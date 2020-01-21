@@ -18,6 +18,13 @@ LoadWildData:
 	ld de,wGrassMons ; otherwise, load grass data
 	ld bc,$0014
 	call CopyData
+	ld a, [wPlayTimeMinutes + 1]
+	cp 8
+	jr c, .day
+	ld hl, HandleNightMons
+	ld b, Bank(HandleNightMons)
+	call Bankswitch
+.day
 	pop hl
 	ld bc,$0014
 	add hl,bc
@@ -31,3 +38,4 @@ LoadWildData:
 	jp CopyData
 
 INCLUDE "data/wild_mons.asm"
+INCLUDE "data/handle_nightmons.asm"

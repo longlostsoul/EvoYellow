@@ -199,13 +199,53 @@ SetPal_Overworld:
 	cp COLOSSEUM
 	jr z, .trade_center_colosseum
 .normalDungeonOrBuilding
-	ld a, [wLastMap] ; town or route that current dungeon or building is located
+	;ld a, [wLastMap] ; town or route that current dungeon or building is located. redundant due to call below
+	jr .town
 .townOrRoute
 	cp SAFFRON_CITY + 1
 	jr c, .town
-	ld a, PAL_ROUTE - 1
+	jr .NotTown
 .town
-	inc a ; a town's palette ID is its map ID + 1
+	callab CheckDayNight
+	jr nc, .night
+	ld a, [wLastMap]
+	;for everything that isn't a dungeon, load its usual color. dungeons don't work nicely due to calling route as last map, yet get handled as towns. there's probably some way to check for them specifically that could make this code more efficient but I don't know it.
+	cp ROUTE_2 ;:/ walking into diglett cave and viridian, unfortunately turns dig green
+	jr z, .greenit
+  cp ROUTE_11 ;:/ diglett cave and viridian, unfortunately turns dig green
+	jr nz, .check
+.greenit
+	ld a, PAL_ROUTE
+	jr .check
+.check
+	cp ROUTE_4 ; for entering mt_moon, don't want it green!
+	jr z, .pal
+	cp ROUTE_20 ;seafoam
+	jr z, .pal
+	cp ROUTE_23 ;victory road
+	jr z, .pal
+	cp ROUTE_23 ;final dungeon
+	jr z, .pal
+	cp ROUTE_10 ;flash cave
+	jr z, .pal
+	jr .notit
+.pal
+	ld a, PAL_CAVE
+.notit
+	;ld a, [wLastMap]
+	jr .gotPaletteID
+.night
+	ld a, PAL_PURPLEMON
+	jr .gotPaletteID
+.NotTown
+	call CheckDayNight
+	jr nc, .night
+	ld a, PAL_ROUTE - 1
+	inc a
+	 ; a palette ID is its map ID + 1. But if we 'inc a' in town, it'll mess up viridian forest
+
+.gotPaletteID
+
 	ld hl, wPalPacket + 1
 	ld [hld], a
 	ld de, BlkPacket_WholeScreen
@@ -517,10 +557,10 @@ GetPal_Pikachu::
 	cp CAVERN
 	jr z, .caveOrBruno
 	ld a, [wCurMap]
-	cp REDS_HOUSE_1F
+	cp ROUTE_1
 	jr c, .townOrRoute
 	cp UNKNOWN_DUNGEON_2
-	jr c, .normalDungeonOrBuilding
+	jr c, .town;.normalDungeonOrBuilding
 	cp NAME_RATERS_HOUSE
 	jr c, .caveOrBruno
 	cp LORELEIS_ROOM
@@ -531,14 +571,52 @@ GetPal_Pikachu::
 	jr z, .battleOrTradeCenter
 	cp COLOSSEUM
 	jr z, .battleOrTradeCenter
-.normalDungeonOrBuilding
-	ld a, [wLastMap] ; town or route that current dungeon or building is located
+;.normalDungeonOrBuilding
+	;ld a, [wLastMap] ; town or route that current dungeon or building is located
+;  jr .town
 .townOrRoute
 	cp SAFFRON_CITY + 1
 	jr c, .town
-	ld a, PAL_ROUTE - 1
+	jr .NotTown
 .town
-	inc a ; a town's pallete ID is its map ID + 1
+	callab CheckDayNight
+	jr nc, .night
+	ld a, [wLastMap]
+	;for everything that isn't a dungeon, load its usual color. dungeons don't work nicely due to calling route as last map, yet get handled as towns. there's probably some way to check for them specifically that could make this code more efficient but I don't know it.
+	cp ROUTE_2 ;:/ walking into diglett cave and viridian, unfortunately turns dig green
+	jr z, .greenit
+  cp ROUTE_11 ;:/ diglett cave and viridian, unfortunately turns dig green
+	jr nz, .check
+.greenit
+	ld a, PAL_ROUTE
+	jr .check
+.check
+	cp ROUTE_4 ; for entering mt_moon, don't want it green!
+	jr z, .pal
+	cp ROUTE_20 ;seafoam
+	jr z, .pal
+	cp ROUTE_23 ;victory road
+	jr z, .pal
+	cp ROUTE_23 ;final dungeon
+	jr z, .pal
+	cp ROUTE_10 ;flash cave
+	jr z, .pal
+	jr .notit
+.pal
+	ld a, PAL_CAVE
+.notit
+	;ld a, [wLastMap]
+	jr .gotPaletteID
+.night
+	ld a, PAL_PURPLEMON
+	jr .gotPaletteID
+.NotTown
+	call CheckDayNight
+	jr nc, .night
+	ld a, PAL_ROUTE - 1
+	inc a
+	 ; a palette ID is its map ID + 1. But if we 'inc a' in town, it'll mess up viridian forest
+.gotPaletteID
 	ret
 
 .PokemonTowerOrAgatha
