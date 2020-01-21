@@ -304,16 +304,6 @@ DrawHPBar::
 LoadMonData::
 	jpab LoadMonData_
 
-OverwritewMoves::
-; Write c to [wMoves + b]. Unused.
-	ld hl, wMoves
-	ld e, b
-	ld d, 0
-	add hl, de
-	ld a, c
-	ld [hl], a
-	ret
-
 LoadFlippedFrontSpriteByMonIndex::
 	ld a, 1
 	ld [wSpriteFlipped], a
@@ -608,15 +598,6 @@ PrintLevelCommon::
 	ld de, wd11e
 	ld b, LEFT_ALIGN | 1 ; 1 byte
 	jp PrintNumber
-
-GetwMoves::
-; Unused. Returns the move at index a from wMoves in a
-	ld hl, wMoves
-	ld c, a
-	ld b, 0
-	add hl, bc
-	ld a, [hl]
-	ret
 
 ; copies the base stat data of a pokemon to wMonHeader
 ; INPUT:
@@ -1486,11 +1467,6 @@ DisplayListMenuIDLoop::
 .buttonAPressed
 	ld a, [wCurrentMenuItem]
 	call PlaceUnfilledArrowMenuCursor
-
-; pointless because both values are overwritten before they are read
-	ld a, $01
-	ld [wMenuExitMethod], a
-	ld [wChosenMenuItem], a
 
 	xor a
 	ld [wMenuWatchMovingOutOfBounds], a
@@ -3095,31 +3071,12 @@ GetTrainerInformation::
 	inc de
 	ld a, [hli]
 	ld [de], a
-	call IsFightingJessieJames
 	jp BankswitchBack
 .linkBattle
 	ld hl, wTrainerPicPointer
 	ld de, RedPicFront
 	ld [hl], e
 	inc hl
-	ld [hl], d
-	ret
-
-IsFightingJessieJames::
-	ld a, [wTrainerClass]
-	cp ROCKET
-	ret nz
-	ld a, [wTrainerNo]
-	cp $2a
-	ret c
-	ld de, JessieJamesPic
-	cp $2e
-	jr c, .dummy
-	ld de, JessieJamesPic ; possibly meant to add another pic
-.dummy
-	ld hl, wTrainerPicPointer
-	ld a, e
-	ld [hli], a
 	ld [hl], d
 	ret
 
