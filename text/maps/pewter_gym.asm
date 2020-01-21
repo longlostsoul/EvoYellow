@@ -54,20 +54,20 @@ _TM34ExplanationText::
 	cont "can be taught to"
 	cont "#MON!"
 
-	para "A TM is good only"
-	line "once! So when you"
+	para "A TM is good more"
+	line "than once! So you"
 	cont "use one to teach"
 	cont "a new technique,"
-	cont "pick the #MON"
-	cont "carefully!"
+	cont "to any #MON"
+	cont "compatible!"
 
 	para "TM34 contains"
-	line "BIDE!"
+	line "Mudslap!"
 
 	para "Your #MON will"
-	line "absorb damage in"
-	cont "battle then pay"
-	cont "it back double!"
+	line "throw damage in"
+	cont "battle then will"
+	cont "lower accuracy!"
 	done
 
 _TM34NoRoomText::
