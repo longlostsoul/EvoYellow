@@ -212,8 +212,6 @@ MonGenderRatios:
 	db MALE_ONLY ; Hitmontop
 	db SAME_BOTH_GENDERS ; Murkrow
 	db SAME_BOTH_GENDERS ; Honchkrow
-	db SAME_BOTH_GENDERS ; Murkrow
-	db SAME_BOTH_GENDERS ; Honchkrow
 	db SAME_BOTH_GENDERS ; Marill
 	db SAME_BOTH_GENDERS ; Azumarill
 	db SAME_BOTH_GENDERS ; Swinub
