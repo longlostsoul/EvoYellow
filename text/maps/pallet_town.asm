@@ -6,8 +6,8 @@ _OakWalksUpText::
 	text "OAK: That was"
 	line "close!"
 
-	para "Wild #MON live"
-	line "in tall grass!"
+	para "Dangerous #MON"
+	line "have been sighted!"
 	done
 
 _OakWhewText::
@@ -15,9 +15,9 @@ _OakWhewText::
 	done
 
 _OakGrassText::
-	text "OAK: A #MON can"
-	line "appear anytime in"
-	cont "tall grass."
+	text "OAK: I will"
+	line "have to put that"
+	cont "somewhere secure."
 
 	para "You need your own"
 	line "#MON for your"

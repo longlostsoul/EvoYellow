@@ -231,12 +231,17 @@ _OaksLabRivalTakesText5::
 
 _OaksLabOakGivesText::
 	text "OAK: <PLAYER>, this"
-	line "is the #MON I"
-	cont "caught earlier."
+	line "isn't the #MON"
+	cont "I caught earlier."
 
-	para "You can have it."
-	line "I caught it in"
-	cont "the wild and it's"
+	para "You didn't really"
+	line "think I'd give a"
+	
+	para "mythical #MON"
+	line "to a novice, yes?"
+	
+	para "I caught it in"
+	line "the wild and it's"
 	cont "not tame yet."
 	prompt
 

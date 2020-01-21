@@ -14,8 +14,8 @@ _MoveRelearnerGreetingText::
 	done
 
 _MoveRelearnerSaidYesText::
-	text "Which #MON"
-	line "should learn it?"
+	text "Which #MON?"
+	line "(May be buggy!)"
 	prompt
 
 _MoveRelearnerNotEnoughMoneyText::

@@ -142,7 +142,7 @@ PalletTownScript4:
 	ld a, BATTLE_TYPE_PIKACHU
 	ld [wBattleType], a
 ;IF DEF(_YELLOW)
-	ld a, PIKACHU
+	ld a, MEW
 ;ENDC
 ;IF DEF(_MEOWTH)
   ;ld a, MEOWTH
