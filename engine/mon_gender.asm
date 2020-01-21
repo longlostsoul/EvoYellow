@@ -52,24 +52,23 @@ GetMonGender::
 	
 MonGenderRatios:
 	db FEMALE_ONLY; Kangaskhan
-	db MALE_ONLY; Nidoran?
+	db MALE_ONLY; NidoranM
 	db FEMALE_75_PERCENT; Clefairy
 	db SAME_BOTH_GENDERS; Spearow
 	db NO_GENDER; Voltorb
 	db MALE_ONLY; Nidoking
 	db SAME_BOTH_GENDERS; Slowbro
-	db SAME_BOTH_GENDERS; Exeggutor
 	db SAME_BOTH_GENDERS; Lickitung
 	db SAME_BOTH_GENDERS; Exeggcute
 	db SAME_BOTH_GENDERS; Grimer
 	db SAME_BOTH_GENDERS; Gengar
-	db FEMALE_ONLY; Nidoran?
+	db FEMALE_ONLY; NidoranF
 	db FEMALE_ONLY; Nidoqueen
 	db SAME_BOTH_GENDERS; Cubone
 	db MALE_88_PERCENT; Rhyhorn
 	db SAME_BOTH_GENDERS; Lapras
 	db SAME_BOTH_GENDERS; Arcanine
-	db SAME_BOTH_GENDERS; Mew
+	db NO_GENDER; Mew
 	db SAME_BOTH_GENDERS; Gyarados
 	db SAME_BOTH_GENDERS; Shellder
 	db SAME_BOTH_GENDERS; Tentacool
@@ -279,7 +278,8 @@ db MALE_75_PERCENT;const DEX_LUCARIO
 	db SAME_BOTH_GENDERS ; L
 	db SAME_BOTH_GENDERS ; Sylv
 	db SAME_BOTH_GENDERS ; Sc
-	db SAME_BOTH_GENDERS ; Steelix 
+	db SAME_BOTH_GENDERS ; Steelix
+	db SAME_BOTH_GENDERS; Exeggutor
 	db SAME_BOTH_GENDERS; Charmander
 	db SAME_BOTH_GENDERS; Squirtle
 		db SAME_BOTH_GENDERS; Bulbasaur
