@@ -196,7 +196,7 @@ MoveNames::
 	db "AQUA TAIL@"
 	db "HYDRO CANNON@"
 	db "FRENZY PLANT@"
-	db "SUCKER PUNCH@"
+	db "CHEAP SHOT@"
 	db "SHADOW BALL@"
 	db "FLAME WHEEL@"
 	db "MOONLIGHT@"
