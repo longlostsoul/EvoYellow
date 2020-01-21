@@ -228,7 +228,7 @@ OaksLabScript9:
 	call SetSpriteFacingDirectionAndDelay
 	ld a, 1
 	ld [wRivalStarter], a
-	ld a, EEVEE
+	ld a, PIKACHU
 	ld [wd11e], a
 	call GetMonName
 	ld a, $FF ^ (A_BUTTON | B_BUTTON)
@@ -581,8 +581,6 @@ OaksLabScript20:
 	ld a, $19
 	ld [hSpriteIndexOrTextID], a
 	call DisplayTextID
-	lb bc, POKE_BALL, 5
-	call GiveItem
 	SetEvent EVENT_GOT_POKEDEX
 	ld a, $1
 	ld [wViridianCityCurScript], a
@@ -1026,7 +1024,7 @@ OaksLabText_1cb3a:
 
 OaksLabText18:
 	TX_ASM
-	ld a, PIKACHU
+	ld a, EEVEE
 	ld [wPlayerStarter], a
 	ld [wd11e], a
 	call GetMonName
@@ -1040,7 +1038,7 @@ OaksLabText18:
 	ld [wMonDataLocation], a
 	ld a, 5
 	ld [wCurEnemyLVL], a
-	ld a, PIKACHU
+	ld a, EEVEE
 	ld [wd11e], a
 	ld [wcf91], a
 	call AddPartyMon

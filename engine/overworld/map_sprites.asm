@@ -44,6 +44,7 @@ InitOutsideMapSprites:
 	ld de, wSpriteSet
 	ld bc, (wSpriteSetID - wSpriteSet)
 	call CopyData ; copy it to wSpriteSet
+	;commented out section is from older version where just pikachu and raichu followed
 	;change wSpriteSet here to Raichu if you want a Raichu. but what to check, hmm... how about a new function cloned from IsStarterPikachuInOurParty to check for Raichu instead? Worked for me.
 	;callab IsStarterRaichuInOurParty
   ;jr nc, .nope
@@ -74,7 +75,7 @@ LoadSpriteSetFromMapHeader:
 	;load raichu on cert flag
 	;callab IsStarterPikachuInOurParty2
   ;jr z, .nope
-  ld a, SPRITE_PIKACHU ; load Pikachu separately
+  ld a, SPRITE_EEVEE ; load Pikachu separately
   ld [wSpriteSet], a
 ;.nope
 	callab LoadPokeFollowSprite
@@ -136,7 +137,7 @@ CheckForFourTileSprite:
 ; Checks for a sprite added in yellow
 ; Returns no carry if the sprite is Pikachu, as its sprite is handled separately
 ; Else, returns carry if the sprite uses 4 tiles
-	cp SPRITE_PIKACHU       ; is this the Pikachu Sprite?
+	cp SPRITE_EEVEE       ; is this the Pikachu Sprite?
 	ret z                   ; return if yes
 
 	cp SPRITE_BALL          ; is this a four tile sprite?

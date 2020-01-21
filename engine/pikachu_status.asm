@@ -18,7 +18,7 @@ IsStarterPikachuInOurParty2::
 	push hl
 	inc a
 	jr z, .noPlayerPikachu
-	cp PIKACHU + 1
+	cp EEVEE + 1
 ;	jr z, .curMonPlayerPikachu
 ;	cp RAICHU + 1
 	jr nz, .curMonNotPlayerPikachu
@@ -100,7 +100,7 @@ IsaPokemonInOurParty::
 	and a
 	ret	
 	
-WhatPokemonFirst::
+WhatPokemonFirst::	
 IsPikachuFirst::
 	ld hl, wPartySpecies
 	push hl
@@ -110,17 +110,17 @@ IsPikachuFirst::
 	push hl
 	inc a
 	jr z, .noPlayerPoke	
-	cp PIKACHU + 1
+	cp EEVEE + 1
 	jr z, .curMonPlayerPikachu
-	cp RAICHU + 1
-	jr nz, .otherPlayerPoke
+	cp JOLTEON + 1
+	jr nz, .OtherPlayerPoke
 .curMonPlayerPikachu
-  ld a,25
+  ld a,133 ;make it spit out the same pokedex num because why not. :P You want it to give same answer for evolved starter for laziness purposes. That's good, right? >_> <_<
   pop hl
   ret
-.otherPlayerPoke ;use cp against desired poke +1
+.OtherPlayerPoke
   pop hl
-  ret
+  ret ;should give poke + 1 in a. not tested yet.
 .noPlayerPoke
   ld a,0
 	pop hl
@@ -428,7 +428,7 @@ IsStarterRaichuInOurParty::
 	push hl
 	inc a
 	jr z, .noPlayerPikachu
-	cp RAICHU + 1
+	cp JOLTEON + 1
 	jr nz, .curMonNotPlayerPikachu
 .curMonPlayerPikachu
 ;	ld h, d
@@ -515,12 +515,12 @@ asm_fce21:
 	ld a, [wWhichPokemon]
 	call AddNTimes
 	ld a, [hl]
-	cp RAICHU
+	cp JOLTEON
   ;cp PERSIAN
 	jr nz, .isPika
 	jr .yes
 .isPika
-	cp PIKACHU
+	cp EEVEE
   ;cp MEOWTH
 	jr nz, .notPlayerPikachu
 .yes
@@ -621,7 +621,7 @@ CheckPikachuFaintedOrStatused::
 	and a
 	ret
 
-IsSurfingPikachuInThePlayersParty::
+IsSurfingPikachuInThePlayersParty:: ;actually you do not have to alter this one, you could keep surfchu a separate thing from starter. also useless now as I removed the check at the surfhouse so you can always play.
 	ld hl, wPartySpecies
 	ld de, wPartyMon1Moves
 	ld bc, wPartyMonOT
@@ -632,11 +632,11 @@ IsSurfingPikachuInThePlayersParty::
 	push hl
 	inc a
 	jr z, .noSurfingPlayerPikachu
-	cp RAICHU+1
+	cp JOLTEON+1
 	jr nz, .isitsurfpika
 	jr .yes
 .isitsurfpika
-	cp PIKACHU+1
+	cp EEVEE+1
 	jr nz, .curMonNotSurfingPlayerPikachu
 .yes
 	ld h, d

@@ -952,27 +952,27 @@ INCBIN "gfx/unknown_fd86b.2bpp"
 
 LoadPikachuSpriteIntoVRAM:
   call IsPikachuFirst
-  cp 25
+  cp 133 ;actually lawl I hardset it to give 25, I didn't actually need to alter this.
   ld a,0
   jr nz, .load2
   call IsStarterPikachuInOurParty2
   jr nc, .Raichu
-  ld de, PikachuSprite
+  ld de, EeveeSprite
 	;lb bc, BANK(PikachuSprite), (SandshrewSprite - PikachuSprite) / 32
 	jr .go
 .Raichu
-	ld de, RaichuSprite
+	ld de, EeveeSprite ;no sylveon sprite yet
 .go
-  lb bc, BANK(PikachuSprite), (SandshrewSprite - PikachuSprite) / 32
+  lb bc, BANK(EeveeSprite), (EeveeSprite - MeowthSprite) / 32 ;can't remem if I altered this before...
 	ld hl, vNPCSprites + $c * $10
 	push bc
 	call CopyVideoDataAlternate
 	call IsStarterRaichuInOurParty
 	jr nc, .Pikachu2
-	ld de, RaichuSprite + $c * $10
+	ld de, EeveeSprite + $c * $10
   jr .goo
 .Pikachu2
-	ld de, PikachuSprite + $c * $10
+	ld de, EeveeSprite + $c * $10
 .goo
 	ld hl, vNPCSprites2 + $c * $10
 	ld a, [h_0xFFFC]
@@ -980,10 +980,10 @@ LoadPikachuSpriteIntoVRAM:
 	jr z, .load
 	callab IsStarterRaichuInOurParty
 	jr nc, .Pikachu3
-	ld de, RaichuSprite + $c * $10
+	ld de, EeveeSprite + $c * $10
   jr .goo2
 .Pikachu3
-	ld de, PikachuSprite + $c * $10
+	ld de, EeveeSprite + $c * $10
 .goo2
 	ld hl, vNPCSprites2 + $4c * $10
 .load
