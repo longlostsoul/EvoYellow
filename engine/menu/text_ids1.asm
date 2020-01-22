@@ -130,15 +130,14 @@ DrawStartMenu:
 	jr nz, .printDayNightText
 	ld de,StartMenuExitText
 	call PlaceString
-.printDayNightText ;credit to base daynight goes to makers of maize and pokesparkyellow, I just fixed it so it wasn't bugged in viridian/caves.
+.printDayNightText ;credit to base daynight goes to makers of maize and pokesparkyellow, I just fixed it so it wasn't completely bugged in viridian/caves.
 	call PlaceString
 	; display night or day
 	coord hl, 1, 0 ; $c3aa
 	lb bc, 3, 7
 	call TextBoxBorder
 	coord hl, 3, 2
-	ld a, [wPlayTimeMinutes + 1]
-	cp 8
+	call CheckDayNight
 	jr nc, .night
 	ld de, DayText
 	jr .gotText

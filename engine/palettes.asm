@@ -206,7 +206,7 @@ SetPal_Overworld:
 	jr c, .town
 	jr .NotTown
 .town
-	callab CheckDayNight
+	call CheckDayNight
 	jr nc, .night
 	ld a, [wLastMap]
 	;for everything that isn't a dungeon, load its usual color. dungeons don't work nicely due to calling route as last map, yet get handled as towns. there's probably some way to check for them specifically that could make this code more efficient but I don't know it.

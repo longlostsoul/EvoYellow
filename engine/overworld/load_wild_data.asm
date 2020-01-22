@@ -18,8 +18,7 @@ LoadWildData:
 	ld de,wGrassMons ; otherwise, load grass data
 	ld bc,$0014
 	call CopyData
-	ld a, [wPlayTimeMinutes + 1]
-	cp 8
+	call CheckDayNight
 	jr c, .day
 	ld hl, HandleNightMons
 	ld b, Bank(HandleNightMons)
