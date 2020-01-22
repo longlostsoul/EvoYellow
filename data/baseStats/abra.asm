@@ -13,7 +13,7 @@ dw AbraPicFront
 dw AbraPicBack
 ; attacks known at lvl 0
 db TELEPORT
-db 0
+db BIDE
 db 0
 db 0
 db 3 ; growth rate

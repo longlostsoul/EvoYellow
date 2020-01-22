@@ -4,7 +4,7 @@ db 80 ; base attack
 db 90 ; base defense
 db 55 ; base speed
 db 45 ; base special
-db GROUND ; species type 1
+db ROCK ; species type 1
 db WATER ; species type 2
 db 33 ; catch rate
 db 119 ; base exp yield
@@ -22,7 +22,7 @@ db 0 ; growth rate
 	tmlearn 9,10,11,12,13,14
 	tmlearn 20
 	tmlearn 31,32
-	tmlearn 33,34
+	tmlearn 33,34,37,40
 	tmlearn 44
 	tmlearn 50,53
 db BANK(KabutoPicFront)

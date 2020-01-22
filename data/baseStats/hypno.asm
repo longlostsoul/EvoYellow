@@ -5,7 +5,7 @@ db 70 ; base defense
 db 67 ; base speed
 db 115 ; base special
 db PSYCHIC ; species type 1
-db DARK ; species type 2
+db PSYCHIC ; species type 2
 db 66 ; catch rate
 db 165 ; base exp yield
 INCBIN "pic/ymon/hypno.pic",0,1 ; 77, sprite dimensions

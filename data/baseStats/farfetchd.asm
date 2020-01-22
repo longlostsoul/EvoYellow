@@ -22,7 +22,7 @@ db 0 ; growth rate
 	tmlearn 9,10
 	tmlearn 20
 	tmlearn 31,32
-	tmlearn 33,34,39,40
+	tmlearn 33,34,37,39,40
 	tmlearn 44
 	tmlearn 50,51,52
 db BANK(FarfetchdPicFront)

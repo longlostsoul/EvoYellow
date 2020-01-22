@@ -13,7 +13,7 @@ dw MachopPicFront
 dw MachopPicBack
 ; attacks known at lvl 0
 db KARATE_CHOP
-db 0
+db BIDE
 db 0
 db 0
 db 3 ; growth rate
