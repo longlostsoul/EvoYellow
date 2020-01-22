@@ -7,6 +7,7 @@ PokedexEntryPointers:
 	dw NidokingDexEntry
 	dw SlowbroDexEntry
 	dw LickitungDexEntry
+	dw ExeggcuteDexEntry
 	dw GrimerDexEntry
 	dw GengarDexEntry
 	dw NidoranFDexEntry
