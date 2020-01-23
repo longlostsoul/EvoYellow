@@ -96,6 +96,6 @@ ItemPrices:
 	money 0     ; FLOOR_10F
 	money 0     ; FLOOR_11F
 	money 0     ; FLOOR_B4F
-	money 500 ;Stones
-	money 500
-	money 500
+	money 1500 ;Stones
+	money 1500
+	money 1500
