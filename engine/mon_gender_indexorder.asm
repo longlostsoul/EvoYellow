@@ -3,6 +3,9 @@
 GetMonGender::
 	ld hl, MonGenderRatios
 	ld a, [wGenderTemp]
+	ld [wd11e], a
+	predef IndexToPokedex ;if wanted to use this with out of order pokedex.
+	ld a, [wd11e]
 	dec a
 	ld c, a
 	ld b, 0
