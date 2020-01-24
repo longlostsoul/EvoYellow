@@ -642,3 +642,8 @@ SpriteSheetPointerTable:
 	dw LaprasSprite
 	db $c0 ; byte count
 	db BANK(LaprasSprite)
+	
+	dw ShellSprite
+	db $c0
+	db BANK(ShellSprite)
+	

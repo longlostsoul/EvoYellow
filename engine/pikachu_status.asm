@@ -147,7 +147,7 @@ LoadPokeFollowSprite::
 	pop hl
 	and a
 	ret	
-.curMonNotThis0
+.curMonNotThis0 ;this takes up a lot of space, need something more efficient sometime. :P
 	CP RAICHU +1
 	jr nz, .curMonNotThis1
 	ld a, SPRITE_RAICHU
@@ -325,25 +325,90 @@ LoadPokeFollowSprite::
 	cp MAGNETON + 1
 	jr nz, .curMonNotThisMon7
 	ld a, SPRITE_BALL
-	jr .resume
+	jr .resume2
 .curMonNotThisMon7
 	cp MAGNEZONE + 1
 	jr nz, .curMonNotThisMon8
 	ld a, SPRITE_BALL
-	jr .resume
+	jr .resume2
 .curMonNotThisMon8
 	cp GLIGAR + 1
 	jr nz, .curMonNotThisMon9
 	ld a, SPRITE_ZUBAT
-	jr .resume
+	jr .resume2
 .curMonNotThisMon9
 	cp GLISCOR + 1
 	jr nz, .curMonNotThisMon10
 	ld a, SPRITE_ZUBAT
-	jr .resume
+	jr .resume2
 .curMonNotThisMon10
+  cp ZUBAT + 1     
+	jr nz, .curMonNotThisZub
+	ld a, SPRITE_ZUBAT
+	jr .resume2
+.curMonNotThisZub
+  cp GOLBAT + 1     
+	jr nz, .curMonNotThisZub2
+	ld a, SPRITE_ZUBAT
+	jr .resume2
+.curMonNotThisZub2
+	cp GRIMER + 1
+	jr nz, .curMonNotThisGrime
+	ld a, SPRITE_DITTO
+	jr .resume2
+.curMonNotThisGrime
+	cp MUK + 1
+	jr nz, .curMonNotThisGrime2
+	ld a, SPRITE_DITTO
+	jr .resume2
+.curMonNotThisGrime2
+	cp OMANYTE + 1
+	jr nz, .curMonNotThisShell
+	ld a, SPRITE_SHELL
+	jr .resume2
+.curMonNotThisShell
+	cp OMASTAR + 1
+	jr nz, .curMonNotThisShell2
+	ld a, SPRITE_SHELL
+	jr .resume2
+.curMonNotThisShell2
+	cp SHELLDER + 1
+	jr nz, .curMonNotThisShell3
+	ld a, SPRITE_SHELL
+	jr .resume2
+.curMonNotThisShell3
+	cp CLOYSTER + 1
+	jr nz, .curMonNotThisShell4
+	ld a, SPRITE_SHELL
+	jr .resume2
+.curMonNotThisShell4
+	cp OCTILLERY + 1
+	jr nz, .curMonNotThisShell5
+	ld a, SPRITE_SHELL
+	jr .resume2
+.curMonNotThisShell6
+  cp SNEASEL + 1
+	jr nz, .curMonNotThissneeze
+	ld a, SPRITE_MEOWTH
+	jr .resume2
+.curMonNotThissneeze
+  cp STEELIX + 1
+	jr nz, .curMonNotThisSteel
+	ld a, SPRITE_SNAKE2
+	jr .resume2
+.curMonNotThisSteel
+  cp WEAVILE + 1
+	jr nz, .curMonNotThis_types
+	ld a, SPRITE_MEOWTH
+	jr .resume2
+.resume2;so, we have multiple different endings here
+  pop hl
+	scf
+	ld [wSpriteSet], a
+	ret
+.curMonNotThis_types
 	ld a,[wPartyMon1Type1]
- ; callab GetPartyMonSpriteID I didn't have much luck with this, also don't have enough sprites for all of them; they have to have full walksprites.
+ ; callab GetPartyMonSpriteID I didn't have much luck with getting this to actually throw values? maybe just not stored as I expected? also don't have enough sprites for all of them; they have to have full walksprites.
   ;cp SPRITE_MON              ; $0
 	;cp SPRITE_BALL_M           ; $1
 	;cp SPRITE_HELIX            ; $2
@@ -392,9 +457,9 @@ LoadPokeFollowSprite::
 	ld a, SPRITE_GHOST
 	jr .resume
 .curMonNotThisGhost
-  cp POISON       
+  cp GROUND       
 	jr nz, .curMonNotThisPoison
-	ld a, SPRITE_ZUBAT
+	ld a, SPRITE_GEODUDE
 	jr .resume
 .curMonNotThisPoison
   ld a,[wPartyMon1Type2]
@@ -403,7 +468,7 @@ LoadPokeFollowSprite::
 	ld a, SPRITE_BIRD
 	jr .resume
 .curMonNotThisBird
-	cp DARK        
+	cp NORMAL        
 	jr nz, .curMonNotThisredux
 	ld a, SPRITE_MEOWTH
 	jr .resume

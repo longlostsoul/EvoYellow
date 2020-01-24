@@ -1962,9 +1962,9 @@ SECTION "bank2f",ROMX[$5000],BANK[$2F]
 
 INCLUDE "engine/bg_map_attributes.asm"
 
-
 QwilfishPicFront::      INCBIN "pic/ymon/qwilfish.pic"
 QwilfishPicBack::       INCBIN "pic/monback/qwilfishb.pic"
+
 
 SECTION "bank30",ROMX,BANK[$30]
 
@@ -2201,6 +2201,7 @@ MurkrowPicBack::     INCBIN "pic/monback/murkrow.pic"
 HonchkrowPicFront::    INCBIN "pic/ymon/honchkrow.pic"
 HonchkrowPicBack::     INCBIN "pic/monback/honchkrow.pic"
 
+;full
 
 SECTION "bank3D",ROMX,BANK[$3D]
 
@@ -2225,25 +2226,17 @@ TyranitarPicBack::     INCBIN "pic/monback/tyranitarb.pic"
 WobbuffetPicFront::    INCBIN "pic/ymon/wobbuffet.pic"
 WobbuffetPicBack::     INCBIN "pic/monback/wobbuffetb.pic"
 
+;full
 
 SECTION "bank3E",ROMX,BANK[$3E]
 
 INCLUDE "engine/bank3e.asm"
 
-
+;full
 SECTION "bank3F",ROMX,BANK[$3F]
 
 INCLUDE "engine/bank3f.asm"
-
-PhanpyPicFront::      INCBIN "pic/ymon/phanpy.pic"
-PhanpyPicBack::       INCBIN "pic/monback/phanpy.pic"
-DonphanPicFront::    INCBIN "pic/ymon/donphan.pic"
-DonphanPicBack::     INCBIN "pic/monback/donphan.pic"
-GligarPicFront::      INCBIN "pic/ymon/gligar.pic"
-GligarPicBack::       INCBIN "pic/monback/gligar.pic"
-GliscorPicFront::      INCBIN "pic/ymon/gliscor.pic"
-GliscorPicBack::       INCBIN "pic/monback/gliscor.pic"
-
+;full
 
 SECTION "bank40",ROMX,BANK[$40]
 
@@ -2354,6 +2347,18 @@ BellossomPicFront::    INCBIN "pic/ymon/bellossom.pic"
 BellossomPicBack::     INCBIN "pic/monback/bellossom.pic"
 
 SECTION "bank42",ROMX,BANK[$42]
+ShellSprite: INCBIN "gfx/sprites/shell.2bpp"
+PhanpyPicFront::      INCBIN "pic/ymon/phanpy.pic"
+PhanpyPicBack::       INCBIN "pic/monback/phanpy.pic"
+DonphanPicFront::    INCBIN "pic/ymon/donphan.pic"
+DonphanPicBack::     INCBIN "pic/monback/donphan.pic"
+GligarPicFront::      INCBIN "pic/ymon/gligar.pic"
+GligarPicBack::       INCBIN "pic/monback/gligar.pic"
+GliscorPicFront::      INCBIN "pic/ymon/gliscor.pic"
+GliscorPicBack::       INCBIN "pic/monback/gliscor.pic"
+
+
+SECTION "bank43",ROMX,BANK[$43]
 KingdraPicFront::      INCBIN "pic/ymon/kingdra.pic"
 KingdraPicBack::       INCBIN "pic/monback/kingdra.pic"
 BlisseyPicFront::    INCBIN "pic/ymon/blissey.pic"
