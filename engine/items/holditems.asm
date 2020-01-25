@@ -1,10 +1,47 @@
-PlayerBerries::
 	;######Player Hold Item Script!####
+
+LoadPokeItem::
 	ld hl, wPartyMon1CatchRate
 	ld a, [wPlayerMonNumber]
 	ld bc, wPartyMon2 - wPartyMon1
 	call AddNTimes ;now HL should point to our chosen mon's catch rate.
-  ld a, [hl];[wBattleMonCatchRate] except doesn't seem to update well
+  ld a, [hl];[wBattleMonCatchRate] except that doesn't seem to update well, so we use this instead
+  ret
+  
+MegaForms::
+  call LoadPokeItem
+  cp SUN_STONE
+  jr nz, .noStone
+  ;Do stuff
+  ;ld a, [wWhichPokemon] ; for full over-ride, will act like is the poke on level up which may not be desirable, put after LoadBattleMonFromParty in core
+	;ld bc, wPartyMon2 - wPartyMon1
+	;ld hl, wPartyMon1Species
+	;call AddNTimes
+	;ld a, MEWTWO
+	; ld [hl],a ;could over-ride the taking PartyMon as input.
+	ld a, CHARIZARD ;for testing purposes. Seems to work well.
+	ld de, wBattleMonSpecies ;smaller over-ride for BattleMon instead, put after copy data in LoadBattleMonFromParty
+	ld [de], a
+	ld a, [wBattleMonAttack + 1]
+	ld b, 50
+	add b
+	ld [wBattleMonAttack + 1], a
+	;jp .don
+	;we could also try wbattlemontype and wbattlemonmoves if we wanted to over-ride that too.
+	ld a, TWISTER
+	ld [wBattleMonMoves],a
+	ld a, DRAGON
+	ld [wBattleMonType],a
+.noStone
+  ;ld a, [wWhichPokemon]
+	;ld bc, wPartyMon2 - wPartyMon1
+	;ld hl, wPartyMon1Species
+	;call AddNTimes
+;.don
+  ret
+  
+PlayerBerries::
+  call LoadPokeItem
   cp FULL_HEAL;,PARLYZ_HEAL;;cp antidote laters for moar kinds. would need to put elsewhere for sleeping mons as sleepers can't attack unless we add on sleeptalk. ;is it potionz?
   jr nz, .IsItOther
   ld a,[wBattleMonStatus]
@@ -40,6 +77,11 @@ PlayerBerries::
   ld b,15
 .UseHealBerry
 	;callab PrintHoldItemText;test
+  ld a, [wBattleMonHP + 1]
+  ld b, a
+  ld a,[wBattleMonMaxHP +1]
+  cp b
+  jr z, .NoUseBerry ;If battlemon hp = Maxhp, don't use.
   ld a, [wBattleMonHP + 1]
 	cp 30;less than this health, use a held item.
   jr nc, .NoUseBerry ;if bigger than above, don't use
@@ -99,7 +141,13 @@ EnemyBerries::
 	callab PrintHoldItemText2
   jr .NoUseBerry
 .super
-  ld b,30 ;enemies are so weak and so rarely use potions, let em have a good healberry
+  ld a, [wEnemyMonHP + 1]
+  ld b, a
+  ld a,[wEnemyMonMaxHP +1]
+  cp b
+  jr z, .NoUseBerry ;If battlemon hp = Maxhp, don't use.
+  ld a, [wEnemyMonHP + 1]
+  ld b,30 ;enemies are so weak and so rarely use potions, let em always have a good healberry
   ld a, [wEnemyMonHP+1]
  ; cp 0
  ; jr z, .NoUseBerry
