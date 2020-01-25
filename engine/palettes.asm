@@ -402,13 +402,13 @@ GetMonPalID:
 	ld b, a
 	ld a,[wTemp]
 ;Shinybit 1	
-	cp 1
-	jr nz, .nextcolor
-	;ld a,b
-	;add (3) ;
-	ld a, PAL_PURPLEMON 
-	jr .done
-.nextcolor
+;	cp 1
+;	jr nz, .nextcolor
+	;older;ld a,b
+	;older;add (3) ;
+;	ld a, PAL_PURPLEMON ;We used purplemon for night time, so goodbye.
+;	jr .done
+;.nextcolor
 	ld a,[wTemp]
 	cp 2
 	jr nz, .nextcolor2

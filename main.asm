@@ -2358,7 +2358,12 @@ GligarPicFront::      INCBIN "pic/ymon/gligar.pic"
 GligarPicBack::       INCBIN "pic/monback/gligar.pic"
 GliscorPicFront::      INCBIN "pic/ymon/gliscor.pic"
 GliscorPicBack::       INCBIN "pic/monback/gliscor.pic"
-
+;MegaCharizardPicFront::       INCBIN "pic/ymon/mega_charizard_y_by_solo.pic"
+;MegaBlastoisePic::       INCBIN "pic/ymon/mega_blastoise_by_solo.pic"
+;MegaVenusaurPic::       INCBIN "pic/ymon/mega_venusaur_Xous_longlost.pic"
+;MegaCharizardPicBack::       INCBIN "pic/monback/mega_charizard_y_by_solo.pic"
+;MegaBlastoisePicBack::       INCBIN "pic/monback/mega_blastoise_by_solo.pic"
+;MegaVenusaurPicBack::       INCBIN "pic/monback/mega_venusaur.pic"
 
 SECTION "bank43",ROMX,BANK[$43]
 KingdraPicFront::      INCBIN "pic/ymon/kingdra.pic"
@@ -2415,8 +2420,8 @@ IsMonShiny:
 	ld [wTemp], a
 	ld a, [hli]
 	and $f
-	cp 9
-	jr z, .MaybeShiny1
+	;cp 9
+	;jr z, .MaybeShiny1
 	cp 8
 	jr z, .MaybeShiny2
 	cp 7
@@ -2433,11 +2438,11 @@ IsMonShiny:
 	ld [wTemp], a
 	ld a, [hl]
 	jr .Shiny
-.MaybeShiny1 ;color1
-	ld a, 1
-	ld [wTemp], a
-	ld a, [hl]
-	jr .Shiny
+;.MaybeShiny1 ;color1
+;	ld a, 1
+;	ld [wTemp], a
+;	ld a, [hl]
+;	jr .Shiny
 .MaybeShiny2;color2
 	ld a, 2
 	ld [wTemp], a
