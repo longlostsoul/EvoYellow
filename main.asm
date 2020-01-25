@@ -2348,6 +2348,7 @@ BellossomPicBack::     INCBIN "pic/monback/bellossom.pic"
 
 SECTION "bank42",ROMX,BANK[$42]
 ShellSprite: INCBIN "gfx/sprites/shell.2bpp"
+MewSprite: INCBIN "gfx/sprites/psychic.2bpp"
 QuadSprite: INCBIN "gfx/sprites/quadruped.2bpp"
 PhanpyPicFront::      INCBIN "pic/ymon/phanpy.pic"
 PhanpyPicBack::       INCBIN "pic/monback/phanpy.pic"

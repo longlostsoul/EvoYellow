@@ -112,6 +112,7 @@ const_value = 1
 	const SPRITE_LAPRAS
 	const SPRITE_SHELL
 	const SPRITE_TAUROS
+	const SPRITE_MEW
 	
 
 ; different kinds of people events

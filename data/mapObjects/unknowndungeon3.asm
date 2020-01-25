@@ -7,7 +7,7 @@ UnknownDungeon3Object:
 	db $0 ; signs
 
 	db $5 ; objects
-	object SPRITE_SLOWBRO, $1b, $d, STAY, DOWN, $1, MEWTWO, 70
+	object SPRITE_MEW, $1b, $d, STAY, DOWN, $1, MEWTWO, 70
 	object SPRITE_BALL, $1a, $1, STAY, NONE, $2, ULTRA_BALL
 	object SPRITE_BALL, $2, $d, STAY, NONE, $3, ULTRA_BALL
 	object SPRITE_BALL, $3, $d, STAY, NONE, $4, MAX_REVIVE

@@ -418,6 +418,8 @@ LoadPokeFollowSprite::
 .curMonNotThis_types
 	ld a,[wPartyMon1Type1]
  ; callab GetPartyMonSpriteID I didn't have much luck with this. I might try it again though, this current set up is still a bit inefficient, although since requires full walksprites I'd still have to go through each sprite type and load a new sprite.
+ ;In hindsight, I think one reason it may not have worked could be bank switching, since I noticed putting the pointers to the lists in this bank made them work much better. For now, since have to change sprites anyway, this works.
+ ;ld b, Bank(pointers)	ld hl, pointers	ld input? call Bankswitch
   ;cp SPRITE_MON              ; $0
 	;cp SPRITE_BALL_M           ; $1
 	;cp SPRITE_HELIX            ; $2
@@ -472,11 +474,11 @@ LoadPokeFollowSprite::
 	ld a, SPRITE_CLEFAIRY
 	jr .resume
 .curMonNotThisFairy
-;	cp NORMAL        
-;	jr nz, .curMonNotThisredux
-;	ld a, SPRITE_MEOWTH
-;	jr .resume
-;.curMonNotThisredux
+	cp PSYCHIC     
+	jr nz, .curMonNotThisredux
+	ld a, SPRITE_MEW
+	jr .resume
+.curMonNotThisredux
   ld a, SPRITE_SLOWBRO
   jr .resume
 .resume

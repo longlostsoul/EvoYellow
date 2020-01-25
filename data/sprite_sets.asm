@@ -651,3 +651,6 @@ SpriteSheetPointerTable:
 	db $c0
 	db BANK(QuadSprite)
 	
+	dw MewSprite
+	db $c0
+	db BANK(MewSprite)
