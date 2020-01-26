@@ -139,12 +139,12 @@ StatusScreen:
 	call RunPaletteCommand
 	coord hl, 16, 6
 	ld de, wLoadedMonStatus
-	call PrintStatusCondition
-	jr nz, .StatusWritten
-	coord hl, 16, 6
-	ld de, OKText
-	call PlaceString ; "OK"
-.StatusWritten
+	;call PrintStatusCondition
+	;jr nz, .StatusWritten
+	;coord hl, 16, 6
+	;ld de, OKText
+	;call PlaceString ; "OK"
+;.StatusWritten
 	coord hl, 9, 6
 	;ld de, StatusText;old status text
 	;call PlaceString ; "STATUS/" 
