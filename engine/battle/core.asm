@@ -3679,6 +3679,8 @@ CheckPlayerStatusConditions:
   ld a,[wTemp]
   cp 100
   jr z, .WakeUp
+  cp 101
+  jr z, .defrostMon
 	ld hl,wBattleMonStatus
 	ld a,[hl]
 	and a,SLP ; sleep mask

@@ -41,10 +41,10 @@ GivePokeHoldItem: ;;give script is here
 	ld bc,wPartyMon1CatchRate - wPartyMon1
 	add hl,bc ; hl now points to catch, now item
 	ld a, [hl] ;Let's do a check for what the item is
-	cp 101
+	cp MAX_HOLD
 	jr c, .cnt ;less than than...
-	ld a, 20
-	 ;overwrite with potion if the catch rate of Mon is nonexistent item.
+	ld a, 107;20
+	 ;overwrite if the catch rate of Mon is nonexistent item.
 	;ld [hl],a ;not necessary to actually do it since we overwrite shortly anyway
 .cnt 
   ld [wTempCoins1], a ;hold bag id for laters
@@ -247,6 +247,14 @@ ItemUsePtrTable:
   dw ItemUseEvoStone   ; sun_STONE
 	dw ItemUseEvoStone   ; frost_STONE
 	dw ItemUseEvoStone   ; love_STONE
+	dw ItemUseEvoStone   ; shiny stone?
+	dw ItemUseEvoStone   ; kings rock?
+	dw ItemUseEvoStone   ;  steel coat?
+	dw ItemUseVitamin ;Quick claw?
+	dw ItemUseVitamin ;Eviolite?
+	dw ItemUseMedicine ;berry
+	dw ItemUseMedicine
+	
 	
 ItemUseBall:
 
@@ -1089,13 +1097,13 @@ ItemUseMedicine:
 .checkItemType
 	ld a, [wcf91]
 	cp REVIVE
-	jr nc, .healHP ; if it's a Revive or Max Revive
+	jp nc, .healHP ; if it's a Revive or Max Revive
 	cp FULL_HEAL
-	jr z, .cureStatusAilment ; if it's a Full Heal
+	jp z, .cureStatusAilment ; if it's a Full Heal
 	cp HP_UP
 	jp nc, .useVitamin ; if it's a vitamin or Rare Candy
 	cp FULL_RESTORE
-	jr nc, .healHP ; if it's a Full Restore or one of the potions
+	jp nc, .healHP ; if it's a Full Restore or one of the potions
 ; fall through if it's one of the status-specifc healing items
 .cureStatusAilment
 	ld bc,wPartyMon1Status - wPartyMon1
@@ -1326,6 +1334,12 @@ ItemUseMedicine:
 
 .notUsingSoftboiled2
 	ld a, [wcf91]
+	cp a,SITRUS_BERRY
+	ld b,30
+	jr z,.addHealAmount
+	cp a,ORAN_BERRY
+	ld b,10
+	jr z,.addHealAmount
 	cp SODA_POP
 	ld b, 60 ; Soda Pop heal amount
 	jr z, .addHealAmount
@@ -3276,8 +3290,13 @@ SendNewMonToBox:
 	ld a, $44 ; 44 is x_special. 60 is twistedspoon in gsc
 	ld [wBoxMon1CatchRate], a
 .notKadabra
+  cp CHANSEY
+	jr nz, .notKadabra
+	ld a, 106 ; item
+	ld [wBoxMon1CatchRate], a
+.notchans
   ld a,[wBoxMon1CatchRate]
-  cp 101
+  cp MAX_HOLD;max_items
   jr c, .enditem
   Call Random
   ld b,a

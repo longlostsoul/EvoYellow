@@ -166,28 +166,42 @@ PlayerBerries::
 .IsItOther
   cp AWAKENING
   ;is it asleep. call PlayerBerries in CheckPlayerStatusConditions.
-  jr nz, .isItAntidote
-  ld [wTemp],a
+  jr nz, .IsItFreeze
+  ld [wTemp],a;override wTemp.
   ld hl,wBattleMonStatus
 	ld a,[hl]
 	and a,SLP
   jr z, .ret
-.WakeUp
+;.WakeUp
 	call RidBerry
 	ld a,100
-	ld [wTemp],a
-  ;ld a,0
-  ;ld [wBattleMonStatus],a
-  ;dec a
-	;ld [wBattleMonStatus],a ; decrement number of turns left
-	;and a
+	ld [wTemp],a ;do it again to our 'wake up' msg, handled in core.
   ret
+.IsItFreeze
+  cp ICE_HEAL
+  jr nz, .isItAntidote
+  ld [wTemp],a
+  ld hl,wBattleMonStatus
+	bit FRZ,[hl] ; frozen?
+  jr z, .ret
+	call RidBerry
+	ld a,101
+	ld [wTemp],a
+	ret
 .isItAntidote
   cp ANTIDOTE
   ;is it antidote?
-  jr nz, .IsItPara
+  jr nz, .IsItBurn
   ld a,[wBattleMonStatus]
   cp PSN
+  jr z, .cleanstatus
+  ret
+.IsItBurn
+  cp BURN_HEAL
+  ;is it antidote?
+  jr nz, .IsItPara
+  ld a,[wBattleMonStatus]
+  cp BRN
   jr z, .cleanstatus
   ret
 .IsItPara
@@ -214,14 +228,18 @@ PlayerBerries::
 	callab PrintHoldItemText
   jr .NoUseBerry
 .super
-  cp SUPER_POTION;is it potionz
+  cp SITRUS_BERRY;is it berry?
   jr nz, .IsItOther2
-  ld b,30 
+  ld b,35 
   jr .UseHealBerry
 .IsItOther2
-  cp POTION;is it potionz?
-  jr nz, .NoUseBerry
+  cp ORAN_BERRY;is it berry?
+  jr nz, .IsItPot
   ld b,15
+.IsItPot
+  cp POTION;is it salve? Having Potion be a holdable is useful for giving wilds higher catchrates, since shares spot with wild's item.
+  jr nz, .NoUseBerry
+  ld b,30
 .UseHealBerry
 	;callab PrintHoldItemText;test
   ld a, [wBattleMonHP + 1]
@@ -264,7 +282,7 @@ RidBerry::
 EnemyBerries::
  ;ENEMY HOLD ITEMS
   ld a, [wEnemyMonCatchRate];
-  cp 99 ;Enemies with catch rate lower than that should use items.
+  cp MAX_HOLD ;Enemies with catch rate lower than that should use items.
   jr nc, .NoUseBerry
   ;callab PrintHoldItemText2 ;debug to check is holding item indeed
   cp FULL_HEAL ;is it potionz?
@@ -313,7 +331,7 @@ EnemyBerries::
 	ld a,[wEnemyMonMaxHP+1] ; full restore instead
 .ContUseItem
 	ld [wEnemyMonHP+1],a
-  ld a,100
+  ld a,MAX_HOLD
   ld [wEnemyMonCatchRate], a ;replace with diff item after use...doesn't seem to work permanently, but could do check after catching elsewhere and if this specific value turn it into 0. anyway, will make a poke easier to catch by at least 1. >_>
   callab PrintHoldItemText2
 .NoUseBerry

@@ -4,7 +4,7 @@ Func_f1ad2:
 	ld hl, Route1ViridianMartSampleText
 	call PrintText
 	lb bc, POTION, 1
-	;call GiveItem
+	call GiveItem
 	;lb bc, KANGHASKAN, 5 ;good for quick testing
 	;call GivePokemon
 	jr nc, .BagFull

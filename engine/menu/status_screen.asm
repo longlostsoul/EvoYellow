@@ -145,15 +145,15 @@ StatusScreen:
 	;ld de, OKText
 	;call PlaceString ; "OK"
 ;.StatusWritten
-	coord hl, 9, 6
+	coord hl, 8, 6
 	;ld de, StatusText;old status text
 	;call PlaceString ; "STATUS/" 
 	ld a, [wLoadedMonCatchRate]
 	cp 0
 	jr z, .noitem
-	cp 100
+	cp MAX_HOLD;max items+1
 	jr c, .cnt
-	ld a, 20 ;I think I put this as an override if the item held id is over 100, which could correspond to a nonexistent item or a junk 'floor' item.
+	ld a, 107 ;I think I put this as an override if the item held id is over 100, which could correspond to a nonexistent item or a junk 'floor' item.
 	ld [wLoadedMonCatchRate],a
 .cnt
 	ld [wd11e],a ; store item ID for GetItemName

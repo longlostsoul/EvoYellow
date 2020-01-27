@@ -73,24 +73,25 @@ PackFullText:
 	TX_FAR _NoMoreRoomForItemText
 	db "@"
 	
+	
 ; The table is not terminated, so don't use invalid tree numbers
 BerryTable:
-	db POTION;ORAN_BERRY   ; Route 1
+	db ORAN_BERRY;ORAN_BERRY  ; Route 1
 	db PARLYZ_HEAL;PECHA_BERRY  ; Route 2, Tree 1
 	db ANTIDOTE;PECHA_BERRY  ; Pewter City, Tree 1
 	db AWAKENING;CHESTO_BERRY ; Pewter City, Tree 2
 	db PARLYZ_HEAL;CHERI_BERRY  ; route 8
-	db SUPER_POTION;SITRUS_BERRY ; route 11
+	db SITRUS_BERRY ; route 11
 	db FULL_HEAL;CHERI_BERRY ; Unused
-	db POTION;;ORAN_BERRY  ; route 4
+	db ORAN_BERRY  ; route 4
 	db FULL_HEAL;LUM_BERRY    ; route 4
 	db ANTIDOTE;PECHA_BERRY  ; route 15
 	db PARLYZ_HEAL;ORAN_BERRY  ; route 16
 	db ANTIDOTE;PECHA_BERRY  ; Route 2, Tree 2
 	db FULL_HEAL;;ORAN_BERRY   ; Viridian Forest
-	db SUPER_POTION;SITRUS_BERRY ; Route 7
-	db POTION;SITRUS_BERRY   ; none
-	db POTION;SITRUS_BERRY   ; none
+	db SITRUS_BERRY;SITRUS_BERRY ; Route 7
+	db SITRUS_BERRY;SITRUS_BERRY   ; none
+	db SITRUS_BERRY;SITRUS_BERRY   ; none
 	
 BerryReset::
 ; Called to reset berry trees
