@@ -99,7 +99,7 @@ const_value = 1
 	const SPRITE_OLD_AMBER                 ; $4f
 	const SPRITE_BUTTERFREE    ; $50
 	const SPRITE_EEVEE    ; $51
-	const SPRITE_LYING_OLD_MAN             ; $52
+	const SPRITE_BERRY_TREE;SPRITE_LYING_OLD_MAN             ; $52
 	const SPRITE_DOG
 	const SPRITE_FISH
 	const SPRITE_PERSIAN

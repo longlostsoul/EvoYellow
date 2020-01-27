@@ -17,7 +17,7 @@ ViridianForestObject:
 	db $2d, $12, $f ; ViridianForestText13
 	db $1, $2, $10 ; ViridianForestText14
 
-	db $a ; objects
+	db $b ; objects
 	object SPRITE_BUG_CATCHER, $10, $2b, STAY, NONE, $1 ; person
 	object SPRITE_BUG_CATCHER, $1e, $21, STAY, LEFT, $2, OPP_BUG_CATCHER, $1
 	object SPRITE_BUG_CATCHER, $1e, $13, STAY, LEFT, $3, OPP_BUG_CATCHER, $2
@@ -28,6 +28,7 @@ ViridianForestObject:
 	object SPRITE_BALL, $c, $1d, STAY, NONE, $8, POTION
 	object SPRITE_BALL, $1, $1f, STAY, NONE, $9, POKE_BALL
 	object SPRITE_BUG_CATCHER, $1b, $28, STAY, NONE, $a ; person
+	object SPRITE_BERRY_TREE, $1f, $5, NONE, $ff, $11
 
 	; warp-to
 	EVENT_DISP VIRIDIAN_FOREST_WIDTH, $0, $1 ; VIRIDIAN_FOREST_EXIT

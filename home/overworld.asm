@@ -326,6 +326,14 @@ StepCountCheck::
 ; step counting
 	ld hl, wStepCounter
 	dec [hl]
+; berry steps
+	ld hl,wBerryStepCounter
+	dec [hl]
+	ld a,[hli]
+	and a
+	jp nz, .originalRoutine
+	callba BerryReset
+.originalRoutine
 	ld a, [wd72c]
 	bit 0, a
 	jr z, .doneStepCounting

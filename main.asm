@@ -178,7 +178,7 @@ BookMapDexSprite:      INCBIN "gfx/sprites/book_map_dex.2bpp"
 ClipboardSprite:       INCBIN "gfx/sprites/clipboard.2bpp"
 SnorlaxSprite:         INCBIN "gfx/sprites/snorlax.2bpp"
 OldAmberSprite:        INCBIN "gfx/sprites/old_amber.2bpp"
-LyingOldManSprite:     INCBIN "gfx/sprites/lying_old_man.2bpp"
+BerryTreeSprite: INCBIN "gfx/sprites/tree.2bpp";LyingOldManSprite:     INCBIN "gfx/sprites/lying_old_man.2bpp"
 QuestionMarkSprite:    INCBIN "gfx/sprites/question_mark.2bpp"
 SquirtleSprite:       INCBIN "gfx/sprites/squirtle.2bpp"
 CharmanderSprite:       INCBIN "gfx/sprites/charmander.2bpp"
@@ -2364,6 +2364,8 @@ GliscorPicBack::       INCBIN "pic/monback/gliscor.pic"
 ;MegaCharizardPicBack::       INCBIN "pic/monback/mega_charizard_y_by_solo.pic"
 ;MegaBlastoisePicBack::       INCBIN "pic/monback/mega_blastoise_by_solo.pic"
 ;MegaVenusaurPicBack::       INCBIN "pic/monback/mega_venusaur.pic"
+
+include "home/berrytrees.asm";
 
 SECTION "bank43",ROMX,BANK[$43]
 KingdraPicFront::      INCBIN "pic/ymon/kingdra.pic"

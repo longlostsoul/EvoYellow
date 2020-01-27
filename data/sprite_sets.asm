@@ -70,7 +70,7 @@ SpriteSets:
 	db SPRITE_OAK
 	db SPRITE_SWIMMER
 	db SPRITE_BALL
-	db SPRITE_LYING_OLD_MAN
+	db SPRITE_BERRY_TREE
 
 ; sprite set $02
 	db SPRITE_PIKACHU
@@ -82,7 +82,7 @@ SpriteSets:
 	db SPRITE_OFFICER_JENNY
 	db SPRITE_LASS
 	db SPRITE_BLACK_HAIR_BOY_1
-	db SPRITE_BALL
+	db SPRITE_BERRY_TREE
 	db SPRITE_EEVEE
 
 ; sprite set $03
@@ -135,7 +135,7 @@ SpriteSets:
 	db SPRITE_GUARD
 	db SPRITE_GAMBLER
 	db SPRITE_BALL
-	db SPRITE_EEVEE
+	db SPRITE_BERRY_TREE
 
 ; sprite set $07
 	db SPRITE_PIKACHU
@@ -599,9 +599,9 @@ SpriteSheetPointerTable:
 	db BANK(BugSprite)
 
 	; SPRITE_LYING_OLD_MAN
-	dw LyingOldManSprite
+	dw BerryTreeSprite;LyingOldManSprite
 	db $40 ; byte count
-	db BANK(LyingOldManSprite)
+	db BANK(BerryTreeSprite);(LyingOldManSprite)
 	
 	dw RedCyclingSprite
 	db $c0 ; byte count

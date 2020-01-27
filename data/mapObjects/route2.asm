@@ -14,10 +14,11 @@ Route2Object:
 	db $41, $5, $3 ; Route2Text3
 	db $b, $b, $4 ; Route2Text4
 
-	db $2 ; objects
+	db $4 ; objects
 	object SPRITE_BALL, $d, $36, STAY, NONE, $1, MOON_STONE
 	object SPRITE_BALL, $d, $2d, STAY, NONE, $2, HP_UP
-
+  object SPRITE_BERRY_TREE, $10, $10, NONE, $ff, $5 ; person
+	object SPRITE_BERRY_TREE, $8,$29, NONE, $ff, $6 ; person
 	; warp-to
 	EVENT_DISP ROUTE_2_WIDTH, $9, $c ; DIGLETTS_CAVE_EXIT
 	EVENT_DISP ROUTE_2_WIDTH, $b, $3 ; VIRIDIAN_FOREST_EXIT
@@ -26,11 +27,3 @@ Route2Object:
 	EVENT_DISP ROUTE_2_WIDTH, $27, $f ; ROUTE_2_GATE
 	EVENT_DISP ROUTE_2_WIDTH, $2b, $3 ; VIRIDIAN_FOREST_ENTRANCE
 	EVENT_DISP ROUTE_2_WIDTH, $23, $11 ; ROUTE_2_GATE
-
-	; unused
-	EVENT_DISP $4, $7, $2
-	dw      $c712
-	db             $9, $7
-	EVENT_DISP $4, $7, $2
-	EVENT_DISP $4, $7, $2
-	EVENT_DISP $4, $7, $2
