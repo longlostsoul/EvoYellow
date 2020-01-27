@@ -106,3 +106,12 @@ BerryReset::
 	ld [hli],a
 	ld [hl],a
 	ret
+	
+;BerryReset:: ;Shorter reset, good for testing.
+; Called to reset berry trees
+; Happens when the berry counter hits 0
+	;xor a
+	;ld hl, W_BERRYTREEFLAGS
+	;ld [hli],a
+	;ld [hl],a
+	;ret

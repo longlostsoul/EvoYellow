@@ -120,7 +120,7 @@ MegaForms::
 	ld a, DRAGON
 	ld [wBattleMonType2],a
 .print
-  callab PrintHoldItemText
+  ;callab PrintHoldItemText ;actually kinda obnoxious/pops up before the mon does, so maybe sometime later. good for testing though.
 .noStone
   ret
   
