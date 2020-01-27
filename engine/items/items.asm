@@ -116,9 +116,48 @@ PrintHoldItemText2:
  ld hl,UseHoldItemText
  Call PrintText
  ret
+ 
+PrintLeftovers:
+ ld hl,UseLeftOversText
+ Call PrintText
+ ret
+	
+PrintSleepBerryText:
+ ld hl,UseSLPBerryText
+ Call PrintText
+ ret
+	
+UseSLPBerryText::
+ text "PKMN ate a Chesto!"
+ prompt
+ 
+PrintCUREBerryText:
+ ld hl,UseCUREBerryText
+ Call PrintText
+ ret
+	
+UseCUREBerryText::
+ text "PKMN ate a cure!"
+ prompt
+ 
+PrintHealBerryText:
+ ld hl,UseHealBerryText
+ Call PrintText
+ ret
+	
+UseHealBerryText::
+ text "PKMN ate berry!"
+ prompt
 	
 UseHoldItemText::
- text "PKMN ate a little!"
+ text "PKMN used an item!"
+ ;line "@"
+ ;TX_RAM wcf4b ;some variable goes here if we want?
+ ;text "."
+ prompt
+ 
+UseLeftOversText::
+ text "PKMN ate leftovers!"
  ;line "@"
  ;TX_RAM wcf4b ;some variable goes here if we want?
  ;text "."

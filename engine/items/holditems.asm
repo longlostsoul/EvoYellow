@@ -50,6 +50,7 @@ MegaForms::
  ld [wBattleMonType2],a
  ld [wBattleMonMoves],a
 .ret1
+ callab PrintHoldItemText
  ret
 .Ice
  ld a, ICE
@@ -66,19 +67,13 @@ MegaForms::
  jr nz, .noStone
  ld a, STEEL
  ld [wBattleMonType2],a
- jp .noStone
-.Mega2
-	;ld a, MEGA_BLASTOISE ;mega form or other form pic change. Seems to work well.
-	;ld de, wBattleMonSpecies ;put after copy data in LoadBattleMonFromParty
-	;	ld [de], a
-	call Megastats
-	jp .noStone
+ jp .print
 .Thunderit
  ld a, ELECTRIC
  ld [wBattleMonType],a
  ld a, THUNDERBOLT
  ld [wBattleMonMoves],a
- jp .noStone
+ jp .print
 .Fireify
  ld a, FLAMETHROWER
  ld [wBattleMonMoves],a
@@ -89,7 +84,13 @@ MegaForms::
  jr nz, .noStone
  ld a, GHOST
  ld [wBattleMonType2],a
- jp .noStone
+ jp .print
+.Mega2
+	;ld a, MEGA_BLASTOISE ;mega form or other form pic change. Seems to work well.
+	;ld de, wBattleMonSpecies ;put after copy data in LoadBattleMonFromParty
+	;	ld [de], a
+	call Megastats
+	jp .print
 .sun
   cp SUN_STONE
   jr nz, .noStone
@@ -118,6 +119,8 @@ MegaForms::
 	ld [wBattleMonMoves],a
 	ld a, DRAGON
 	ld [wBattleMonType2],a
+.print
+  callab PrintHoldItemText
 .noStone
   ret
   
@@ -150,6 +153,7 @@ Megastats::
   
   
 PlayerBerries::
+  ;callab PrintHoldItemText
   call LoadPokeItem
   cp FULL_HEAL
   ;is it potionz?
@@ -160,63 +164,43 @@ PlayerBerries::
 .cleanstatus
   ld a,0
   ld [wBattleMonStatus],a
-  call RidBerry;callab PrintHoldItemText
+  callab PrintCUREBerryText
+  call RidBerry
 .ret
   ret
 .IsItOther
+  call LoadPokeItem
   cp ANTIDOTE
   ;is it antidote?
   jr nz, .IsItBurn
-  ld a,[wBattleMonStatus]
-  cp PSN
-  jr z, .cleanstatus
+  ld hl,wBattleMonStatus
+	bit PSN,[hl]
+  jr nz, .cleanstatus
   ret
 .IsItBurn
   cp BURN_HEAL
   ;is it antidote?
   jr nz, .IsItPara
   ld a,[wBattleMonStatus]
-  cp BRN
-  jr z, .cleanstatus
+  ld hl,wBattleMonStatus
+	bit BRN,[hl]
+  jr nz, .cleanstatus
   ret
 .IsItPara
   cp PARLYZ_HEAL
   ;is it paralyzed?
   jr nz, .isitHeal
+  ld [wTemp],a
   ld hl,wBattleMonStatus
 	bit PAR,[hl]
   jr z,.ret
   ld a,0
   ld [wBattleMonStatus],a
+  callab PrintCUREBerryText
   call RidBerry
 	ld a,99
   ret
 .isitHeal
-  cp AWAKENING
-  ;is it asleep. call PlayerBerries in CheckPlayerStatusConditions.
-  jr nz, .IsItFreeze
-  ld [wTemp],a;override wTemp.
-  ld hl,wBattleMonStatus
-	ld a,[hl]
-	and a,SLP
-  jr z, .ret
-;.WakeUp
-	call RidBerry
-	ld a,100
-	ld [wTemp],a ;do it again to our 'wake up' msg, handled in core.
-  ret
-.IsItFreeze
-  cp ICE_HEAL
-  jr nz, .isItFull
-  ld [wTemp],a
-  ld hl,wBattleMonStatus
-	bit FRZ,[hl] ; frozen?
-  jr z, .ret
-	call RidBerry
-	ld a,101
-	ld [wTemp],a
-	ret
-.isItFull
   cp MAX_POTION ;leftovers
   jr nz, .super
   ld a,[wBattleMonHP + 1]
@@ -229,7 +213,7 @@ PlayerBerries::
   ld a,b
 .MaxLeftovers
   ld [wBattleMonHP + 1], a
-	callab PrintHoldItemText
+	callab PrintLeftovers
   jr .NoUseBerry
 .super
   cp SITRUS_BERRY;is it berry?
@@ -240,12 +224,13 @@ PlayerBerries::
   cp ORAN_BERRY;is it berry?
   jr nz, .IsItPot
   ld b,15
+  jr .UseHealBerry
 .IsItPot
   cp POTION;is it salve? Having Potion be a holdable is useful for giving wilds higher catchrates, since shares spot with wild's item.
   jr nz, .NoUseBerry
   ld b,30
 .UseHealBerry
-	;callab PrintHoldItemText;test
+	callab PrintHealBerryText;test
   ld a, [wBattleMonHP + 1]
   ld b, a
   ld a,[wBattleMonMaxHP +1]
@@ -271,6 +256,36 @@ PlayerBerries::
 	call RidBerry
 .NoUseBerry
   ret
+  
+FRZorSLPBerry::
+  call LoadPokeItem
+  cp AWAKENING
+  ;is it asleep. call PlayerBerries in CheckPlayerStatusConditions.
+  jr nz, .IsItFreeze
+  ld [wTemp],a;override wTemp in case something else did.
+  ld hl,wBattleMonStatus
+	ld a,[hl]
+	and a,SLP
+  jr z, .ret
+;.WakeUp
+	call RidBerry
+	callab PrintSleepBerryText
+	ld a,100
+	ld [wTemp],a ;do it again to our 'wake up' msg, handled in core.
+  ret
+.IsItFreeze
+  cp ICE_HEAL
+  jr nz, .ret
+  ld [wTemp],a
+  ld hl,wBattleMonStatus
+	bit FRZ,[hl] ; frozen?
+  jr z, .ret
+  callab PrintCUREBerryText
+	call RidBerry
+	ld a,101
+	ld [wTemp],a
+.ret
+	ret  
 
 RidBerry::
   ld hl, wPartyMon1CatchRate
@@ -280,7 +295,6 @@ RidBerry::
   ld a,0 ;could put ether, coin or nugget, if a 'finder' kind of mon like Meowth. bank is currently overfull so I'll do that later.
   ld [hl], a ;replace with diff item after use...use battlemon instead to not work permanently? or just don't repl. with anything!
   ;ld [wBattleMonCatchRate],a 
-	callab PrintHoldItemText
 	ret
 
 EnemyBerries::
@@ -311,7 +325,7 @@ EnemyBerries::
   ld a,b
 .MaxLeftovers
   ld [wEnemyMonHP + 1], a
-	callab PrintHoldItemText2
+	callab PrintLeftovers;PrintHoldItemText2
   jr .NoUseBerry
 .super
   ld a, [wEnemyMonHP + 1]

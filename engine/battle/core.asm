@@ -3675,7 +3675,7 @@ IsGhostBattle:
 ; checks for various status conditions affecting the player mon
 ; stores whether the mon cannot use a move this turn in Z flag
 CheckPlayerStatusConditions:
-  callab PlayerBerries
+  callab FRZorSLPBerry ;hold item script
   ld a,[wTemp]
   cp 100
   jr z, .WakeUp
@@ -3701,6 +3701,7 @@ CheckPlayerStatusConditions:
 .WakeUp
   ld a,0
   ld [wBattleMonStatus],a ;berry, redundant if no berry
+  ld [wTemp],a
 	ld hl,WokeUpText
 	call PrintText
 .sleepDone

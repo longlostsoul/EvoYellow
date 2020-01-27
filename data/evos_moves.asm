@@ -1807,17 +1807,17 @@ Mon039_EvosMoves:
 ;Evolutions
 	db EV_ITEM,MOON_STONE,1,WIGGLYTUFF
 	db 0
-	;Learnset
-	db 1,SING
+	;Learnset 
 	db 3,DEFENSE_CURL
 	db 5,POUND
-	db 8,BABYDOLLEYES
 	db 11,DISARM_VOICE
 	db 15,DISABLE
+	db 16,SING;relearn sing if forgot for greater difficulty
 	db 18,DOUBLESLAP
 	db 21,QUICK_ATTACK
 	db 24,METRONOME
 	db 28,ZEN_HEADBUTT
+	db 31,BABYDOLLEYES
 	db 32,REST
 	db 35,BODY_SLAM
 	db 37,MIMIC
