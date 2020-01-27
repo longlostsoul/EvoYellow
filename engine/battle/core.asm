@@ -3828,6 +3828,9 @@ CheckPlayerStatusConditions:
 	ld hl,wBattleMonStatus
 	bit PAR,[hl]
 	jr z,.BideCheck
+	callab PlayerBerries
+	cp 99
+	jr z, .BideCheck
 	call BattleRandom
 	cp a,$3F ; 25% to be fully paralyzed
 	jr nc,.BideCheck

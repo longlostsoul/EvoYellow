@@ -50,7 +50,7 @@ MoveEnd:
 	move THRASH,       THRASH_PETAL_DANCE_EFFECT,   90, NORMAL,   100, 20
 	move DOUBLE_EDGE,  RECOIL_EFFECT,              100, NORMAL,   100, 15
 	move TAIL_WHIP,    DEFENSE_DOWN1_EFFECT,         0, NORMAL,   100, 30 ;Tail whip and leer-
-	move POISON_STING, POISON_SIDE_EFFECT1,         50, POISON,   100, 35
+	move POISON_STING, POISON_SIDE_EFFECT1,         45, POISON,   100, 35
 	move TWINEEDLE,    TWINEEDLE_EFFECT,            35, BUG,      100, 20
 	move PIN_MISSILE,  TWO_TO_FIVE_ATTACKS_EFFECT,  25, BUG,       85, 20
 	move LEER,         DEFENSE_DOWN1_EFFECT,         0, NORMAL,   100, 30 ;-both do the same thing. maybe replace one then? Probably tail_whip, because fewer mons with tails.

@@ -164,31 +164,6 @@ PlayerBerries::
 .ret
   ret
 .IsItOther
-  cp AWAKENING
-  ;is it asleep. call PlayerBerries in CheckPlayerStatusConditions.
-  jr nz, .IsItFreeze
-  ld [wTemp],a;override wTemp.
-  ld hl,wBattleMonStatus
-	ld a,[hl]
-	and a,SLP
-  jr z, .ret
-;.WakeUp
-	call RidBerry
-	ld a,100
-	ld [wTemp],a ;do it again to our 'wake up' msg, handled in core.
-  ret
-.IsItFreeze
-  cp ICE_HEAL
-  jr nz, .isItAntidote
-  ld [wTemp],a
-  ld hl,wBattleMonStatus
-	bit FRZ,[hl] ; frozen?
-  jr z, .ret
-	call RidBerry
-	ld a,101
-	ld [wTemp],a
-	ret
-.isItAntidote
   cp ANTIDOTE
   ;is it antidote?
   jr nz, .IsItBurn
@@ -208,11 +183,40 @@ PlayerBerries::
   cp PARLYZ_HEAL
   ;is it paralyzed?
   jr nz, .isitHeal
-  ld a,[wBattleMonStatus]
-  cp PAR
-  jr z, .cleanstatus
+  ld hl,wBattleMonStatus
+	bit PAR,[hl]
+  jr z,.ret
+  ld a,0
+  ld [wBattleMonStatus],a
+  call RidBerry
+	ld a,99
   ret
 .isitHeal
+  cp AWAKENING
+  ;is it asleep. call PlayerBerries in CheckPlayerStatusConditions.
+  jr nz, .IsItFreeze
+  ld [wTemp],a;override wTemp.
+  ld hl,wBattleMonStatus
+	ld a,[hl]
+	and a,SLP
+  jr z, .ret
+;.WakeUp
+	call RidBerry
+	ld a,100
+	ld [wTemp],a ;do it again to our 'wake up' msg, handled in core.
+  ret
+.IsItFreeze
+  cp ICE_HEAL
+  jr nz, .isItFull
+  ld [wTemp],a
+  ld hl,wBattleMonStatus
+	bit FRZ,[hl] ; frozen?
+  jr z, .ret
+	call RidBerry
+	ld a,101
+	ld [wTemp],a
+	ret
+.isItFull
   cp MAX_POTION ;leftovers
   jr nz, .super
   ld a,[wBattleMonHP + 1]
