@@ -6,7 +6,7 @@ db 90 ; base speed
 db 50 ; base special
 db ELECTRIC ; species type 1
 db ELECTRIC ; species type 2
-db 34 ; catch rate
+db 20 ; catch rate
 db 82 ; base exp yield
 INCBIN "pic/ymon/pikachu.pic",0,1 ; 55, sprite dimensions
 dw PikachuPicFront

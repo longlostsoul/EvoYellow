@@ -11,7 +11,7 @@ Route11Object:
 	db $1 ; signs
 	db $5, $1, $b ; Route11Text11
 
-	db $a ; objects
+	db $c ; objects
 	object SPRITE_GAMBLER, $a, $e, STAY, DOWN, $1, OPP_GAMBLER, $1
 	object SPRITE_GAMBLER, $1a, $9, STAY, DOWN, $2, OPP_GAMBLER, $2
 	object SPRITE_BUG_CATCHER, $d, $5, STAY, LEFT, $3, OPP_YOUNGSTER, $9
@@ -22,6 +22,7 @@ Route11Object:
 	object SPRITE_BUG_CATCHER, $2b, $5, STAY, RIGHT, $8, OPP_YOUNGSTER, $b
 	object SPRITE_BLACK_HAIR_BOY_2, $2d, $10, STAY, LEFT, $9, OPP_ENGINEER, $3
 	object SPRITE_BUG_CATCHER, $16, $c, STAY, UP, $a, OPP_YOUNGSTER, $c
+	object  SPRITE_BERRY_TREE, $30, $c, NONE, $ff, $d
 
 	; warp-to
 	EVENT_DISP ROUTE_11_WIDTH, $8, $31 ; ROUTE_11_GATE_1F

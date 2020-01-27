@@ -11,10 +11,12 @@ Route4Object:
 	db $7, $11, $5 ; Route4Text5
 	db $7, $1b, $6 ; Route4Text6
 
-	db $3 ; objects
+	db $5 ; objects
 	object SPRITE_LASS, $9, $8, WALK, $0, $1 ; person
 	object SPRITE_LASS, $3f, $3, STAY, RIGHT, $2, OPP_LASS, $4
 	object SPRITE_BALL, $39, $3, STAY, NONE, $3, TM_04
+	object SPRITE_BERRY_TREE, $6, $4,NONE, $ff, $7
+	object SPRITE_BERRY_TREE,  $29,$3 ,NONE, $ff, $8
 
 	; warp-to
 	EVENT_DISP ROUTE_4_WIDTH, $5, $b ; MT_MOON_POKECENTER

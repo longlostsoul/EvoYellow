@@ -160,7 +160,7 @@ PlayerBerries::
   jr nz, .IsItOther
   ld a,[wBattleMonStatus]
   cp 0
-  jr nz, .ret
+  jr z, .ret
 .cleanstatus
   ld a,0
   ld [wBattleMonStatus],a

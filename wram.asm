@@ -981,7 +981,7 @@ wEnemyNumHits:: ; cd05
 
 wEnemyBideAccumulatedDamage:: ; cd05
 ; the amount of damage accumulated by the enemy while biding (2 bytes)
-
+;others unused?
 	ds 10
 
 wInGameTradeGiveMonSpecies:: ; cd0f
@@ -1709,12 +1709,10 @@ wItemList:: ; cf7a
 wListPointer:: ; cf8a
 	ds 2
 
+W_BERRYTREEFLAGS::
 wUnusedCF8D:: ; cf8c
 ; 2 bytes
 ; used to store pointers, but never read
-wTempMoveID::
-wTemp::
-wGenderTemp::
 	ds 2
 
 wItemPrices:: ; cf8e
@@ -2566,7 +2564,10 @@ wPseudoItemID:: ; d151
 ; For example, out-of-battle Dig is executed using a fake Escape Rope item. In
 ; that case, this would be ESCAPE_ROPE.
 	ds 1
-W_BERRYTREEFLAGS::
+	
+wTempMoveID::
+wTemp::
+wGenderTemp::
 wUnusedD153:: ; d152
 	ds 1
 
