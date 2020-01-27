@@ -2566,10 +2566,12 @@ wPseudoItemID:: ; d151
 ; For example, out-of-battle Dig is executed using a fake Escape Rope item. In
 ; that case, this would be ESCAPE_ROPE.
 	ds 1
-
+W_BERRYTREEFLAGS::
 wUnusedD153:: ; d152
 	ds 1
 
+wBerryStepCounter::
+;	ds 2
 	ds 2
 
 wEvoStoneItemID:: ; d155
@@ -3268,13 +3270,9 @@ wSeafoamIslands5CurScript:: ; d667
 	ds 1
 wRoute18GateCurScript:: ; d668
 	ds 1
-;seem to be unused?
-	ds 58;78
+;yeah this didn't work
 	
-W_BERRYTREEFLAGS::
-	ds 2
-wBerryStepCounter::
-	ds 2
+	ds 78
 
 wGameProgressFlagsEnd:: ; d6b7
 
