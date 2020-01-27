@@ -230,7 +230,7 @@ PlayerBerries::
   jr nz, .NoUseBerry
   ld b,30
 .UseHealBerry
-	callab PrintHealBerryText;test
+	
   ld a, [wBattleMonHP + 1]
   ld b, a
   ld a,[wBattleMonMaxHP +1]
@@ -249,6 +249,7 @@ PlayerBerries::
 	ld a,[wBattleMonMaxHP +1] ; full restore
 	ld b,a
 .ContUseItem
+  callab PrintHealBerryText ;used oran or sitrus.
   ld a, b
 	ld [wBattleMonHP + 1],a
 	;ld [wHPBarNewHP],a
