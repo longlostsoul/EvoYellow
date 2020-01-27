@@ -289,6 +289,7 @@ LoadPokeFollowSprite::
 	ld a, SPRITE_PIKACHU
 	jr .end
 .curMonNotThisPika
+  call GetFirstMonSpecies
 	CP RAICHU
 	jr nz, .curMonNotThis1
 	ld a, SPRITE_RAICHU
