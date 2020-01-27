@@ -42,6 +42,8 @@ MegaForms::
  jr z, .Psychicify
  ld a, FAIRY
  ld [wBattleMonType],a
+ ld a,DRAININGKISS
+ ld [wBattleMonMoves],a
  ld a, [wBattleMonSpecies]
  cp RAPIDASH
  jr nz, .ret1
@@ -50,7 +52,7 @@ MegaForms::
  ld [wBattleMonType2],a
  ld [wBattleMonMoves],a
 .ret1
- callab PrintHoldItemText
+ ;callab PrintHoldItemText
  ret
 .Ice
  ld a, ICE
@@ -64,7 +66,7 @@ MegaForms::
  ld [wBattleMonType2],a
 .iceshrew
  cp SANDSLASH
- jr nz, .noStone
+ jr nz, .ret1
  ld a, STEEL
  ld [wBattleMonType2],a
  jp .print
@@ -73,27 +75,33 @@ MegaForms::
  ld [wBattleMonType],a
  ld a, THUNDERBOLT
  ld [wBattleMonMoves],a
- jp .print
-.Fireify
- ld a, FLAMETHROWER
- ld [wBattleMonMoves],a
- ld a, FIRE
- ld [wBattleMonType],a
- ld a, [wBattleMonSpecies]
- cp MAROWAK
- jr nz, .noStone
- ld a, GHOST
- ld [wBattleMonType2],a
- jp .print
+ jp .Jolt
 .Mega2
 	;ld a, MEGA_BLASTOISE ;mega form or other form pic change. Seems to work well.
 	;ld de, wBattleMonSpecies ;put after copy data in LoadBattleMonFromParty
 	;	ld [de], a
 	call Megastats
 	jp .print
+.Fireify
+ ld a, FLAMETHROWER
+ ld [wBattleMonMoves],a
+ ld a, FIRE
+ ld [wBattleMonType],a
+ ld a, [wBattleMonSpecies]
+ cp EEVEE
+ jr nz, .noV
+ ld a, FLAREON
+ ld de, wBattleMonSpecies
+ ld [de], a
+.noV
+ cp MAROWAK
+ jr nz, .ret1
+ ld a, GHOST
+ ld [wBattleMonType2],a
+ jp .print
 .sun
   cp SUN_STONE
-  jr nz, .noStone
+  jr nz, .Water
   ld a, [wBattleMonSpecies]
   cp AMPHAROS
   jr z, .Mega
@@ -109,6 +117,43 @@ MegaForms::
   jr z, .Mega2
   cp CHARIZARD
   jr nz, .noCharm
+  jp .Mega
+.Water
+  cp WATER_STONE
+  jr nz, .Leaf
+  ld a, BUBBLEBEAM
+	ld [wBattleMonMoves],a
+	ld a, WATER
+	ld [wBattleMonType],a
+	ld a, [wBattleMonSpecies]
+  cp EEVEE
+  jr nz, .noStone
+  ld a, VAPOREON ;eevee
+	ld de, wBattleMonSpecies
+	ld [de], a
+	jp .print
+.Leaf
+  cp LEAF_STONE
+  jr nz, .noStone
+  ld a, RAZOR_LEAF
+	ld [wBattleMonMoves],a
+	ld a, GRASS
+	ld [wBattleMonType],a
+	ld a, [wBattleMonSpecies]
+  cp EEVEE
+  jr nz, .noStone
+  ld a, LEAFEON ;eevee
+	ld de, wBattleMonSpecies
+	ld [de], a
+	jp .print
+.Jolt
+  ld a, [wBattleMonSpecies]
+  cp EEVEE
+  jr nz, .noStone
+  ld a, JOLTEON ;eevee
+	ld de, wBattleMonSpecies
+	ld [de], a
+	jp .print
 .Mega
 	;ld a, MEGA_CHARIZARD ;mega form or other form pic change. Seems to work well.
 	;ld de, wBattleMonSpecies ;put after copy data in LoadBattleMonFromParty
