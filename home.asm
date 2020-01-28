@@ -3071,6 +3071,7 @@ GetTrainerInformation::
 	inc de
 	ld a, [hli]
 	ld [de], a
+	call FightingJessieJames
 	jp BankswitchBack
 .linkBattle
 	ld hl, wTrainerPicPointer
@@ -3079,6 +3080,20 @@ GetTrainerInformation::
 	inc hl
 	ld [hl], d
 	ret
+	
+FightingJessieJames:: ;eh, kinda missed this. let's see if we have enough space if we remove dummy line
+ ld a, [wTrainerClass]
+ cp ROCKET
+ ret nz
+ ld a, [wTrainerNo]
+ cp $2a
+ ret c
+ ld de, JessieJamesPic
+ ld hl, wTrainerPicPointer
+ ld a, e
+ ld [hli],a
+ ld [hl], d
+ ret
 
 GetTrainerName::
 	jpba GetTrainerName_
