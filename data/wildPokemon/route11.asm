@@ -1,6 +1,6 @@
 Route11Mons:
 	db $0F
-	db 16,PIDGEY;day
+	db 16,GIRAFARIG;day
 	db 15,RATTATA
 	db 18,MAREEP
 	db 15,PIDGEY;day

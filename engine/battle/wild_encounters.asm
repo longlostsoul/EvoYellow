@@ -76,7 +76,10 @@ TryDoWildEncounter:
 	add hl, bc
 	ld a, [hli]
 	ld [wCurEnemyLVL], a
+  jp .Mew
+.no
 	ld a,[hl];could put mew or whatevers
+.gotit
 	ld [wcf91], a
 	ld [wEnemyMonSpecies2], a
 	ld a, [wRepelRemainingSteps]
@@ -94,6 +97,16 @@ TryDoWildEncounter:
 	ld [hSpriteIndexOrTextID], a
 	call EnableAutoTextBoxDrawing
 	call DisplayTextID
+	jp .CantEncounter2
+.Mew
+	ld a, [wObtainedBadges] ;can make it check for badge
+	bit 7, a ;8th badge if we start count from 0
+	jr z, .no
+	call Random
+	cp 1
+	jr nz, .no
+	ld a, MEW
+	jp .gotit
 .CantEncounter2
   ld a, 0
   ld [wTemp],a

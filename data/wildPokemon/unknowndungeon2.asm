@@ -5,7 +5,7 @@ DungeonMons2:
 	db 50,GOLEM
 	db 56,SANDSLASH
 	db 50,RHYHORN
-	db 60,MEW
+	db 60,RHYDON
 	db 58,GLOOM
 	db 58,WEEPINBELL
 	db 60,LICKITUNG
