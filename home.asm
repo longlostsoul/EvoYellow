@@ -620,10 +620,13 @@ GetMonHeader::
 	ld de, GhostPic
 	cp MON_GHOST ; Ghost
 	jr z, .specialID
+	;ld de, MegaCharizardPic
+;	cp MEGA_CHARIZARD ; mega
+;	jr z, .specialID
 	ld de, FossilAerodactylPic
 	ld b, $77 ; size of Aerodactyl fossil sprite
 	cp FOSSIL_AERODACTYL ; Aerodactyl fossil
-	jr z, .specialID
+	jr z, .specialID ;Maybe could utilize this for megas, do we really want to use a full dex entry on them after all if we just want the pic? Would have to be careful to only call the megas after already copying base poke stats
 	;cp MEW
 	;jr z, .mew
 	predef IndexToPokedex   ; convert pokemon ID in [wd11e] to pokedex number
@@ -4846,9 +4849,9 @@ const_value = 1
 	add_tx_pre SaffronCityPokecenterBenchGuyText    ; 1A
 	add_tx_pre MtMoonPokecenterBenchGuyText         ; 1B
 	add_tx_pre RockTunnelPokecenterBenchGuyText     ; 1C
-	add_tx_pre UnusedBenchGuyText1                  ; 1D
-	add_tx_pre UnusedBenchGuyText2                  ; 1E
-	add_tx_pre UnusedBenchGuyText3                  ; 1F
+	;add_tx_pre UnusedBenchGuyText1                  ; 1D
+	;add_tx_pre UnusedBenchGuyText2                  ; 1E
+	;add_tx_pre UnusedBenchGuyText3                  ; 1F
 	add_tx_pre UnusedPredefText                     ; 20
 	add_tx_pre PokemonCenterPCText                  ; 21
 	add_tx_pre ViridianSchoolNotebook               ; 22

@@ -2366,6 +2366,7 @@ GliscorPicBack::       INCBIN "pic/monback/gliscor.pic"
 ;MegaVenusaurPicBack::       INCBIN "pic/monback/mega_venusaur.pic"
 
 include "home/berrytrees.asm";
+INCLUDE "engine/overworld/field_moves.asm"
 
 SECTION "bank43",ROMX,BANK[$43]
 KingdraPicFront::      INCBIN "pic/ymon/kingdra.pic"
