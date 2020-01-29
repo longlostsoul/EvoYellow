@@ -29,8 +29,11 @@ asm_f601d:
 	push af
 	res 1, [hl]
 	call InitBattleVariables ; 3d:6236
+	ld a,[wTemp]
+	cp 10
+	jr z, InitWildBattle
 	ld a, [wEnemyMonSpecies2]
-	sub $c8
+	sub $c8 ;could do some over-ride here of species, or, diff over-ride to make wild pokemuns actually appear over this number?
 	jp c, InitWildBattle
 	ld [wTrainerClass], a
 	call GetTrainerInformation

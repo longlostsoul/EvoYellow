@@ -228,16 +228,19 @@ const_value = 1
 	const SCIZOR
 	const STEELIX
 	const EXEGGUTOR 
-	const CHARMANDER   ; $B0
-	const SQUIRTLE     ; $B1
-	const BULBASAUR    ; $99
+	const CHARMANDER   
+	const SQUIRTLE     
+	const BULBASAUR   
 	const IVYSAUR 
-	const VENUSAUR     ; $9A
-	const CHARMELEON   ; $B2
-	const WARTORTLE    ; $B3
-	const BLASTOISE    ; $1C
-	const CHARIZARD    ; $B4
+	const VENUSAUR     
+	const CHARMELEON   
+	const WARTORTLE    
+	const BLASTOISE    
+	const CHARIZARD    
   const WOBBUFFET
-  const FOSSIL_KABUTOPS   ; $B6
-	const FOSSIL_AERODACTYL ; $B7
-	const MON_GHOST    ; $B8
+  const FOSSIL_KABUTOPS   
+	const FOSSIL_AERODACTYL
+	const MON_GHOST    
+	;const MEGA_CHARIZARD
+	;const MEGA_BLASTOISE
+	;const MEGA_VENUSAUR

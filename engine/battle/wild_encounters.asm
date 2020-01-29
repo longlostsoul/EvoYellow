@@ -70,17 +70,19 @@ TryDoWildEncounter:
 	jr nz, .gotWildEncounterType ; else, it's treated as a grass tile by default
 	ld hl, wWaterMons
 .gotWildEncounterType
+  ld a, 10
+  ld [wTemp],a;an override for bank_3dbattle attempt. no particular reason for = 10.
 	ld b, 0
 	add hl, bc
 	ld a, [hli]
 	ld [wCurEnemyLVL], a
-	ld a, [hl]
+	ld a,[hl];could put mew or whatevers
 	ld [wcf91], a
 	ld [wEnemyMonSpecies2], a
 	ld a, [wRepelRemainingSteps]
 	and a
 	jr z, .willEncounter
-	ld a, [wPartyMon1Level]
+	ld a, [wPartyMon1Level] ;we could make wild enemies always the same as first party mon as an auto- difficulty adjustment... but easy to get around.
 	ld b, a
 	ld a, [wCurEnemyLVL]
 	cp b
@@ -93,6 +95,8 @@ TryDoWildEncounter:
 	call EnableAutoTextBoxDrawing
 	call DisplayTextID
 .CantEncounter2
+  ld a, 0
+  ld [wTemp],a
 	ld a, $1
 	and a
 	ret
