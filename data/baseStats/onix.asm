@@ -5,7 +5,7 @@ db 160 ; base defense
 db 70 ; base speed
 db 30 ; base special
 db ROCK ; species type 1
-db STEEL ; species type 2
+db GROUND ; species type 2
 db 36 ; catch rate
 db 108 ; base exp yield
 INCBIN "pic/ymon/onix.pic",0,1 ; 77, sprite dimensions

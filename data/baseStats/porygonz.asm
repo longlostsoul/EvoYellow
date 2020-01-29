@@ -6,7 +6,7 @@ db 70 ; base defense
 db 90 ; base speed
 db 135 ; base special
 db NORMAL ; species type 1
-db ELECTRIC ; species type 2
+db NORMAL ; species type 2
 db FULL_HEAL ; catch rate
 db 185 ; base exp yield
 INCBIN "pic/ymon/porygonz.pic",0,1 ; 66, sprite dimensions
@@ -14,7 +14,7 @@ dw PorygonzPicFront
 dw PorygonzPicBack
 ; moves
 	db TACKLE
-	db THUNDERSHOCK
+	db CONVERSION
 	db 0
 	db 0
 db 0 ; growth rate

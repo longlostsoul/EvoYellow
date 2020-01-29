@@ -6,7 +6,7 @@ db 90 ; base defense
 db 60 ; base speed
 db 105 ; base special
 db NORMAL ; species type 1
-db ELECTRIC ; species type 2
+db NORMAL ; species type 2
 db 29 ; catch rate
 db 180 ; base exp yield
 INCBIN "pic/ymon/porygon2.pic",0,1 ; 66, sprite dimensions

@@ -5,7 +5,7 @@
 	db 30 ; base speed
 	db 50 ; base special
 	db ROCK ; species type 1
-	db BUG ; species type 2
+	db ROCK ; species type 2
 	db 60 ; catch rate
 	db 135 ; base exp yield
 	INCBIN "pic/ymon/sudowoodo.pic",0,1 ; 66, sprite dimensions
@@ -14,7 +14,7 @@
 	; attacks known at lvl 0
 	db ROCK_THROW
 	db MIMIC
-	db LEECH_LIFE
+	db TACKLE
 	db 0
 	db 0 ; growth rate
 	; learnset
