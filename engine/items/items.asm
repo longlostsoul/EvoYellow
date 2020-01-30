@@ -3330,7 +3330,7 @@ SendNewMonToBox:
 	ld [wBoxMon1CatchRate], a
 .notKadabra
   cp CHANSEY
-	jr nz, .notKadabra
+	jr nz, .notchans
 	ld a, 106 ; item
 	ld [wBoxMon1CatchRate], a
 .notchans
