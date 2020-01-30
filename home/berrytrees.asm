@@ -105,6 +105,11 @@ BerryReset::
 	ld [hli],a
 	ld [hli],a
 	ld [hl],a
+	;daycare
+	ld hl, wDayCareInUse
+	bit 0, [hl];anybody there?
+	ret z
+	set 2,[hl];set baby
 	ret
 	
 ;BerryReset:: ;Shorter reset, good for testing.
