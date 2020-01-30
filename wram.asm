@@ -3571,6 +3571,7 @@ wNumSafariBalls:: ; da46
 wDayCareInUse:: ; da47
 ; 0 if no pokemon is in the daycare
 ; 1 if pokemon is in the daycare
+;bit 2 - egg?
 	ds 1
 
 wDayCareMonName:: ds NAME_LENGTH ; da48
