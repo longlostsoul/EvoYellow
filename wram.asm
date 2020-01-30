@@ -3271,7 +3271,7 @@ wSeafoamIslands5CurScript:: ; d667
 	ds 1
 wRoute18GateCurScript:: ; d668
 	ds 1
-;yeah this didn't work
+;unused?
 	
 	ds 78
 
