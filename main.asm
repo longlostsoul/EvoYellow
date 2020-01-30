@@ -2423,7 +2423,7 @@ IsMonShiny:
 ;.shinyspeedcheck
 	and $f << 4
 	cp 5 << 4
-	jr z, .MaybeShiny
+	jr z, .NotShiny
 ;	cp 13 << 4
 ;	jr nz, .NotShiny
 .MaybeShiny
