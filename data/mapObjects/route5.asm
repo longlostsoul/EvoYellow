@@ -11,7 +11,8 @@ Route5Object:
 	db $1 ; signs
 	db $1d, $11, $1 ; Route5Text1
 
-	db $0 ; objects
+	db $1 ; objects
+	object SPRITE_BERRY_TREE, $9,$2,NONE,$FF,$2
 
 	; warp-to
 	EVENT_DISP ROUTE_5_WIDTH, $1d, $a ; ROUTE_5_GATE

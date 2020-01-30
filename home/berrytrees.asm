@@ -77,12 +77,12 @@ PackFullText:
 ; The table is not terminated, so don't use invalid tree numbers
 BerryTable:
 	db ORAN_BERRY;ORAN_BERRY  ; Route 1
-	db PARLYZ_HEAL;PECHA_BERRY  ; Route 2, Tree 1
+	db PARLYZ_HEAL;CHERI  ; Route 2, Tree 1
 	db ANTIDOTE;PECHA_BERRY  ; Pewter City, Tree 1
 	db AWAKENING;CHESTO_BERRY ; Pewter City, Tree 2
 	db PARLYZ_HEAL;CHERI_BERRY  ; route 8
 	db SITRUS_BERRY ; route 11
-	db FULL_HEAL;CHERI_BERRY ; Unused
+	db ANTIDOTE;PECHA route 5
 	db ORAN_BERRY  ; route 4
 	db FULL_HEAL;LUM_BERRY    ; route 4
 	db ANTIDOTE;PECHA_BERRY  ; route 15
