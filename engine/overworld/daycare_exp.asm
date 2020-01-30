@@ -1,6 +1,6 @@
 IncrementDayCareMonExp:
 	ld a, [wDayCareInUse]
-	bit 0, a
+	and a
 	ret z
 	ld hl, wDayCareMonExp + 2
 	inc [hl]

@@ -1,17 +1,14 @@
-INCLUDE "scripts/daycarebaby.asm";
-
 DayCareMScript:
 	jp EnableAutoTextBoxDrawing
 
 DayCareMTextPointers:
 	dw DayCareMText1
-	dw DayCareMText2
 
 DayCareMText1:
 	TX_ASM
 	call SaveScreenTilesToBuffer2
 	ld a, [wDayCareInUse]
-	bit 0,a
+	and a
 	jp nz, .daycareInUse
 	ld hl, DayCareIntroText
 	call PrintText
@@ -240,11 +237,6 @@ DayCareMText1:
 
 .done
 	call PrintText
-	jp TextScriptEnd
-	
-DayCareMText2: ; Breeder
-	db $08
-	call DayCareBreederScript
 	jp TextScriptEnd
 
 DayCareIntroText:

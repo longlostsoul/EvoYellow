@@ -337,7 +337,6 @@ StepCountCheck::
 	ld a,[hli]
 	and a
 	jp nz, .originalRoutine
-	inc [hl]
 	callba BerryReset
 .originalRoutine
 	ld a, [wd72c]
