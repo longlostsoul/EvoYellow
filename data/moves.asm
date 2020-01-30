@@ -92,7 +92,7 @@ MoveEnd:
 	move SLEEP_POWDER, SLEEP_EFFECT,                 0, GRASS,     75, 15
 	move PETAL_DANCE,  THRASH_PETAL_DANCE_EFFECT,   70, GRASS,    100, 20
 	move STRING_SHOT,  SPEED_DOWN1_EFFECT,           0, BUG,       95, 40
-	move DRAGON_RAGE,  RAGE_EFFECT,        50, DRAGON,   100, 10
+	move DRAGON_RAGE,  SPECIAL_DAMAGE_EFFECT,        50, DRAGON,   100, 10
 	move FIRE_SPIN,    TRAPPING_EFFECT,             55, FIRE,      80, 15
 	move THUNDERSHOCK, PARALYZE_SIDE_EFFECT1,       40, ELECTRIC, 100, 30
 	move THUNDERBOLT,  PARALYZE_SIDE_EFFECT1,       95, ELECTRIC, 100, 15
@@ -221,7 +221,7 @@ MoveEnd:
 	move BLIZZARD,     NO_ADDITIONAL_EFFECT,        40, ICE,      100, 30 ; Ice Shard
 	move BLIZZARD,     OHKO_EFFECT,                  1, ICE,       30,  5 ; Sheer Cold
 	move THUNDER,      NO_ADDITIONAL_EFFECT,        80, ELECTRIC, 100, 10 ; Electro Ball
-	move TACKLE,       PARALYZE_SIDE_EFFECT1,               20, ELECTRIC, 100, 20 ; Nuzzle
+	move TACKLE,       PARALYZE_SIDE_EFFECT2,               40, ELECTRIC, 100, 20 ; Nuzzle
 	move THUNDERBOLT,  PARALYZE_SIDE_EFFECT1,       80, ELECTRIC, 100, 15 ; Discharge
 	move QUICK_ATTACK, VOLT_TACKLE_EFFECT,         120, ELECTRIC, 100, 15 ; Volt Tackle
 	move SURF,         ACCURACY_DOWN_SIDE_EFFECT,   90, WATER,     85, 10 ; Muddy Water
