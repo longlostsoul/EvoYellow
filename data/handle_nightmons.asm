@@ -171,11 +171,11 @@ NightWildMonPointers:
 	dw NoNightMons
 	dw NoNightMons ;Pokemon Tower Lavender 
 	dw NoNightMons ;Pokemon Tower Lavender 
-	dw NoNightMons ;Pokemon Tower Lavender 
-	dw NoNightMons ;Pokemon Tower Lavender 
-	dw NoNightMons ;Pokemon Tower Lavender 
-	dw NoNightMons ;Pokemon Tower Lavender 
-	dw NoNightMons ;Pokemon Tower Lavender 
+	dw Route8NightMons ;Pokemon Tower Lavender 
+	dw Route8NightMons ;Pokemon Tower Lavender 
+	dw Route8NightMons ;Pokemon Tower Lavender 
+	dw Route8NightMons ;Pokemon Tower Lavender 
+	dw Route8NightMons ;Pokemon Tower Lavender 
 	dw NoNightMons
 	dw NoNightMons
 	dw NoNightMons
@@ -219,13 +219,13 @@ NightWildMonPointers:
 	dw NoNightMons
 	dw NoNightMons
 	dw NoNightMons
-	dw NoNightMons ;Seafoam Island
+	dw HighLevelNightMons ;Seafoam Island
 	dw NoNightMons
-	dw NoNightMons ; Victory Road
+	dw HighLevelNightMons ; Victory Road
 	dw NoNightMons
 	dw NoNightMons
 	dw DiglettNightMons ; Diglett Cave
-	dw NoNightMons ; Victory Road
+	dw HighLevelNightMons ; Victory Road
 	dw NoNightMons
 	dw NoNightMons
 	dw NoNightMons
@@ -253,9 +253,9 @@ NightWildMonPointers:
 	dw NoNightMons
 	dw NoNightMons
 	dw NoNightMons
-	dw NoNightMons ;Cerulean Cave
-	dw NoNightMons ;Cerulean Cave
-	dw NoNightMons ;Cerulean Cave
+	dw HighLevelNightMons ;Cerulean Cave
+	dw HighLevelNightMons2 ;Cerulean Cave
+	dw HighLevelNightMons3 ;Cerulean Cave
 	dw NoNightMons
 	dw NoNightMons
 	dw NoNightMons
@@ -332,7 +332,7 @@ Route7NightMons:
 
 Route8NightMons:
 	db 15, GASTLY
-	db 18, MEOWTH
+	db 18, MURKROW
 	db 20, DROWZEE
 
 Route9NightMons:
@@ -346,7 +346,7 @@ Route10NightMons:
 	db 20, RATICATE
 
 Route11NightMons:
-	db 16, DROWZEE
+	db 16, MEOWTH
 	db 15, RATTATA
 	db 18, DROWZEE
 
@@ -382,7 +382,7 @@ Route17NightMons:
 
 Route21NightMons:
 	db 15, HERACROSS
-	db 12, LARVITAR
+	db 12, RIOLU
 	db 20, RATICATE
 
 Route22NightMons:
@@ -404,3 +404,18 @@ Route25NightMons:
 	db 12, ODDISH
 	db 14, VENONAT
 	db 13, SNEASEL
+
+HighLevelNightMons:
+	db 45, ABSOL
+	db 45, HOUNDOOM
+	db 46, SLOWKING
+	
+HighLevelNightMons2:
+	db 55, TYRANITAR
+	db 55, HOUNDOOM
+	db 56, WEAVILE
+	
+HighLevelNightMons3:
+	db 55, MAGMORTAR
+	db 55, ELECTIVIRE
+	db 56, MAGNEZONE
