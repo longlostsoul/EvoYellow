@@ -2419,6 +2419,14 @@ IsMonShiny:
 	ld a, [hl]
 	and 2 << 4
 	jr z, .NotShiny
+	;ol' speed check if we want to reduce values even more
+;.shinyspeedcheck
+	and $f << 4
+	cp 5 << 4
+	jr z, .MaybeShiny
+;	cp 13 << 4
+;	jr nz, .NotShiny
+.MaybeShiny
 	ld a,0
 	ld [wTemp], a
 	ld a, [hli]
@@ -2470,13 +2478,6 @@ IsMonShiny:
 	ld a, 6
 	ld [wTemp], a
 	ld a, [hl]
-	;ol' speed check if we want to reduce values even more, would have to alter the maybe shinies above to go here instead of shiny. could also introduce even moar varieties of pokemonz.
-;.shinyspeedcheck
-	;and $f << 4
-	;cp 5 << 4
-	;jr z, .Shiny
-	;cp 13 << 4
-	;jr nz, .NotShiny
 .Shiny
 	; set zero flag
 	and a ; a cannot be 0, so zero flag is set with thing command
