@@ -55,7 +55,7 @@ SplitMapSpriteSets:
 	db $01,$35,$01,$0A ; $f8
 	db $02,$21,$02,$07 ; $f9
 	db $02,$02,$07,$04 ; $fa
-	db $01,$11,$05,$07 ; $fb
+	db $01,$11,$05,$07 ; $fb  route 7
 	db $01,$03,$07,$03 ; $fc
 
 SpriteSets:
@@ -119,9 +119,9 @@ SpriteSets:
 	db SPRITE_FISHER2
 	db SPRITE_FAT_BALD_GUY
 	db SPRITE_OLD_PERSON
-	db SPRITE_SLOWBRO
-	db SPRITE_ROCKET
 	db SPRITE_BALL
+	db SPRITE_ROCKET
+	db SPRITE_BERRY_TREE
 	db SPRITE_SNORLAX
 
 ; sprite set $06
@@ -147,8 +147,8 @@ SpriteSets:
 	db SPRITE_BIRD
 	db SPRITE_ROCKER
 	db SPRITE_BLACK_HAIR_BOY_1
-	db SPRITE_BALL
-	db SPRITE_EEVEE
+	db SPRITE_BERRY_TREE
+  db SPRITE_BALL
 
 ; sprite set $08
 	db SPRITE_PIKACHU
