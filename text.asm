@@ -440,21 +440,21 @@ _RockTunnelPokecenterGuyText::
 	cont "LAVENDER TOWN!"
 	done
 
-;_UnusedBenchGuyText1::
-;	text "I wish I could"
-;	line "catch #MON."
-;	done
+_UnusedBenchGuyText1::
+	text "I wish I could"
+	line "catch #MON."
+	done
 
-;_UnusedBenchGuyText2::
-;	text "I'm tired from"
-;	line "all the fun..."
-;	done
+_UnusedBenchGuyText2::
+	text "I'm tired from"
+	line "all the fun..."
+	done
 
-;_UnusedBenchGuyText3::
-;	text "SILPH's manager"
-;	line "is hiding in the"
-;	cont "SAFARI ZONE."
-;	done
+_UnusedBenchGuyText3::
+	text "SILPH's manager"
+	line "is hiding in the"
+	cont "SAFARI ZONE."
+	done
 
 _VermilionPokecenterGuyText::
 	text "It is true that a"
