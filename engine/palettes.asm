@@ -208,16 +208,18 @@ SetPal_Overworld:
 .town
 	call CheckDayNight
 	jr nc, .night
-	ld a, [wLastMap] ;I tried wCurMap and deleting below code, did not work better.
-	;for everything that isn't a dungeon, load its usual color. dungeons don't work nicely due to calling route as last map, yet get handled as towns. there's probably some way to check for them specifically that could make this code more efficient but I don't know it.
-	cp ROUTE_2 ;:/ walking into diglett cave and viridian, unfortunately turns dig green
-	jr z, .greenit
-  cp ROUTE_11 ;:/ diglett cave and viridian, unfortunately turns dig green
-	jr nz, .check
-.greenit
-	ld a, PAL_ROUTE
-	jr .check
-.check
+	callab CheckIfInOutsideMap
+	jr nz, .indoorMaps
+	ld a, [wCurMap] ;towns should be colored by own palettes.
+	jr .notit
+.indoorMaps;maybe?
+	;for everything that isn't a dungeon, load pal_route. dungeons don't work nicely due to calling route as last map, yet get handled as towns.
+;	cp ROUTE_2 ;:/ walking into diglett cave and viridian, unfortunately turns dig green
+;	jr z, .greenit
+  cp ROUTE_11 ;:/ diglett cave
+;	jr nz, .check
+;.check
+  jr z, .pal
 	cp ROUTE_4 ; for entering mt_moon, don't want it green!
 	jr z, .pal
 	cp ROUTE_20 ;seafoam
@@ -228,11 +230,15 @@ SetPal_Overworld:
 	jr z, .pal
 	cp ROUTE_10 ;flash cave
 	jr z, .pal
-	jr .notit
+	jr .greenit
 .pal
 	ld a, PAL_CAVE
+	jr .notit
+.greenit
+	ld a, PAL_ROUTE
+;	jr .check
 .notit
-	;ld a, [wLastMap]
+	;;ld a, [wLastMap]
 	jr .gotPaletteID
 .night
 	ld a, PAL_PURPLEMON
