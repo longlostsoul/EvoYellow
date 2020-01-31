@@ -307,48 +307,48 @@ Route2NightMons:
 
 Route3NightMons:
 	db 9, ZUBAT
-	db 10, PARAS
+	db 10, GLIGAR
 	db 12, CLEFAIRY
 
 Route4NightMons:
 	db 10, ZUBAT
-	db 12, GLIGAR
-	db 9, CLEFAIRY
+	db 12, PARAS
+	db 9, EKANS
 
 Route5NightMons:
 	db 15, MEOWTH
-	db 14, EKANS
-	db 16, HOOTHOOT
+	db 14, ODDISH
+	db 16, NOCTOWL
 
 Route6NightMons:
-	db 14, PSYDUCK
+	db 14, DROWZEE
 	db 16, MEOWTH
 	db 18, GOLDUCK
 
 Route7NightMons:
-	db 20, HOOTHOOT
-	db 15, ODDISH
-	db 19, MURKROW
+	db 20, NOCTOWL
+	db 15, MURKROW
+	db 19, HOUNDOUR
 
 Route8NightMons:
 	db 15, GASTLY
-	db 18, MURKROW
-	db 20, DROWZEE
+	db 18, HAUNTER
+	db 20, NOCTOWL
 
 Route9NightMons:
 	db 16, HOOTHOOT
-	db 18, MURKROW
+	db 18, VENOMOTH
 	db 20, RATICATE
 
 Route10NightMons:
-	db 16, HOOTHOOT
-	db 15, POLIWAG
+	db 16, QUAGSIRE
+	db 15, VENONAT
 	db 20, RATICATE
 
 Route11NightMons:
 	db 16, MEOWTH
 	db 15, RATTATA
-	db 18, DROWZEE
+	db 18, HYPNO
 
 Route12NightMons:
 	db 25, GLOOM
@@ -356,9 +356,9 @@ Route12NightMons:
 	db 29, POLIWHIRL
 
 Route13NightMons:
-	db 25, BELLSPROUT
-	db 28, ODDISH
-	db 29, GLOOM
+	db 25, NOCTOWL
+	db 28, QUAGSIRE
+	db 29, VENOMOTH
 
 Route14NightMons:
 	db 26, GLOOM
@@ -371,19 +371,19 @@ Route15NightMons:
 	db 30, GLOOM
 
 Route16NightMons:
-	db 22, RATICATE
-	db 24, HOUNDOUR
-	db 23, NOCTOWL
+	db 22, GRIMER
+	db 30, MUK
+	db 23, MURKROW
 
 Route17NightMons:
-	db 26, WOOPER
+	db 26, GRIMER
 	db 28, POLIWHIRL
-	db 29, POLIWAG
+	db 29, KRABBY
 
 Route21NightMons:
-	db 15, HERACROSS
-	db 12, RIOLU
-	db 20, RATICATE
+	db 25, HERACROSS
+	db 15, RIOLU
+	db 25, RATICATE
 
 Route22NightMons:
 	db 2, POLIWAG

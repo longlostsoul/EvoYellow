@@ -3,7 +3,7 @@ Route17Mons:
 	db 26,DODUO ;day
 	db 27,PONYTA
 	db 27,DODUO
-	db 28,FEAROW ;day
+	db 28,SLUGMA ;day
 	db 28,SKARMORY
 	db 30,PONYTA
 	db 29,FEAROW ;day

@@ -8,7 +8,7 @@ Route14Mons:
 	db 28,BELLSPROUT
 	db 30,SKIPLOOM;day
 	db 30,WEEPINBELL
-	db 27,VENONAT
-	db 30,VENOMOTH
+	db 27,NIDORINO
+	db 30,NIDORINA
 	db $00
 

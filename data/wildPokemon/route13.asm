@@ -2,11 +2,11 @@ Route13Mons:
 	db $0F
 	db 25,PIDGEOTTO;day
 	db 25,ODDISH
-	db 28,PIDGEY
-	db 28,MR_MIME ;day
-	db 27,EKANS
-	db 27,BELLSPROUT
-	db 29,FARFETCHD
+	db 28,BELLSPROUT
+	db 28,HOPPIP ;day
+	db 27,DITTO
+	db 27,PIDGEY
+	db 29,CHANSEY;day
 	db 29,WEEPINBELL
 	db 26,GLOOM
 	db 31,FARFETCHD
@@ -21,5 +21,5 @@ Route13Mons:
 	db 15,SLOWPOKE
 	db 15,CORSOLA
 	db 15,SLOWBRO
-	db 20,SLOWBRO
+	db 20,SLOWKING
 
