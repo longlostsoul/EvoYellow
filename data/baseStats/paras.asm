@@ -1,9 +1,9 @@
 db DEX_PARAS ; pokedex id
-db 35 ; base hp
+db 45 ; base hp
 db 70 ; base attack
 db 55 ; base defense
 db 25 ; base speed
-db 55 ; base special
+db 65 ; base special
 db BUG ; species type 1
 db GRASS ; species type 2
 db 190 ; catch rate
@@ -13,7 +13,7 @@ dw ParasPicFront
 dw ParasPicBack
 ; attacks known at lvl 0
 db SCRATCH
-db 0
+db LEECH_LIFE
 db 0
 db 0
 db 0 ; growth rate

@@ -1,9 +1,9 @@
 db DEX_MEOWTH ; pokedex id
-db 40 ; base hp
-db 45 ; base attack
+db 50 ; base hp
+db 55 ; base attack
 db 35 ; base defense
 db 90 ; base speed
-db 40 ; base special
+db 50 ; base special
 db NORMAL ; species type 1
 db NORMAL ; species type 2
 db 250 ; catch rate
@@ -12,10 +12,10 @@ INCBIN "pic/ymon/meowth.pic",0,1 ; 55, sprite dimensions
 dw MeowthPicFront
 dw MeowthPicBack
 ; attacks known at lvl 0
+db AMNESIA ;egg move
+db HYPNOSIS;egg move
 db SCRATCH
 db GROWL
-db 0
-db 0
 db 0 ; growth rate
 ; learnset
 	tmlearn 6,7,8

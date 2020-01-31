@@ -1,8 +1,8 @@
 db DEX_DITTO ; pokedex id
-db 48 ; base hp
+db 60 ; base hp
 db 48 ; base attack
 db 48 ; base defense
-db 48 ; base speed
+db 40 ; base speed
 db 48 ; base special
 db NORMAL ; species type 1
 db NORMAL ; species type 2
@@ -13,7 +13,7 @@ dw DittoPicFront
 dw DittoPicBack
 ; attacks known at lvl 0
 db TRANSFORM
-db 0
+db TACKLE ;no more ditto on ditto endless battles
 db 0
 db 0
 db 0 ; growth rate
