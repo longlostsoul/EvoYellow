@@ -166,7 +166,7 @@ DisplayTitleScreen:
 	jr z, .go_to_main_menu
 	and A_BUTTON | START
 	jr nz, .go_to_main_menu
-	call DoTitleScreenFunction
+	;call DoTitleScreenFunction
 	jr .titleScreenLoop
 
 .go_to_main_menu
@@ -201,7 +201,7 @@ DisplayTitleScreen:
 ; unreferenced
 	ld a, [wTitleScreenScene + 4]
 	inc a
-	cp 33;$2a ;cry 35
+	cp 11;$2a ;cry 35
 	jr c, .asm_4305
 	ld a, $f
 .asm_4305
