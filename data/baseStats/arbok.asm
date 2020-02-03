@@ -1,11 +1,11 @@
 db DEX_ARBOK ; pokedex id
 db 60 ; base hp
-db 85 ; base attack
+db 95 ; base attack
 db 69 ; base defense
 db 80 ; base speed
 db 65 ; base special
 db POISON ; species type 1
-db DARK ; species type 2
+db POISON ; species type 2
 db 99 ; catch rate, hold sun stone
 db 147 ; base exp yield
 INCBIN "pic/ymon/arbok.pic",0,1 ; 77, sprite dimensions

@@ -102,6 +102,14 @@ SAFARI_ROCK           EQU $16 ; overload
 	const SUN_STONE     ; $62 98
 	const FROST_STONE    ; $63 99
 	const LOVE_STONE     ; $64 100
+  const SHINY_STONE;this and below not currently in use 101
+  const KINGS_ROCK;102
+ 	const STEEL_COAT;103
+	const QUICK_CLAW;104
+	const EVOLITE;105
+;	const LUCKY_EGG
+	const SITRUS_BERRY;106
+	const ORAN_BERRY;107
 
 const_value = $C4
 

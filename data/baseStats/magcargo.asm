@@ -1,10 +1,10 @@
 ;MagcargoBaseStats: ; 384da (e:44da)
 db DEX_MAGCARGO ; pokedex id
-db 50 ; base hp
+db 60 ; base hp
 db 50 ; base attack
 db 120 ; base defense
 db 30 ; base speed
-db 80 ; base special
+db 90 ; base special
 db FIRE ; species type 1
 db ROCK ; species type 2
 db 79 ; catch rate

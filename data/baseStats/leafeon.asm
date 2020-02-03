@@ -25,5 +25,5 @@ db 0 ; growth rate
 	tmlearn 28,30,31,32
 	tmlearn 33,34,39,40
 	tmlearn 41,44
-	tmlearn 50,54
+	tmlearn 50,51,54
 db BANK(LeafeonPicFront)

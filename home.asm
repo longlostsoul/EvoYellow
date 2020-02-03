@@ -620,10 +620,13 @@ GetMonHeader::
 	ld de, GhostPic
 	cp MON_GHOST ; Ghost
 	jr z, .specialID
+	;ld de, MegaCharizardPic
+;	cp MEGA_CHARIZARD ; mega
+;	jr z, .specialID
 	ld de, FossilAerodactylPic
 	ld b, $77 ; size of Aerodactyl fossil sprite
 	cp FOSSIL_AERODACTYL ; Aerodactyl fossil
-	jr z, .specialID
+	jr z, .specialID ;Maybe could utilize this for megas, do we really want to use a full dex entry on them after all if we just want the pic? Would have to be careful to only call the megas after already copying base poke stats
 	;cp MEW
 	;jr z, .mew
 	predef IndexToPokedex   ; convert pokemon ID in [wd11e] to pokedex number
@@ -3071,6 +3074,7 @@ GetTrainerInformation::
 	inc de
 	ld a, [hli]
 	ld [de], a
+	call FightingJessieJames
 	jp BankswitchBack
 .linkBattle
 	ld hl, wTrainerPicPointer
@@ -3079,6 +3083,20 @@ GetTrainerInformation::
 	inc hl
 	ld [hl], d
 	ret
+	
+FightingJessieJames:: ;eh, kinda missed this. let's see if we have enough space if we remove dummy line
+ ld a, [wTrainerClass]
+ cp ROCKET
+ ret nz
+ ld a, [wTrainerNo]
+ cp $2a
+ ret c
+ ld de, JessieJamesPic
+ ld hl, wTrainerPicPointer
+ ld a, e
+ ld [hli],a
+ ld [hl], d
+ ret
 
 GetTrainerName::
 	jpba GetTrainerName_
@@ -4831,9 +4849,9 @@ const_value = 1
 	add_tx_pre SaffronCityPokecenterBenchGuyText    ; 1A
 	add_tx_pre MtMoonPokecenterBenchGuyText         ; 1B
 	add_tx_pre RockTunnelPokecenterBenchGuyText     ; 1C
-	add_tx_pre UnusedBenchGuyText1                  ; 1D
-	add_tx_pre UnusedBenchGuyText2                  ; 1E
-	add_tx_pre UnusedBenchGuyText3                  ; 1F
+	;add_tx_pre UnusedBenchGuyText1                  ; 1D
+	;add_tx_pre UnusedBenchGuyText2                  ; 1E
+	;add_tx_pre UnusedBenchGuyText3                  ; 1F
 	add_tx_pre UnusedPredefText                     ; 20
 	add_tx_pre PokemonCenterPCText                  ; 21
 	add_tx_pre ViridianSchoolNotebook               ; 22

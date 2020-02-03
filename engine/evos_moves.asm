@@ -335,7 +335,7 @@ Evolution_ReloadTilesetTilePatterns:
 
 LearnMoveFromLevelUp:
 	ld a, [wd11e] ; species
-	ld [wcf91], a
+	ld [wcf91], a ;wcf91 gets species put in it
 	call GetMonLearnset
 .learnSetLoop ; loop over the learn set until we reach a move that is learnt at the current level or the end of the list
 	ld a, [hli]
@@ -429,13 +429,14 @@ Func_3b079:
 
 Func_3b0a2:
 ; XXX what is wcf91 entering this function?
+;probably species, per above, and since it is doing compare for species.
 	ld a, [wd11e]
 	ld [wMoveNum], a
 	predef CanLearnTM
 	ld a, c
 	and a
 	jr nz, .asm_3b0ec
-	ld hl, Pointer_3b0ee
+	ld hl, Pointer_EvoList
 	ld a, [wcf91]
 	ld de, $1
 	call IsInArray
@@ -470,7 +471,7 @@ Func_3b0a2:
 	scf
 	ret
 
-Pointer_3b0ee:
+Pointer_EvoList:
 	db NIDOKING
 	db IVYSAUR
 	db EXEGGUTOR

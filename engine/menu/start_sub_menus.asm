@@ -541,6 +541,12 @@ UsableItems_PartyMenu:
 	db SUN_STONE
 	db LOVE_STONE
 	db FROST_STONE
+	db KINGS_ROCK
+  db STEEL_COAT
+	db QUICK_CLAW
+	db EVOLITE
+	db SITRUS_BERRY
+	db ORAN_BERRY
 	db $ff
 
 ; items which close the item menu when used

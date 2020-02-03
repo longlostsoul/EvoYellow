@@ -981,7 +981,7 @@ wEnemyNumHits:: ; cd05
 
 wEnemyBideAccumulatedDamage:: ; cd05
 ; the amount of damage accumulated by the enemy while biding (2 bytes)
-
+;others unused?
 	ds 10
 
 wInGameTradeGiveMonSpecies:: ; cd0f
@@ -1709,12 +1709,10 @@ wItemList:: ; cf7a
 wListPointer:: ; cf8a
 	ds 2
 
+W_BERRYTREEFLAGS::
 wUnusedCF8D:: ; cf8c
 ; 2 bytes
 ; used to store pointers, but never read
-wTempMoveID::
-wTemp::
-wGenderTemp::
 	ds 2
 
 wItemPrices:: ; cf8e
@@ -2566,10 +2564,15 @@ wPseudoItemID:: ; d151
 ; For example, out-of-battle Dig is executed using a fake Escape Rope item. In
 ; that case, this would be ESCAPE_ROPE.
 	ds 1
-
+	
+wTempMoveID::
+wTemp::
+wGenderTemp::
 wUnusedD153:: ; d152
 	ds 1
 
+wBerryStepCounter::
+;	ds 2
 	ds 2
 
 wEvoStoneItemID:: ; d155
@@ -3268,8 +3271,10 @@ wSeafoamIslands5CurScript:: ; d667
 	ds 1
 wRoute18GateCurScript:: ; d668
 	ds 1
-
+;unused?
+	
 	ds 78
+
 wGameProgressFlagsEnd:: ; d6b7
 
 	ds 56
@@ -3566,6 +3571,7 @@ wNumSafariBalls:: ; da46
 wDayCareInUse:: ; da47
 ; 0 if no pokemon is in the daycare
 ; 1 if pokemon is in the daycare
+;bit 2 - egg?
 	ds 1
 
 wDayCareMonName:: ds NAME_LENGTH ; da48

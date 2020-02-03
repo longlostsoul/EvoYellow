@@ -98,7 +98,12 @@ OverworldLoopLessDelay::
 	call Func_0ffe
 	ld a, [hSpriteIndexOrTextID]
 	and a
-	jp z, OverworldLoop
+	jr nz, .displayDialogue
+
+	; Check for field moves that interact with the bg.
+	predef TryFieldMove
+	jp OverworldLoop
+
 .displayDialogue
 	predef GetTileAndCoordsInFrontOfPlayer
 	call UpdateSprites
@@ -326,6 +331,15 @@ StepCountCheck::
 ; step counting
 	ld hl, wStepCounter
 	dec [hl]
+; berry steps
+	ld hl,wBerryStepCounter
+	dec [hl]
+	ld a,[hli]
+	and a
+	jp nz, .originalRoutine
+	inc [hl]
+	callba BerryReset
+.originalRoutine
 	ld a, [wd72c]
 	bit 0, a
 	jr z, .doneStepCounting
@@ -493,7 +507,7 @@ WarpFound2::
 	ld a, [wCurMap]
 	ld [wLastMap], a
 	ld a, [wCurMapWidth]
-	ld [wUnusedD366], a ; not read
+;	ld [wUnusedD366], a ; not read
 	ld a, [hWarpDestinationMap]
 	ld [wCurMap], a
 	cp ROCK_TUNNEL_1
@@ -1858,10 +1872,10 @@ LoadMapHeader::
 	jr asm_0dbd
 
 Func_0db5:: ; XXX
-	callba LoadUnusedBluesHouseMissableObjectData ; 3c:4a55
+;	callba LoadUnusedBluesHouseMissableObjectData ; 3c:4a55
 asm_0dbd
 	ld a, [wCurMapTileset]
-	ld [wUnusedD119], a
+	;ld [wUnusedD119], a
 	ld a, [wCurMap]
 	call SwitchToMapRomBank
 	ld a, [wCurMapTileset]
@@ -2088,7 +2102,7 @@ ResetMapVariables::
 	ld [hSCY], a
 	ld [hSCX], a
 	ld [wWalkCounter], a
-	ld [wUnusedD119], a
+	;ld [wUnusedD119], a
 	ld [wSpriteSetID], a
 	ld [wWalkBikeSurfStateCopy], a
 	ret

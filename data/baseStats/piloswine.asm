@@ -24,5 +24,5 @@ db 5 ; growth rate
 	tmlearn 25,26,27,28,31,32
 	tmlearn 34,38,40
 	tmlearn 44,48
-	tmlearn 50,54
+	tmlearn 50,51,54
 db BANK(PiloswinePicFront)

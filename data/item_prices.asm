@@ -10,10 +10,10 @@ ItemPrices:
 	money 0     ; POKEDEX
 	money 1500  ; MOON_STONE
 	money 100   ; ANTIDOTE
-	money 250   ; BURN_HEAL
-	money 250   ; ICE_HEAL
-	money 200   ; AWAKENING
-	money 200   ; PARLYZ_HEAL
+	money 50   ; BURN_HEAL
+	money 50   ; ICE_HEAL
+	money 100   ; AWAKENING
+	money 100   ; PARLYZ_HEAL
 	money 3000  ; FULL_RESTORE
 	money 2500  ; MAX_POTION
 	money 1500  ; HYPER_POTION
@@ -96,6 +96,14 @@ ItemPrices:
 	money 0     ; FLOOR_10F
 	money 0     ; FLOOR_11F
 	money 0     ; FLOOR_B4F
-	money 500 ;Stones
-	money 500
-	money 500
+	money 2000 ;Stones
+	money 2000
+	money 2000
+	money 2500    ; Shiny stone? maybe?
+	money 100    ; hold item maybe?
+	money 100    ; 
+	money 100    ; 
+	money 100    ; 
+	;money 1000;
+	money 10    ; BERRY
+	money 10    ; BERRY

@@ -70,17 +70,22 @@ TryDoWildEncounter:
 	jr nz, .gotWildEncounterType ; else, it's treated as a grass tile by default
 	ld hl, wWaterMons
 .gotWildEncounterType
+  ld a, 10
+  ld [wTemp],a;an override for bank_3dbattle attempt. no particular reason for = 10.
 	ld b, 0
 	add hl, bc
 	ld a, [hli]
 	ld [wCurEnemyLVL], a
-	ld a, [hl]
+  jp .Mew
+.no
+	ld a,[hl];could put mew or whatevers
+.gotit
 	ld [wcf91], a
 	ld [wEnemyMonSpecies2], a
 	ld a, [wRepelRemainingSteps]
 	and a
 	jr z, .willEncounter
-	ld a, [wPartyMon1Level]
+	ld a, [wPartyMon1Level] ;we could make wild enemies always the same as first party mon as an auto- difficulty adjustment... but easy to get around.
 	ld b, a
 	ld a, [wCurEnemyLVL]
 	cp b
@@ -92,7 +97,19 @@ TryDoWildEncounter:
 	ld [hSpriteIndexOrTextID], a
 	call EnableAutoTextBoxDrawing
 	call DisplayTextID
+	jp .CantEncounter2
+.Mew
+	ld a, [wObtainedBadges] ;can make it check for badge
+	bit 7, a ;8th badge if we start count from 0
+	jr z, .no
+	call Random
+	cp 1
+	jr nz, .no
+	ld a, MEW
+	jp .gotit
 .CantEncounter2
+  ld a, 0
+  ld [wTemp],a
 	ld a, $1
 	and a
 	ret

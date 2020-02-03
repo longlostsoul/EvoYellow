@@ -5,7 +5,7 @@ db 70 ; base defense
 db 105 ; base speed
 db 80 ; base special
 db FIRE ; species type 1
-db FAIRY ; species type 2
+db FIRE ; species type 2
 db FULL_HEAL ; catch rate
 db 192 ; base exp yield
 INCBIN "pic/ymon/rapidash.pic",0,1 ; 77, sprite dimensions

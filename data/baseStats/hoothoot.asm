@@ -4,7 +4,7 @@
 	db 30 ; base defense
 	db 50 ; base speed
 	db 46 ; base special
-	db GHOST ; species type 1
+	db NORMAL ; species type 1
 	db FLYING ; species type 2
 	db 255 ; catch rate
 	db 58 ; base exp yield
@@ -24,5 +24,5 @@
 	tmlearn 31,32
 	tmlearn 33,34,39
 	tmlearn 43,44
-	tmlearn 50,52
+	tmlearn 50,51,52
 	db BANK(HoothootPicFront) ; padding

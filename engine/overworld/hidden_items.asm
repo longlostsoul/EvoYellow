@@ -19,8 +19,9 @@ HiddenItems:
 	tx_pre_jump FoundHiddenItemText
 
 .itemAlreadyFound
-	ld a, $ff
-	ld [hItemAlreadyFound], a
+	;ld a, $ff
+	;ld [hItemAlreadyFound], a
+	predef TryFieldMove
 	ret
 
 INCLUDE "data/hidden_item_coords.asm"

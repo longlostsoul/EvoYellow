@@ -24,6 +24,7 @@ Route11TextPointers:
 	dw Route11Text9
 	dw Route11Text10
 	dw Route11Text11
+	dw Route11Tree1
 
 Route11TrainerHeaders:
 Route11TrainerHeader0:
@@ -301,3 +302,10 @@ Route11AfterBattleText10:
 Route11Text11:
 	TX_FAR _Route11Text11
 	db "@"
+	
+Route11Tree1:
+	db $08 ; asm
+	ld a, 6
+	ld [wWhichTrade], a
+	callba BerryTreeScript
+	jp TextScriptEnd

@@ -343,7 +343,7 @@ StartBattle:
 	ld a, [hl] ; species
 	ld [wcf91], a
 	ld [wBattleMonSpecies2], a
-	;could do some kind of check here for item to do mega evolution I think, temp change species here.
+	;could do some kind of check here for item to do mega evolution I think, temp change species here? may be better to do it in LoadBattleMon or the like though. might req. multiple places to change?
 	call LoadScreenTilesFromBuffer1
 	coord hl, 1, 5
 	ld a, $9
@@ -394,6 +394,7 @@ MainInBattleLoop:
   ;disable health alarm because annoying?
   call EndLowHealthAlarm
 	;normal
+	;callab MegaForms
 	call ReadPlayerMonCurHPAndStatus
   
 	ld hl, wBattleMonHP
@@ -1850,7 +1851,7 @@ LoadBattleMonFromParty:
 	ld bc, wPartyMon2 - wPartyMon1
 	ld hl, wPartyMon1Species
 	call AddNTimes
-	ld de, wBattleMonSpecies
+	ld de, wBattleMonSpecies;possible override spot for mega, if we want to over-ride the DVs and learnable moves, have to be careful as level up acted weird and we don't necessarily /want/ to over-ride movesets!
 	ld bc, wBattleMonDVs - wBattleMonSpecies
 	call CopyData
 	ld bc, wPartyMon1DVs - wPartyMon1OTID
@@ -1864,6 +1865,10 @@ LoadBattleMonFromParty:
 	ld de, wBattleMonLevel
 	ld bc, wBattleMonPP - wBattleMonLevel
 	call CopyData
+	;ld a, MEWTWO
+	;ld de, wBattleMonSpecies
+	;ld [de], a
+	callab MegaForms ;Best spot to over-ride normal pic with Mega's, by calling code that does above.
 	ld a, [wBattleMonSpecies2]
 	ld [wd0b5], a
 	call GetMonHeader
@@ -1951,6 +1956,7 @@ SendOutMon:
 	call DrawEnemyHUDAndHPBar
 .skipDrawingEnemyHUDAndHPBar
 	call DrawPlayerHUDAndHPBar
+	;another possible place for form/mega checks, just override loadmonbackpic?
 	predef LoadMonBackPic
 	xor a
 	ld [hStartTileID], a
@@ -2076,7 +2082,7 @@ DrawPlayerHUDAndHPBar:
 	callab PlacePlayerHUDTiles
 	coord hl, 18, 9
 	ld [hl], $73
-	ld de, wBattleMonNick
+	ld de, wBattleMonNick ;may want to override for megas
 	coord hl, 10, 7
 	call PlaceString
 	call PrintPlayerMonGender
@@ -3669,6 +3675,12 @@ IsGhostBattle:
 ; checks for various status conditions affecting the player mon
 ; stores whether the mon cannot use a move this turn in Z flag
 CheckPlayerStatusConditions:
+  callab FRZorSLPBerry ;hold item script
+  ld a,[wTemp]
+  cp 100
+  jr z, .WakeUp
+  cp 101
+  jr z, .defrostMon
 	ld hl,wBattleMonStatus
 	ld a,[hl]
 	and a,SLP ; sleep mask
@@ -3687,6 +3699,9 @@ CheckPlayerStatusConditions:
 	call PrintText
 	jr .sleepDone
 .WakeUp
+  ld a,0
+  ld [wBattleMonStatus],a ;berry, redundant if no berry
+  ld [wTemp],a
 	ld hl,WokeUpText
 	call PrintText
 .sleepDone
@@ -3814,6 +3829,9 @@ CheckPlayerStatusConditions:
 	ld hl,wBattleMonStatus
 	bit PAR,[hl]
 	jr z,.BideCheck
+	callab PlayerBerries
+	cp 99
+	jr z, .BideCheck
 	call BattleRandom
 	cp a,$3F ; 25% to be fully paralyzed
 	jr nc,.BideCheck

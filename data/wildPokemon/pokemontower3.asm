@@ -1,6 +1,6 @@
 TowerMons3:
 	db $0A
-	db 20,HOOTHOOT
+	db 20,TOGETIC;day?
 	db 21,GASTLY
 	db 22,CUBONE
 	db 23,GASTLY

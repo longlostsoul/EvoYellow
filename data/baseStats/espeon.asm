@@ -25,5 +25,5 @@ db 0 ; growth rate
 	tmlearn 28,29,30,31,32
 	tmlearn 33,34,39,40
 	tmlearn 42,44,46
-	tmlearn 49,50,54
+	tmlearn 49,50,54,55
 db BANK(EspeonPicFront)

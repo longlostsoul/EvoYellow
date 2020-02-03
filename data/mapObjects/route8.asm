@@ -11,7 +11,7 @@ Route8Object:
 	db $1 ; signs
 	db $3, $11, $a ; Route8Text10
 
-	db $9 ; objects
+	db $a ; objects
 	object SPRITE_BLACK_HAIR_BOY_2, $8, $5, STAY, RIGHT, $1, OPP_SUPER_NERD, $3
 	object SPRITE_GAMBLER, $d, $9, STAY, UP, $2, OPP_GAMBLER, $5
 	object SPRITE_BLACK_HAIR_BOY_2, $2a, $6, STAY, UP, $3, OPP_SUPER_NERD, $4
@@ -21,7 +21,7 @@ Route8Object:
 	object SPRITE_LASS, $1a, $6, STAY, RIGHT, $7, OPP_LASS, $f
 	object SPRITE_GAMBLER, $2e, $d, STAY, DOWN, $8, OPP_GAMBLER, $7
 	object SPRITE_LASS, $33, $c, STAY, LEFT, $9, OPP_LASS, $10
-
+  object SPRITE_BERRY_TREE,  $35, $6 ,NONE, $ff, $b
 	; warp-to
 	EVENT_DISP ROUTE_8_WIDTH, $9, $1 ; ROUTE_8_GATE
 	EVENT_DISP ROUTE_8_WIDTH, $a, $1 ; ROUTE_8_GATE

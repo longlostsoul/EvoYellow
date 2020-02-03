@@ -1,11 +1,11 @@
 db DEX_EKANS ; pokedex id
-db 35 ; base hp
+db 45 ; base hp
 db 60 ; base attack
 db 44 ; base defense
 db 55 ; base speed
 db 40 ; base special
 db POISON ; species type 1
-db DARK ; species type 2
+db POISON ; species type 2
 db 255 ; catch rate
 db 62 ; base exp yield
 INCBIN "pic/ymon/ekans.pic",0,1 ; 55, sprite dimensions

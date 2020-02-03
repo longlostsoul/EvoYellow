@@ -2236,7 +2236,7 @@ HideSubstituteShowMonAnim:
 	ld [wcf91], a
 	ld [wd0b5], a
 	call GetMonHeader
-	predef LoadMonBackPic
+	predef LoadMonBackPic ;if we over-ride just this need to do it here too. Over-riding species for megas is much easier even if it removes a slot.
 	ret
 .enemy
 	ld a, [wEnemyMonMinimized]

@@ -124,8 +124,134 @@ IsPikachuFirst::
 .noPlayerPoke
   ld a,0
 	pop hl
-	ret	
+	ret
 
+
+Pointer_PikaSprites:
+db PIKACHU
+db MARILL
+db AZUMARILL
+db $FF
+
+Pointer_SeelSprites:
+db SEEL
+db DEWGONG
+db $FF
+
+Pointer_ShellSprites:
+db OMASTAR
+db OMANYTE
+db SHELLDER
+db KABUTOPS
+db OCTILLERY
+db CLOYSTER
+db KABUTO
+db $FF
+
+Pointer_SquirtSprites
+db SQUIRTLE
+db WARTORTLE
+db BLASTOISE
+db WOOPER
+db QUAGSIRE
+db $FF
+
+Pointer_FishSprites:
+db MAGIKARP
+db GOLDEEN
+db SEAKING
+db QWILFISH
+db CHINCHOU
+db LANTURN
+db $FF
+
+Pointer_MeowthSprites:
+db MEOWTH
+db SNEASEL
+db WEAVILE
+db $FF
+
+Pointer_QuadSprites:
+db RATTATA
+db RATICATE
+db TAUROS
+db MILTANK
+db GIRAFARIG
+db PONYTA
+db RAPIDASH
+db RHYHORN
+db $FF
+
+Pointer_SnakeSprites:
+db ONIX
+db STEELIX
+db EKANS
+db ARBOK
+;db DRATINI ;might handle by dragon typing check instead
+;db DRAGONAIR
+;db DUNSPARCE
+db $FF
+
+Pointer_BatSprites:
+db ZUBAT
+db GOLBAT
+db GLISCOR
+db GLIGAR
+db $FF
+
+Pointer_BallSprites:
+db VOLTORB
+db ELECTRODE
+db MAGNEMITE
+db MAGNETON
+db MAGNEZONE
+db $FF
+
+Pointer_DittoSprites:
+db DITTO
+db MUK
+db GRIMER
+db $FF
+
+Pointer_EeveeSprites:
+db EEVEE
+db ESPEON
+db FLAREON
+db UMBREON
+db VAPOREON
+db JOLTEON
+db LEAFEON
+db SYLVEON
+db GLACEON
+db $FF
+
+Pointer_CharmanderSprites:
+db CHARMANDER
+db CHARMELEON
+db $FF
+
+Pointer_DragonSprites
+db CHARIZARD
+db DRAGONITE
+db AERODACTYL
+db $FF
+
+Pointer_BulbaSprites:
+db BULBASAUR
+db IVYSAUR
+db VENUSAUR
+db $FF
+
+;Other grass mons all get single grass sprite, so get grass typing check instead.
+
+GetFirstMonSpecies:
+  ld a, 0;[wWhichPokemon]
+	ld c, a
+	ld b, 0
+	ld hl, wPartySpecies
+	add hl, bc
+	ld a, [hl]
+	ret
 
 LoadPokeFollowSprite::
   ld hl, wPartySpecies
@@ -135,9 +261,16 @@ LoadPokeFollowSprite::
 	push hl
 	inc a
 	jp z, .noPlayerPoke
-	CP PIKACHU +1
-	jr nz, .curMonNotThis0
-	ld a, SPRITE_PIKACHU
+;	CP PIKACHU +1
+;	jr nz, .curMonNotThis0
+;	ld a, SPRITE_PIKACHU
+  call GetFirstMonSpecies ;point to species properly for loop, no +1 --
+	ld hl, Pointer_ShellSprites
+	ld de, $1
+	call IsInArray
+	jr nc, .curMonNotThis0
+	ld a, SPRITE_SHELL
+	jr .end
 .end
   pop hl
 	scf
@@ -148,215 +281,149 @@ LoadPokeFollowSprite::
 	and a
 	ret	
 .curMonNotThis0
-	CP RAICHU +1
+  call GetFirstMonSpecies
+  ld hl, Pointer_PikaSprites
+	ld de, $1
+	call IsInArray
+	jr nc, .curMonNotThisPika
+	ld a, SPRITE_PIKACHU
+	jr .end
+.curMonNotThisPika
+  call GetFirstMonSpecies
+	CP RAICHU
 	jr nz, .curMonNotThis1
 	ld a, SPRITE_RAICHU
 	jr .end
 .curMonNotThis1
-	cp PERSIAN + 1
+	cp PERSIAN
 	jr nz, .curMonNotThis2
 	ld a, SPRITE_PERSIAN
 	jr .end
 .curMonNotThis2
-	cp BULBASAUR + 1
-	jr nz, .curMonNotThis3b
-	ld a, SPRITE_BULBASAUR
-	jr .end
-.curMonNotThis3b
-	cp IVYSAUR + 1
-	jr nz, .curMonNotThis3c
-	ld a, SPRITE_BULBASAUR
-	jr .end
-.curMonNotThis3c
-	cp VENUSAUR + 1
-	jr nz, .curMonNotThis3
+  call GetFirstMonSpecies
+  ld hl, Pointer_BulbaSprites
+	ld de, $1
+	call IsInArray
+	jr nc, .curMonNotThis3
 	ld a, SPRITE_BULBASAUR
 	jr .end
 .curMonNotThis3
-	cp EEVEE + 1
-	jr nz, .curMonNotThis4a
-	ld a, SPRITE_EEVEE
-	jr .end
-.curMonNotThis4a
-  cp SYLVEON + 1
-	jr nz, .curMonNotThis4b
-	ld a, SPRITE_EEVEE
-	jr .end
-.curMonNotThis4b
-	cp UMBREON + 1
-	jr nz, .curMonNotThis4c
-	ld a, SPRITE_EEVEE
-	jr .end
-.curMonNotThis4c
-	cp ESPEON + 1
-	jr nz, .curMonNotThis4d
-	ld a, SPRITE_EEVEE
-	jr .end
-.curMonNotThis4d
-	cp FLAREON + 1
-	jr nz, .curMonNotThis4e
-	ld a, SPRITE_EEVEE
-	jr .end
-.curMonNotThis4e
-	cp GLACEON + 1
-	jr nz, .curMonNotThis4f
-	ld a, SPRITE_EEVEE
-	jr .end
-.curMonNotThis4f
-	cp JOLTEON + 1
-	jr nz, .curMonNotThis4g
-	ld a, SPRITE_EEVEE
-	jr .end
-.curMonNotThis4g
-	cp VAPOREON + 1
-	jr nz, .curMonNotThisEon
+  call GetFirstMonSpecies
+	ld hl, Pointer_EeveeSprites
+	ld de, $1
+	call IsInArray
+	jr nc, .curMonNotThisEon
 	ld a, SPRITE_EEVEE
 	jr .end
 .curMonNotThisEon
-	cp LEAFEON + 1
-	jr nz, .curMonNotThis4
-	ld a, SPRITE_EEVEE
-	jr .end
-.curMonNotThis4
-	cp DITTO + 1
-	jr nz, .curMonNotThisDitto
+  call GetFirstMonSpecies
+	ld hl, Pointer_DittoSprites
+	ld de, $1
+	call IsInArray
+	jr nc, .curMonNotThisDitto
 	ld a, SPRITE_DITTO
-	jr .end2
+	jr .end
 .curMonNotThisDitto
-	cp SQUIRTLE + 1
-	jr nz, .curMonNotThis5a
+  call GetFirstMonSpecies
+	ld hl, Pointer_SquirtSprites
+	ld de, $1
+	call IsInArray
+	jr nc, .curMonNotThis5a
 	ld a, SPRITE_SQUIRTLE
-	jr .end2
+	jr .end
 .curMonNotThis5a
-	cp WARTORTLE + 1
-	jr nz, .curMonNotThis5b
-	ld a, SPRITE_SQUIRTLE
-	jr .end2 
-.curMonNotThis5b
-	cp LAPRAS + 1
+	cp LAPRAS
 	jr nz, .curMonNotThisM
 	ld a, SPRITE_LAPRAS
-	jr .end2
+	jr .end
 .curMonNotThisM
-	cp GYARADOS + 1
+	cp GYARADOS
 	jr nz, .curMonNotThisFish
 	ld a, SPRITE_GYARADOS
-	jr .end2 
+	jr .end2
 .curMonNotThisFish
-	cp SEEL + 1
-	jr nz, .curMonNotThisFishy
+  call GetFirstMonSpecies
+	ld hl, Pointer_QuadSprites
+	ld de, $1
+	call IsInArray
+	jr nc, .curMonNotTauroslike
+	ld a, SPRITE_TAUROS
+	jr .end2
+.curMonNotTauroslike
+  call GetFirstMonSpecies
+	ld hl, Pointer_SeelSprites
+	ld de, $1
+	call IsInArray
+	jr nc, .curMonNotThisFishfood
 	ld a, SPRITE_SEEL
-	jr .end2 
-.curMonNotThisFishy
-	cp DEWGONG + 1
-	jr nz, .curMonNotThisFishfood
-	ld a, SPRITE_SEEL
-	jr .end2 
-.curMonNotThisFishfood
-	cp SANDSHREW + 1
-	jr nz, .curMonNotThisShrew
-	ld a, SPRITE_SANDSHREW
-	jr .end2;relative value must be 8 bit
-.curMonNotThisShrew
-	cp SANDSLASH + 1
-	jr nz, .curMonNotThisS
-	ld a, SPRITE_SANDSHREW
+	;jr .end2;relative value must be 8 bit
 .end2;so, we have multiple different endings here
   pop hl
 	scf
 	ld [wSpriteSet], a
 	ret
-.curMonNotThisS
-	cp BLASTOISE + 1
-	jr nz, .curMonNotThis5
-	ld a, SPRITE_SQUIRTLE
-	jr .end2
-.curMonNotThis5
-	cp CHARIZARD + 1
-	jr nz, .curMonNotThis6a
-	ld a, SPRITE_DRAGON
-	jr .end2
-.curMonNotThis6a
-	cp CHARMELEON + 1
-	jr nz, .curMonNotThis6b
-	ld a, SPRITE_CHARMANDER
-	jr .end2
-.curMonNotThis6b
-	cp CHARMANDER + 1
-	jr nz, .curMonNotThisStarter
+.curMonNotThisFishfood
+  call GetFirstMonSpecies
+	ld hl, Pointer_CharmanderSprites
+	ld de, $1
+	call IsInArray
+	jr nc, .curMonNotThisStarter
 	ld a, SPRITE_CHARMANDER
 	jr .end2
 .curMonNotThisStarter
-	cp DRAGONITE + 1
-	jr nz, .curMonNotThisG
+  call GetFirstMonSpecies
+	ld hl, Pointer_DragonSprites
+	ld de, $1
+	call IsInArray
+	jr nc, .curMonNotThisGuy
 	ld a, SPRITE_DRAGON
 	jr .end2
-.curMonNotThisG
-	cp ONIX + 1
-	jr nz, .curMonNotThisMon
+.curMonNotThisGuy
+	call GetFirstMonSpecies
+	ld hl, Pointer_SnakeSprites
+	ld de, $1
+	call IsInArray
+	jr nc, .curMonNotThisMon
 	ld a, SPRITE_SNAKE2
-	jr .end2
+	jr .resume2
 .curMonNotThisMon
-	cp EKANS + 1
-	jr nz, .curMonNotThisMon2
-	ld a, SPRITE_SNAKE2
-	jr .end2
-.curMonNotThisMon2
-	cp ARBOK + 1
-	jr nz, .curMonNotThisMon3
-	ld a, SPRITE_SNAKE2
-	jr .end2
-.curMonNotThisMon3
-	cp VOLTORB + 1
-	jr nz, .curMonNotThisMon4
+	call GetFirstMonSpecies
+	ld hl, Pointer_BallSprites
+	ld de, $1
+	call IsInArray
+	jr nc, .curMonNotThisMonBall
 	ld a, SPRITE_BALL
-	jr .end2
-.curMonNotThisMon4
-	cp ELECTRODE + 1
-	jr nz, .curMonNotThisMon5
-	ld a, SPRITE_BALL
-	jr .end2
-.curMonNotThisMon5
-	cp MAGNEMITE + 1
-	jr nz, .curMonNotThisMon6
-	ld a, SPRITE_BALL
-	jr .end2
-.curMonNotThisMon6
-	cp MAGNETON + 1
-	jr nz, .curMonNotThisMon7
-	ld a, SPRITE_BALL
-	jr .resume
-.curMonNotThisMon7
-	cp MAGNEZONE + 1
-	jr nz, .curMonNotThisMon8
-	ld a, SPRITE_BALL
-	jr .resume
-.curMonNotThisMon8
-	cp GLIGAR + 1
-	jr nz, .curMonNotThisMon9
+	jr .resume2
+.curMonNotThisMonBall
+	call GetFirstMonSpecies
+	ld hl, Pointer_BatSprites
+	ld de, $1
+	call IsInArray
+	jr nc, .curMonNotThisZub
 	ld a, SPRITE_ZUBAT
-	jr .resume
-.curMonNotThisMon9
-	cp GLISCOR + 1
-	jr nz, .curMonNotThisMon10
-	ld a, SPRITE_ZUBAT
-	jr .resume
-.curMonNotThisMon10
+	jr .resume2
+.curMonNotThisZub
+  call GetFirstMonSpecies
+	ld hl, Pointer_MeowthSprites
+	ld de, $1
+	call IsInArray
+	jr nc,  .curMonNotThis_types
+	ld a, SPRITE_MEOWTH
+	;jr .resume2
+;.curMonNotThissneeze
+.resume2;so, we have multiple different endings here
+  pop hl
+	scf
+	ld [wSpriteSet], a
+	ret
+.curMonNotThis_types
 	ld a,[wPartyMon1Type1]
- ; callab GetPartyMonSpriteID I didn't have much luck with this, also don't have enough sprites for all of them; they have to have full walksprites.
+ ; callab GetPartyMonSpriteID I didn't have much luck with this. I might try it again though, this current set up is still a bit inefficient, although since requires full walksprites I'd still have to go through each sprite type and load a new sprite.
+ ;In hindsight, I think one reason it may not have worked could be bank switching, since I noticed putting the pointers to the lists in this bank made them work much better. For now, since have to change sprites anyway, this works.
+ ;ld b, Bank(pointers)	ld hl, pointers	ld input? call Bankswitch
   ;cp SPRITE_MON              ; $0
 	;cp SPRITE_BALL_M           ; $1
 	;cp SPRITE_HELIX            ; $2
-	cp FAIRY            
-	jr nz, .curMonNotThisFairy
-	ld a, SPRITE_CLEFAIRY
-	jr .resume
-.curMonNotThisFairy
-	cp WATER           
-	jr nz, .curMonNotThisWater
-	ld a, SPRITE_FISH
-	jr .resume
-.curMonNotThisWater
   cp FIRE
 	jr nz, .curMonNotThis6
 	ld a, SPRITE_DOG
@@ -392,9 +459,9 @@ LoadPokeFollowSprite::
 	ld a, SPRITE_GHOST
 	jr .resume
 .curMonNotThisGhost
-  cp POISON       
+  cp GROUND       
 	jr nz, .curMonNotThisPoison
-	ld a, SPRITE_ZUBAT
+	ld a, SPRITE_SANDSHREW
 	jr .resume
 .curMonNotThisPoison
   ld a,[wPartyMon1Type2]
@@ -403,9 +470,14 @@ LoadPokeFollowSprite::
 	ld a, SPRITE_BIRD
 	jr .resume
 .curMonNotThisBird
-	cp DARK        
+  cp FAIRY            
+	jr nz, .curMonNotThisFairy
+	ld a, SPRITE_CLEFAIRY
+	jr .resume
+.curMonNotThisFairy
+	cp PSYCHIC     
 	jr nz, .curMonNotThisredux
-	ld a, SPRITE_MEOWTH
+	ld a, SPRITE_MEW
 	jr .resume
 .curMonNotThisredux
   ld a, SPRITE_SLOWBRO

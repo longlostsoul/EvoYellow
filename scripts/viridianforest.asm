@@ -29,6 +29,7 @@ ViridianForestTextPointers:
 	dw ViridianForestText14
 	dw ViridianForestText15
 	dw ViridianForestText16
+	dw ViridianForestTree1
 
 ViridianForestTrainerHeaders:
 ViridianForestTrainerHeader0:
@@ -204,4 +205,11 @@ ViridianForestText16:
 ViridianForestScript_6120d
 	ld b, BANK(Func_f2528)
 	call Bankswitch
+	jp TextScriptEnd
+	
+ViridianForestTree1:
+	db $08 ; asm
+	ld a, 13
+	ld [wWhichTrade], a
+	callba BerryTreeScript
 	jp TextScriptEnd

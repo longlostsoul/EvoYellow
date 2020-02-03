@@ -55,7 +55,7 @@ SplitMapSpriteSets:
 	db $01,$35,$01,$0A ; $f8
 	db $02,$21,$02,$07 ; $f9
 	db $02,$02,$07,$04 ; $fa
-	db $01,$11,$05,$07 ; $fb
+	db $01,$11,$05,$07 ; $fb  route 7
 	db $01,$03,$07,$03 ; $fc
 
 SpriteSets:
@@ -70,7 +70,7 @@ SpriteSets:
 	db SPRITE_OAK
 	db SPRITE_SWIMMER
 	db SPRITE_BALL
-	db SPRITE_LYING_OLD_MAN
+	db SPRITE_BERRY_TREE
 
 ; sprite set $02
 	db SPRITE_PIKACHU
@@ -82,8 +82,8 @@ SpriteSets:
 	db SPRITE_OFFICER_JENNY
 	db SPRITE_LASS
 	db SPRITE_BLACK_HAIR_BOY_1
+	db SPRITE_BERRY_TREE
 	db SPRITE_BALL
-	db SPRITE_EEVEE
 
 ; sprite set $03
 	db SPRITE_PIKACHU
@@ -96,7 +96,7 @@ SpriteSets:
 	db SPRITE_LASS
 	db SPRITE_BLACK_HAIR_BOY_1
 	db SPRITE_BALL
-	db SPRITE_EEVEE
+	db SPRITE_BERRY_TREE
 
 ; sprite set $04
 	db SPRITE_PIKACHU
@@ -109,7 +109,7 @@ SpriteSets:
 	db SPRITE_LASS
 	db SPRITE_BLACK_HAIR_BOY_1
 	db SPRITE_BALL
-	db SPRITE_EEVEE
+	db SPRITE_BERRY_TREE
 
 ; sprite set $05
 	db SPRITE_PIKACHU
@@ -119,9 +119,9 @@ SpriteSets:
 	db SPRITE_FISHER2
 	db SPRITE_FAT_BALD_GUY
 	db SPRITE_OLD_PERSON
-	db SPRITE_SLOWBRO
-	db SPRITE_ROCKET
 	db SPRITE_BALL
+	db SPRITE_ROCKET
+	db SPRITE_BERRY_TREE
 	db SPRITE_SNORLAX
 
 ; sprite set $06
@@ -135,7 +135,7 @@ SpriteSets:
 	db SPRITE_GUARD
 	db SPRITE_GAMBLER
 	db SPRITE_BALL
-	db SPRITE_EEVEE
+	db SPRITE_BERRY_TREE
 
 ; sprite set $07
 	db SPRITE_PIKACHU
@@ -147,8 +147,8 @@ SpriteSets:
 	db SPRITE_BIRD
 	db SPRITE_ROCKER
 	db SPRITE_BLACK_HAIR_BOY_1
-	db SPRITE_BALL
-	db SPRITE_EEVEE
+	db SPRITE_BERRY_TREE
+  db SPRITE_BALL
 
 ; sprite set $08
 	db SPRITE_PIKACHU
@@ -599,9 +599,9 @@ SpriteSheetPointerTable:
 	db BANK(BugSprite)
 
 	; SPRITE_LYING_OLD_MAN
-	dw LyingOldManSprite
+	dw BerryTreeSprite;LyingOldManSprite
 	db $40 ; byte count
-	db BANK(LyingOldManSprite)
+	db BANK(BerryTreeSprite);(LyingOldManSprite)
 	
 	dw RedCyclingSprite
 	db $c0 ; byte count
@@ -642,3 +642,15 @@ SpriteSheetPointerTable:
 	dw LaprasSprite
 	db $c0 ; byte count
 	db BANK(LaprasSprite)
+	
+	dw ShellSprite
+	db $c0
+	db BANK(ShellSprite)
+	
+	dw QuadSprite
+	db $c0
+	db BANK(QuadSprite)
+	
+	dw MewSprite
+	db $c0
+	db BANK(MewSprite)

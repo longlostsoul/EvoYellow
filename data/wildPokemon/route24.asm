@@ -8,7 +8,7 @@ Route24Mons:
 	db 15,PIDGEY
 	db 13,PIDGEOTTO ;day
 	db 16,HOPPIP
-	db 17,PIDGEY
+	db 17,VENONAT
 	db 17,MARILL
 	db $00
 

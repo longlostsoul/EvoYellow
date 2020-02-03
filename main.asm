@@ -178,7 +178,7 @@ BookMapDexSprite:      INCBIN "gfx/sprites/book_map_dex.2bpp"
 ClipboardSprite:       INCBIN "gfx/sprites/clipboard.2bpp"
 SnorlaxSprite:         INCBIN "gfx/sprites/snorlax.2bpp"
 OldAmberSprite:        INCBIN "gfx/sprites/old_amber.2bpp"
-LyingOldManSprite:     INCBIN "gfx/sprites/lying_old_man.2bpp"
+BerryTreeSprite: INCBIN "gfx/sprites/tree.2bpp";LyingOldManSprite:     INCBIN "gfx/sprites/lying_old_man.2bpp"
 QuestionMarkSprite:    INCBIN "gfx/sprites/question_mark.2bpp"
 SquirtleSprite:       INCBIN "gfx/sprites/squirtle.2bpp"
 CharmanderSprite:       INCBIN "gfx/sprites/charmander.2bpp"
@@ -1962,9 +1962,9 @@ SECTION "bank2f",ROMX[$5000],BANK[$2F]
 
 INCLUDE "engine/bg_map_attributes.asm"
 
-
 QwilfishPicFront::      INCBIN "pic/ymon/qwilfish.pic"
 QwilfishPicBack::       INCBIN "pic/monback/qwilfishb.pic"
+
 
 SECTION "bank30",ROMX,BANK[$30]
 
@@ -2201,6 +2201,7 @@ MurkrowPicBack::     INCBIN "pic/monback/murkrow.pic"
 HonchkrowPicFront::    INCBIN "pic/ymon/honchkrow.pic"
 HonchkrowPicBack::     INCBIN "pic/monback/honchkrow.pic"
 
+;full
 
 SECTION "bank3D",ROMX,BANK[$3D]
 
@@ -2225,25 +2226,17 @@ TyranitarPicBack::     INCBIN "pic/monback/tyranitarb.pic"
 WobbuffetPicFront::    INCBIN "pic/ymon/wobbuffet.pic"
 WobbuffetPicBack::     INCBIN "pic/monback/wobbuffetb.pic"
 
+;full
 
 SECTION "bank3E",ROMX,BANK[$3E]
 
 INCLUDE "engine/bank3e.asm"
 
-
+;full
 SECTION "bank3F",ROMX,BANK[$3F]
 
 INCLUDE "engine/bank3f.asm"
-
-PhanpyPicFront::      INCBIN "pic/ymon/phanpy.pic"
-PhanpyPicBack::       INCBIN "pic/monback/phanpy.pic"
-DonphanPicFront::    INCBIN "pic/ymon/donphan.pic"
-DonphanPicBack::     INCBIN "pic/monback/donphan.pic"
-GligarPicFront::      INCBIN "pic/ymon/gligar.pic"
-GligarPicBack::       INCBIN "pic/monback/gligar.pic"
-GliscorPicFront::      INCBIN "pic/ymon/gliscor.pic"
-GliscorPicBack::       INCBIN "pic/monback/gliscor.pic"
-
+;full
 
 SECTION "bank40",ROMX,BANK[$40]
 
@@ -2354,6 +2347,28 @@ BellossomPicFront::    INCBIN "pic/ymon/bellossom.pic"
 BellossomPicBack::     INCBIN "pic/monback/bellossom.pic"
 
 SECTION "bank42",ROMX,BANK[$42]
+ShellSprite: INCBIN "gfx/sprites/shell.2bpp"
+MewSprite: INCBIN "gfx/sprites/psychic.2bpp"
+QuadSprite: INCBIN "gfx/sprites/quadruped.2bpp"
+PhanpyPicFront::      INCBIN "pic/ymon/phanpy.pic"
+PhanpyPicBack::       INCBIN "pic/monback/phanpy.pic"
+DonphanPicFront::    INCBIN "pic/ymon/donphan.pic"
+DonphanPicBack::     INCBIN "pic/monback/donphan.pic"
+GligarPicFront::      INCBIN "pic/ymon/gligar.pic"
+GligarPicBack::       INCBIN "pic/monback/gligar.pic"
+GliscorPicFront::      INCBIN "pic/ymon/gliscor.pic"
+GliscorPicBack::       INCBIN "pic/monback/gliscor.pic"
+;MegaCharizardPicFront::       INCBIN "pic/ymon/mega_charizard_y_by_solo.pic"
+;MegaBlastoisePic::       INCBIN "pic/ymon/mega_blastoise_by_solo.pic"
+;MegaVenusaurPic::       INCBIN "pic/ymon/mega_venusaur_Xous_longlost.pic"
+;MegaCharizardPicBack::       INCBIN "pic/monback/mega_charizard_y_by_solo.pic"
+;MegaBlastoisePicBack::       INCBIN "pic/monback/mega_blastoise_by_solo.pic"
+;MegaVenusaurPicBack::       INCBIN "pic/monback/mega_venusaur.pic"
+
+include "home/berrytrees.asm";
+INCLUDE "engine/overworld/field_moves.asm"
+
+SECTION "bank43",ROMX,BANK[$43]
 KingdraPicFront::      INCBIN "pic/ymon/kingdra.pic"
 KingdraPicBack::       INCBIN "pic/monback/kingdra.pic"
 BlisseyPicFront::    INCBIN "pic/ymon/blissey.pic"
@@ -2404,12 +2419,20 @@ IsMonShiny:
 	ld a, [hl]
 	and 2 << 4
 	jr z, .NotShiny
+	;ol' speed check if we want to reduce values even more
+;.shinyspeedcheck
+	and $f << 4
+	cp 5 << 4
+	jr z, .NotShiny
+;	cp 13 << 4
+;	jr nz, .NotShiny
+.MaybeShiny
 	ld a,0
 	ld [wTemp], a
 	ld a, [hli]
 	and $f
-	cp 9
-	jr z, .MaybeShiny1
+	;cp 9
+	;jr z, .MaybeShiny1
 	cp 8
 	jr z, .MaybeShiny2
 	cp 7
@@ -2426,11 +2449,11 @@ IsMonShiny:
 	ld [wTemp], a
 	ld a, [hl]
 	jr .Shiny
-.MaybeShiny1 ;color1
-	ld a, 1
-	ld [wTemp], a
-	ld a, [hl]
-	jr .Shiny
+;.MaybeShiny1 ;color1
+;	ld a, 1
+;	ld [wTemp], a
+;	ld a, [hl]
+;	jr .Shiny
 .MaybeShiny2;color2
 	ld a, 2
 	ld [wTemp], a
@@ -2455,13 +2478,6 @@ IsMonShiny:
 	ld a, 6
 	ld [wTemp], a
 	ld a, [hl]
-	;ol' speed check if we want to reduce values even more, would have to alter the maybe shinies above to go here instead of shiny. could also introduce even moar varieties of pokemonz.
-;.shinyspeedcheck
-	;and $f << 4
-	;cp 5 << 4
-	;jr z, .Shiny
-	;cp 13 << 4
-	;jr nz, .NotShiny
 .Shiny
 	; set zero flag
 	and a ; a cannot be 0, so zero flag is set with thing command
