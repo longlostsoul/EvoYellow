@@ -154,7 +154,7 @@ PikaPicAnimScript12:
 	pikapic_animation PikaPicAnimBGFrames_4, $80, $0, $0
 	pikapic_animation PikaPicAnimBGFrames_18, $99, $0, $0
 	pikapic_waitbgmap
-	pikapic_cry PikachuCry25
+	pikapic_cry PikachuCry18;unhappy, should prob replace again. 25
 	pikapic_looptofinish
 
 PikaPicAnimScript13:
