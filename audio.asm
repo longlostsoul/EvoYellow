@@ -954,7 +954,7 @@ PikachuCry25_End:
 SECTION "Pikachu Cries 10",ROMX,BANK[PCM_10]
 PikachuCry27::
 	dw (PikachuCry27_End - PikachuCry27) - 2 ; length of pcm data
-	INCBIN "audio/pikachu_cries/pikachu_cry_27.pcm"
+	INCBIN "audio/pikachu_cries/eevee.pcm"
 PikachuCry27_End:
 
 	db $ff  ; unused

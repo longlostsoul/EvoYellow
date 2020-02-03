@@ -228,7 +228,7 @@ OaksLabScript9:
 	call SetSpriteFacingDirectionAndDelay
 	ld a, 1
 	ld [wRivalStarter], a
-	ld a, PIKACHU
+	ld a, EEVEE
 	ld [wd11e], a
 	call GetMonName
 	ld a, $FF ^ (A_BUTTON | B_BUTTON)
@@ -583,6 +583,8 @@ OaksLabScript20:
 	call DisplayTextID
 	SetEvent EVENT_GOT_POKEDEX
 	ld a, $1
+	lb bc, POKE_BALL, 5
+	call GiveItem
 	ld [wViridianCityCurScript], a
 	SetEvent EVENT_OAK_GOT_PARCEL
 	ld a, HS_LYING_OLD_MAN
