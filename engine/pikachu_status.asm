@@ -205,6 +205,8 @@ db ELECTRODE
 db MAGNEMITE
 db MAGNETON
 db MAGNEZONE
+db KOFFING
+db WEEZING
 db $FF
 
 Pointer_DittoSprites:
