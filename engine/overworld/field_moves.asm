@@ -76,7 +76,7 @@ TryCut:
 	and a
 	jr nz, .no2
 	call GetPartyMonName2
-	callab AnimCut;Cut2 ;farcall
+	callab UsedCut;Cut2 ;farcall
 	call Text3_DrakesDeception
 
 .yes
