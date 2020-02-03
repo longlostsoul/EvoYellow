@@ -24,5 +24,5 @@
 	tmlearn 25,28,31,32
 	tmlearn 34,39,40
 	tmlearn 44
-	tmlearn 50
+	tmlearn 50,51,53,54
 	db Bank(LinoonePicFront) ; padding
