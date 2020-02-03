@@ -4,7 +4,7 @@ Route2Mons:
 	db 5,NIDORAN_M
 	db 4,NIDORAN_F
 	db 4,TOGEPI;day
-	db 4,RATTATA
+	db 4,KOFFING
 	db 5,SANDSHREW
 	db 6,PIDGEY
 	db 6,MANKEY

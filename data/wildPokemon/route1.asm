@@ -1,7 +1,7 @@
 Route1Mons:
 	db $19
 	db 5,NATU ;1 daytime only
-	db 5,PIDGEY
+	db 5,EKANS
 	db 2,PIDGEY
 	db 3,HOPPIP ;4
 	db 2,SALANDIT
