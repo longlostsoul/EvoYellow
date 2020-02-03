@@ -878,7 +878,7 @@ PikachuCry16_End:
 
 PikachuCry18::
 	dw (PikachuCry18_End - PikachuCry18) - 2 ; length of pcm data
-	INCBIN "audio/pikachu_cries/pikachu_cry_18.pcm"
+	INCBIN "audio/pikachu_cries/meowth.pcm"
 PikachuCry18_End:
 
 	db $00  ; unused
@@ -931,21 +931,21 @@ PikachuCry26_End:
 SECTION "Pikachu Cries 9",ROMX,BANK[PCM_9]
 PikachuCry17::
 	dw (PikachuCry17_End - PikachuCry17) - 2 ; length of pcm data
-	INCBIN "audio/pikachu_cries/pikachu_cry_17.pcm"
+	INCBIN "audio/pikachu_cries/meowth.pcm"
 PikachuCry17_End:
 
 	db $00  ; unused
 
 PikachuCry23::
 	dw (PikachuCry23_End - PikachuCry23) - 2 ; length of pcm data
-	INCBIN "audio/pikachu_cries/pikachu_cry_23.pcm"
+	INCBIN "audio/pikachu_cries/meowth.pcm"
 PikachuCry23_End:
 
 	db $00  ; unused
 
 PikachuCry25::
 	dw (PikachuCry25_End - PikachuCry25) - 2 ; length of pcm data
-	INCBIN "audio/pikachu_cries/pikachu_cry_25.pcm"
+	INCBIN "audio/pikachu_cries/meowth.pcm"
 PikachuCry25_End:
 
 	db $03  ; unused
