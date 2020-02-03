@@ -18,7 +18,7 @@ IsStarterPikachuInOurParty2::
 	push hl
 	inc a
 	jr z, .noPlayerPikachu
-	cp EEVEE + 1
+	cp MEOWTH + 1
 ;	jr z, .curMonPlayerPikachu
 ;	cp RAICHU + 1
 	jr nz, .curMonNotPlayerPikachu
@@ -110,18 +110,17 @@ IsPikachuFirst::
 	push hl
 	inc a
 	jr z, .noPlayerPoke	
-	call GetFirstMonSpecies
-	ld hl, Pointer_EeveeSprites
-	ld de, $1
-	call IsInArray ;Do we have any of the Eevee evolutions or eevee itself?
-	jr nc, .OtherPlayerPoke
+	cp MEOWTH + 1
+	jr z, .curMonPlayerPikachu
+	cp PERSIAN + 1
+	jr nz, .OtherPlayerPoke
 .curMonPlayerPikachu
-  ld a,133 ;make it spit out the same pokedex num because why not. :P You want it to give same answer for evolved starter for laziness purposes. That's good, right? >_> <_<
+  ld a,133 ;make it spit out the same num because why not. :P You want it to give same answer for evolved starter for laziness purposes. That's good, right? >_> <_<
   pop hl
   ret
 .OtherPlayerPoke
   pop hl
-  ret ;should give poke + 1 in a. not tested yet.
+  ret
 .noPlayerPoke
   ld a,0
 	pop hl
@@ -501,7 +500,7 @@ IsStarterRaichuInOurParty::
 	push hl
 	inc a
 	jr z, .noPlayerPikachu
-	cp JOLTEON + 1
+	cp PERSIAN + 1
 	jr nz, .curMonNotPlayerPikachu
 .curMonPlayerPikachu
 ;	ld h, d
@@ -588,13 +587,13 @@ asm_fce21:
 	ld a, [wWhichPokemon]
 	call AddNTimes
 	ld a, [hl]
-	cp JOLTEON
-  ;cp PERSIAN
+	;cp JOLTEON
+  cp PERSIAN
 	jr nz, .isPika
 	jr .yes
 .isPika
-	cp EEVEE
-  ;cp MEOWTH
+	;cp EEVEE
+  cp MEOWTH
 	jr nz, .notPlayerPikachu
 .yes
 	ld bc, wPartyMon1OTID - wPartyMon1
@@ -705,11 +704,11 @@ IsSurfingPikachuInThePlayersParty:: ;actually you do not have to alter this one,
 	push hl
 	inc a
 	jr z, .noSurfingPlayerPikachu
-	cp JOLTEON+1
+	cp PERSIAN+1
 	jr nz, .isitsurfpika
 	jr .yes
 .isitsurfpika
-	cp EEVEE+1
+	cp MEOWTH+1
 	jr nz, .curMonNotSurfingPlayerPikachu
 .yes
 	ld h, d

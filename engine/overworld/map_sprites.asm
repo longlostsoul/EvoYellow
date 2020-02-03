@@ -75,7 +75,7 @@ LoadSpriteSetFromMapHeader:
 	;load raichu on cert flag
 	;callab IsStarterPikachuInOurParty2
   ;jr z, .nope
-  ld a, SPRITE_EEVEE ; load Pikachu separately
+  ld a, SPRITE_MEOWTH ; load Pikachu separately
   ld [wSpriteSet], a
 ;.nope
 	callab LoadPokeFollowSprite
@@ -137,7 +137,7 @@ CheckForFourTileSprite:
 ; Checks for a sprite added in yellow
 ; Returns no carry if the sprite is Pikachu, as its sprite is handled separately
 ; Else, returns carry if the sprite uses 4 tiles
-	cp SPRITE_EEVEE       ; is this the Pikachu Sprite?
+	cp SPRITE_MEOWTH       ; is this the Pikachu Sprite?
 	ret z                   ; return if yes
 
 	cp SPRITE_BALL          ; is this a four tile sprite?
