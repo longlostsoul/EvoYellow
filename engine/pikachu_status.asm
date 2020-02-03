@@ -110,10 +110,11 @@ IsPikachuFirst::
 	push hl
 	inc a
 	jr z, .noPlayerPoke	
-	cp EEVEE + 1
-	jr z, .curMonPlayerPikachu
-	cp JOLTEON + 1
-	jr nz, .OtherPlayerPoke
+	call GetFirstMonSpecies
+	ld hl, Pointer_EeveeSprites
+	ld de, $1
+	call IsInArray ;Do we have any of the Eevee evolutions or eevee itself?
+	jr nc, .OtherPlayerPoke
 .curMonPlayerPikachu
   ld a,133 ;make it spit out the same pokedex num because why not. :P You want it to give same answer for evolved starter for laziness purposes. That's good, right? >_> <_<
   pop hl
