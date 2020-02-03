@@ -9,7 +9,7 @@ OaksLabObject:
 
 	db $9 ; objects
 	object SPRITE_BLUE, $4, $3, STAY, NONE, $1, OPP_SONY1, $1
-	object SPRITE_EEVEE, $7, $3, STAY, NONE, $2 ; person
+	object SPRITE_MEOWTH, $7, $3, STAY, NONE, $2 ; person
 	object SPRITE_OAK, $5, $2, STAY, DOWN, $3 ; person
 	object SPRITE_BOOK_MAP_DEX, $2, $1, STAY, NONE, $4 ; person
 	object SPRITE_BOOK_MAP_DEX, $3, $1, STAY, NONE, $5 ; person

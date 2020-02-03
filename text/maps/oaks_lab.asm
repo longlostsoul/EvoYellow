@@ -21,9 +21,9 @@ _OaksLabText41::
 	done
 
 _OaksLabText39::
-	text "That's a fox"
-	line "POKEMON, known"
-	cont "as EEVEE!"
+	text "A fine feline"
+	line "POKEMON, called"
+	cont "Meowth!"
 	done
 
 _OaksLabPikachuText::
@@ -175,8 +175,8 @@ _OaksLabChooseMonText::
 	line "you see that MON"
 	cont "on the table?"
 
-	para "It's called an"
-	line "EEVEE. It's"
+	para "It's called a"
+	line "MEOWTH. It's"
 	cont "very tameable."
 
 	para "You may have it!"
@@ -293,7 +293,7 @@ _OaksLabPikachuDislikesPokeballsText2::
 
 	para "It's odd, but it"
 	line "appears that your"
-	cont "EEVEE dislikes"
+	cont "MEOWTH dislikes"
 	cont "# BALLs."
 
 	para "You should just"
