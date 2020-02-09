@@ -3271,9 +3271,13 @@ wSeafoamIslands5CurScript:: ; d667
 	ds 1
 wRoute18GateCurScript:: ; d668
 	ds 1
-;unused?
-	
-	ds 78
+;unused/prep for later stuff if we want
+wBestFlag::
+ ds 1
+wFlag::
+ ds 1
+	;unused flags?
+	ds 56;78. +10 items in bag, so remove 20 here, one space for item id and one for amount?
 
 wGameProgressFlagsEnd:: ; d6b7
 
