@@ -5212,10 +5212,11 @@ MonSMEARGLE:
   	;Evolutions
 	db 0
 ;Learnset
-  db 1,SKETCH
   db 10,SKETCH
   db 20,SKETCH
-  db 30,SKETCH
+  db 21,EXPLOSION
+  db 30,SKETCH 
+  db 31,SPORE ;make enemies more challenging without having to manually add over and over to the trainer special movesets.
   db 40,SKETCH
   db 50,SKETCH
   db 60,SKETCH

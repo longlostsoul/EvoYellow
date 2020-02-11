@@ -13,10 +13,10 @@
 	dw SmearglePicFront
 	dw SmearglePicBack
 	; attacks known at lvl 0
-	db SPORE
-	db TRANSFORM
-	db EXPLOSION
-	db QUICK_ATTACK;EXTREME_SPEED
+	db SKETCH
+	db SLEEP_POWDER;make them moar challenging
+	db LEECH_SEED;just so enemies don't all have nothing but sketch.
+	db QUICK_ATTACK
 	db 4 ; growth rate
 	; learnset
 	tmlearn 1,2,3,4,5,6,7,8
