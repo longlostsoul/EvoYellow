@@ -246,13 +246,13 @@ const_value = 1
   const DEX_AIPOM
   const DEX_AMBIPOM
   const DEX_MUNCHLAX
-  const DEX_SMEARGLE
-  const DEX_SUICUNE
-  const DEX_ENTEI
-  const DEX_RAIKOU
+  const DEX_SMEARGLE;248
+  const DEX_SUICUNE;249
+  const DEX_ENTEI;250
+  const DEX_RAIKOU;251
  ; const DEX_MEGA_CHARIZARD
  ; const DEX_MEGA_BLASTOISE
  ; const DEX_MEGA_VENUSAUR
   const DEX_WOBBUFFET
 
-NUM_POKEMON    EQU 248;actually 552 but it got kinda grouchy at me in menu/pokedex about 8-bit values... >_>
+NUM_POKEMON    EQU 248;actually 552 but it got kinda grouchy at me in menu/pokedex about 8-bit values... >_> apparently really do need to fix that if want those last few mons.
