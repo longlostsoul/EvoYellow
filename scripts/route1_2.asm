@@ -5,8 +5,8 @@ Func_f1ad2:
 	call PrintText
 	lb bc, POTION, 1
 	call GiveItem
-	lb bc, SMEARGLE, 15 ;good for quick testing
-	call GivePokemon
+	;lb bc, WOBBUFFET, 15 ;good for quick testing
+	;call GivePokemon
 	jr nc, .BagFull
 	ld hl, Route1Text_f1aff
 	jr .asm_1cadd
