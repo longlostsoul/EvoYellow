@@ -22,7 +22,7 @@ PrizeMenuMon1Cost:
 
 PrizeMenuMon2Entries:
 	db GIRAFARIG
-	db WOBBUFFET
+	db SMEARGLE;WOBBUFFET ;temp take wobbuffet out of wild because not working
 	db PORYGON
 	db "@"
 

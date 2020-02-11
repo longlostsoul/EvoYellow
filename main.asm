@@ -2398,6 +2398,67 @@ AmbipomPicBack::       INCBIN "pic/monback/ambipom.pic"
 MunchlaxPicFront::      INCBIN "pic/ymon/munchlax.pic"
 MunchlaxPicBack::       INCBIN "pic/monback/munchlax.pic"
 
+MewRoam:
+  call Random
+	cp 2
+	jr nc, .nextRoam ;if not roam dog, do mew
+  ld a,[wBestFlag]
+  cp 0
+  jr nz, .nextSuicune
+  ld a,PIDGEOT;SUICUNE ;next time have SUICUNE
+  ld [wBestFlag],a
+  ld a,FEAROW ;the infamous Yellow Fearow can now appear anywhere, very rarely.
+  jp .gotit
+.nextSuicune
+  cp SUICUNE
+  jr nz, .Entei
+  call SetLevel30
+  ld a,SUICUNE
+  jp .inc
+.Entei
+  cp ENTEI
+  jr nz, .nextRaikou
+  call SetLevel30
+  ld a,ENTEI
+  jp .inc
+.nextRaikou
+  cp PIDGEOT;RAIKOU
+  jr nz, .nextRoam
+  call SetLevel30
+  ld a,0 ;start over
+  ld [wBestFlag],a
+  ld a,PIDGEOT;RAIKOU
+  jp .gotit
+.inc
+  inc a
+  ld [wBestFlag],a
+  dec a
+  jp .gotit
+.nextRoam
+	ld a, [wObtainedBadges] ;can make it check for badge
+	bit 7, a ;8th badge if we start count from 0
+	jr z, .no
+	call Random
+	cp 1
+	jr nz, .no
+	ld a,50
+  ld [wCurEnemyLVL], a
+	ld a, MEW
+	jp .gotit
+.no
+  ld a,0
+  ld [wPokeBallCaptureCalcTemp],a
+  ret
+.gotit
+  ld [wPokeBallCaptureCalcTemp],a
+  ld [wFlag],a
+  ret
+  
+SetLevel30:
+  ld a,3
+  ld [wCurEnemyLVL], a
+  ret
+
 
 SECTION "bank44",ROMX,BANK[$44]
 KingdraPicFront::      INCBIN "pic/ymon/kingdra.pic"

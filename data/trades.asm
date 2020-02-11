@@ -9,7 +9,7 @@ TradeMons:
 	db PIDGEOT,   PIDGEOT, 1,"MARTY@@@@@@"	;unused?db PIDGEOT,   PIDGEOT, 1,"MARTY@@@@@@"
 	db DUGTRIO,   PILOSWINE,  1,"BUFFY@@@@@@"	;db GOLDUCK,   RHYDON,  1,"BUFFY@@@@@@"
 	db GROWLITHE, CURSOLA, 2,"DOOM@@@@@@@"	;db GROWLITHE, DEWGONG, 2,"CEZANNE@@@@"
-	db CUBONE,    WOBBUFFET, 2,"WOBBY@@@@@@"	;db CUBONE,    MACHOKE, 2,"RICKY@@@@@@"
+	db CUBONE,    LICKITUNG, 2,"WOBBY@@@@@@"	;db CUBONE,    MACHOKE, 2,"RICKY@@@@@@"
 
 
 

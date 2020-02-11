@@ -77,9 +77,7 @@ TryDoWildEncounter:
 	ld a, [hli]
 	ld [wCurEnemyLVL], a
   jp .Mew
-.no
-	ld a,[hl];could put mew or whatevers
-.gotit
+.getwildmon
 	ld [wcf91], a
 	ld [wEnemyMonSpecies2], a
 	ld a, [wRepelRemainingSteps]
@@ -99,14 +97,17 @@ TryDoWildEncounter:
 	call DisplayTextID
 	jp .CantEncounter2
 .Mew
-	ld a, [wObtainedBadges] ;can make it check for badge
-	bit 7, a ;8th badge if we start count from 0
-	jr z, .no
-	call Random
-	cp 1
-	jr nz, .no
-	ld a, MEW
-	jp .gotit
+  ld a,[hl]
+  ld [wFlag],a
+  callab MewRoam
+  ld a,[wPokeBallCaptureCalcTemp]
+  cp 0
+  jr z, .noRoam
+  jp .Roam
+.noRoam
+  ld a,[wFlag]
+.Roam
+  jp .getwildmon
 .CantEncounter2
   ld a, 0
   ld [wTemp],a
@@ -116,6 +117,7 @@ TryDoWildEncounter:
 .willEncounter
 	xor a
 	ret
+
 
 WildMonEncounterSlotChances:
 ; There are 10 slots for wild pokemon, and this is the table that defines how common each of
