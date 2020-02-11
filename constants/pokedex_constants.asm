@@ -255,4 +255,4 @@ const_value = 1
  ; const DEX_MEGA_VENUSAUR
   const DEX_WOBBUFFET
 
-NUM_POKEMON    EQU 248;actually 552 but it got kinda grouchy at me in menu/pokedex about 8-bit values... >_> apparently really do need to fix that if want those last few mons.
+NUM_POKEMON    EQU 252;at 248 it got kinda grouchy at me in menu/pokedex about 8-bit values... >_> apparently really do need to fix that if want those last few mons.

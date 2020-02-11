@@ -321,14 +321,14 @@ LoadFrontSpriteByMonIndex::
 	ld [hl], b
 	and a
 	pop hl
-	jr z, .invalidDexNumber ; dex #0 invalid
-	cp NUM_POKEMON + 1
-	jr c, .validDexNumber   ; dex >#151 invalid
-.invalidDexNumber
-	ld a, RHYDON ; $1
-	ld [wcf91], a
-	ret
-.validDexNumber
+	;jr z, .invalidDexNumber ; dex #0 invalid
+	;cp NUM_POKEMON + 1
+	;jr c, .validDexNumber   ; dex >#151 invalid
+;.invalidDexNumber
+	;ld a, RHYDON ; $1
+	;ld [wcf91], a
+	;ret
+;.validDexNumber
 	push hl
 	ld de, vFrontPic
 	call LoadMonFrontSprite

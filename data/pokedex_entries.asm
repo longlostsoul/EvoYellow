@@ -185,8 +185,8 @@ PokedexEntryPointers:
 	dw NewDexEntry;cors
 	dw NewDexEntry;hoot
 	dw EvoDexEntry;noct
-	dw CharmanderDexEntry;sun SALANDIT
-	dw NewDexEntry;sun SALAZZLE
+	dw CharmeleonDexEntry;sun SALANDIT
+	dw EvoDexEntry;sun SALAZZLE
 	dw NewDexEntry;hop
 	dw EvoDexEntry;hop2
 	dw EvoDexEntry;hop3
@@ -1343,14 +1343,14 @@ EvoDexEntry:
 ZigzagDexEntry:
 	db "RACCOON@"
 	db 2,4
-	dw 90
+	dw 400
 	TX_FAR _ZigzagDexEntry
 	db "@"
 
 NewLegendDexEntry:
 	db "MYTHIC DOG@"
-	db 1,4
-	dw 90
+	db 4,5
+	dw 2090
 	TX_FAR _NewLegendDexEntry
 	db "@"
 MissingNoDexEntry:

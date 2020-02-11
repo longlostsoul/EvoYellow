@@ -2405,7 +2405,7 @@ MewRoam:
   ld a,[wBestFlag]
   cp 0
   jr nz, .nextSuicune
-  ld a,PIDGEOT;SUICUNE ;next time have SUICUNE
+  ld a,SUICUNE ;next time have SUICUNE
   ld [wBestFlag],a
   ld a,FEAROW ;the infamous Yellow Fearow can now appear anywhere, very rarely.
   jp .gotit
@@ -2416,18 +2416,18 @@ MewRoam:
   ld a,SUICUNE
   jp .inc
 .Entei
-  cp ENTEI
+  cp  ENTEI
   jr nz, .nextRaikou
   call SetLevel30
   ld a,ENTEI
   jp .inc
 .nextRaikou
-  cp PIDGEOT;RAIKOU
+  cp RAIKOU
   jr nz, .nextRoam
   call SetLevel30
   ld a,0 ;start over
   ld [wBestFlag],a
-  ld a,PIDGEOT;RAIKOU
+  ld a,RAIKOU
   jp .gotit
 .inc
   inc a

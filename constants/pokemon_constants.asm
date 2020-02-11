@@ -247,7 +247,7 @@ const_value = 1
   const AIPOM
   const AMBIPOM
   const MUNCHLAX
-  const SMEARGLE;pokemon above smeargle turn into rhydon?
+  const SMEARGLE
   const SUICUNE
   const ENTEI
   const RAIKOU
