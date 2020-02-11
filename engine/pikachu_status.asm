@@ -199,6 +199,17 @@ db GLISCOR
 db GLIGAR
 db $FF
 
+Pointer_DogSprites:
+db HOUNDOUR
+db GROWLITHE
+db SUICUNE
+db ENTEI
+db HOUNDOOM
+db RAIKOU
+db ARCANINE
+db FLAREON
+db $FF
+
 Pointer_BallSprites:
 db VOLTORB
 db ELECTRODE
@@ -218,7 +229,7 @@ db $FF
 Pointer_EeveeSprites:
 db EEVEE
 db ESPEON
-db FLAREON
+;db FLAREON
 db UMBREON
 db VAPOREON
 db JOLTEON
@@ -406,6 +417,14 @@ LoadPokeFollowSprite::
 	jr .resume2
 .curMonNotThisZub
   call GetFirstMonSpecies
+	ld hl, Pointer_DogSprites
+	ld de, $1
+	call IsInArray
+	jr nc, .curMonNotThis6
+	ld a, SPRITE_DOG
+	jr .resume
+.curMonNotThis6
+  call GetFirstMonSpecies
 	ld hl, Pointer_MeowthSprites
 	ld de, $1
 	call IsInArray
@@ -426,11 +445,6 @@ LoadPokeFollowSprite::
   ;cp SPRITE_MON              ; $0
 	;cp SPRITE_BALL_M           ; $1
 	;cp SPRITE_HELIX            ; $2
-  cp FIRE
-	jr nz, .curMonNotThis6
-	ld a, SPRITE_DOG
-	jr .resume
-.curMonNotThis6
 	cp BUG              
 	jr nz, .curMonNotThisBug
 	ld a, SPRITE_BUTTERFREE
