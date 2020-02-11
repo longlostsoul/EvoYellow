@@ -809,7 +809,6 @@ INCLUDE "engine/menu/options.asm"
 INCLUDE "data/cries.asm"
 INCLUDE "engine/battle/trainer_ai.asm"
 INCLUDE "data/moves.asm" ;moved from bank 0e
-INCLUDE "engine/items/holditems.asm"
 
 SECTION "bank11",ROMX,BANK[$11]
 
@@ -2358,17 +2357,49 @@ GligarPicFront::      INCBIN "pic/ymon/gligar.pic"
 GligarPicBack::       INCBIN "pic/monback/gligar.pic"
 GliscorPicFront::      INCBIN "pic/ymon/gliscor.pic"
 GliscorPicBack::       INCBIN "pic/monback/gliscor.pic"
-;MegaCharizardPicFront::       INCBIN "pic/ymon/mega_charizard_y_by_solo.pic"
-;MegaBlastoisePic::       INCBIN "pic/ymon/mega_blastoise_by_solo.pic"
-;MegaVenusaurPic::       INCBIN "pic/ymon/mega_venusaur_Xous_longlost.pic"
-;MegaCharizardPicBack::       INCBIN "pic/monback/mega_charizard_y_by_solo.pic"
-;MegaBlastoisePicBack::       INCBIN "pic/monback/mega_blastoise_by_solo.pic"
-;MegaVenusaurPicBack::       INCBIN "pic/monback/mega_venusaur.pic"
+MegaCharizardPicFront::       INCBIN "pic/ymon/mega_charizard.pic"
+MegaBlastoisePic::       INCBIN "pic/ymon/mega_blastoise.pic"
+MegaVenusaurPic::       INCBIN "pic/ymon/mega_venusaur.pic"
+MegaCharizardPicBack::       INCBIN "pic/monback/mega_charizard_y_by_solo.pic"
+MegaBlastoisePicBack::       INCBIN "pic/monback/mega_blastoise_by_solo.pic"
+MegaVenusaurPicBack::       INCBIN "pic/monback/mega_venusaur.pic"
 
+INCLUDE "engine/items/holditems.asm"
 include "home/berrytrees.asm";
 INCLUDE "engine/overworld/field_moves.asm"
 
 SECTION "bank43",ROMX,BANK[$43]
+EnteiPicFront::      INCBIN "pic/ymon/entei.pic"
+EnteiPicBack::       INCBIN "pic/monback/enteib.pic"
+SuicunePicFront::      INCBIN "pic/ymon/suicune.pic"
+SuicunePicBack::       INCBIN "pic/monback/suicuneb.pic"
+RaikouPicFront::      INCBIN "pic/ymon/raikou.pic"
+RaikouPicBack::       INCBIN "pic/monback/raikoub.pic"
+ZigzagoonPicFront::      INCBIN "pic/ymon/zigzagoon.pic"
+ZigzagoonPicBack::       INCBIN "pic/monback/zigzagoon.pic"
+LinoonePicFront::      INCBIN "pic/ymon/linoone.pic"
+LinoonePicBack::       INCBIN "pic/monback/linoone.pic"
+ObstagoonPicFront::      INCBIN "pic/ymon/obstagoon.pic"
+ObstagoonPicBack::       INCBIN "pic/monback/obstagoon.pic"
+SmearglePicFront::      INCBIN "pic/ymon/smeargle.pic"
+SmearglePicBack::       INCBIN "pic/monback/smeargleb.pic"
+SpinarakPicFront::      INCBIN "pic/ymon/spinarak.pic";
+SpinarakPicBack::       INCBIN "pic/monback/spinarakb.pic"
+AriadosPicFront::      INCBIN "pic/ymon/ariados.pic"
+AriadosPicBack::       INCBIN "pic/monback/ariadosb.pic"
+MantykePicFront::      INCBIN "pic/ymon/mantyke.pic"
+MantykePicBack::       INCBIN "pic/monback/mantykeb.pic"
+MantinePicFront::      INCBIN "pic/ymon/mantine.pic"
+MantinePicBack::       INCBIN "pic/monback/mantineb.pic"
+AipomPicFront::      INCBIN "pic/ymon/aipom.pic"
+AipomPicBack::       INCBIN "pic/monback/aipomb.pic"
+AmbipomPicFront::      INCBIN "pic/ymon/ambipom.pic"
+AmbipomPicBack::       INCBIN "pic/monback/ambipom.pic"
+MunchlaxPicFront::      INCBIN "pic/ymon/munchlax.pic"
+MunchlaxPicBack::       INCBIN "pic/monback/munchlax.pic"
+
+
+SECTION "bank44",ROMX,BANK[$44]
 KingdraPicFront::      INCBIN "pic/ymon/kingdra.pic"
 KingdraPicBack::       INCBIN "pic/monback/kingdra.pic"
 BlisseyPicFront::    INCBIN "pic/ymon/blissey.pic"

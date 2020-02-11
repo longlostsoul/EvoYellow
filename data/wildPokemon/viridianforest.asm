@@ -5,7 +5,7 @@ ForestMons:
 	db 4,CATERPIE
 	db 9,BUTTERFREE;day
 	db 5,WEEDLE
-	db 3,PIKACHU ;eh, why not
+	db 3,SPINARAK
 	db 9,BEEDRILL ;day
 	db 7,METAPOD
 	db 8,YANMA
