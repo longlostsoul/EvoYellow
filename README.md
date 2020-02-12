@@ -1,6 +1,6 @@
 # Pokémon EvoYellow
 
-This is a disassembly of Pokémon Yellow with bonus features; Pikachu now evolves, and all pokemon now follow as of version v3.
+This is a disassembly of Pokémon Yellow with bonus features; Pikachu now evolves, and all pokemon now follow as of version v3. There are also branches with a following [**meowth**][evomeowth] and following [**eevee**][evoeevee] instead of Pikachu for a starter; these often get updated less often.
 
 Version v4:
 + Play as girl or boy
@@ -32,12 +32,11 @@ Version v4:
 
 
 Known bugs:
-#One person reported a crash after dig, which I haven't been able to replicate.
-*Sometimes after item use, a pokemon no longer follows until you go to the pokemon center and heal, even if the pokemon was already full health.
+* #One person reported a crash after dig, which I haven't been able to replicate.
+* Sometimes after item use, a pokemon no longer follows until you go to the pokemon center and heal, even if the pokemon was already full health.
 * Mon follow sprites do not match party sprites. This isn't really a bug, I just never made that functionality because it was a pain, and follow sprites have different frames from party sprites anyway.
 * Diglett Cave might be green if you go into it from the same route as Viridian Forest, due to a palette over-ride quick fix for day-night.
-
-*The move tutor was buggy for awhile. Now it should be just annoying in a very large loop, but not buggy per say.
+* (resolved?) The move tutor was buggy for awhile. Now it should be just annoying in a very large loop, but not buggy per say.
 
 
 It builds the following rom:
@@ -54,6 +53,8 @@ To set up the repository, see [**INSTALL.md**](INSTALL.md).
 * Disassembly of [**Pokémon Crystal**][pokecrystal]
 * irc: **irc.freenode.net** [**#pret**][irc]
 
+[evomeowth]:https://github.com/longlostsoul/EvoYellow/tree/meowth
+[evoeevee]:https://github.com/longlostsoul/EvoYellow/tree/eevee
 [pokered]: https://github.com/iimarckus/pokered
 [pokeyellow]: https://github.com/dannye/pokeyellow-gen-II
 [pokecrystal]: https://github.com/kanzure/pokecrystal
