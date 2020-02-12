@@ -16,7 +16,7 @@ ENDM
 	mapconst CINNABAR_ISLAND,             9, 10 ; $08
 	mapconst INDIGO_PLATEAU,              9, 10 ; $09
 	mapconst SAFFRON_CITY,               18, 20 ; $0A
-	mapconst MT_SILVER,               0,  0 ; $0B UNUSED_MAP_0B
+	mapconst MT_SILVER,               9,  20 ; $0B UNUSED_MAP_0B
 	mapconst ROUTE_1,                    18, 10 ; $0C
 	mapconst ROUTE_2,                    36, 10 ; $0D
 	mapconst ROUTE_3,                     9, 35 ; $0E
@@ -110,7 +110,7 @@ ENDM
 	mapconst SS_ANNE_8,                   8, 12 ; $66
 	mapconst SS_ANNE_9,                   8, 12 ; $67
 	mapconst SS_ANNE_10,                  8, 12 ; $68
-	mapconst MT_SILVER_CAVE,               0,  0 ; $69 UNUSED_MAP_69
+	mapconst MT_SILVER_CAVE,               18,  20 ; $69 UNUSED_MAP_69
 	mapconst UNUSED_MAP_6A,               0,  0 ; $6A
 	mapconst UNUSED_MAP_6B,               0,  0 ; $6B
 	mapconst VICTORY_ROAD_1,              9, 10 ; $6C
