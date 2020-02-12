@@ -136,6 +136,7 @@ db $FF
 Pointer_SeelSprites:
 db SEEL
 db DEWGONG
+
 db $FF
 
 Pointer_ShellSprites:
@@ -154,6 +155,10 @@ db WARTORTLE
 db BLASTOISE
 db WOOPER
 db QUAGSIRE
+db POLIWAG
+db POLIWHIRL
+db POLIWRATH
+db POLITOED
 db $FF
 
 Pointer_FishSprites:
@@ -187,6 +192,8 @@ db ONIX
 db STEELIX
 db EKANS
 db ARBOK
+db SALANDIT
+db SALAZZLE
 ;db DRATINI ;might handle by dragon typing check instead
 ;db DRAGONAIR
 ;db DUNSPARCE
