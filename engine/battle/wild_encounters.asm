@@ -75,7 +75,7 @@ TryDoWildEncounter:
 	ld b, 0
 	add hl, bc
 	ld a, [hli]
-	ld [wCurEnemyLVL], a
+	ld [wCurEnemyLVL], a ;over-ride in alt mode?
   jp .Mew
 .getwildmon
 	ld [wcf91], a

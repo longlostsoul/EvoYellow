@@ -2399,6 +2399,12 @@ MunchlaxPicFront::      INCBIN "pic/ymon/munchlax.pic"
 MunchlaxPicBack::       INCBIN "pic/monback/munchlax.pic"
 
 MewRoam:
+  ld a,[wMode]
+  cp 0
+  jr z, .notMode
+  ld a, [wPartyMon1Level]
+  ld [wCurEnemyLVL],a
+.notMode
   call Random
 	cp 2
 	jr nc, .nextRoam ;if not roam dog, do mew

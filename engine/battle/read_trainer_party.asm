@@ -50,6 +50,11 @@ ReadTrainer:
 	cp $FF ; is the trainer special?
 	jr z,.SpecialTrainer ; if so, check for special moves
 	ld [wCurEnemyLVL],a
+	ld a,[wMode]
+	cp 0 ;is it normal mode? then skip over-ride
+  jr z, .LoopTrainerData
+  ld a, [wPartyMon1Level]
+  ld [wCurEnemyLVL],a
 .LoopTrainerData
 	ld a,[hli]
 	and a ; have we reached the end of the trainer data?
@@ -70,6 +75,12 @@ ReadTrainer:
 	and a ; have we reached the end of the trainer data?
 	jr z,.AddAdditionalMoveData
 	ld [wCurEnemyLVL],a
+  ld a,[wMode]
+  cp 0
+  jr z, .notMode
+  ld a, [wPartyMon1Level]
+  ld [wCurEnemyLVL],a
+.notMode
 	ld a,[hli]
 	ld [wcf91],a
 	ld a,ENEMY_PARTY_DATA

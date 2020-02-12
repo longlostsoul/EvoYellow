@@ -62,6 +62,7 @@ ENDM
 
 SECTION "WRAM Bank 0", WRAM0
 
+wMode:: ;Setup, we could use this to change from a level adjuster /randomizer or nuzlocke mode
 wUnusedC000:: ; c000
 	ds 1
 
@@ -1357,6 +1358,7 @@ wSlotMachineWheel2BottomTile:: ; cd44
 wSlotMachineWheel2MiddleTile:: ; cd45
 	ds 1
 
+wTemp4::
 wTempCoins1:: ; cd46
 ; 2 bytes
 ; temporary variable used to add payout amount to the player's coins
@@ -1386,6 +1388,7 @@ wTempObtainedBadgesBooleans::
 ; one byte for each badge; 0 = not obtained, 1 = obtained
 	ds 1
 
+wTemp3::
 wTempCoins2:: ; cd4a
 ; 2 bytes
 ; temporary variable used to subtract the bet amount from the player's coins
@@ -2403,6 +2406,7 @@ wFirstMonsNotOutYet:: ; d11c
 ; which will be the first mon sent out.
 	ds 1
 
+wTemp2::
 wPokeBallCaptureCalcTemp:: ; d11e
 
 ; lower nybble: number of shakes
@@ -3271,8 +3275,8 @@ wSeafoamIslands5CurScript:: ; d667
 	ds 1
 wRoute18GateCurScript:: ; d668
 	ds 1
-;unused/prep for later stuff if we want
-wBestFlag::
+
+wBestFlag:: ;Used for switching through Roaming mons
  ds 1
 wFlag::
  ds 1

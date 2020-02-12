@@ -70,8 +70,15 @@ OakSpeech:
     call BoyGirlChoice ; added routine at the end of this file
     ld a, [wCurrentMenuItem]
     ld [wPlayerGender], a ;store
-
+    call ClearScreen ; clear the screen before resuming
+	
+	ld hl,ModeText ;What mode?
+    call PrintText     ; show this text
+    call ModeChoice ; added routine at the end of this file
+    ld a, [wCurrentMenuItem]
+    ld [wMode], a ;store
     call ClearScreen ; clear the screen before resuming normal intro
+	
 	
 	ld de,ProfOakPic
 	lb bc, Bank(ProfOakPic), $00
@@ -278,6 +285,18 @@ IntroDisplayPicCenteredOrUpperRight:
 	ld [hStartTileID],a
 	predef_jump CopyUncompressedPicToTilemap
 
+ModeChoice::
+  call SaveScreenTilesToBuffer1
+  ld a, $7
+	ld [wTwoOptionMenuID], a
+  coord hl, 11, 7 
+  ld bc, $80c
+	ld a, $14
+	ld [wTextBoxID], a
+	call DisplayTextBoxID
+	call LoadScreenTilesFromBuffer1
+ ret
+
 ; displays boy/girl choice
 BoyGirlChoice::
     call SaveScreenTilesToBuffer1
@@ -291,6 +310,10 @@ InitBoyGirlTextBoxParameters::
     ld bc, $80c
     ret
     
+ModeText:
+	TX_FAR _ModeText
+	db "@"
+	
 DisplayBoyGirlChoice::
     ld a, $14
     ld [wTextBoxID], a
