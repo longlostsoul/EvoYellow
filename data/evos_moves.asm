@@ -1369,13 +1369,13 @@ Mon128_EvosMoves:
 Mon083_EvosMoves:
 ;FARFETCH_D
 ;Evolutions
- db EV_LEVEL,35,SIRFETCHD
+ db EV_LEVEL,20,SIRFETCHD
 	db 0
 ;Learnset
 	db 7,LEER
 	db 15,FURY_ATTACK
-	db 23,SWORDS_DANCE
-	db 25,AERIAL_ACE
+	db 18,SWORDS_DANCE
+	db 20,AERIAL_ACE
 	db 31,AGILITY
 	db 39,SLASH
 	db 0
@@ -4279,6 +4279,7 @@ MR_Rime_moves:
 SIRFETCHD_moves:
 	db 0
 ;Learnset
+  db 25,AGILITY
 	db 38,SLASH
 	db 40,KARATE_CHOP
 	db 45,SWORDS_DANCE
