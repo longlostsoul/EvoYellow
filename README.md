@@ -8,7 +8,7 @@ Version v4:
 + Ride pokemon on a saddle
 + Press B to run
 + Can complete the Pokedex.
-+ Level Adjuster Mode, make the game as easy or as hard as you want. In this mode, you can also use surf on water without the move surf as soon as you want, so you can play the game in reverse order and fight Cinnabar first!
++ Level Adjuster Mode, make the game as easy or as hard as you want. In this mode, you can also use surf on water without the move surf as soon as you want, so you can play the game in reverse order and fight Cinnabar first! (Seafoam is a bit of a pain, but you can get through it without Strength.)
 + Day and night modes 
 + Over 250 pokemon, many Johto but also new Kanto evolutions have been added. All Eeveelutions available.
 + Legend Dogs roam after special randomized Fearow encounter, Mew roams after enough badges as a very rare encounter.
@@ -24,9 +24,11 @@ Version v4:
 + Uses Dannye's Gen 2 Sprites version of the Yellow disassembly as a base; so, updated sprites. Exception is Yellow's Pikachu sprite; that one I revamped myself.
 
 
-* To see a list of all Pokémon included, look [**here**] (constants/pokemon_constants.asm).
+* To see a list of all Pokémon included, look [**here**](constants/pokemon_constants.asm).
 * To see Pokémon skill sets and evolutions, look [**here**](data/evos_moves.asm).
-* To see what the TMs/HMs teach, and where to find them, look [**here**] (data/tms.asm).
+* To see what the TMs/HMs teach, and where to find them, look [**here**](data/tms.asm).
+* To see pokemon that come out at night [**here**](data/handle_nightmons.asm) and the rest in [**here**](data/wildPokemon)
+* Hold items [**here**](engine/items/holditems.asm)
 
 
 Known bugs:
