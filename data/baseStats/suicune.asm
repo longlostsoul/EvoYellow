@@ -14,7 +14,7 @@
 	; attacks known at lvl 0
 	db BITE
 	db LEER
-	db 0
+	db ROAR
 	db 0
 	db 5 ; growth rate
 	; learnset

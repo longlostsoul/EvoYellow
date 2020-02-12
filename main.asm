@@ -2406,7 +2406,7 @@ MewRoam:
   ld [wCurEnemyLVL],a
 .notMode
   call Random
-	cp 2
+	cp 3
 	jr nc, .nextRoam ;if not roam dog, do mew
   ld a,[wBestFlag]
   cp 0
@@ -2461,8 +2461,16 @@ MewRoam:
   ret
   
 SetLevel30:
-  ld a,3
+  ld a,[wMode]
+  cp 0
+  jr z, .notMode
+  ld a, [wPartyMon1Level]
+  ld [wCurEnemyLVL],a
+  jp .ret
+.notMode
+  ld a,30
   ld [wCurEnemyLVL], a
+.ret
   ret
 
 
