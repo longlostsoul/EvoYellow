@@ -8,7 +8,7 @@ Version v4:
 + Ride pokemon on a saddle
 + Press B to run
 + Can complete the Pokedex.
-+ Level Adjuster Mode, make the game as easy or as hard as you want.
++ Level Adjuster Mode, make the game as easy or as hard as you want. In this mode, you can also use surf on water without the move surf as soon as you want, so you can play the game in reverse order and fight Cinnabar first!
 + Day and night modes 
 + Over 250 pokemon, many Johto but also new Kanto evolutions have been added. All Eeveelutions available.
 + Legend Dogs roam after special randomized Fearow encounter, Mew roams after enough badges as a very rare encounter.

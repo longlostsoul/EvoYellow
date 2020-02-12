@@ -18,6 +18,9 @@ TrySurf:
 	call IsSurfTile
 	jr nc, .no
 
+  ld a,[wMode]
+  cp 0
+  jr nz, .water ;If levelizer is on, let char roam freely by surfing on pikachu/lastpartymon even without surf
 	ld d, SURF
 	call HasPartyMove
 	jr nz, .no
@@ -25,7 +28,7 @@ TrySurf:
 	;ld a, [wObtainedBadges] ;can make it check for badge, but, meh.
 	;bit 4, a ; SOUL_BADGE
 	;jr z, .no
-
+.water
 	call Text2_EnterTheText
 	ld hl,WaterIsCalmTxt
 	call PrintText
