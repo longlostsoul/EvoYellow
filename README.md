@@ -1,8 +1,9 @@
 # Pokémon EvoYellow
 
-This is a disassembly of Pokémon Yellow with bonus features; Pikachu now evolves, and all pokemon now follow as of version v3. There are also branches with a following [**meowth**][evomeowth] and following [**eevee**][evoeevee] instead of Pikachu for a starter; these often get updated less often.
+This is a disassembly of Pokémon Yellow with bonus features; Pikachu now evolves, and all pokemon now follow as of version v3. There are also branches with a following [**meowth**][evomeowth] and following [**eevee**][evoeevee] instead of Pikachu for a starter; these get updated less often.
+You do have my permission to use this for whatever you like.
 
-Version v4:
+Version version 4:
 + Play as girl or boy
 + Cute Raichu graphics when you evolve Pikachu.
 + Ride pokemon on a saddle
@@ -27,12 +28,14 @@ Version v4:
 * To see a list of all Pokémon included, look [**here**](constants/pokemon_constants.asm).
 * To see Pokémon skill sets and evolutions, look [**here**](data/evos_moves.asm).
 * To see what the TMs/HMs teach, and where to find them, look [**here**](data/tms.asm).
+* Move alterations [**here**](data/moves.asm).
 * To see pokemon that come out at night [**here**](data/handle_nightmons.asm) and the rest in [**here**](data/wildPokemon)
-* Hold items [**here**](engine/items/holditems.asm)
+* Hold items (Keep in mind some were actually renamed) [**here**](engine/items/holditems.asm) and item list [**here**](constants/item_constants.asm)
 
 
 Known bugs:
 * #One person reported a crash after dig, which I haven't been able to replicate.
+* The levelizer has a tendency to reset after you load a save.
 * Sometimes after item use, a pokemon no longer follows until you go to the pokemon center and heal, even if the pokemon was already full health.
 * Mon follow sprites do not match party sprites. This isn't really a bug, I just never made that functionality because it was a pain, and follow sprites have different frames from party sprites anyway.
 * Diglett Cave might be green if you go into it from the same route as Viridian Forest, due to a palette over-ride quick fix for day-night.
@@ -54,7 +57,7 @@ To set up the repository, see [**INSTALL.md**](INSTALL.md).
 * irc: **irc.freenode.net** [**#pret**][irc]
 
 [evomeowth]:https://github.com/longlostsoul/EvoYellow/tree/meowth
-[evoeevee]:https://github.com/longlostsoul/EvoYellow/tree/eevee
+[evoeevee]:https://github.com/longlostsoul/EvoYellow/tree/eevee2
 [pokered]: https://github.com/iimarckus/pokered
 [pokeyellow]: https://github.com/dannye/pokeyellow-gen-II
 [pokecrystal]: https://github.com/kanzure/pokecrystal

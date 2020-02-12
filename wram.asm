@@ -63,7 +63,7 @@ ENDM
 SECTION "WRAM Bank 0", WRAM0
 
 wMode:: ;Setup, we could use this to change from a level adjuster /randomizer or nuzlocke mode
-wUnusedC000:: ; c000
+;wUnusedC000:: ; c000
 	ds 1
 
 wSoundID:: ; c001
