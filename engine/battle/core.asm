@@ -8329,8 +8329,10 @@ SwitchAndTeleportEffect:
 	ld a, [wPlayerMoveNum]
 	jr .playAnimAndPrintText
 .notWildBattle1
-	ld c, 50
-	call DelayFrames
+	callab PlayerRoar
+	ld a,[wTemp3]
+	cp ROAR
+	jr z, .playAnimAndPrintText
 	ld hl, IsUnaffectedText
 	ld a, [wPlayerMoveNum]
 	cp TELEPORT
@@ -8371,8 +8373,10 @@ SwitchAndTeleportEffect:
 	ld a, [wEnemyMoveNum]
 	jr .playAnimAndPrintText
 .notWildBattle2
-	ld c, 50
-	call DelayFrames
+	callab EnemyRoarWhirlwind
+	ld a,[wTemp3]
+	cp ROAR
+	jr z, .playAnimAndPrintText
 	ld hl, IsUnaffectedText
 	ld a, [wEnemyMoveNum]
 	cp TELEPORT

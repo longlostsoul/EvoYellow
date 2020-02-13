@@ -2364,6 +2364,65 @@ MegaCharizardPicBack::       INCBIN "pic/monback/mega_charizard_y_by_solo.pic"
 MegaBlastoisePicBack::       INCBIN "pic/monback/mega_blastoise_by_solo.pic"
 MegaVenusaurPicBack::       INCBIN "pic/monback/mega_venusaur.pic"
 
+EnemyRoarWhirlwind::
+  ld c, 50
+	callab DelayFrames
+	;new code for enemies to force switch out, don't use teleport
+	ld a, [wEnemyMoveNum]
+	cp WHIRLWIND
+	jr z, .contin
+	cp ROAR
+	jr nz,.unaffected
+.contin
+	ld a,[wPartyCount]
+	cp 1
+	jr z,.unaffected
+	ld a,0
+	ld [wWhichPokemon],a
+	ld a, [wPlayerMonNumber]
+	ld d, a
+	ld a, [wWhichPokemon]
+	cp d ; check if the mon to switch to is already out
+	jr nz, .notAlreadyOut
+	ld a,1
+	ld [wWhichPokemon],a
+.notAlreadyOut
+	callab HasMonFainted
+	jr z,.unaffected
+.next7
+	xor a
+	ld [wPartyGainExpFlags],a
+	ld [wPartyFoughtCurrentEnemyFlags],a
+	;call SaveScreenTilesToBuffer1
+	callab SwitchPlayerMon
+  ld a,ROAR
+  ld [wTemp3],a
+  ret
+.unaffected
+  ld a,0
+  ld [wTemp3],a
+	ret
+	
+PlayerRoar:
+  ld c, 50
+	call DelayFrames
+	ld a, [wPlayerMoveNum]
+	cp WHIRLWIND
+	jr z, .contin
+	cp ROAR
+	jr nz,.unaffected
+.contin
+  callab SwitchEnemyMon
+  ld hl, wEnemyBattleStatus1
+  set Flinched, [hl];?maybe? to skip enemy turn.
+	ld a,ROAR
+  ld [wTemp3],a
+  ret
+.unaffected
+  ld a,0
+  ld [wTemp3],a
+  ret
+  
 INCLUDE "engine/items/holditems.asm"
 include "home/berrytrees.asm";
 INCLUDE "engine/overworld/field_moves.asm"

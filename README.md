@@ -15,7 +15,7 @@ Version version 4:
 + Legend Dogs roam after special randomized Fearow encounter, Mew roams after enough badges as a very rare encounter.
 + Munchlax and Mantyke babymons can be gotten from daycare if you leave a parent mon there.
 + More moves, like Crunch. Custom coding has been added for Sketch, Hidden Power and Mirror Move.
-+ Some moves have been tweaked; Wrap no longer traps you forever, nor do you get stuck raging.
++ Some moves have been tweaked; Wrap no longer traps you forever, nor do you get stuck raging. Roar can switch trainer parties out now (if a little terribly, as it displays the wrong text 'trainer switched mons' for enemies).
 + More types, Dark, Steel, Fairy
 + Slightly different TMs, to reflect the new types.
 + Different kinds of shinies, get Pink, Blue, Black, Orange/red
