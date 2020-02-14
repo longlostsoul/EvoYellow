@@ -2412,6 +2412,23 @@ PlayerRoar:
 	cp ROAR
 	jr nz,.unaffected
 .contin
+  ld a,[wEnemyPartyCount]
+  ld b, a
+	xor a
+	ld hl, wEnemyMon1HP
+	ld de, wEnemyMon2 - wEnemyMon1
+.nextPokemon
+	or [hl]
+	inc hl
+	or [hl]
+	dec hl
+	add hl, de
+	dec b
+	and a
+	jr z, .nextPokemon ;it's fainted, grab another
+	ld a, [hli]
+	or [hl]
+	jr z, .unaffected ;it's got no health
   callab SwitchEnemyMon
   ld hl, wEnemyBattleStatus1
   set Flinched, [hl];?maybe? to skip enemy turn.
