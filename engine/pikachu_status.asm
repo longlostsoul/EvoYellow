@@ -215,6 +215,7 @@ db HOUNDOOM
 db RAIKOU
 db ARCANINE
 db FLAREON
+db ABSOL
 db $FF
 
 Pointer_BallSprites:
