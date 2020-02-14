@@ -9,8 +9,8 @@ Version version 4:
 + Ride pokemon on a saddle
 + Press B to run
 + Can complete the Pokedex.
-+ Level Adjuster Mode, trainers will have their levels matched to your party's average. In this mode, you can also use surf on water without the move surf as soon as you want, so you can play the game in reverse order and fight Cinnabar first! (Seafoam is a bit of a pain, but you can get through it without Strength. Surf around Snorlax.)
-+ Day and night modes 
++ Optional Level Adjuster Mode, trainers will have their levels matched to your party's, although elite will be slightly higher. In this mode, you can also use surf on water without the move surf as soon as you want, so you can play the game in reverse order and fight Cinnabar first! (Seafoam is a bit of a pain, but you can get through it without Strength. Surf around Snorlax.)
++ Day and night system
 + Over 250 pokemon, many Johto but also new Kanto evolutions have been added. All Eeveelutions available.
 + Legend Dogs roam after special randomized Fearow encounter, Mew roams after enough badges as a very rare encounter.
 + Munchlax and Mantyke babymons can be gotten from daycare if you leave a parent mon there.
