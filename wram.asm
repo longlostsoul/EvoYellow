@@ -62,7 +62,8 @@ ENDM
 
 SECTION "WRAM Bank 0", WRAM0
 
-wUnusedC000:: ; c000
+wFlag:: ;this is a temporary flag and will reset on save reload.
+;wUnusedC000:: ; c000
 	ds 1
 
 wSoundID:: ; c001
@@ -1357,6 +1358,7 @@ wSlotMachineWheel2BottomTile:: ; cd44
 wSlotMachineWheel2MiddleTile:: ; cd45
 	ds 1
 
+wTemp4::
 wTempCoins1:: ; cd46
 ; 2 bytes
 ; temporary variable used to add payout amount to the player's coins
@@ -1386,6 +1388,7 @@ wTempObtainedBadgesBooleans::
 ; one byte for each badge; 0 = not obtained, 1 = obtained
 	ds 1
 
+wTemp3::
 wTempCoins2:: ; cd4a
 ; 2 bytes
 ; temporary variable used to subtract the bet amount from the player's coins
@@ -2403,6 +2406,7 @@ wFirstMonsNotOutYet:: ; d11c
 ; which will be the first mon sent out.
 	ds 1
 
+wTemp2::
 wPokeBallCaptureCalcTemp:: ; d11e
 
 ; lower nybble: number of shakes
@@ -3271,9 +3275,13 @@ wSeafoamIslands5CurScript:: ; d667
 	ds 1
 wRoute18GateCurScript:: ; d668
 	ds 1
-;unused?
-	
-	ds 78
+
+wBestFlag:: ;Used for switching through Roaming mons
+ ds 1
+wMode::
+ ds 1
+	;unused flags?
+	ds 56;78. +10 items in bag, so remove 20 here, one space for item id and one for amount?
 
 wGameProgressFlagsEnd:: ; d6b7
 

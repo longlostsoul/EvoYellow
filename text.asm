@@ -2298,7 +2298,7 @@ _RanFromBattleText::
 
 _RanAwayScaredText::
 	text "<TARGET>"
-	line "ran away scared!"
+	line "was moved about!";ran away scared originally
 	prompt
 
 _WasBlownAwayText::

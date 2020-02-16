@@ -5,7 +5,7 @@
 const_value = 0
 
 	const NO_ADDITIONAL_EFFECT       ; $00
-	const UNUSED_EFFECT_01           ; $01
+	const SKETCH_EFFECT;UNUSED_EFFECT_01           ; $01
 	const POISON_SIDE_EFFECT1        ; $02
 	const DRAIN_HP_EFFECT            ; $03
 	const BURN_SIDE_EFFECT1          ; $04

@@ -12,20 +12,18 @@ GivePokeHoldItem: ;;give script is here
 	ld [wcf91],a
 	;ld [wd0b5],a
 	;party menu isn't working right for anything EXCEPT for some very specific values? I know I'm missing something here. Last time it preferred 20, then I altered something in the game and it preferred 21 instead.
-	
+
 	ld a, [wPartyCount]
 	and a
 	jp z, .canceledItemUse
+
 	ld a, [wWhichPokemon]
-	push af
 	ld a, [wcf91]
-	push af
 	ld a, USE_ITEM_PARTY_MENU
 	ld [wPartyMenuTypeOrMessageID], a
 	ld a, $ff
 	ld [wUpdateSpritesEnabled], a
 	call DisplayPartyMenu
-	
 .getPartyMonDataAddress
 	jp c, .canceledItemUse
 	ld hl, wPartyMons
@@ -2319,8 +2317,16 @@ RodResponse:
 	; if yes, store level and species data
 	ld a, 1
 	ld [wMoveMissed], a
+	
 	ld a, b ; level
 	ld [wCurEnemyLVL], a
+	ld a,[wMode]
+  cp 0
+  jr z, .notMode
+  ld a, [wPartyMon1Level]
+  ld [wCurEnemyLVL],a
+.notMode
+
 	ld a, c ; species
 	ld [wCurOpponent], a
 

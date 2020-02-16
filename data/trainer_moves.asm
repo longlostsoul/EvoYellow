@@ -34,7 +34,7 @@ SpecialTrainerMoves:
 	db LT_SURGE,$1
 	db 1,1,VOLT_TACKLE
 	db 1,2,MEGA_PUNCH
-	db 1,3,MEGA_KICK
+	db 1,3,BIDE
 	db 1,4,SURF
 	db 0
 
@@ -104,7 +104,7 @@ SpecialTrainerMoves:
 	db 2,3,FIRE_PUNCH
 	db 2,4,DOUBLE_TEAM
 	db 3,1,DOUBLE_KICK
-	db 3,2,MEGA_KICK
+	db 3,2,BIDE
 	db 3,4,DOUBLE_TEAM
 	db 4,1,ROCK_SLIDE
 	db 4,2,ICE_BEAM

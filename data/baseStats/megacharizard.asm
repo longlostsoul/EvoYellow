@@ -8,7 +8,7 @@ db FIRE ; species type 1
 db DRAGON ; species type 2
 db SHINY_STONE
 db 209 ; base exp yield
-INCBIN "pic/ymon/megacharizard.pic",0,1 ; 77, sprite dimensions
+INCBIN "pic/ymon/mega_charizard.pic",0,1 ; 77, sprite dimensions
 dw MegaCharizardPicFront
 dw MegaCharizardPicBack
 ; attacks known at lvl 0

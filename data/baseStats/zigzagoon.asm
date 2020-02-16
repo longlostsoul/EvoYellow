@@ -8,7 +8,7 @@
 	db DARK ; species type 2. Galarian Zigzagoon?
 	db 255 ; catch rate
 	db 60 ; base exp yield
-	INCBIN "pic/bmon/zigzagoon.pic",0,1 ; 55, sprite dimensions
+	INCBIN "pic/ymon/zigzagoon.pic",0,1 ; 55, sprite dimensions
 	dw ZigzagoonPicFront
 	dw ZigzagoonPicBack
 	; attacks known at lvl 0

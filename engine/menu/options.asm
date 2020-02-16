@@ -35,8 +35,8 @@ OptionMenuJumpTable:
 	dw OptionsMenu_BattleAnimations
 	dw OptionsMenu_BattleStyle
 	dw OptionsMenu_SpeakerSettings
+	dw OptionsMenu_Mode
 	dw OptionsMenu_GBPrinterBrightness
-	dw OptionsMenu_Dummy
 	dw OptionsMenu_Dummy
 	dw OptionsMenu_Cancel
 
@@ -115,6 +115,40 @@ Func_41d07:
 	ld c, $0
 	lb de, 5, 3
 	ret
+	
+	
+
+OptionsMenu_Mode:
+	ld a, [hJoy5]
+	bit 4, a ; right
+	jr nz, .Toggle
+	bit 5, a
+	jr nz, .Toggle
+	;maybe use other bits in future?
+	ld a, [wMode]
+	cp 1
+	jr z, .SetYes
+	jr .SetNo
+.Toggle
+	ld a,[wMode]
+	cp 0
+	jr z, .SetYes
+.SetNo:
+	ld a,0
+	ld [wMode],a
+	ld de, AnimationOffText
+	jr .Display
+.SetYes:
+	ld a,1
+	ld [wMode],a
+	ld de, AnimationOnText
+.Display:
+	coord hl, 14, 10
+	call PlaceString
+	and a
+	ret
+	
+
 
 OptionsMenu_BattleAnimations:
 	ld a, [hJoy5]
@@ -436,8 +470,8 @@ AllOptionsText:
 	db "TEXT SPEED :"
 	next "ANIMATION  :"
 	next "BATTLESTYLE:"
-	next "SOUND:"
-	next "PRINT:@"
+	next "SOUND:";next "PRINT:@"
+	next "LEVELS:@"
 
 OptionMenuCancelText:
 	db "CANCEL@"

@@ -236,6 +236,23 @@ const_value = 1
 	const DEX_SYLVEON
 	const DEX_SCIZOR
 	const DEX_STEELIX
+  const DEX_ZIGZAGOON
+  const DEX_LINOONE
+  const DEX_OBSTAGOON
+  const DEX_SPINARAK
+  const DEX_ARIADOS
+  const DEX_MANTYKE
+  const DEX_MANTINE
+  const DEX_AIPOM
+  const DEX_AMBIPOM
+  const DEX_MUNCHLAX
+  const DEX_SMEARGLE;248
+  const DEX_SUICUNE;249
+  const DEX_ENTEI;250
+  const DEX_RAIKOU;251
+ ; const DEX_MEGA_CHARIZARD
+ ; const DEX_MEGA_BLASTOISE
+ ; const DEX_MEGA_VENUSAUR
   const DEX_WOBBUFFET
 
-NUM_POKEMON    EQU 238 ;only 'safe' to 201, after that pokes in wild will obnoxiously turn into trainers. Unless that is fixed, others past that have to be given as trades/gifts/prizes.
+NUM_POKEMON    EQU 252;at 248 it got kinda grouchy at me in menu/pokedex about 8-bit values... >_> apparently really do need to fix that if want those last few mons.

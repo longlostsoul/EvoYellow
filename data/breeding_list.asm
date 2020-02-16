@@ -142,7 +142,7 @@ db OMANYTE    ; Omastar
 db KABUTO     ; Kabuto
 db KABUTO     ; Kabutops
 db AERODACTYL ; Aerodactyl
-db SNORLAX;MUNCHLAX   ; Snorlax
+db MUNCHLAX   ; Snorlax
 db ARTICUNO   ; Articuno
 db ZAPDOS     ; Zapdos
 db MOLTRES    ; Moltres
@@ -238,7 +238,25 @@ db MEW        ; Mew
 	db EEVEE ;DEX_SYLVEON
 	db SCYTHER ;scizor
 	db ONIX;STEELIX
+	db ZIGZAGOON
+  db ZIGZAGOON;LINOONE
+  db ZIGZAGOON;OBSTAGOON
+  db SPINARAK
+  db SPINARAK;ARIADOS
+  db MANTYKE
+  db MANTYKE;MANTINE
+  db AIPOM
+  db AIPOM;AMBIPOM
+  db MUNCHLAX
+  db SMEARGLE
+  db SUICUNE
+  db ENTEI
+  db RAIKOU
+  ;db CHARMANDER;MEGA_CHARIZARD
+  ;db SQUIRTLE;MEGA_BLASTOISE
+  ;db BULBASAUR;MEGA_VENUSAUR
   db WOBBUFFET
+
 
 ;db LATIAS     ; Latias ;redo list ported from red++ for different dex
 ;db LATIOS     ; Latios

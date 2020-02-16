@@ -236,11 +236,25 @@ const_value = 1
 	const CHARMELEON   
 	const WARTORTLE    
 	const BLASTOISE    
-	const CHARIZARD    
+	const CHARIZARD  
+	  const ZIGZAGOON
+  const LINOONE
+  const OBSTAGOON
+  const SPINARAK
+  const ARIADOS
+  const MANTYKE
+  const MANTINE
+  const AIPOM
+  const AMBIPOM
+  const MUNCHLAX
+  const SMEARGLE
+  const SUICUNE
+  const ENTEI
+  const RAIKOU
+ ; const MEGA_CHARIZARD
+ ; const MEGA_BLASTOISE
+ ; const MEGA_VENUSAUR
   const WOBBUFFET
   const FOSSIL_KABUTOPS   
 	const FOSSIL_AERODACTYL
 	const MON_GHOST    
-	;const MEGA_CHARIZARD
-	;const MEGA_BLASTOISE
-	;const MEGA_VENUSAUR

@@ -2938,8 +2938,8 @@ SelectMenuItem:
 	jr z, .disabled
 	ld a, [wPlayerBattleStatus3]
 	bit 3, a ; transformed
-	jr nz, .dummy ; game freak derp
-.dummy
+;	jr nz, .dummy ; game freak derp
+;.dummy
 	ld a, [wCurrentMenuItem]
 	ld hl, wBattleMonMoves
 	ld c, a
@@ -5684,7 +5684,7 @@ AdjustDamageForMoveType:
   jr .actualyes
   ld a,b ;type 1
  
-  cp GRASS;FLYING would never get used because type 1
+  cp GRASS
   jr nz, .yes
   ld a, GROUND
   jr .actualyes
@@ -5712,6 +5712,14 @@ AdjustDamageForMoveType:
   jr nz, .yes
   ld a, FAIRY
   jr .actualyes
+  
+  ld a,c ;type 2
+ 
+  cp FLYING
+  jr nz, .yes
+  ld a, ROCK
+  jr .actualyes
+  
   ld a,b ;type 1
  
   cp NORMAL
@@ -7312,7 +7320,7 @@ _JumpMoveEffect:
 	jp [hl] ; jump to special effect handler
 
 MoveEffectPointerTable:
-	 dw SleepEffect               ; unused effect
+	 dw MimicEffect               ; Sketch Effect, handle by same func as mimic.
 	 dw PoisonEffect              ; POISON_SIDE_EFFECT1
 	 dw DrainHPEffect             ; DRAIN_HP_EFFECT
 	 dw FreezeBurnParalyzeEffect  ; BURN_SIDE_EFFECT1
@@ -8321,8 +8329,10 @@ SwitchAndTeleportEffect:
 	ld a, [wPlayerMoveNum]
 	jr .playAnimAndPrintText
 .notWildBattle1
-	ld c, 50
-	call DelayFrames
+	callab PlayerRoar
+	ld a,[wTemp3]
+	cp ROAR
+	jr z, .playAnimAndPrintText
 	ld hl, IsUnaffectedText
 	ld a, [wPlayerMoveNum]
 	cp TELEPORT
@@ -8363,8 +8373,10 @@ SwitchAndTeleportEffect:
 	ld a, [wEnemyMoveNum]
 	jr .playAnimAndPrintText
 .notWildBattle2
-	ld c, 50
-	call DelayFrames
+	callab EnemyRoarWhirlwind
+	ld a,[wTemp3]
+	cp ROAR
+	jr z, .playAnimAndPrintText
 	ld hl, IsUnaffectedText
 	ld a, [wEnemyMoveNum]
 	cp TELEPORT
@@ -8753,20 +8765,38 @@ MimicEffect:
 	add hl, bc
 	ld d, [hl]
 	pop af
-	ld hl, wBattleMonMoves
+	ld hl, wBattleMonMoves;wPartyMon1Moves;
 .playerTurn
+  ld [wFlag],a;tempflag
 	ld c, a
 	ld b, $0
 	add hl, bc
 	ld a, d
 	ld [hl], a
-	ld [wd11e], a
+  call HandleSketch
 	call GetMoveName
 	call PlayCurrentMoveAnimation
 	ld hl, MimicLearnedMoveText
 	jp PrintText
 .mimicMissed
 	jp PrintButItFailedText_
+
+HandleSketch:
+  ld [wTemp],a
+  ld a,[wPlayerSelectedMove]
+  CP SKETCH
+  jr nz, .done
+  ld a,[wFlag]
+	ld hl, wPartyMon1Moves;sketch
+	ld c, a
+	ld b, $0
+	add hl, bc
+	ld a, d
+	ld [hl], a
+.done
+  ld a,[wTemp]
+  ld [wd11e], a
+	ret
 
 MimicLearnedMoveText:
 	TX_FAR _MimicLearnedMoveText
