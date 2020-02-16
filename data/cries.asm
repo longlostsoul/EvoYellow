@@ -263,4 +263,21 @@ CryData:
 	db $1D, $20, $40; Wartortle
 	db $13, $00, $80; Blastoise
 	db $04, $00, $80; Charizard
+		db $01, $00, $80;ZIGZAGOON
+  db $01, $00, $80;LINOONE
+  db $01, $00, $80;OBSTAGOON
+  db $16, $80, $20;SPINARAK
+  db $1A, $29, $80;ARIADOS
+  db $19, $99, $10;MANTYKE
+  db $16, $10, $FF;MANTINE
+  db $0A, $DD, $60;AIPOM
+  db $0A, $DD, $60;AMBIPOM
+  db $05, $55, $01;MUNCHLAX
+  db $05, $55, $01;SMEARGLE
+	db $1A, $AA, $FF; Vaporeon db ;SUICUNE
+ db $1A, $10, $20; Flareon db ;ENTEI
+  db $1A, $3D, $80;db Jolteon;RAIKOU
+;  db $04, $00, $80;MEGA_CHARIZARD
+;  db $13, $00, $80;MEGA_BLASTOISE
+;  db  $0F, $00, $C0;MEGA_VENUSAUR
 	db $14, $00, $80;wobbuffet

@@ -10,15 +10,15 @@ const_value = 1
 	const SAFARI_BALL   ; $08
 	const POKEDEX       ; $09
 	const MOON_STONE    ; $0A 10
-	const ANTIDOTE      ; $0B
-	const BURN_HEAL     ; $0C
-	const ICE_HEAL      ; $0D
-	const AWAKENING     ; $0E
-	const PARLYZ_HEAL   ; $0F 15
+	const ANTIDOTE      ; $0B Pecha Berry
+	const BURN_HEAL     ; $0C 
+	const ICE_HEAL      ; $0D Renamed to a berry
+	const AWAKENING     ; $0E Renamed Chesto Berry
+	const PARLYZ_HEAL   ; $0F 15 Cheri Berry
 	const FULL_RESTORE  ; $10 16
-	const MAX_POTION    ; $11 17
+	const MAX_POTION    ; $11 17 Leftovers, can still heal with it, but also hold it.
 	const HYPER_POTION  ; $12 18
-	const SUPER_POTION  ; $13 19
+	const SUPER_POTION  ; $13 19 Renamed Moomoo Milk, same effect as before though.
 	const POTION        ; $14 20
 	const BOULDERBADGE  ; $15 21
 	const CASCADEBADGE  ; $16 22
@@ -53,7 +53,7 @@ SAFARI_ROCK           EQU $16 ; overload
 	const NUGGET        ; $31 49
 	const PP_UP_2       ; $32 50
 	const POKE_DOLL     ; $33 51
-	const FULL_HEAL     ; $34 52
+	const FULL_HEAL     ; $34 52 Lum Berry
 	const REVIVE        ; $35 53
 	const MAX_REVIVE    ; $36 54
 	const GUARD_SPEC    ; $37 55

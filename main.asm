@@ -809,7 +809,6 @@ INCLUDE "engine/menu/options.asm"
 INCLUDE "data/cries.asm"
 INCLUDE "engine/battle/trainer_ai.asm"
 INCLUDE "data/moves.asm" ;moved from bank 0e
-INCLUDE "engine/items/holditems.asm"
 
 SECTION "bank11",ROMX,BANK[$11]
 
@@ -2358,17 +2357,200 @@ GligarPicFront::      INCBIN "pic/ymon/gligar.pic"
 GligarPicBack::       INCBIN "pic/monback/gligar.pic"
 GliscorPicFront::      INCBIN "pic/ymon/gliscor.pic"
 GliscorPicBack::       INCBIN "pic/monback/gliscor.pic"
-;MegaCharizardPicFront::       INCBIN "pic/ymon/mega_charizard_y_by_solo.pic"
-;MegaBlastoisePic::       INCBIN "pic/ymon/mega_blastoise_by_solo.pic"
-;MegaVenusaurPic::       INCBIN "pic/ymon/mega_venusaur_Xous_longlost.pic"
-;MegaCharizardPicBack::       INCBIN "pic/monback/mega_charizard_y_by_solo.pic"
-;MegaBlastoisePicBack::       INCBIN "pic/monback/mega_blastoise_by_solo.pic"
-;MegaVenusaurPicBack::       INCBIN "pic/monback/mega_venusaur.pic"
+MegaCharizardPicFront::       INCBIN "pic/ymon/mega_charizard.pic"
+MegaBlastoisePic::       INCBIN "pic/ymon/mega_blastoise.pic"
+MegaVenusaurPic::       INCBIN "pic/ymon/mega_venusaur.pic"
+MegaCharizardPicBack::       INCBIN "pic/monback/mega_charizard_y_by_solo.pic"
+MegaBlastoisePicBack::       INCBIN "pic/monback/mega_blastoise_by_solo.pic"
+MegaVenusaurPicBack::       INCBIN "pic/monback/mega_venusaur.pic"
 
+EnemyRoarWhirlwind::
+  ld c, 50
+	callab DelayFrames
+	;new code for enemies to force switch out, don't use teleport
+	ld a, [wEnemyMoveNum]
+	cp WHIRLWIND
+	jr z, .contin
+	cp ROAR
+	jr nz,.unaffected
+.contin
+	ld a,[wPartyCount]
+	cp 1
+	jr z,.unaffected
+	ld a,0
+	ld [wWhichPokemon],a
+	ld a, [wPlayerMonNumber]
+	ld d, a
+	ld a, [wWhichPokemon]
+	cp d ; check if the mon to switch to is already out
+	jr nz, .notAlreadyOut
+	ld a,1
+	ld [wWhichPokemon],a
+.notAlreadyOut
+	callab HasMonFainted
+	jr z,.unaffected
+.next7
+	xor a
+	ld [wPartyGainExpFlags],a
+	ld [wPartyFoughtCurrentEnemyFlags],a
+	;call SaveScreenTilesToBuffer1
+	callab SwitchPlayerMon
+  ld a,ROAR
+  ld [wTemp3],a
+  ret
+.unaffected
+  ld a,0
+  ld [wTemp3],a
+	ret
+	
+PlayerRoar:
+  ld c, 50
+	call DelayFrames
+	ld a, [wPlayerMoveNum]
+	cp WHIRLWIND
+	jr z, .contin
+	cp ROAR
+	jr nz,.unaffected
+.contin
+  ld a,[wEnemyPartyCount]
+  ld b, a
+	xor a
+	ld hl, wEnemyMon1HP
+	ld de, wEnemyMon2 - wEnemyMon1
+.nextPokemon
+	or [hl]
+	inc hl
+	or [hl]
+	dec hl
+	add hl, de
+	dec b
+	and a
+	jr z, .nextPokemon ;it's fainted, grab another
+	ld a, [hli]
+	or [hl]
+	jr z, .unaffected ;it's got no health
+  callab SwitchEnemyMon
+  ld hl, wEnemyBattleStatus1
+  set Flinched, [hl];?maybe? to skip enemy turn.
+	ld a,ROAR
+  ld [wTemp3],a
+  ret
+.unaffected
+  ld a,0
+  ld [wTemp3],a
+  ret
+  
+INCLUDE "engine/items/holditems.asm"
 include "home/berrytrees.asm";
 INCLUDE "engine/overworld/field_moves.asm"
 
 SECTION "bank43",ROMX,BANK[$43]
+EnteiPicFront::      INCBIN "pic/ymon/entei.pic"
+EnteiPicBack::       INCBIN "pic/monback/enteib.pic"
+SuicunePicFront::      INCBIN "pic/ymon/suicune.pic"
+SuicunePicBack::       INCBIN "pic/monback/suicuneb.pic"
+RaikouPicFront::      INCBIN "pic/ymon/raikou.pic"
+RaikouPicBack::       INCBIN "pic/monback/raikoub.pic"
+ZigzagoonPicFront::      INCBIN "pic/ymon/zigzagoon.pic"
+ZigzagoonPicBack::       INCBIN "pic/monback/zigzagoon.pic"
+LinoonePicFront::      INCBIN "pic/ymon/linoone.pic"
+LinoonePicBack::       INCBIN "pic/monback/linoone.pic"
+ObstagoonPicFront::      INCBIN "pic/ymon/obstagoon.pic"
+ObstagoonPicBack::       INCBIN "pic/monback/obstagoon.pic"
+SmearglePicFront::      INCBIN "pic/ymon/smeargle.pic"
+SmearglePicBack::       INCBIN "pic/monback/smeargleb.pic"
+SpinarakPicFront::      INCBIN "pic/ymon/spinarak.pic";
+SpinarakPicBack::       INCBIN "pic/monback/spinarakb.pic"
+AriadosPicFront::      INCBIN "pic/ymon/ariados.pic"
+AriadosPicBack::       INCBIN "pic/monback/ariadosb.pic"
+MantykePicFront::      INCBIN "pic/ymon/mantyke.pic"
+MantykePicBack::       INCBIN "pic/monback/mantykeb.pic"
+MantinePicFront::      INCBIN "pic/ymon/mantine.pic"
+MantinePicBack::       INCBIN "pic/monback/mantineb.pic"
+AipomPicFront::      INCBIN "pic/ymon/aipom.pic"
+AipomPicBack::       INCBIN "pic/monback/aipomb.pic"
+AmbipomPicFront::      INCBIN "pic/ymon/ambipom.pic"
+AmbipomPicBack::       INCBIN "pic/monback/ambipom.pic"
+MunchlaxPicFront::      INCBIN "pic/ymon/munchlax.pic"
+MunchlaxPicBack::       INCBIN "pic/monback/munchlax.pic"
+
+MewRoam:
+  ld a,[wMode]
+  cp 0
+  jr z, .notMode
+  ld a, [wPartyMon1Level]
+  ld [wCurEnemyLVL],a
+.notMode
+  call Random
+	cp 3
+	jr nc, .nextRoam ;if not roam dog, do mew
+  ld a,[wBestFlag]
+  cp 0
+  jr nz, .nextSuicune
+  ld a,SUICUNE ;next time have SUICUNE
+  ld [wBestFlag],a
+  ld a,FEAROW ;the infamous Yellow Fearow can now appear anywhere, very rarely.
+  jp .gotit
+.nextSuicune
+  cp SUICUNE
+  jr nz, .Entei
+  call SetLevel30
+  ld a,SUICUNE
+  jp .inc
+.Entei
+  cp  ENTEI
+  jr nz, .nextRaikou
+  call SetLevel30
+  ld a,ENTEI
+  jp .inc
+.nextRaikou
+  cp RAIKOU
+  jr nz, .nextRoam
+  call SetLevel30
+  ld a,0 ;start over
+  ld [wBestFlag],a
+  ld a,RAIKOU
+  jp .gotit
+.inc
+  inc a
+  ld [wBestFlag],a
+  dec a
+  jp .gotit
+.nextRoam
+	ld a, [wObtainedBadges] ;can make it check for badge
+	bit 7, a ;8th badge if we start count from 0
+	jr z, .no
+	call Random
+	cp 1
+	jr nz, .no
+	ld a,50
+  ld [wCurEnemyLVL], a
+	ld a, MEW
+	jp .gotit
+.no
+  ld a,0
+  ld [wPokeBallCaptureCalcTemp],a
+  ret
+.gotit
+  ld [wPokeBallCaptureCalcTemp],a
+  ld [wFlag],a
+  ret
+  
+SetLevel30:
+  ld a,[wMode]
+  cp 0
+  jr z, .notMode
+  ld a, [wPartyMon1Level]
+  ld [wCurEnemyLVL],a
+  jp .ret
+.notMode
+  ld a,30
+  ld [wCurEnemyLVL], a
+.ret
+  ret
+
+
+SECTION "bank44",ROMX,BANK[$44]
 KingdraPicFront::      INCBIN "pic/ymon/kingdra.pic"
 KingdraPicBack::       INCBIN "pic/monback/kingdra.pic"
 BlisseyPicFront::    INCBIN "pic/ymon/blissey.pic"

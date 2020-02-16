@@ -8,7 +8,7 @@
 	db NORMAL ; species type 2
 	db 90 ; catch rate
 	db 128 ; base exp yield
-	INCBIN "pic/bmon/linoone.pic",0,1 ; 55, sprite dimensions
+	INCBIN "pic/ymon/linoone.pic",0,1 ; 55, sprite dimensions
 	dw LinoonePicFront
 	dw LinoonePicBack
 	; attacks known at lvl 0

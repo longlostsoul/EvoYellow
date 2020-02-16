@@ -213,6 +213,7 @@ SetPal_Overworld:
 	ld a, [wCurMap] ;towns should be colored by own palettes.
 	jr .notit
 .indoorMaps;maybe?
+  ld a, [wLastMap] 
 	;for everything that isn't a dungeon, load pal_route. dungeons don't work nicely due to calling route as last map, yet get handled as towns.
 ;	cp ROUTE_2 ;:/ walking into diglett cave and viridian, unfortunately turns dig green
 ;	jr z, .greenit

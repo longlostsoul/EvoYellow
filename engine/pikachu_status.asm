@@ -137,6 +137,7 @@ db $FF
 Pointer_SeelSprites:
 db SEEL
 db DEWGONG
+
 db $FF
 
 Pointer_ShellSprites:
@@ -155,6 +156,10 @@ db WARTORTLE
 db BLASTOISE
 db WOOPER
 db QUAGSIRE
+db POLIWAG
+db POLIWHIRL
+db POLIWRATH
+db POLITOED
 db $FF
 
 Pointer_FishSprites:
@@ -188,6 +193,8 @@ db ONIX
 db STEELIX
 db EKANS
 db ARBOK
+db SALANDIT
+db SALAZZLE
 ;db DRATINI ;might handle by dragon typing check instead
 ;db DRAGONAIR
 ;db DUNSPARCE
@@ -198,6 +205,18 @@ db ZUBAT
 db GOLBAT
 db GLISCOR
 db GLIGAR
+db $FF
+
+Pointer_DogSprites:
+db HOUNDOUR
+db GROWLITHE
+db SUICUNE
+db ENTEI
+db HOUNDOOM
+db RAIKOU
+db ARCANINE
+db FLAREON
+db ABSOL
 db $FF
 
 Pointer_BallSprites:
@@ -219,7 +238,7 @@ db $FF
 Pointer_EeveeSprites:
 db EEVEE
 db ESPEON
-db FLAREON
+;db FLAREON
 db UMBREON
 db VAPOREON
 db JOLTEON
@@ -407,6 +426,14 @@ LoadPokeFollowSprite::
 	jr .resume2
 .curMonNotThisZub
   call GetFirstMonSpecies
+	ld hl, Pointer_DogSprites
+	ld de, $1
+	call IsInArray
+	jr nc, .curMonNotThis6
+	ld a, SPRITE_DOG
+	jr .resume
+.curMonNotThis6
+  call GetFirstMonSpecies
 	ld hl, Pointer_MeowthSprites
 	ld de, $1
 	call IsInArray
@@ -427,11 +454,6 @@ LoadPokeFollowSprite::
   ;cp SPRITE_MON              ; $0
 	;cp SPRITE_BALL_M           ; $1
 	;cp SPRITE_HELIX            ; $2
-  cp FIRE
-	jr nz, .curMonNotThis6
-	ld a, SPRITE_DOG
-	jr .resume
-.curMonNotThis6
 	cp BUG              
 	jr nz, .curMonNotThisBug
 	ld a, SPRITE_BUTTERFREE

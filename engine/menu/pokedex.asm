@@ -299,7 +299,7 @@ Pokedex_DrawInterface:
 	call PlaceString
 ; find the highest pokedex number among the pokemon the player has seen
 	ld hl, wPokedexSeenEnd - 1
-	ld b, (wPokedexSeenEnd - wPokedexSeen) * 8 + 1
+	ld b, 0;(wPokedexSeenEnd - wPokedexSeen) * 8 + 1 gives 8 bit error, so, just enjoy having all of them. >_>
 .maxSeenPokemonLoop
 	ld a, [hld]
 	ld c, 8

@@ -3,7 +3,7 @@ TechnicalMachines:
 	db TWISTER ;2 razorwind
 	db SWORDS_DANCE ;3
 	db AERIAL_ACE ;4 WHIRLWIND. Maybe make baton_pass at some point.
-	db MEGA_KICK;5
+	db HIDDEN_POWER;MEGA_KICK;5
 	db TOXIC;6
 	db IRON_TAIL;HORN_DRILL;7 
 	db BODY_SLAM;8

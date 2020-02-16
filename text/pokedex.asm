@@ -1516,3 +1516,33 @@ _NewDexEntry::
 	next "of the #MON"
 	next "world."
 	dex
+	
+_EvoDexEntry::
+	text "It is an evolved"
+	next "version of a new"
+	next "pokemon from a"
+
+	page "distant region"
+	next "of the #MON"
+	next "world."
+	dex
+	
+_ZigzagDexEntry::
+	text "It has a habit of"
+	next "collecting items"
+	next "it finds to hoard"
+
+	page "away for tough"
+	next "times. Variants:"
+	next "Normal and Dark"
+	dex
+	
+_NewLegendDexEntry::
+	text "It is a rare"
+	next "legendary dog"
+	next "#MON from the"
+
+	page "JOHTO region"
+	next "of the #MON"
+	next "world."
+	dex	

@@ -8,7 +8,7 @@
 	db FLYING ; species type 2
 	db SUPER_POTION ; catch rate
 	db 168 ; base exp yield
-	INCBIN "pic/ymon/mantine.pic",0,1 ; sprite dimensions
+	INCBIN "pic/ymon/mantyke.pic",0,1 ; sprite dimensions
 	dw MantykePicFront
 	dw MantykePicBack
 	; attacks known at lvl 0

@@ -31,8 +31,9 @@ Route12Script0:
 	call DisplayTextID
 	ld a, SNORLAX
 	ld [wCurOpponent], a
-	ld a, 30
-	ld [wCurEnemyLVL], a
+	;ld a, 30
+	;ld [wCurEnemyLVL], a
+	callab SetLevel30
 	ld a, HS_ROUTE_12_SNORLAX
 	ld [wMissableObjectIndex], a
 	predef HideObject

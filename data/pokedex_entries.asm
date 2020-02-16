@@ -140,63 +140,63 @@ PokedexEntryPointers:
 	dw WeepinbellDexEntry
 	dw VictreebelDexEntry
 	dw NewDexEntry;togep
-  dw NewDexEntry ;toget
-	dw NewDexEntry ;togkiss
+  dw EvoDexEntry ;toget
+	dw EvoDexEntry ;togkiss
 	dw GrowlitheDexEntry;houndour
 	dw ArcanineDexEntry ;houndoom
 	dw PinsirDexEntry  ;hera
 	dw GolbatDexEntry;...Crobat
 	dw NewDexEntry ;sneeze
-	dw NewDexEntry;w
+	dw EvoDexEntry;w
 	dw NewDexEntry ;skar
 	dw NewDexEntry  ;mis
-	dw NewDexEntry;mis
+	dw EvoDexEntry;mis
 	dw TaurosDexEntry;miltank
 	dw NewDexEntry ;chin
-	dw NewDexEntry ;lan
+	dw EvoDexEntry ;lan
 		dw NewDexEntry;slug
-  dw NewDexEntry ;mag
+  dw EvoDexEntry ;mag
 	dw NewDexEntry ;ty
 	dw NewDexEntry;hitmontop
 	dw NewDexEntry ;murk
-	dw NewDexEntry  ;honch
+	dw EvoDexEntry  ;honch
 	dw NewDexEntry;marill
-	dw NewDexEntry;azu
+	dw EvoDexEntry;azu
 	dw NewDexEntry;swinub
-	dw NewDexEntry;
-	dw NewDexEntry;mamo
+	dw EvoDexEntry;
+	dw EvoDexEntry;mamo
 	dw NewDexEntry;wooper
-	dw NewDexEntry;quag
+	dw EvoDexEntry;quag
 	dw NewDexEntry;yan
-	dw NewDexEntry;
+	dw EvoDexEntry;
 	dw PorygonDexEntry;porygonz
 	dw NewDexEntry;phanp
-	dw NewDexEntry;don
+	dw EvoDexEntry;don
 	dw NewDexEntry;glig
-	dw NewDexEntry;glisc
+	dw EvoDexEntry;glisc
 	dw NewDexEntry;teddy
-	dw NewDexEntry;ursaring
+	dw EvoDexEntry;ursaring
 	dw NewDexEntry;snn
 	dw NewDexEntry;
 	dw NewDexEntry;larv
-	dw NewDexEntry;
-	dw NewDexEntry;tyr
+	dw EvoDexEntry;
+	dw EvoDexEntry;tyr
 		dw NewDexEntry;stantler Absol
 	dw NewDexEntry;cors
 	dw NewDexEntry;hoot
-	dw NewDexEntry;noct
-	dw CharmanderDexEntry;sun SALANDIT
-	dw NewDexEntry;sun SALAZZLE
+	dw EvoDexEntry;noct
+	dw CharmeleonDexEntry;sun SALANDIT
+	dw EvoDexEntry;sun SALAZZLE
 	dw NewDexEntry;hop
-	dw NewDexEntry;hop2
-	dw NewDexEntry;hop3
+	dw EvoDexEntry;hop2
+	dw EvoDexEntry;hop3
 	dw NewDexEntry;sheep
 	dw NewDexEntry;sheep
-	dw NewDexEntry;sheep
+	dw EvoDexEntry;sheep
 	dw NewDexEntry;natu
-	dw NewDexEntry;xatu
+	dw EvoDexEntry;xatu
 	dw NewDexEntry;rem
-	dw NewDexEntry;oct
+	dw EvoDexEntry;oct
 	dw MrMimeDexEntry;Mr Rime, old sentret
 	dw FarfetchdDexEntry;SirFetchd old furretBERU
 	dw NewDexEntry;qwil
@@ -205,7 +205,7 @@ PokedexEntryPointers:
 	dw NewDexEntry;dunsp
 	dw NewDexEntry;gira
 	dw NewDexEntry;riolo
-	dw NewDexEntry;lucario
+	dw EvoDexEntry;lucario
 	dw NewDexEntry;sudo
 	 dw PoliwhirlDexEntry ;poli
 	dw SlowbroDexEntry ;slowking
@@ -236,6 +236,23 @@ PokedexEntryPointers:
 	dw WartortleDexEntry
 	dw BlastoiseDexEntry
 	dw CharizardDexEntry
+		dw ZigzagDexEntry;ZIGZAGOON
+  dw ZigzagDexEntry;LINOONE
+  dw ZigzagDexEntry;OBSTAGOON
+  dw NewDexEntry;SPINARAK
+  dw EvoDexEntry;ARIADOS
+  dw NewDexEntry;MANTYKE
+  dw EvoDexEntry;MANTINE
+  dw NewDexEntry;AIPOM
+  dw EvoDexEntry;AMBIPOM
+  dw NewDexEntry;MUNCHLAX
+  dw NewDexEntry;SMEARGLE
+  dw NewLegendDexEntry;SUICUNE
+  dw NewLegendDexEntry;ENTEI
+  dw NewLegendDexEntry;RAIKOU
+  ;dw CharizardDexEntry;MEGA_CHARIZARD
+  ;dw BlastoiseDexEntry;MEGA_BLASTOISE
+ ; dw VenusaurDexEntry;MEGA_VENUSAUR
 	dw NewDexEntry; wobbuffet
 
 
@@ -1310,12 +1327,32 @@ NewDexEntry:
 	TX_FAR _NewDexEntry
 	db "@"
 	
+EvoDexEntry:
+	db "NEW EVO@"
+	db 5,4
+	dw 590
+	TX_FAR _EvoDexEntry
+	db "@"	
+	
 	;db "NEW@"
 	;db 1,4 ; meters
 	;db 100 ; 
 	;TX_FAR _NewDexEntry  
 	;db "@"
+	
+ZigzagDexEntry:
+	db "RACCOON@"
+	db 2,4
+	dw 400
+	TX_FAR _ZigzagDexEntry
+	db "@"
 
+NewLegendDexEntry:
+	db "MYTHIC DOG@"
+	db 4,5
+	dw 2090
+	TX_FAR _NewLegendDexEntry
+	db "@"
 MissingNoDexEntry:
 	db "NEW@"
 	db 1,4 ; meters

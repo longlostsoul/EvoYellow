@@ -283,7 +283,7 @@ NoNightMons:
 ForestNightMons:
 	db 4, HOOTHOOT
 	db 5, PIKACHU
-	db 5, VENONAT
+	db 5, SPINARAK
 
 DiglettNightMons:
 	db 20, ZUBAT
@@ -306,7 +306,7 @@ Route2NightMons:
 	db 6, HOOTHOOT
 
 Route3NightMons:
-	db 9, ZUBAT
+	db 9, SMEARGLE
 	db 10, GLIGAR
 	db 12, CLEFAIRY
 

@@ -8,7 +8,7 @@ db WATER ; species type 1
 db WATER ; species type 2
 db SHINY_STONE ; catch rate
 db 210 ; base exp yield
-INCBIN "pic/ymon/megablastoise.pic",0,1 ; 77, sprite dimensions
+INCBIN "pic/ymon/mega_blastoise.pic",0,1 ; 77, sprite dimensions
 dw MegaBlastoisePicFront
 dw MegaBlastoisePicBack
 ; attacks known at lvl 0
