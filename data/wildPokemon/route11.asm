@@ -8,7 +8,7 @@ Route11Mons:
 	db 17,MAGNEMITE
 	db 18,PIDGEOTTO;day
 	db 20,PIDGEOTTO
-	db 19,HOPPIP ;day
+	db 20,JUMPLUFF ;day
 	db 17,RATICATE
 	db $00
 
