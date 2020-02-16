@@ -36,7 +36,6 @@ Version version 4:
 
 Known bugs:
 * #One person reported a crash after dig, which I haven't been able to replicate.
-* The levelizer has a tendency to reset after you load a save.
 * Sometimes after item use, a pokemon no longer follows until you go to the pokemon center and heal, even if the pokemon was already full health.
 * Mon follow sprites do not match party sprites. This isn't really a bug, I just never made that functionality because it was a pain, and follow sprites have different frames from party sprites anyway.
 * Diglett Cave might be green if you go into it from the same route as Viridian Forest, due to a palette over-ride quick fix for day-night.

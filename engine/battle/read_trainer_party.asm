@@ -195,7 +195,7 @@ ModifyTrainerLevel: ;Pokemon Roaming Red, average trainer levels and make Elite 
 	sub b	
 .doneApplyingVariance	
 	ld b, a 
-	ld a, [wEngagedTrainerClass]
+	ld a, [wCurOpponent];[wEngagedTrainerClass]
 	cp $E5 ; Giovanni
 	jp z, .applyPlusFive
 	cp $E6 ; ROCKET

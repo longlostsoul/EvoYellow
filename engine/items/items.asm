@@ -2319,8 +2319,16 @@ RodResponse:
 	; if yes, store level and species data
 	ld a, 1
 	ld [wMoveMissed], a
+	
 	ld a, b ; level
 	ld [wCurEnemyLVL], a
+	ld a,[wMode]
+  cp 0
+  jr z, .notMode
+  ld a, [wPartyMon1Level]
+  ld [wCurEnemyLVL],a
+.notMode
+
 	ld a, c ; species
 	ld [wCurOpponent], a
 

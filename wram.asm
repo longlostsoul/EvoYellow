@@ -62,7 +62,7 @@ ENDM
 
 SECTION "WRAM Bank 0", WRAM0
 
-wMode:: ;Setup, we could use this to change from a level adjuster /randomizer or nuzlocke mode
+wFlag:: ;this is a temporary flag and will reset on save reload.
 ;wUnusedC000:: ; c000
 	ds 1
 
@@ -3278,7 +3278,7 @@ wRoute18GateCurScript:: ; d668
 
 wBestFlag:: ;Used for switching through Roaming mons
  ds 1
-wFlag::
+wMode::
  ds 1
 	;unused flags?
 	ds 56;78. +10 items in bag, so remove 20 here, one space for item id and one for amount?
