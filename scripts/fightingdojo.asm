@@ -266,9 +266,12 @@ FightingDojoText6:
 	ld a, [wCurrentMenuItem]
 	and a
 	jr nz, .done
+	callab SetLevel30
+	ld a,[wCurEnemyLVL]
+	ld c, a
 	ld a, [wcf91]
 	ld b, a
-	ld c, 30
+	;ld c, 30
 	call GivePokemon
 	jr nc, .done
 
@@ -301,9 +304,12 @@ FightingDojoText7:
 	ld a, [wCurrentMenuItem]
 	and a
 	jr nz, .done
+	callab SetLevel30
+	ld a,[wCurEnemyLVL]
+	ld c, a
 	ld a, [wcf91]
 	ld b, a
-	ld c,30
+	;ld c,30
 	call GivePokemon
 	jr nc, .done
 	SetEvents EVENT_GOT_HITMONCHAN, EVENT_DEFEATED_FIGHTING_DOJO

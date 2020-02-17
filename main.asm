@@ -2523,8 +2523,7 @@ MewRoam:
 	call Random
 	cp 1
 	jr nz, .no
-	ld a,50
-  ld [wCurEnemyLVL], a
+  call SetLevel50
 	ld a, MEW
 	jp .gotit
 .no
@@ -2549,6 +2548,18 @@ SetLevel30:
 .ret
   ret
 
+SetLevel50:
+  ld a,[wMode]
+  cp 0
+  jr z, .notMode
+  ld a, [wPartyMon1Level]
+  ld [wCurEnemyLVL],a
+  jp .ret
+.notMode
+  ld a,50
+  ld [wCurEnemyLVL], a
+.ret
+  ret
 
 SECTION "bank44",ROMX,BANK[$44]
 KingdraPicFront::      INCBIN "pic/ymon/kingdra.pic"

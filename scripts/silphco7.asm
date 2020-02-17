@@ -318,7 +318,10 @@ SilphCo7Text1:
 .givelapras
 	ld hl, .MeetLaprasGuyText
 	call PrintText
-	lb bc, LAPRAS, 15
+	callab SetLevel50;I never got why they gave you a lvl 15 mon near the end of the game, pfft.
+	ld a,[wCurEnemyLVL]
+	ld c, a
+	ld b, LAPRAS
 	call GivePokemon
 	jr nc, .done
 	ld a, [wSimulatedJoypadStatesEnd]
