@@ -2561,6 +2561,44 @@ SetLevel50:
 .ret
   ret
 
+TakeItem:
+  ld hl, wPartyMons
+	ld bc, wPartyMon2 - wPartyMon1
+	ld a, [wWhichPokemon]
+	call AddNTimes
+	ld a, [wWhichPokemon]
+	ld d, a
+	ld [wd0b5], a
+	call GetMonHeader
+	ld bc,wPartyMon1CatchRate - wPartyMon1
+	add hl,bc ; hl now points to catch, now item
+	ld a, [hl] ;Let's do a check for what the item is
+	cp MAX_HOLD
+	jr c, .cnt ;less than than...
+	ld a, 107;20
+	 ;overwrite if the catch rate of Mon is nonexistent item.
+	;ld [hl],a ;not necessary to actually do it since we overwrite shortly anyway
+.cnt 
+  cp 0
+	jr z, .noitemtake
+  ld [wcf91],a ;item id
+  ld [wd11e],a ;fo item name
+  ld a,0
+  ld [hl], a ;ld into CatchRate,a. Erase/take the item from mon!
+  ld hl, wNumBagItems ;put the address of bag in hl
+  ld a,1
+  ld [wItemQuantity],a ;how many to add
+  call AddItemToInventory
+  call GetItemName
+	call CopyStringToCF4B ; copy name to wcf4b
+	ld hl, .TookItemText
+	Call PrintText
+.noitemtake	
+ ret
+.TookItemText
+ TX_FAR TookItemText
+ db "@"
+
 SECTION "bank44",ROMX,BANK[$44]
 KingdraPicFront::      INCBIN "pic/ymon/kingdra.pic"
 KingdraPicBack::       INCBIN "pic/monback/kingdra.pic"
