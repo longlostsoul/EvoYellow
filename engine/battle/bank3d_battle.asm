@@ -178,8 +178,31 @@ LoadMonBackPic:
 	coord hl, 1, 5
 	ld bc,$708
 	call ClearScreenArea
+	ld a,[wTemp4]
+	cp BLASTOISE
+	jr z, .MegaLoad3
+	cp CHARIZARD
+	jr z, .MegaLoad
+	cp VENUSAUR
+	jr z, .MegaLoad2
 	ld hl,  wMonHBackSprite - wMonHeader
 	call UncompressMonSprite
+	jp .Load
+.MegaLoad
+  ld a, BANK(MegaCharizardPicBack)
+	ld de,MegaCharizardPicBack
+	call UncompressSpriteFromDE
+	jp .Load
+.MegaLoad2
+  ld a, BANK(MegaVenusaurPicBack)
+	ld de,MegaVenusaurPicBack
+	call UncompressSpriteFromDE
+	jp .Load
+.MegaLoad3
+  ld a, BANK(MegaBlastoisePicBack)
+	ld de,MegaBlastoisePicBack
+	call UncompressSpriteFromDE
+.Load
 	callba LoadBackSpriteUnzoomed
 	ld hl, vSprites
 	ld de, vBackPic

@@ -1868,7 +1868,7 @@ LoadBattleMonFromParty:
 	;ld a, MEWTWO
 	;ld de, wBattleMonSpecies
 	;ld [de], a
-	callab MegaForms ;Best spot to over-ride normal pic with Mega's, by calling code that does above.
+	;callab MegaForms ;Best spot to over-ride normal pic with other species code, by calling code that does above. If want megas to not use species slot however do elsewhere.
 	ld a, [wBattleMonSpecies2]
 	ld [wd0b5], a
 	call GetMonHeader
@@ -1956,7 +1956,8 @@ SendOutMon:
 	call DrawEnemyHUDAndHPBar
 .skipDrawingEnemyHUDAndHPBar
 	call DrawPlayerHUDAndHPBar
-	;another possible place for form/mega checks, just override loadmonbackpic?
+	;override loadmonbackpic in mega check
+	callba MegaForms
 	predef LoadMonBackPic
 	xor a
 	ld [hStartTileID], a
