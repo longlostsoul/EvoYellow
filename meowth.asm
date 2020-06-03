@@ -1,1 +1,0 @@
-_MEOWTH EQU 1
