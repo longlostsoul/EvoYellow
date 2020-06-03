@@ -4,7 +4,7 @@ db 55 ; base attack
 db 35 ; base defense
 db 90 ; base speed
 db 50 ; base special
-db NORMAL ; species type 1
+db DARK ; species type 1
 db NORMAL ; species type 2
 db 250 ; catch rate
 db 69 ; base exp yield
