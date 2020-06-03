@@ -75,19 +75,19 @@ TryDoWildEncounter:
 	ld b, 0
 	add hl, bc
 	ld a, [hli]
-	ld [wCurEnemyLVL], a ;over-ride in alt mode?
+	ld [wCurEnemyLVL], a ;over-ride in alt mode
   jp .Mew
 .getwildmon
 	ld [wcf91], a
 	ld [wEnemyMonSpecies2], a
 	ld a, [wRepelRemainingSteps]
 	and a
-	jr z, .willEncounter
-	ld a, [wPartyMon1Level] ;we could make wild enemies always the same as first party mon as an auto- difficulty adjustment... but easy to get around.
-	ld b, a
-	ld a, [wCurEnemyLVL]
-	cp b
-	jr c, .CantEncounter2 ; repel prevents encounters if the leading party mon's level is higher than the wild mon
+	;jr z, .willEncounter
+	;ld a, [wPartyMon1Level]
+	;ld b, a
+	;ld a, [wCurEnemyLVL]
+	;cp b
+	jr nz, .CantEncounter2 ;jr c, repel prevents encounters if the leading party mon's level is higher than the wild mon, change to always work.
 	jr .willEncounter
 .lastRepelStep
 	ld [wRepelRemainingSteps], a

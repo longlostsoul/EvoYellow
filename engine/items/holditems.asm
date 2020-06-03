@@ -9,6 +9,8 @@ LoadPokeItem::
   ret
   
 MegaForms::
+  ld a,0
+  ld [wTemp4],a ;by default, no mega.
   call LoadPokeItem
   cp MOON_STONE
   jr z, .Darkify
@@ -75,7 +77,7 @@ MegaForms::
  ld [wBattleMonType],a
  ld a, THUNDERBOLT
  ld [wBattleMonMoves],a
- jp .Jolt
+ jp .print
 .Mega2
 	;ld a, MEGA_BLASTOISE ;mega form or other form pic change. Seems to work well.
 	;ld de, wBattleMonSpecies ;put after copy data in LoadBattleMonFromParty
@@ -88,11 +90,13 @@ MegaForms::
  ld a, FIRE
  ld [wBattleMonType],a
  ld a, [wBattleMonSpecies]
- cp EEVEE
+ cp CHARIZARD
  jr nz, .noV
- ld a, FLAREON
- ld de, wBattleMonSpecies
- ld [de], a
+ ld a, CHARIZARD
+ ld [wTemp4],a
+ jp .MegaDragon
+ ;ld de, wBattleMonSpecies
+ ;ld [de], a
 .noV
  cp MAROWAK
  jr nz, .ret1
@@ -104,20 +108,20 @@ MegaForms::
   jr nz, .Water
   ld a, [wBattleMonSpecies]
   cp AMPHAROS
-  jr z, .Mega
+  jr z, .MegaDragon
   cp AERODACTYL
-  jr z, .Mega
+  jr z, .MegaDragon
   cp PINSIR ;probably could make this more efficient with a table.
-  jr z, .Mega
+  jr z, .Mega2
   cp BEEDRILL
-  jr z, .Mega
-  cp VENUSAUR
-  jr z, .Mega2
-  cp BLASTOISE
-  jr z, .Mega2
-  cp CHARIZARD
+ ; jr z, .Mega
+ ; cp VENUSAUR
+ ; jr z, .Mega2
+ ; cp BLASTOISE
+ ; jr z, .Mega2
+ ; cp CHARIZARD
   jr nz, .noCharm
-  jp .Mega
+  jp .Mega2
 .Water
   cp WATER_STONE
   jr nz, .Leaf
@@ -126,12 +130,13 @@ MegaForms::
 	ld a, WATER
 	ld [wBattleMonType],a
 	ld a, [wBattleMonSpecies]
-  cp EEVEE
+  cp BLASTOISE
   jr nz, .noStone
-  ld a, VAPOREON ;eevee
-	ld de, wBattleMonSpecies
-	ld [de], a
-	jp .print
+  ld a, BLASTOISE
+  ld [wTemp4],a
+	;ld de, wBattleMonSpecies
+	;ld [de], a
+	jp .Mega2
 .Leaf
   cp LEAF_STONE
   jr nz, .noStone
@@ -140,23 +145,26 @@ MegaForms::
 	ld a, GRASS
 	ld [wBattleMonType],a
 	ld a, [wBattleMonSpecies]
-  cp EEVEE
+  cp VENUSAUR
   jr nz, .noStone
-  ld a, LEAFEON ;eevee
-	ld de, wBattleMonSpecies
-	ld [de], a
-	jp .print
-.Jolt
-  ld a, [wBattleMonSpecies]
-  cp EEVEE
-  jr nz, .noStone
-  ld a, JOLTEON ;eevee
-	ld de, wBattleMonSpecies
-	ld [de], a
-	jp .print
-.Mega
-	;ld a, MEGA_CHARIZARD ;mega form or other form pic change. Seems to work well.
-	;ld de, wBattleMonSpecies ;put after copy data in LoadBattleMonFromParty
+  ld a, VENUSAUR;LEAFEON 
+  ld [wTemp4],a
+  ;ld [wTemp4],a
+	;ld de, wBattleMonSpecies
+	;ld [de], a
+	jp .Mega2
+;.Jolt
+  ;ld a, [wBattleMonSpecies]
+  ;cp EEVEE
+  ;jr nz, .noStone
+  ;ld a, JOLTEON ;eevee
+	;ld de, wBattleMonSpecies
+	;ld [de], a
+	;jp .print
+.MegaDragon
+	;ld a, CHARIZARD ;mega form or other form pic change. Seems to work well.
+	;ld [wTemp4],a
+	;ld de, wBattleMonSpecies ;put after copy data in LoadBattleMonFromParty if want to over-ride pic using species slot.
 	;ld [de], a
 	call Megastats
 .noCharm
@@ -400,3 +408,42 @@ EnemyBerries::
   callab PrintHoldItemText2
 .NoUseBerry
   ret
+  
+
+TakeItem:
+  ld hl, wPartyMons
+	ld bc, wPartyMon2 - wPartyMon1
+	ld a, [wWhichPokemon]
+	call AddNTimes
+	ld a, [wWhichPokemon]
+	ld d, a
+	ld [wd0b5], a
+	call GetMonHeader
+	ld bc,wPartyMon1CatchRate - wPartyMon1
+	add hl,bc ; hl now points to catch, now item
+	ld a, [hl] ;Let's do a check for what the item is
+	cp MAX_HOLD
+	jr c, .cnt ;less than than...
+	ld a, 107;20
+	 ;overwrite if the catch rate of Mon is nonexistent item.
+	;ld [hl],a ;not necessary to actually do it since we overwrite shortly anyway
+.cnt 
+  cp 0
+	jr z, .noitemtake
+  ld [wcf91],a ;item id
+  ld [wd11e],a ;fo item name
+  ld a,0
+  ld [hl], a ;ld into CatchRate,a. Erase/take the item from mon!
+  ld hl, wNumBagItems ;put the address of bag in hl
+  ld a,1
+  ld [wItemQuantity],a ;how many to add
+  call AddItemToInventory
+  call GetItemName
+	call CopyStringToCF4B ; copy name to wcf4b
+	ld hl, .TookItemText
+	Call PrintText
+.noitemtake	
+ ret
+.TookItemText
+ TX_FAR TookItemText
+ db "@"

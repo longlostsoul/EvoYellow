@@ -72,7 +72,7 @@ StartMenu_Pokemon:
 	ld b,a
 	ld a,[wCurrentMenuItem] ; menu selection
 	cp b
-	jp z,.exitMenu ; if the player chose Cancel
+	jp z,.TakeItem;.exitMenu ; if the player chose Cancel
 	dec b
 	cp b
 	jr z,.choseSwitch
@@ -101,6 +101,9 @@ StartMenu_Pokemon:
 	predef StatusScreen2
 	call ReloadMapData
 	jp StartMenu_Pokemon
+.TakeItem
+  callab TakeItem
+  jp .exitMenu
 .choseOutOfBattleMove
 	push hl
 	ld a,[wWhichPokemon]

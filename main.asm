@@ -2358,8 +2358,8 @@ GligarPicBack::       INCBIN "pic/monback/gligar.pic"
 GliscorPicFront::      INCBIN "pic/ymon/gliscor.pic"
 GliscorPicBack::       INCBIN "pic/monback/gliscor.pic"
 MegaCharizardPicFront::       INCBIN "pic/ymon/mega_charizard.pic"
-MegaBlastoisePic::       INCBIN "pic/ymon/mega_blastoise.pic"
-MegaVenusaurPic::       INCBIN "pic/ymon/mega_venusaur.pic"
+MegaBlastoisePicFront::       INCBIN "pic/ymon/mega_blastoise.pic"
+MegaVenusaurPicFront::       INCBIN "pic/ymon/mega_venusaur.pic"
 MegaCharizardPicBack::       INCBIN "pic/monback/mega_charizard_y_by_solo.pic"
 MegaBlastoisePicBack::       INCBIN "pic/monback/mega_blastoise_by_solo.pic"
 MegaVenusaurPicBack::       INCBIN "pic/monback/mega_venusaur.pic"
@@ -2523,8 +2523,7 @@ MewRoam:
 	call Random
 	cp 1
 	jr nz, .no
-	ld a,50
-  ld [wCurEnemyLVL], a
+  call SetLevel50
 	ld a, MEW
 	jp .gotit
 .no
@@ -2545,6 +2544,19 @@ SetLevel30:
   jp .ret
 .notMode
   ld a,30
+  ld [wCurEnemyLVL], a
+.ret
+  ret
+
+SetLevel50:
+  ld a,[wMode]
+  cp 0
+  jr z, .notMode
+  ld a, [wPartyMon1Level]
+  ld [wCurEnemyLVL],a
+  jp .ret
+.notMode
+  ld a,50
   ld [wCurEnemyLVL], a
 .ret
   ret

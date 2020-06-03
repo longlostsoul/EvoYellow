@@ -661,7 +661,7 @@ FieldMoveNames:
 PokemonMenuEntries:
 	db   "STATS"
 	next "SWITCH"
-	next "CANCEL@"
+	next "TAKE@";item take give
 
 GetMonFieldMoves:
 	ld a, [wWhichPokemon]

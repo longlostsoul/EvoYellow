@@ -4,7 +4,7 @@ Route20Mons:
 	db $05
 	db 5,TENTACOOL
 	db 10,TENTACOOL
-	db 15,MARILL
+	db 25,GYARADOS
 	db 15,HORSEA
 	db 10,REMORAID
 	db 15,STARYU
