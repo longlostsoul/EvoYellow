@@ -585,8 +585,8 @@ OaksLabScript20:
 	ld a, $1
 	lb bc, POKE_BALL, 5
 	call GiveItem
-	ld [wViridianCityCurScript], a
-	SetEvent EVENT_OAK_GOT_PARCEL
+	;ld [wViridianCityCurScript], a
+	;SetEvent EVENT_OAK_GOT_PARCEL
 	ld a, HS_LYING_OLD_MAN
 	ld [wMissableObjectIndex], a
 	predef HideObject
