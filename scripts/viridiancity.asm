@@ -102,7 +102,7 @@ ViridianCityScript_190db:
 	ld [wBattleType], a
 	ld a, 5
 	ld [wCurEnemyLVL], a
-	ld a, RATTATA
+	ld a, TOGEPI
 	ld [wCurOpponent], a
 	ret
 
