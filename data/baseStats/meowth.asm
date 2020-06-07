@@ -24,5 +24,5 @@ db 0 ; growth rate
 	tmlearn 25,31,32
 	tmlearn 34,35,39,40
 	tmlearn 44
-	tmlearn 50,51
+	tmlearn 50,51,52,53,54
 db BANK(MeowthPicFront)
