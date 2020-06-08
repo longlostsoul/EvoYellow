@@ -158,10 +158,10 @@ _Route24DamianText1::
 	text "I'm not good at"
 	line "raising #MON."
 
-	para "I should release"
-	line "my CHARMANDER"
-	cont "because I haven't"
-	cont "raised it well..."
+	para "I was surprised"
+	line "to see an egg"
+	cont "at the daycare;"
+	cont "I can't keep it."
 
 	para "If you promise me"
 	line "you'll care for"
@@ -170,7 +170,7 @@ _Route24DamianText1::
 
 _Route24DamianText2::
 	text "Take good care of"
-	line "my CHARMANDER!@@"
+	line "my pokemon!@@"
 
 _Route24DamianText3::
 	text "Oh... I'd better"
@@ -178,6 +178,6 @@ _Route24DamianText3::
 	done
 
 _Route24DamianText4::
-	text "How's CHARMANDER"
+	text "How's the baby"
 	line "doing?"
 	done
