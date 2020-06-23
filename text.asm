@@ -1745,8 +1745,8 @@ _DepositHowManyText::
 	done
 
 _ItemWasStoredText::
-	TX_RAM wcd6d
-	text " was"
+	;TX_RAM wcd6d
+	text "It was"
 	line "stored via PC."
 	prompt
 
@@ -1770,10 +1770,10 @@ _WithdrawHowManyText::
 	done
 
 _WithdrewItemText::
-	text "Withdrew"
-	line "@"
-	TX_RAM wcd6d
-	text "."
+	text "Withdrew it."
+	;line "@"
+	;TX_RAM wcd6d
+	;text "."
 	prompt
 
 _NothingStoredText::

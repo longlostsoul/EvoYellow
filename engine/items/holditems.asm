@@ -365,7 +365,7 @@ EnemyBerries::
   ld a,0
   ld [wEnemyMonStatus],a
   callab PrintHoldItemText2
-  jr .NoUseBerry
+  jr .ContUseItem
 .IsItOther
   cp MAX_POTION ;leftovers
   jr nz, .super
