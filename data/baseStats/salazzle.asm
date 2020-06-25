@@ -9,8 +9,8 @@ db DEX_SALAZZLE ; pokedex id
 	db ETHER ; catch rate 80
 	db 57 ; base exp yield
 	INCBIN "pic/ymon/frontsalazzle.pic",0,1 ; sprite dimensions
-	dw SalanditPicFront
-	dw SalanditPicBack
+	dw SalazzlePicFront
+	dw SalazzlePicBack
 	; attacks known at lvl 0
 	db POISON_GAS
 	db DISABLE
