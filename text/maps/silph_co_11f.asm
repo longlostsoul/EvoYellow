@@ -63,8 +63,8 @@ _SilphCo11Text3::
 
 	para "The PRESIDENT and"
 	line "I are discussing"
-	cont "a vital business"
-	cont "proposition."
+	cont "national security"
+	cont "concerning a MON."
 
 	para "Keep your nose"
 	line "out of grown-up"

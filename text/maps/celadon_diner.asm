@@ -1,15 +1,15 @@
 _CeladonDinerText1::
 	text "Hi!"
 
-	para "We're taking a"
-	line "break now."
+	para "-You enjoy a"
+	line "short meal-"
 	done
 
 _CeladonDinerText2::
 	text "My #MON are"
 	line "weak, so I often"
-	cont "have to go to the"
-	cont "DRUG STORE."
+	cont "get WEED from"
+	cont "Erika."
 	done
 
 _CeladonDinerText3::
@@ -23,7 +23,8 @@ _CeladonDinerText4::
 
 	para "The man at that"
 	line "table lost it all"
-	cont "at the slots."
+	cont "to fallacious"
+	cont "thinking."
 	done
 
 _CeladonDinerText_491a7::

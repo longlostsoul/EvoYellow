@@ -25,7 +25,7 @@ _CeruleanCityText_1966d::
 _CeruleanCityText_19672::
 	text "Heh!"
 	line "You're no match"
-	cont "for my genius!"
+	cont "for my money!"
 	prompt
 
 _CeruleanCityText_19677::
@@ -37,11 +37,11 @@ _CeruleanCityText_19677::
 	cont "show me his rare"
 	cont "#MON!"
 
-	para "That added a lot"
-	line "of pages to my"
-	cont "#DEX!"
+	para "He had lots of"
+	line "EEVEE, I saw"
+	cont "'em evolved!"
 
-	para "After all, BILL's"
+	para "Naturally BILL's"
 	line "world famous as a"
 	cont "#MANIAC!"
 
@@ -128,9 +128,9 @@ _CeruleanCityText6::
 	cont "is behind this"
 	cont "terrible deed."
 
-	para "Even our POLICE"
-	line "FORCE has trouble"
-	cont "with the ROCKETs!"
+	para "Sadly our POLICE"
+	line "FORCE is totally"
+	cont "incompetent!"
 	done
 
 _CeruleanCityText_19730::
@@ -160,18 +160,18 @@ _CeruleanCityText_1973a::
 	done
 
 _CeruleanCityText_1976f::
-	text "ELECTRODE took a"
-	line "snooze..."
+	text "ELECTRODE dreams"
+	line "of revolution..."
 	done
 
 _CeruleanCityText_19774::
 	text "ELECTRODE is"
-	line "loafing around..."
+	line "planning revenge."
 	done
 
 _CeruleanCityText_19779::
-	text "ELECTRODE turned"
-	line "away..."
+	text "ELECTRODE: Balls"
+	line "are slavery..."
 	done
 
 _CeruleanCityText_1977e::
@@ -181,11 +181,11 @@ _CeruleanCityText_1977e::
 
 _CeruleanCityText9::
 	text "I want a bright"
-	line "red BICYCLE!"
+	line "red UNICYCLE!"
 
 	para "I'll keep it at"
-	line "home, so it won't"
-	cont "get dirty!"
+	line "home, with my"
+	cont "monocled tophat!"
 	done
 
 _CeruleanCityText10::
@@ -203,7 +203,7 @@ _CeruleanCityText10::
 _CeruleanCityText12::
 	text "CERULEAN CITY"
 	line "A Mysterious,"
-	cont "Blue Aura"
+	cont "Fish Smell"
 	cont "Surrounds It"
 	done
 
@@ -217,8 +217,8 @@ _CeruleanCityText13::
 	done
 
 _CeruleanCityText16::
-	text "Grass and caves"
-	line "handled easily!"
+	text "Run over your"
+	line "foes easily!"
 	cont "BIKE SHOP"
 	done
 
