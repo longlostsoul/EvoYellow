@@ -61,7 +61,7 @@ To set up the repository, see [**INSTALL.md**](INSTALL.md).
 [evoeevee]:https://github.com/longlostsoul/EvoYellow/tree/eevee2
 [pokered]: https://github.com/iimarckus/pokered
 [pokeyellow]: https://github.com/dannye/pokeyellow-gen-II
-[minyellow]: https://github.com/longlostsoldier/pokeyellow-gen-II
+[minyellow]: https://github.com/longlostsoul/pokeyellow-gen-II
 [pokecrystal]: https://github.com/kanzure/pokecrystal
 [irc]: https://kiwiirc.com/client/irc.freenode.net/?#pret
 # EvoYellow
