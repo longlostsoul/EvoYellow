@@ -155,7 +155,7 @@ UseHoldItemText::
  prompt
  
 UseLeftOversText::
- text "PKMN ate leftovers!"
+ text "MON ate leftovers!"
  ;line "@"
  ;TX_RAM wcf4b ;some variable goes here if we want?
  ;text "."

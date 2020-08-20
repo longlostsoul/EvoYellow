@@ -1951,6 +1951,9 @@ GetItemName::
 
 GetMachineName::
 ; copies the name of the TM/HM in [wd11e] to wcd6d
+  push hl
+  push de
+  push bc
   ld a,[wd11e]
   sub TM_01
   push af
@@ -1959,8 +1962,12 @@ GetMachineName::
 .skipAdding
 	inc a
 	ld [wd11e], a
+	pop bc
+  pop de
+  pop hl
   callab TMToMove
   call GetMoveName
+  
   pop af
 	;switching tm names with move names will screw up pc, so be careful
 	ret
