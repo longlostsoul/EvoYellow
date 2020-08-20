@@ -1,6 +1,7 @@
 # Pokémon EvoYellow
 
 This is a disassembly of Pokémon Yellow with bonus features; Pikachu now evolves, and all pokemon now follow as of version v3. There are also branches with a following [**meowth**][evomeowth] and following [**eevee**][evoeevee] instead of Pikachu for a starter; these get updated less often.
+There is also now a minimalist version elsewhere, if you wanted JUST following, running, evolving Raichu, boy/girl choice, and 151 mons, you want the minimalist one.
 You do have my permission to use this for whatever you like.
 
 Version version 4:
@@ -19,7 +20,7 @@ Version version 4:
 + More types, Dark, Steel, Fairy
 + Slightly different TMs, to reflect the new types.
 + Different kinds of shinies, get Pink, Blue, Black, Orange/red
-+ Hold items for Pokemon (very basic, use 'give' from item menu): Berries and type-changing stones (Give moon stone to your meowth to make it part dark type like an Alolan Meowth!) [Working on very basic mega functionality for Charizard, Venusaur, and Blastoise]
++ Hold items for Pokemon (very basic, use 'give' from item menu and 'take' from party menu): Berries and type-changing stones (Give moon stone to your meowth to make it part dark type like an Alolan Meowth!) [Working on very basic mega functionality for Charizard, Venusaur, and Blastoise]
 + New Area, Mt. Silver
 + Slight difficulty curve adjustment in normal mode, with larger anime-inspired Teams for Gym Leaders, example: Brock has Vulpix, Misty has Corsola and Togekiss
 + OLDER versions (below 3.3) had type re-adjustments. In the new version, you can choose to adjust types by making your pokemon hold special stones!
@@ -39,6 +40,7 @@ Known bugs:
 * Mon follow sprites do not match party sprites. This isn't really a bug, I just never made that functionality because it was a pain, and follow sprites have different frames from party sprites anyway.
 * Diglett Cave might be green if you go into it from the same route as Viridian Forest, due to a palette over-ride quick fix for day-night.
 * (resolved?) The move tutor was buggy for awhile. Now it should be just annoying in a very large loop, but not buggy per say.
+* should be resolved: on eevee version (and as far as I could tell, only eevee version) there was a crash due to old man for some reason in Viridian city.
 
 
 It builds the following rom:
