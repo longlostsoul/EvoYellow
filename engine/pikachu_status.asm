@@ -266,12 +266,15 @@ db $FF
 ;Other grass mons all get single grass sprite, so get grass typing check instead.
 
 GetFirstMonSpecies:
-  ld a, 0;[wWhichPokemon]
-	ld c, a
-	ld b, 0
 	ld hl, wPartySpecies
-	add hl, bc
+	;add hl, bc ;why did I add zero originally?
 	ld a, [hl]
+	ret
+	
+GetFirstMoninWhich:
+	ld a, 0
+	ld [wWhichPokemon],a
+	;call GetPartyMonName2 uses this I think? could also use wWhichTrade
 	ret
 
 LoadPokeFollowSprite::
