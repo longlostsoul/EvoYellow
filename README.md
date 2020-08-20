@@ -1,7 +1,7 @@
 # Pokémon EvoYellow
 
 This is a disassembly of Pokémon Yellow with bonus features; Pikachu now evolves, and all pokemon now follow as of version v3. There are also branches with a following [**meowth**][evomeowth] and following [**eevee**][evoeevee] instead of Pikachu for a starter; these get updated less often.
-There is also now a minimalist version elsewhere, if you wanted JUST following, running, evolving Raichu, boy/girl choice, and 151 mons, you want the minimalist one.
+There is also now a minimalist version [**elsewhere**][minyellow], if you wanted JUST following, running, evolving Raichu, boy/girl choice, and 151 mons, you want the minimalist one.
 You do have my permission to use this for whatever you like.
 
 Version version 4:
@@ -61,6 +61,7 @@ To set up the repository, see [**INSTALL.md**](INSTALL.md).
 [evoeevee]:https://github.com/longlostsoul/EvoYellow/tree/eevee2
 [pokered]: https://github.com/iimarckus/pokered
 [pokeyellow]: https://github.com/dannye/pokeyellow-gen-II
+[minyellow]: https://github.com/longlostsoldier/pokeyellow-gen-II
 [pokecrystal]: https://github.com/kanzure/pokecrystal
 [irc]: https://kiwiirc.com/client/irc.freenode.net/?#pret
 # EvoYellow
