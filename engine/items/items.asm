@@ -2650,7 +2650,7 @@ ItemUseTMHM:
 	predef TMToMove ; get move ID from TM/HM ID
 	ld a, [wd11e]
 	ld [wMoveNum], a
-	call GetMoveName
+	call GetMoveName ;this was bugging for some reason
 	call CopyStringToCF4B ; copy name to wcf4b
 	pop af
 	ld hl, BootedUpTMText
@@ -2670,6 +2670,18 @@ ItemUseTMHM:
 	jr z, .useMachine
 	ld a, 2
 	ld [wActionResultOrTookBattleTurn], a ; item not used
+	;end of battle seems to 'refresh' so let's see if copying removes the crash tm bug if you cancel and re-use. seems to work!
+	ld a, 0
+	ld [wcf91],a
+	ld hl, wPartyAndBillsPCSavedMenuItem
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
+	ld [wListScrollOffset], a
+	call GBPalWhiteOut
+	ld a, $ff
+	ld [wDestinationWarpID], a
 	ret
 
 .useMachine

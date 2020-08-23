@@ -356,10 +356,11 @@ LoadPokeFollowSprite::
 	ld a, SPRITE_SQUIRTLE
 	jr .end
 .curMonNotThis5a
+  call GetFirstMonSpecies
 	cp LAPRAS
 	jr nz, .curMonNotThisM
 	ld a, SPRITE_LAPRAS
-	jr .end
+	jr .end2
 .curMonNotThisM
 	cp GYARADOS
 	jr nz, .curMonNotThisFish

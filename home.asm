@@ -1951,7 +1951,7 @@ GetItemName::
 
 GetMachineName::
 ; copies the name of the TM/HM in [wd11e] to wcd6d
-;this experiment ultimately didn't work to give just the move names. oh well.
+;this experiment ultimately didn't work to give just the move names. although on further examination it doesn't actually seem to be the main source of the crashing, GetMoveName seems to be, it doesn't help it either. The crashfix for tms works for the normal version of this only.
  ; push hl
  ; push de
  ; push bc
