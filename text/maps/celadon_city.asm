@@ -8,9 +8,9 @@ _CeladonCityText1::
 	done
 
 _CeladonCityText2::
-	text "Heheh! This GYM"
-	line "is great! It's"
-	cont "full of women!"
+	text "Want to refight"
+	line "this gym again?"
+	cont "I can do that."
 	done
 
 _CeladonCityText3::
@@ -139,13 +139,13 @@ _CeladonCityText18::
 _CeladonCityText10::
 	text "TRAINER TIPS"
 
-	para "X ACCURACY boosts"
-	line "the accuracy of"
-	cont "techniques!"
+	para "Use Hold Items"
+	line "like STONES to"
+	cont "change type!"
 
-	para "DIRE HIT jacks up"
-	line "the likelihood of"
-	cont "critical hits!"
+	para "Berries heal you"
+	line "as well as"
+	cont "leftovers!"
 
 	para "Get your items at"
 	line "CELADON DEPT."

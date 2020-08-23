@@ -160,6 +160,6 @@ _VermilionGymText_5cbf4::
 	done
 
 _VermilionGymText_5cbf9::
-	text "Whew! That match"
-	line "was electric!"
+	text "Whew! Want to"
+	line "fight again?"
 	done

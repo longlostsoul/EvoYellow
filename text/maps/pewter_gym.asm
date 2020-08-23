@@ -162,9 +162,9 @@ _PewterGymText_5c524::
 	prompt
 
 _PewterGymText_5c529::
-	text "Just as I thought!"
-	line "You're #MON"
-	cont "champ material!"
+	text "Let's reset all"
+	line "battles, my"
+	cont "#MON champ!"
 	done
 
 _PewterGymGuyText::

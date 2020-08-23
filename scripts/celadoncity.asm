@@ -38,6 +38,14 @@ CeladonCityText1:
 	db "@"
 
 CeladonCityText2:
+  TX_ASM
+  ResetEvent EVENT_BEAT_ERIKA
+  ResetEventRange EVENT_BEAT_CELADON_GYM_TRAINER_0, EVENT_BEAT_CELADON_GYM_TRAINER_7
+	ld hl, CeladonCityText2M
+	call PrintText
+	jp TextScriptEnd
+	
+CeladonCityText2M:
 	TX_FAR _CeladonCityText2
 	db "@"
 
