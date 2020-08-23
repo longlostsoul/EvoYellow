@@ -71,8 +71,8 @@ _CeladonCityText6::
 	done
 
 _CeladonCityText7::
-	text "POLIWRATH: Ribi"
-	line "ribit e=mc2!@@"
+	text "BOB: Ribi"
+	line "ribit e mc2!@@"
 
 _CeladonCityText8::
 	text "I am totally"
