@@ -46,6 +46,7 @@ Known bugs:
 * (resolved?) The move tutor was buggy for awhile. Now it should be just annoying in a very large loop, but not buggy per say.
 * should be resolved: on eevee version (and as far as I could tell, only eevee version) there was a crash due to old man for some reason in Viridian city.
 * Should be resolved in version 3.5: there was an issue with using multiple TMs in a row causing crashes, especially Dark Pulse. Side effect of the fix is that you lose your position in the bag after canceling TM use, but that's pretty minor.
+*If you somehow manage to lose the first battle against ROCKET in the Mart, there's a bit of a lag before you end up back at your house. Just hit a and be patient; you won't have to refight them, either, just go straight to Oak.
 
 
 It builds the following rom:

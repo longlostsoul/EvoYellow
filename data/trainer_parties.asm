@@ -412,7 +412,7 @@ RocketData:
 	db 55,WEEZING,ARBOK,WOBBUFFET,ARCANINE,VICTREEBEL,LICKILICKY,0
 ; unused JessieJames trainers
 	db 5,KOFFING,EKANS,MEOWTH,0
-	db 3,EKANS,KOFFING,0 ;now used in Mart. Left off Meowth because would make it too hard for the second battle of the game when you don't even have pokes yet.
+	db 2,EKANS,KOFFING,0 ;now used in Mart. Left off Meowth because would make it too hard for the second battle of the game when you don't even have pokes yet.
 	db 29,WEEZING,0
 	db 33,WEEZING,0
 CooltrainerMData:
