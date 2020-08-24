@@ -6,21 +6,25 @@ You do have my permission to use this for whatever you like.
 
 Version version 4:
 + Play as girl or boy
-+ Cute Raichu graphics when you evolve Pikachu.
++ Cute Raichu graphics when you evolve Pikachu, Eevee and Meowth instead in those versions.
 + Ride pokemon on a saddle
 + Press B to run
 + Can complete the Pokedex.
 + Optional Level Adjuster Mode, trainers will have their levels matched to your party's, although elite will be slightly higher. In this mode, you can also use surf on water without the move surf as soon as you want, so you can play the game in reverse order and fight Cinnabar first! (Seafoam is a bit of a pain, but you can get through it without Strength. Surf around Snorlax.)
++ Refight gym leaders by talking to the gym guide (or in Celadon's case, the guy right outside the gym) -latest update 3.5 only-
 + Day and night system
-+ Over 250 pokemon, many Johto but also new Kanto evolutions have been added. All Eeveelutions available.
++ Over 250 pokemon, many Johto but also new Kanto evolutions have been added. All Eeveelutions available. Put a pokemon in first slot to have it follow you.
 + Legend Dogs roam after special randomized Fearow encounter, Mew roams after enough badges as a very rare encounter.
++ Snag balls have been coded in the latest version 3.5 which can catch the last MON of a trainer. This is intended for use in the Meowth hack or possibly a Colosseum centric style hack with Eevee (you are free to use this as a base if you want for your own hack or steal any of the code).
 + Munchlax and Mantyke babymons can be gotten from daycare if you leave a parent mon there.
++ Charmander is available earlier from a bugcatcher in Viridian.
 + More moves, like Crunch. Custom coding has been added for Sketch, Hidden Power and Mirror Move.
 + Some moves have been tweaked; Wrap no longer traps you forever, nor do you get stuck raging. Roar can switch trainer parties out now (if a little terribly, as it displays the wrong text 'trainer switched mons' for enemies).
 + More types, Dark, Steel, Fairy
 + Slightly different TMs, to reflect the new types.
 + Different kinds of shinies, get Pink, Blue, Black, Orange/red
-+ Hold items for Pokemon (very basic, use 'give' from item menu and 'take' from party menu): Berries and type-changing stones (Give moon stone to your meowth to make it part dark type like an Alolan Meowth!) [Working on very basic mega functionality for Charizard, Venusaur, and Blastoise]
++ Hold items for Pokemon (very basic, use 'give' from item menu and 'take' from party menu): Berries and type-changing stones (Give moon stone to your meowth to make it part dark type like an Alolan Meowth!)
++ Very basic megas functionality for Charizard, Venusaur, and Blastoise.
 + New Area, Mt. Silver
 + Slight difficulty curve adjustment in normal mode, with larger anime-inspired Teams for Gym Leaders, example: Brock has Vulpix, Misty has Corsola and Togekiss
 + OLDER versions (below 3.3) had type re-adjustments. In the new version, you can choose to adjust types by making your pokemon hold special stones!
@@ -41,6 +45,7 @@ Known bugs:
 * Diglett Cave might be green if you go into it from the same route as Viridian Forest, due to a palette over-ride quick fix for day-night.
 * (resolved?) The move tutor was buggy for awhile. Now it should be just annoying in a very large loop, but not buggy per say.
 * should be resolved: on eevee version (and as far as I could tell, only eevee version) there was a crash due to old man for some reason in Viridian city.
+* Should be resolved in version 3.5: there was an issue with using multiple TMs in a row causing crashes, especially Dark Pulse. Side effect of the fix is that you lose your position in the bag after canceling TM use, but that's pretty minor.
 
 
 It builds the following rom:

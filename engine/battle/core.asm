@@ -422,6 +422,8 @@ MainInBattleLoop:
 ; the player is neither thrashing about nor charging for an attack
 	call DisplayBattleMenu ; show battle menu
 	ret c ; return if player ran from battle
+	;steal part 1
+	callba StolePokemon
 	ld a, [wEscapedFromBattle]
 	and a
 	ret nz ; return if pokedoll was used to escape from battle
@@ -892,6 +894,13 @@ HandleEnemyMonFainted:
 	ld a, [hli]
 	or [hl] ; is battle mon HP zero?
 	call nz, DrawPlayerHUDAndHPBar ; if battle mon HP is not zero, draw player HD and HP bar
+	;steal 2
+	ld a, [wUnusedD119];[wStolePokemon]
+	cp 1
+	jr nz, .didntSteal;if did steal, 0 it out here
+	xor a
+	ld [wUnusedD119],a;[wStolePokemon], a
+.didntSteal
 	ld a, [wIsInBattle]
 	dec a
 	ret z ; return if it's a wild battle
@@ -993,8 +1002,18 @@ FaintEnemyPokemon:
 	ld a, d
 	and a
 	ret z
+	;steal 3
+	ld a, [wUnusedD119];[wStolePokemon]
+	cp 1
+	jr nz, .fainted1
+	;callab StoleText
+	;ld hl, EnemyMonStolenText
+	;call PrintText
+	jr .continue
+.fainted1
 	ld hl, EnemyMonFaintedText
 	call PrintText
+.continue
 	call PrintEmptyString
 	call SaveScreenTilesToBuffer1
 	xor a
@@ -1102,7 +1121,7 @@ ReplaceFaintedEnemyMon:
 	ret
 
 TrainerBattleVictory:
-	call EndLowHealthAlarm
+	;call EndLowHealthAlarm
 	ld b, MUSIC_DEFEATED_GYM_LEADER
 	ld a, [wGymLeaderNo]
 	and a
@@ -1126,12 +1145,14 @@ TrainerBattleVictory:
 	cp LINK_STATE_BATTLING
 	ret z
 	call ScrollTrainerPicAfterBattle
+	
 	ld c, 40
 	call DelayFrames
 	call PrintEndBattleText
+	
 ; win money
-	ld hl, MoneyForWinningText
-	call PrintText
+	;ld hl, MoneyForWinningText
+	;call PrintText
 	ld de, wPlayerMoney + 2
 	ld hl, wAmountMoneyWon + 2
 	ld c, $3
@@ -2124,16 +2145,16 @@ DrawPlayerHUDAndHPBar:
 	cp HP_BAR_RED
 	jr z, .setLowHealthAlarm
 .fainted
-	ld hl, wLowHealthAlarm
-	bit 7, [hl] ;low health alarm enabled?
-	ld [hl], $0
-	ret z
-	xor a
-	ld [wChannelSoundIDs + CH4], a
+;	ld hl, wLowHealthAlarm
+	;bit 7, [hl] ;low health alarm enabled?
+	;ld [hl], $0
+;	ret z
+	;xor a
+	;ld [wChannelSoundIDs + CH4], a
 	ret
 .setLowHealthAlarm
-	ld hl, wLowHealthAlarm
-	set 7, [hl] ;enable low health alarm
+	;ld hl, wLowHealthAlarm
+	;set 7, [hl] ;enable low health alarm
 	ret
 
 DrawEnemyHUDAndHPBar:
@@ -2578,11 +2599,8 @@ UseBagItem:
 
 .returnAfterCapturingMon
 	call GBPalNormal
-	xor a
-	ld [wCapturedMonSpecies], a
-	ld a, $2
-	ld [wBattleResult], a
-	scf ; set carry
+	;steal 4 need to put something here if stole a mon
+  callab ReturnafterSteal
 	ret
 
 ItemsCantBeUsedHereText:
@@ -6714,8 +6732,12 @@ LoadEnemyMonData:
 	ld [wEnemyMonHP], a
 	ld a, [hli]
 	ld [wEnemyMonHP + 1], a
+	ld a,[wUnusedD119];[wStolePokemon]
+	and a
+	jr nz, .skip
 	ld a, [wWhichPokemon]
 	ld [wEnemyMonPartyPos], a
+.skip ;steal/snag over
 	inc hl
 	ld a, [hl]
 	ld [wEnemyMonStatus], a

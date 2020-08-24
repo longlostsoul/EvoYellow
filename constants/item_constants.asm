@@ -45,7 +45,7 @@ SAFARI_ROCK           EQU $16 ; overload
 	const DOME_FOSSIL   ; $29 40
 	const HELIX_FOSSIL  ; $2A 42
 	const SECRET_KEY    ; $2B 43
-	const UNUSED_ITEM   ; $2C "?????" 44
+	const SNAG_BALL   ; $2C "?????" 44
 	const BIKE_VOUCHER  ; $2D 45
 	const X_ACCURACY    ; $2E 46
 	const LEAF_STONE    ; $2F 47

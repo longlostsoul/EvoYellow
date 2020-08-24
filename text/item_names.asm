@@ -42,7 +42,7 @@ ItemNames:
 	db "Dome Fossil@"
 	db "Helix Fossil@"
 	db "Secret Key@"
-	db "?????@"
+	db "SnagB@"
 	db "VOUCHER@"
 	db "X ACCURACY@"
 	db "Leaf Stone@"

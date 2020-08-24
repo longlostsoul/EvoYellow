@@ -447,3 +447,79 @@ TakeItem:
 .TookItemText
  TX_FAR TookItemText
  db "@"
+ 
+ ;theft
+IsItThiefBall::
+  cp SNAG_BALL
+	jr nz, .notThiefBall
+	ld a, 1
+	ld [wUnusedD119], a
+	ld a,[wcf91]
+	ret
+.notThiefBall
+  ld a, 0
+	ld [wUnusedD119], a
+  ret
+  
+ReturnafterSteal::
+  xor a
+	ld [wCapturedMonSpecies], a
+ 	ld a, [wIsInBattle]
+	dec a
+	jr nz, .notWild
+.wild
+	ld a, $2
+	ld [wBattleResult], a
+	scf ; set carry
+	ret
+.notWild
+ ; ld a, 1
+ ; ld [wUnusedD119],a
+ ; call StolePokemon
+  ld hl, EnemyMonStolenText
+  call PrintText
+  jr .wild
+;  callab ChooseNextMon
+;  ld a, [wEnemyPartyCount] or 0 for first ;only one/last pokemon can be captured.
+;  ld [wEnemyMonPartyPos],a
+;  callba HandleEnemyMonFainted
+;  ld a, 0
+  ;ld [wUnusedD119],a
+ ; cp 0
+  ;ret
+  
+;StoleText::
+; ld hl, EnemyMonStolenText
+; call PrintText
+; ret
+  
+EnemyMonStolenText:
+	TX_FAR _EnemyMonStolenText
+	db "@"
+ 
+
+StolePokemon::
+  ld a, [wUnusedD119];[wStolePokemon]
+	cp 1
+	jp nz, .ret;didn't try to catch it?
+	xor a
+	ld hl, wEnemyMonHP
+	ld [hli], a
+	ld [hl], a
+	
+	;callba LoadHudAndHpBarAndStatusTilePatterns
+	; redraw player mon's back sprite
+	;ld a, [wBattleMonSpecies]
+	;ld [wd0b5], a
+	;callba GetMonHeader
+	;predef LoadMonBackPic
+	;ld a, $31
+	;ld hl, $c405
+	;callba CopyUncompressedPicToHL
+	;callba DrawHUDsAndHPBars
+	;callba HandleEnemyMonFainted
+	;jp MainInBattleLoop
+.ret
+  ret
+	
+

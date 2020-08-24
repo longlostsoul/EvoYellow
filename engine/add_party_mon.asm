@@ -170,6 +170,14 @@ _AddPartyMon:
 	inc de
 	ld a, [hli]       ; catch rate (held item in gen 2)
 	ld [de], a
+	
+	ld a, [wIsInBattle]
+	and a ; is this a wild mon caught in battle?
+	jr z, .notBattle
+	ld hl, wEnemyMonMoves ;not wild, snagged/stolen
+	jr .writeMoves
+.notBattle
+
 	ld a, [wcf91]
 	cp KADABRA
 	jr nz, .skipGivingTwistedSpoon
@@ -177,6 +185,7 @@ _AddPartyMon:
 	ld [de], a
 .skipGivingTwistedSpoon
 	ld hl, wMonHMoves
+.writeMoves
 	ld a, [hli]
 	inc de
 	push de
