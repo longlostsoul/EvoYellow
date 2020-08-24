@@ -3157,9 +3157,22 @@ BattleAnimCopyTileMapToVRAM:
 	jp Delay3
 
 TossBallAnimation:
+	ld a, [wcf91]
+	cp SNAG_BALL
+	jr z, .stolen
 	ld a, [wIsInBattle]
 	cp a, 2
 	jr z, .BlockBall ; if in trainer battle, play different animation
+.stolen
+  cp SNAG_BALL
+	jr nz, .nosteal
+  ld a,[wEnemyPartyCount]
+  ld b,a
+  ld a,[wEnemyMonPartyPos];only goes up to 5
+  inc a;so try to inc?
+  cp b
+  jr nz, .BlockBall;Only allow last pokemon to be stolen!
+.nosteal
 	ld a, [wPokeBallAnimData]
 	ld b, a
 

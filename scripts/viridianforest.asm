@@ -120,7 +120,32 @@ ViridianForestEndBattleText1:
 
 ViridianForestAfterBattleText1:
 	TX_FAR _ViridianFrstAfterBattleText1
-	db "@"
+	TX_BUTTON_SOUND
+	TX_ASM
+	;ld a, [GetMon]
+	;bit 0, a
+	CheckEvent EVENT_9FF ;hopefully not used
+	jr nz, .done
+	ld a, 5
+	;callab SetLevel5 I am pretty sure I didn't add that one yet
+	;ld a,[wCurEnemyLVL]
+;	ld c, a
+;	ld b, THEPOKEMON
+	;call GivePokemon
+;	jr nc, .done
+  ld a, CHARMANDER
+	ld [wd11e], a
+	ld [wcf91], a
+	call GetMonName
+	ld a, $1
+	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
+	lb bc, CHARMANDER, 5
+	call GivePokemon
+	jr nc, .done
+	SetEvent EVENT_9FF
+.done
+	jp TextScriptEnd
+	;db "@"
 
 ViridianForestBattleText2:
 	TX_FAR _ViridianForestBattleText2

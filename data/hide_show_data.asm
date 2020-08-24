@@ -45,9 +45,9 @@ MapHSPointers:
 	dw MapHSXX
 	dw MapHSXX
 	dw MapHS27
-	dw MapHS28
+	dw MapHS28 ;oak'slab
 	dw MapHSXX
-	dw MapHSXX
+	dw MapHSMart;viridian pokemart
 	dw MapHSXX
 	dw MapHSXX
 	dw MapHS2D
@@ -586,8 +586,13 @@ MapHSA2:
 
 MapHS27Copy:
 ; doesn't seem to be referenced
-	db BLUES_HOUSE, $01, Show
-	db BLUES_HOUSE, $02, Hide
-	db BLUES_HOUSE, $03, Show
+	db VIRIDIAN_MART, $01, Show
+	db VIRIDIAN_MART, $02, Show
+	db VIRIDIAN_MART, $03, Show
+MapHSMart:
+; new
+	db VIRIDIAN_MART, $04, Show
+	db VIRIDIAN_MART, $02, Show
+	db VIRIDIAN_MART, $03, Show
 
 	db $FF, $01, Show

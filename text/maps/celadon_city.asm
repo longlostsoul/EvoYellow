@@ -3,14 +3,14 @@ _CeladonCityText1::
 	line "from my friend!"
 
 	para "We get along now,"
-	line "because I was"
-	cont "very nice to it!"
+	line "because I farted"
+	cont "and never bathe!"
 	done
 
 _CeladonCityText2::
-	text "Heheh! This GYM"
-	line "is great! It's"
-	cont "full of women!"
+	text "Want to refight"
+	line "this gym again?"
+	cont "I can do that."
 	done
 
 _CeladonCityText3::
@@ -63,20 +63,20 @@ _TM41NoRoomText::
 
 _CeladonCityText6::
 	text "This is my trusted"
-	line "pal, POLIWRATH!"
+	line "pal, BOB!"
 
-	para "It evolved from"
-	line "POLIWHIRL when I"
-	cont "used WATER STONE!"
+	para "It conducts famous"
+	line "physic experiments"
+	cont "with ALICE!"
 	done
 
 _CeladonCityText7::
-	text "POLIWRATH: Ribi"
-	line "ribit!@@"
+	text "BOB: Ribi"
+	line "ribit e mc2!@@"
 
 _CeladonCityText8::
-	text "What are you"
-	line "staring at?"
+	text "I am totally"
+	line "unsuspicious."
 	done
 
 _CeladonCityText9::
@@ -95,7 +95,7 @@ _CeladonCityText13::
 	line "#MON GYM"
 	cont "LEADER: ERIKA"
 
-	para "The Nature-Loving"
+	para "The Weed-Loving"
 	line "Princess!"
 	done
 
@@ -112,13 +112,13 @@ _CeladonCityText15::
 _CeladonCityText16::
 	text "TRAINER TIPS"
 
-	para "GUARD SPEC."
-	line "protects #MON"
-	cont "against SPECIAL"
-	cont "attacks such as"
-	cont "fire and water!"
+	para "FAIRY type"
+	line "#MON have been"
+	cont "added to this"
+	cont "game as well as"
+	cont "DARK and STEEL."
 
-	para "Get your items at"
+	para "Get new items at"
 	line "CELADON DEPT."
 	cont "STORE!"
 	done
@@ -132,19 +132,20 @@ _CeladonCityText17::
 _CeladonCityText18::
 	text "ROCKET GAME CORNER"
 	line "The playground"
-	cont "for grownups!"
+	cont "for the math"
+	cont "illiterate!"
 	done
 
 _CeladonCityText10::
 	text "TRAINER TIPS"
 
-	para "X ACCURACY boosts"
-	line "the accuracy of"
-	cont "techniques!"
+	para "Use Hold Items"
+	line "like STONES to"
+	cont "change type!"
 
-	para "DIRE HIT jacks up"
-	line "the likelihood of"
-	cont "critical hits!"
+	para "Berries heal you"
+	line "as well as"
+	cont "leftovers!"
 
 	para "Get your items at"
 	line "CELADON DEPT."

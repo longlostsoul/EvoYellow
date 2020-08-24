@@ -481,6 +481,15 @@ ViridianGymText10:
 	call PrintText
 	jr .asm_6064d
 .asm_1abd1
+  ResetEvent EVENT_BEAT_VIRIDIAN_GYM_GIOVANNI
+  ResetEventRange EVENT_BEAT_VIRIDIAN_GYM_TRAINER_0, EVENT_BEAT_VIRIDIAN_GYM_TRAINER_7
+	call GBFadeOutToBlack
+	ld a, HS_VIRIDIAN_GYM_GIOVANNI
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
 	ld hl, ViridianGymText_74bd9
 	call PrintText
 .asm_6064d

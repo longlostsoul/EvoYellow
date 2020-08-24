@@ -5,7 +5,7 @@ _CeladonGymText_48a5e::
 
 	para "...Oh dear..."
 	line "I must have dozed"
-	cont "off. Welcome."
+	cont "from the weed."
 
 	para "My name is ERIKA."
 	line "I am the LEADER"
@@ -86,13 +86,13 @@ _TM21NoRoomText::
 _CeladonGymBattleText2::
 	text "Hey!"
 
-	para "You're not pretty"
+	para "You're not gay"
 	line "enough for us!"
 	done
 
 _CeladonGymEndBattleText2::
-	text "You're"
-	line "too rough!"
+	text "I puked"
+	line "rainbows."
 	prompt
 
 _CeladonGymAfterBattleText2::
@@ -129,7 +129,7 @@ _CeladonGymBattleText4::
 
 _CeladonGymEndBattleText4::
 	text "How"
-	line "useful for my studies!"
+	line "useful for studies!"
 	prompt
 
 _CeladonGymAfterBattleText4::
@@ -152,12 +152,12 @@ _CeladonGymEndBattleText5::
 	prompt
 
 _CeladonGymAfterBattleText5::
-	text "We mainly use grass-"
+	text "We often use grass"
 	line "type #MON at"
 	cont "our GYM!"
 
 	para "We also use them"
-	line "for making flowers"
+	line "for making drugs"
 	cont "and perfume!"
 	done
 
@@ -176,7 +176,7 @@ _CeladonGymAfterBattleText6::
 	text "Our LEADER, ERIKA,"
 	line "might be quiet,"
 	cont "but she's also"
-	cont "very skilled!"
+	cont "a weed supplier!"
 	done
 
 _CeladonGymBattleText7::

@@ -1,9 +1,9 @@
 _ViridianForestText1::
-	text "I came here with"
-	line "some friends!"
+	text "This #MON"
+	line "keeps losing!"
 
-	para "They're out for"
-	line "#MON fights!"
+	para "This is its"
+	line "last chance!"
 	done
 
 _ViridianForestBattleText1::
@@ -14,13 +14,13 @@ _ViridianForestBattleText1::
 
 _ViridianForestEndBattleText1::
 	text "No!"
-	line "CATERPIE can't"
-	cont "cut it!"
+	line "Useless! Here you"
+	cont "have it!"
 	prompt
 
 _ViridianFrstAfterBattleText1::
-	text "Ssh! You'll scare"
-	line "the bugs away!"
+	text "I should stick to"
+	line "strong bug MON!"
 	done
 
 _ViridianForestBattleText2::

@@ -5,12 +5,12 @@ _BlaineBattleText::
 	line "am the LEADER of"
 	cont "CINNABAR GYM!"
 
-	para "My fiery #MON"
-	line "will incinerate"
-	cont "all challengers!"
+	para "You went to the"
+	line "burned lab? You"
+	cont "find anything?"
 
-	para "Hah! You better"
-	line "have BURN HEAL!"
+	para "That mystery is"
+	line "best left alone!"
 	done
 
 _BlaineEndBattleText::
@@ -30,15 +30,15 @@ _BlaineFireBlastText::
 	done
 
 _BlaineBadgeText::
-	text "Hah!"
+	text "Tch!"
 
-	para "The VOLCANOBADGE"
-	line "heightens the"
-	cont "SPECIAL abilities"
-	cont "of your #MON!"
+	para "It's true, I"
+	line "used to be a"
+	cont "scientist, but"
+	cont "I won't tell!"
 
-	para "Here, you can"
-	line "have this too!"
+	para "Be silent and"
+	line "have this!"
 	done
 
 _ReceivedTM38Text::

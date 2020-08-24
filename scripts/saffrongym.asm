@@ -257,10 +257,12 @@ SaffronGymText9:
 	TX_ASM
 	CheckEvent EVENT_BEAT_SABRINA
 	jr nz, .asm_5d1dd
-	ld hl, SaffronGymText_5d1e6
+	ld hl, SaffronGymText_5d1e6 ;notbeaten
 	call PrintText
 	jr .asm_5d1e3
 .asm_5d1dd
+  ResetEventRange EVENT_BEAT_SAFFRON_GYM_TRAINER_0, EVENT_BEAT_SAFFRON_GYM_TRAINER_6
+  ResetEvent EVENT_BEAT_SABRINA
 	ld hl, SaffronGymText_5d1eb
 	call PrintText
 .asm_5d1e3

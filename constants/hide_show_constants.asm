@@ -239,7 +239,10 @@
 	const HS_SEAFOAM_ISLANDS_4_BOULDER_4  ; E8
 	const HS_SEAFOAM_ISLANDS_5_BOULDER_1  ; E9
 	const HS_SEAFOAM_ISLANDS_5_BOULDER_2  ; EA
-	const HS_ARTICUNO                     ; EB
-	const HS_DAISY_SITTING_COPY           ; EC
-	const HS_DAISY_WALKING_COPY           ; ED
-	const HS_TOWN_MAP_COPY                ; EE
+	const HS_ARTICUNO 
+	const HS_UNUSED
+	const HS_UNUSED2
+	const HS_TOWN_MAP_COPY                    ; EB
+	const HS_MEOWTH           ; EC
+	const HS_MART_JESSIE           ; ED
+	const HS_MART_JAMES                ; EE

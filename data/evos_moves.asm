@@ -1377,8 +1377,8 @@ Mon083_EvosMoves:
 	db 15,FURY_ATTACK
 	db 18,SWORDS_DANCE
 	db 20,AERIAL_ACE
-	db 31,AGILITY
-	db 39,SLASH
+	db 25,AGILITY
+	db 30,SLASH
 	db 0
 
 Mon048_EvosMoves:
@@ -4281,9 +4281,9 @@ MR_Rime_moves:
 SIRFETCHD_moves:
 	db 0
 ;Learnset
-  db 25,AGILITY
-	db 38,SLASH
-	db 40,KARATE_CHOP
+  db 25,KARATE_CHOP
+	db 30,AGILITY
+	db 40,SLASH
 	db 45,SWORDS_DANCE
 	db 45,AERIAL_ACE
 	db 50,SLAM

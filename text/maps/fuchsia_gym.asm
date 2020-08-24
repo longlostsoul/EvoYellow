@@ -208,7 +208,7 @@ _FuchsiaGymText_7564e::
 	cont "to reach him!"
 	done
 _FuchsiaGymText_75653::
-	text "It's amazing how"
-	line "ninja can terrify"
-	cont "even now!"
+	text "Want to refight"
+	line "some scary ninja"
+	cont "right now? Let's!"
 	done

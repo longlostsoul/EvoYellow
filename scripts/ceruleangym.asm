@@ -205,6 +205,8 @@ CeruleanGymText4:
 	call PrintText
 	jr .asm_5c827
 .asm_5c821
+  ResetEvent EVENT_BEAT_MISTY
+  ResetEvents EVENT_BEAT_CERULEAN_GYM_TRAINER_0, EVENT_BEAT_CERULEAN_GYM_TRAINER_1
 	ld hl, CeruleanGymText_5c82f
 	call PrintText
 .asm_5c827

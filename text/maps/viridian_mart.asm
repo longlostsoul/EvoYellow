@@ -1,6 +1,6 @@
 _ViridianMartText1::
-	text "Okay! Say hi to"
-	line "PROF.OAK for me!"
+	text "We scared those"
+	line "trouble makers!"
 	done
 
 _ViridianMartText4::
@@ -20,13 +20,28 @@ ViridianMartParcelQuestText::
 	line "OAK's PARCEL!@@"
 
 _ViridianMartText2::
-	text "This shop sells a"
-	line "lot of PARLYZ"
-	cont "HEALs."
+	text "STRANGER: Hold it!"
+	
+	line "We, Team Rocket,"
+	cont "are taking that!"
+
+
+	para "Prepare for"
+	line "devastation!"
+	cont "Make it double!"
+	
+	para " Jessie!"
+	line "James! Meowth!"
 	done
 
 _ViridianMartText3::
-	text "The shop finally"
-	line "has some POTIONs"
-	cont "in stock."
+	text "Blasting off"
+	line "for the first and"
+	cont "last time!"
 	done
+
+;_ViridianMartText6::
+;	text "A talking MON?"
+;	line "Meowth thinks ya"
+;	cont "imagining things!"
+;	done

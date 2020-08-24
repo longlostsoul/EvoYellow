@@ -259,6 +259,8 @@ VermilionGymText5:
 	jr .text_script_end
 
 .beat_surge
+  ResetEvent EVENT_BEAT_LT_SURGE
+  ResetEventRange EVENT_BEAT_VERMILION_GYM_TRAINER_0, EVENT_BEAT_VERMILION_GYM_TRAINER_2
 	ld hl, VermilionGymText_5cbf9
 	call PrintText
 .text_script_end

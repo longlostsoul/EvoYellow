@@ -1127,6 +1127,14 @@ _EnemyMonFaintedText::
 	line "fainted!"
 	prompt
 
+_EnemyMonStolenText::
+	text "Enemy @"
+	TX_RAM wEnemyMonNick
+	db $0
+	line "was snagged!";stolen
+	cont "Foe frowns."
+	prompt
+
 _MoneyForWinningText::
 	text "<PLAYER> got ¥@"
 	TX_BCD wAmountMoneyWon, 3 | LEADING_ZEROES | LEFT_ALIGN
@@ -1745,8 +1753,8 @@ _DepositHowManyText::
 	done
 
 _ItemWasStoredText::
-	TX_RAM wcd6d
-	text " was"
+	;TX_RAM wcd6d
+	text "It was"
 	line "stored via PC."
 	prompt
 
@@ -1770,10 +1778,10 @@ _WithdrawHowManyText::
 	done
 
 _WithdrewItemText::
-	text "Withdrew"
-	line "@"
-	TX_RAM wcd6d
-	text "."
+	text "Withdrew it."
+	;line "@"
+	;TX_RAM wcd6d
+	;text "."
 	prompt
 
 _NothingStoredText::

@@ -4,6 +4,9 @@ Func_f2133:
 	ld hl, CinnabarGymText_75ac2
 	jr .asm_0b11d
 .asm_627d9
+  ;reset trainers if you talk to the guy after beating blaine
+  ResetEventRange EVENT_BEAT_CINNABAR_GYM_TRAINER_0, EVENT_BEAT_CINNABAR_GYM_TRAINER_6
+  ResetEvent EVENT_BEAT_BLAINE
 	ld hl, CinnabarGymText_75ac7
 .asm_0b11d
 	call PrintText

@@ -63,7 +63,11 @@ TryCut:
 	ld hl,CanBeCutTxt
 	call PrintText
 	call ManualTextScroll
-
+	callab GetFirstMoninWhich
+  ld a,[wMode]
+  cp 0
+  jr nz, .cut ;If levelizer is on, for free roaming.
+  
 	ld d, CUT
 	call HasPartyMove
 	jr nz, .no2
@@ -71,7 +75,7 @@ TryCut:
 	ld a, [wObtainedBadges]
 	bit 1, a ; CASCADE_BADGE
 	jr z, .no2
-
+.cut
 	ld hl,WantToCutTxt
 	call PrintText
 	call YesNoChoice

@@ -39,7 +39,7 @@ TechnicalMachines:
 	db FIRE_BLAST;38
 	db SWIFT;39
 	db DARK_PULSE;40. SKULL_BASH
-	db SOFTBOILED;41
+	db SOFTBOILED;41 Considering only two-three mons use it should replace Softboiled? make learn in levelup or sommith
 	db DREAM_EATER;42
 	db HURRICANE;SKY_ATTACK;43
 	db REST;44

@@ -5,6 +5,8 @@ Func_f1e70:
 	call PrintText
 	callab IsStarterPikachuInOurParty
 	ret nc
+	callab GetFirstMoninWhich
+	call GetPartyMonName2 ;then use TX_RAM wcd6d, gives species name but close enough
 	ld hl, CeladonMansionText_f1e9c
 	call PrintText
 	ld a, $0
@@ -24,6 +26,36 @@ CeladonMansionText_f1e9c:
 	db "@"
 
 Func_f1ea2:
+  callba GetFirstMonSpecies
+  ld a, [hl]
+  cp RAICHU;Riachu at this point
+  jr z, .Pika
+  callab FirstPartymonHappy
+  ld a,[wFlag]
+  ld [wTemp],a
+  cp 1 ;unhappy
+  jr nc, .content ;bigger than
+  jr .tables
+.content
+  cp 10
+  jr nc, .happy
+  ld b,100 ;looks cute
+  jr .addb
+.happy
+  cp 30
+  jr nc, .happiest
+  ld b,145 ;looks tame or happy
+  jr .addb
+.happiest
+  ld b, 200
+.addb
+  add b
+  ld [wTemp],a
+  jr .tables
+.Pika
+  ld a, [wPikachuHappiness]
+  ld [wTemp],a
+.tables
 	ld hl, PikachuHappinessThresholds_f1eb9
 .asm_f1ea5
 	ld a, [hli]
@@ -31,7 +63,7 @@ Func_f1ea2:
 	and a
 	jr z, .asm_f1eb5
 	ld b, a
-	ld a, [wPikachuHappiness]
+	ld a, [wTemp];happiness
 	cp b
 	jr c, .asm_f1eb5
 	inc hl
