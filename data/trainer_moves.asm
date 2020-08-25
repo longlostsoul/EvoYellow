@@ -14,14 +14,14 @@ SpecialTrainerMoves:
 	db 0
 
 	db BROCK,$1
-	db 2,3,ROCK_TOMB
-	db 2,4,BIDE
-	db 4,1,ABSORB
-	db 4,2,WATER_GUN
-	db 4,3,CUT
-	db 5,1,ROCK_TOMB
-	db 5,2,WING_ATTACK
-	db 6,2,RAGE
+	db 2,3,RAGE
+	db 3,4,BIDE
+	db 3,1,ROCK_TOMB
+	db 5,1,ABSORB
+	db 5,2,WATER_GUN
+	db 5,3,CUT
+	db 6,1,WING_ATTACK
+	db 6,2,ROCK_TOMB
 	db 0
 
 	db MISTY,$1
@@ -41,16 +41,16 @@ SpecialTrainerMoves:
 	db ERIKA,$1
 	db 1,3,GIGA_DRAIN
 	db 2,1,RAZOR_LEAF
-	db 3,1,PETAL_DANCE
 	DB 5,2,GIGA_DRAIN
 	DB 5,1,EARTHQUAKE
+	db 6,1,PETAL_DANCE
 	db 0
 
 	db KOGA,$1
 	db 1,1,TOXIC
 	db 1,2,DIG
 	db 2,1,TOXIC
-	db 2,3,EARTHQUAKE
+	db 3,3,FLAMETHROWER
 	db 3,1,TOXIC
 	db 3,2,DOUBLE_EDGE
 	db 4,1,LEECH_LIFE
@@ -70,10 +70,10 @@ SpecialTrainerMoves:
 
 	db SABRINA,$1
 	db 1,1,FLASH
-	db 2,1,MEGA_DRAIN
-	db 2,4,PSYCHIC
-	db 3,1,PSYWAVE
-	db 4,1,EXPLOSION
+	db 3,1,MEGA_DRAIN
+	db 3,4,PSYCHIC
+	db 3,1,EXPLOSION
+	db 4,1,PSYWAVE
 	db 0
 
 	db GIOVANNI,$3
@@ -92,8 +92,8 @@ SpecialTrainerMoves:
 	db 1,1,BLIZZARD
 	db 2,3,ICE_BEAM
 	db 3,1,PSYCHIC_M
-	db 3,2,SURF
-	db 4,3,LOVELY_KISS
+	db 3,2,LOVELY_KISS
+	db 4,3,SURF
 	db 5,3,BLIZZARD
 	db 0
 
@@ -121,7 +121,7 @@ SpecialTrainerMoves:
 	db 2,4,LEECH_LIFE
 	db 3,2,FIRE_BLAST
 	db 4,1,CRUNCH
-	db 5,2,PSYCHIC_M
+	db 6,2,PSYCHIC_M
 	db 0
 
 	db LANCE,$1
@@ -132,11 +132,11 @@ SpecialTrainerMoves:
 	db 3,2,WRAP
 	db 3,3,ICE_BEAM
 	db 4,1,EARTHQUAKE
-	db 4,2,SWIFT
+	db 4,2,TOXIC
 	db 4,3,FLY
-	db 5,1,BLIZZARD
-	db 5,2,FIRE_BLAST
-	db 5,3,THUNDER
+	db 6,1,BLIZZARD
+	db 6,2,FIRE_BLAST
+	db 6,3,THUNDER
 	db 0
 
 	db SONY3,$1
@@ -166,7 +166,7 @@ SpecialTrainerMoves:
 	db 4,1,CONFUSE_RAY
 	db 4,4,FIRE_SPIN
 	db 5,1,THUNDERBOLT
-	db 6,1,AURORA_BEAM
+	db 5,1,THUNDER_WAVE
 	db 6,3,QUICK_ATTACK
 	db 0
 
