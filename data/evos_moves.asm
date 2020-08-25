@@ -1526,6 +1526,7 @@ Mon052_EvosMoves:
 	db 1,GROWL
 	db 6,BITE
 	db 9,SAND_ATTACK
+	db 12,METAL_CLAW
 	db 14,FURY_SWIPES
 	db 17,SCREECH
 	db 22,FEINT_ATTACK
@@ -2441,7 +2442,7 @@ Mon053_EvosMoves:
 	db 0
 ;Learnset
 	db 1,SCRATCH
-	db 1,GROWL
+	db 1,METAL_CLAW
 	db 6,BITE
 	db 9,SAND_ATTACK
 	db 14,FURY_SWIPES

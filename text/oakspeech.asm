@@ -15,15 +15,15 @@ _OakSpeechText2A::
 	cont "#MON!@@"
 
 _OakSpeechText2B::
-	text $51,"For some people,"
-	line "#MON are"
-	cont "pets. Others use"
-	cont "them for fights."
+	text $51," Use a"
+	line "snag ball to take"
+	cont "MON in battle but"
+	cont "only the last!"
 
-	para "Myself..."
+	para "Before that..."
 
-	para "I study #MON"
-	line "as a profession."
+	para "The trainer will"
+	line "fend you off."
 	prompt
 
 _IntroducePlayerText::
