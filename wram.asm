@@ -2383,7 +2383,7 @@ wMoveNum:: ; d0df
 wMovesString:: ; d0e0
 	ds 56
 
-wUnusedD119:: ; d118
+wUnusedD119:: ; d118 make this wStolePokemon?
 	ds 1
 
 wWalkBikeSurfStateCopy:: ; d119

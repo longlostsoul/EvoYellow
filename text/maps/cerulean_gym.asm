@@ -128,7 +128,7 @@ _CeruleanGymText_5c82f::
 	text "You beat MISTY!"
 	line "What'd I tell ya?"
 
-	para "You and me, kid,"
-	line "we make a pretty"
-	cont "darn good team!"
+	para "But how about"
+	line "I reset the gym"
+	cont "to fight again!"
 	done

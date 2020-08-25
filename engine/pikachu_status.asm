@@ -267,12 +267,15 @@ db $FF
 ;Other grass mons all get single grass sprite, so get grass typing check instead.
 
 GetFirstMonSpecies:
-  ld a, 0;[wWhichPokemon]
-	ld c, a
-	ld b, 0
 	ld hl, wPartySpecies
-	add hl, bc
+	;add hl, bc ;why did I add zero originally?
 	ld a, [hl]
+	ret
+	
+GetFirstMoninWhich:
+	ld a, 0
+	ld [wWhichPokemon],a
+	;call GetPartyMonName2 uses this I think? could also use wWhichTrade
 	ret
 
 LoadPokeFollowSprite::
@@ -354,10 +357,11 @@ LoadPokeFollowSprite::
 	ld a, SPRITE_SQUIRTLE
 	jr .end
 .curMonNotThis5a
+  call GetFirstMonSpecies
 	cp LAPRAS
 	jr nz, .curMonNotThisM
 	ld a, SPRITE_LAPRAS
-	jr .end
+	jr .end2
 .curMonNotThisM
 	cp GYARADOS
 	jr nz, .curMonNotThisFish
@@ -583,11 +587,37 @@ IsStarterRaichuInOurParty::
 	ret
 
 
-FirstPartymonHappy::
+FirstPartymonHappy:: ;checks against stat exp of a few stats and uses highest
 	ld hl, wPartyMon1
 	ld bc,wPartyMon1HPExp - wPartyMon1 ;decided to base it off HP exp
 	add hl,bc
 	ld a,[hl]
+	ld [wFlag],a ;loaded hp into wflag
+	
+	ld hl, wPartyMon1
+	ld bc,wPartyMon1AttackExp - wPartyMon1 ;alt happy stat
+	add hl,bc
+	ld a,[hl]
+	ld b,a ;new stat into b
+	ld a,[wFlag];loaded hp into a
+	cp b
+	jr nc, .bigger ;hp is bigger
+	ld a,b
+	ld [wFlag],a;new stat into wFlag
+.bigger
+	ld hl, wPartyMon1
+	ld bc,wPartyMon1SpeedExp - wPartyMon1 ;compare to this now.
+	add hl,bc
+	ld a,[hl]
+	ld b,a ;hl into b
+	ld a,[wFlag];loaded hp or att into a
+	cp b
+	jr nc, .biggerthanb
+	ld a,b
+	ld [wFlag],a;att into wFlag, if it is higher, then it is the happy stat.
+	
+.biggerthanb
+  ld a,[wFlag]
 	ret
 
 FirstPartymonHP::

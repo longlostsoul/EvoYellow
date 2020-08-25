@@ -207,6 +207,8 @@ PewterGymText3:
 	call PrintText
 	jr .asm_5c512
 .asm_5c50c
+  ResetEvent EVENT_BEAT_BROCK
+  ResetEvent EVENT_BEAT_PEWTER_GYM_TRAINER_0
 	ld hl, PewterGymText_5c529
 	call PrintText
 .asm_5c512

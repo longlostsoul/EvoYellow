@@ -14,7 +14,7 @@ dw EeveePicBack
 ; attacks known at lvl 0
 db TACKLE
 db TAIL_WHIP
-db 0
+db LEECH_SEED
 db 0
 db 0 ; growth rate
 ; learnset
@@ -24,5 +24,5 @@ db 0 ; growth rate
 	tmlearn 31,32
 	tmlearn 33,34,39,40
 	tmlearn 44
-	tmlearn 50
+	tmlearn 50,51,52,53,54
 db BANK(EeveePicFront)

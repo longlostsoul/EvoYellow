@@ -91,10 +91,10 @@ _SaffronGymText_5d1e6::
 	done
 
 _SaffronGymText_5d1eb::
-	text "Psychic power,"
+	text "Wanna fight again,"
 	line "huh?"
 
-	para "If I had that,"
+	para "If I were psychic,"
 	line "I'd make a bundle"
 	cont "at the slots!"
 	done

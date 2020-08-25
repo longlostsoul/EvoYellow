@@ -1,6 +1,6 @@
 _CeladonHouseText1::
-	text "Hehehe! The slots"
-	line "just reel in the"
+	text "Heheh! Gambler's"
+	line "fallacy brings"
 	cont "dough, big time!"
 	done
 
@@ -13,10 +13,10 @@ _CeladonHouseText2::
 	done
 
 _CeladonHouseText3::
-	text "Don't touch the"
+	text "Do touch the"
 	line "poster at the"
 	cont "GAME CORNER!"
 
-	para "There's no secret"
-	line "switch behind it!"
+	para "Fear reverse"
+	line "psychology!"
 	done

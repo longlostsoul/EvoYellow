@@ -143,9 +143,9 @@ LoadUnusedBluesHouseMissableObjectData:
 	db $ff
 
 .Start:
-	db 1, HS_DAISY_SITTING_COPY
-	db 2, HS_DAISY_WALKING_COPY
-	db 3, HS_TOWN_MAP_COPY
+	db 1, HS_DAISY_SITTING;_COPY
+	db 2, HS_DAISY_WALKING;_COPY
+	db 3, HS_TOWN_MAP;_COPY
 	db $ff
 .End:
 

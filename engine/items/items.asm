@@ -155,7 +155,7 @@ UseHoldItemText::
  prompt
  
 UseLeftOversText::
- text "PKMN ate leftovers!"
+ text "MON ate leftovers!"
  ;line "@"
  ;TX_RAM wcf4b ;some variable goes here if we want?
  ;text "."
@@ -227,7 +227,7 @@ ItemUsePtrTable:
 	dw UnusableItem      ; DOME_FOSSIL
 	dw UnusableItem      ; HELIX_FOSSIL
 	dw UnusableItem      ; SECRET_KEY
-	dw UnusableItem
+	dw ItemUseBall      ;SNAG_BALL
 	dw UnusableItem      ; BIKE_VOUCHER
 	dw ItemUseXAccuracy  ; X_ACCURACY
 	dw ItemUseEvoStone   ; LEAF_STONE
@@ -299,11 +299,26 @@ ItemUseBall:
 	ld a,[wIsInBattle]
 	and a
 	jp z,ItemUseNotTime
-
+  ld b, a;steal
+	ld a, [wcf91]
+	cp SNAG_BALL
+	ld a, b
+	jr z, .allowInBattle
 ; Balls can't catch trainers' Pokémon.
 	dec a
 	jp nz,ThrowBallAtTrainerMon
-
+.allowInBattle
+  ;ld a,[wEnemyMonPartyPos] if wanted to steal first mon only, however this was kinda buggy at the end of the battle...
+	;cp 0
+	cp SNAG_BALL
+	jr nz, .nosteal
+	ld a,[wEnemyPartyCount];last mon only?
+  ld b,a
+  ld a,[wEnemyMonPartyPos] ;starts count from 0, so goes to 5. 
+  inc a
+  cp b
+	jp nz,ThrowBallAtTrainerMon ;can only steal one mon?
+.nosteal
 ; If this is for the old man battle, skip checking if the party & box are full.
 	ld a,[wBattleType]
 	cp BATTLE_TYPE_OLD_MAN
@@ -413,7 +428,7 @@ ItemUseBall:
 	cp a,GREAT_BALL
 	jr z,.checkForAilments
 
-; If it's an Ultra/Safari Ball and Rand1 is greater than 150, try again.
+; If it's an Ultra/Safari Ball/Snag Ball and Rand1 is greater than 150, try again.
 	ld a,150
 	cp b
 	jr c,.loop
@@ -698,6 +713,7 @@ ItemUseBall:
 
 .skip6
 	ld a,[wcf91]
+  callab IsItThiefBall
 	push af
 	ld a, [wEnemyMonSpecies2]
 	ld [wcf91], a
@@ -1883,57 +1899,57 @@ ItemUseXAccuracy:
 ; This function is bugged and never works. It always jumps to ItemUseNotTime.
 ; The Card Key is handled in a different way.
 ItemUseCardKey:
-	xor a
-	ld [wUnusedD71F], a
-	call GetTileAndCoordsInFrontOfPlayer
-	ld a,[GetTileAndCoordsInFrontOfPlayer]
-	cp a,$18
-	jr nz,.next0
-	ld hl,CardKeyTable1
-	jr .next1
+	;xor a
+	;ld [wUnusedD71F], a
+	;call GetTileAndCoordsInFrontOfPlayer
+	;ld a,[GetTileAndCoordsInFrontOfPlayer]
+	;cp a,$18
+	;jr nz,.next0
+	;ld hl,CardKeyTable1
+	;jr .next1
 
-.next0
-	cp $24
-	jr nz, .next2
-	ld hl, CardKeyTable2
-	jr .next1
+;.next0
+	;cp $24
+	;jr nz, .next2
+	;ld hl, CardKeyTable2
+	;jr .next1
 
-.next2
-	cp $5e
-	jp nz, ItemUseNotTime
-	ld hl, CardKeyTable3
-.next1
-	ld a, [wCurMap]
-	ld b, a
-.loop
-	ld a, [hli]
-	cp $ff
-	jp z, ItemUseNotTime
-	cp b
-	jr nz, .nextEntry1
-	ld a, [hli]
-	cp d
-	jr nz, .nextEntry2
-	ld a, [hli]
-	cp e
-	jr nz, .nextEntry3
-	ld a, [hl]
-	ld [wUnusedD71F], a
-	jr .done
+;.next2
+	;cp $5e
+	jp ItemUseNotTime;jp nz, ItemUseNotTime
+	;ld hl, CardKeyTable3
+;.next1
+	;ld a, [wCurMap]
+	;ld b, a
+;.loop
+;	ld a, [hli]
+;	cp $ff
+	;jp z, ItemUseNotTime
+	;cp b
+	;jr nz, .nextEntry1
+	;ld a, [hli]
+	;cp d
+	;jr nz, .nextEntry2
+	;ld a, [hli]
+	;cp e
+	;jr nz, .nextEntry3
+	;ld a, [hl]
+	;ld [wUnusedD71F], a
+	;jr .done
 
-.nextEntry1
-	inc hl
-.nextEntry2
-	inc hl
-.nextEntry3
-	inc hl
-	jr .loop
+;.nextEntry1
+	;inc hl
+;.nextEntry2
+	;inc hl
+;.nextEntry3
+	;inc hl
+	;jr .loop
 
-.done
-	ld hl, ItemUseText00
-	call PrintText
-	ld hl, wd728
-	set 7, [hl]
+;.done
+	;ld hl, ItemUseText00
+	;call PrintText
+	;ld hl, wd728
+	;set 7, [hl]
 	ret
 
 ; These tables are probably supposed to be door locations in Silph Co.,
@@ -2650,7 +2666,7 @@ ItemUseTMHM:
 	predef TMToMove ; get move ID from TM/HM ID
 	ld a, [wd11e]
 	ld [wMoveNum], a
-	call GetMoveName
+	call GetMoveName ;this was bugging for some reason
 	call CopyStringToCF4B ; copy name to wcf4b
 	pop af
 	ld hl, BootedUpTMText
@@ -2670,6 +2686,18 @@ ItemUseTMHM:
 	jr z, .useMachine
 	ld a, 2
 	ld [wActionResultOrTookBattleTurn], a ; item not used
+	;end of battle seems to 'refresh' so let's see if copying removes the crash tm bug if you cancel and re-use. seems to work!
+	ld a, 0
+	ld [wcf91],a
+	ld hl, wPartyAndBillsPCSavedMenuItem
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
+	ld [wListScrollOffset], a
+	call GBPalWhiteOut
+	ld a, $ff
+	ld [wDestinationWarpID], a
 	ret
 
 .useMachine
@@ -3281,12 +3309,16 @@ SendNewMonToBox:
 	dec b
 	jr nz, .asm_e798
 .asm_e7ab
+  ld a,[wEnemyMonBoxLevel];thief
+  push af;
 	ld a, [wEnemyMonLevel]
 	ld [wEnemyMonBoxLevel], a
 	ld hl, wEnemyMon
 	ld de, wBoxMon1
 	ld bc, wEnemyMonDVs - wEnemyMon
 	call CopyData
+	pop af;thief
+	ld [wEnemyMonBoxLevel],a;
 	ld hl, wPlayerID
 	ld a, [hli]
 	ld [de], a

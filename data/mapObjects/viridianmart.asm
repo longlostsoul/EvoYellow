@@ -7,10 +7,11 @@ ViridianMartObject:
 
 	db $0 ; signs
 
-	db $3 ; objects
+	db $4 ; objects
 	object SPRITE_MART_GUY, $0, $5, STAY, RIGHT, $1 ; person
-	object SPRITE_BUG_CATCHER, $5, $5, WALK, $1, $2 ; person
-	object SPRITE_BLACK_HAIR_BOY_1, $3, $3, STAY, NONE, $3 ; person
+	object SPRITE_JAMES, $4, $5, STAY, LEFT, $2 ; person
+	object SPRITE_JESSIE, $2, $6, STAY, UP, $3 ; person
+  object SPRITE_MEOWTH, $2, $3, STAY, DOWN, $4 ; person
 
 	; warp-to
 	EVENT_DISP VIRIDIAN_MART_WIDTH, $7, $3

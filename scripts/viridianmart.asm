@@ -24,6 +24,7 @@ ViridianMartScriptPointers:
 	dw ViridianMartScript0
 	dw ViridianMartScript1
 	dw ViridianMartScript2
+	dw VScript
 
 ViridianMartScript0:
 	call UpdateSprites
@@ -56,9 +57,28 @@ ViridianMartScript1:
 	lb bc, OAKS_PARCEL, 1
 	call GiveItem
 	SetEvent EVENT_GOT_OAKS_PARCEL
+	call StopAllMusic
+	ld c, BANK(Music_MeetJessieJames)
+	ld a, MUSIC_MEET_JESSIE_JAMES
+	call PlayMusic
 	ld a, $2
+	ld [hSpriteIndexOrTextID], a
+	call DisplayTextID; ViridianMartText2
+	ld a, $ff
+	ld [wJoyIgnore], a
+	ld a, $e
+	;ld hl, MJessieJamesEndBattleText
+	;ld de, MJessieJamesEndBattleText
+	;call SaveEndBattleTextPointers
+	ld a, OPP_ROCKET
+	ld [wCurOpponent], a
+	ld a, $2f
+	ld [wTrainerNo], a
+	xor a
+	ld a, $3
 	ld [wViridianMarketCurScript], a
 	ret
+
 
 ViridianMartScript2:
 	CheckEventHL EVENT_02D
@@ -73,6 +93,28 @@ ViridianMartScript2:
 	predef ShowObject
 	ret
 
+VScript:
+  ld a, $3
+	ld [hSpriteIndexOrTextID], a
+	call DisplayTextID;ld hl, ViridianMartText3
+	;call PrintText
+  call GBFadeOutToBlack
+	ld a, HS_MART_JAMES
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_MART_JESSIE
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_MEOWTH
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+	ld a, $2
+	ld [wViridianMarketCurScript], a
+	ret
+
 ViridianMartTextPointers:
 	dw ViridianMartText1
 	dw ViridianMartText2
@@ -82,10 +124,15 @@ ViridianMartTextPointers:
 	dw ViridianCashierText
 	dw ViridianMartText2
 	dw ViridianMartText3
+	;dw ViridianMartText6
 
 ViridianMartText1:
 	TX_FAR _ViridianMartText1
 	db "@"
+
+;ViridianMartText6:
+;	TX_FAR _ViridianMartText6
+;	db "@"
 
 ViridianMartText4:
 	TX_FAR _ViridianMartText4

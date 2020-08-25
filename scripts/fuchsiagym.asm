@@ -314,14 +314,16 @@ FuchsiaGymAfterBattleText6:
 FuchsiaGymText8:
 	TX_ASM
 	CheckEvent EVENT_BEAT_KOGA
+		ld hl, FuchsiaGymText_7564e
+	jr z, .asm_50671
+	ResetEvent EVENT_BEAT_KOGA
+	ResetEventRange EVENT_BEAT_FUCHSIA_GYM_TRAINER_0, EVENT_BEAT_FUCHSIA_GYM_TRAINER_6
 	ld hl, FuchsiaGymText_75653
-	jr nz, .asm_50671
-	ld hl, FuchsiaGymText_7564e
 .asm_50671
 	call PrintText
 	jp TextScriptEnd
 
-FuchsiaGymText_7564e:
+FuchsiaGymText_7564e: ;not beaten yet
 	TX_FAR _FuchsiaGymText_7564e
 	db "@"
 

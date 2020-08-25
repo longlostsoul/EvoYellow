@@ -1,14 +1,14 @@
 _CeladonHotelText1::
 	text "#MON? No, this"
 	line "is a hotel for"
-	cont "people."
+	cont "flying pigs."
 
 	para "We're full up."
 	done
 
 _CeladonHotelText2::
 	text "I'm on vacation"
-	line "with my brother"
+	line "with my pig bro"
 	cont "and boy friend."
 
 	para "CELADON is such a"
@@ -17,5 +17,5 @@ _CeladonHotelText2::
 
 _CeladonHotelText3::
 	text "Why did she bring"
-	line "her brother?"
+	line "her brother?!"
 	done

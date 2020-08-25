@@ -330,13 +330,13 @@ Route24Text8:
 	ld a, [wCurrentMenuItem]
 	and a
 	jr nz, .asm_515d0
-	ld a, CHARMANDER
+	ld a, MANTYKE
 	ld [wd11e], a
 	ld [wcf91], a
 	call GetMonName
 	ld a, $1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
-	lb bc, CHARMANDER, 10
+	lb bc, MANTYKE, 10
 	call GivePokemon
 	jp nc, TextScriptEnd
 	ld a, [wAddedToParty]
