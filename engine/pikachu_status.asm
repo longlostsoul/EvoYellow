@@ -647,6 +647,34 @@ asm_fce21:
 	jr nz, .isPika
 	jr .yes
 .isPika
+	cp UMBREON
+  jr nz, .isPika2
+	jr .yes
+.isPika2
+	cp GLACEON
+  jr nz, .isPika3
+	jr .yes
+.isPika3
+	cp SYLVEON
+jr nz, .isPikaD
+	jr .yes
+.isPikaD
+	cp FLAREON
+	jr nz, .isPikaf
+	jr .yes
+.isPikaf
+	cp ESPEON
+	jr nz, .isPikav
+	jr .yes
+.isPikav
+	cp VAPOREON
+	jr nz, .isPikal
+	jr .yes
+.isPikal
+	cp LEAFEON
+	jr nz, .isPikaVee
+	jr .yes
+.isPikaVee
 	cp EEVEE
   ;cp MEOWTH
 	jr nz, .notPlayerPikachu
@@ -759,7 +787,7 @@ IsSurfingPikachuInThePlayersParty:: ;actually you do not have to alter this one,
 	push hl
 	inc a
 	jr z, .noSurfingPlayerPikachu
-	cp JOLTEON+1
+	cp PIKACHU+1
 	jr nz, .isitsurfpika
 	jr .yes
 .isitsurfpika
