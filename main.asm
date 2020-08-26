@@ -2050,7 +2050,7 @@ INCBIN "gfx/pikachu/unknown_e4323.2bpp"
 Pic_e4383: ; e4383
 INCBIN "gfx/pikachu/unknown_e4383.pic"
 GFX_e444b: ; e444b
-INCBIN "gfx/pikachu/unknown_e444b.2bpp"
+INCBIN "gfx/pikachu/eevee.2bpp"
 Pic_e458b: ; e458b
 INCBIN "gfx/pikachu/unknown_e458b.pic"
 GFX_e463b: ; e463b
@@ -2064,7 +2064,7 @@ INCBIN "gfx/pikachu/unknown_e476e.pic"
 GFX_e4841: ; e4841
 INCBIN "gfx/pikachu/unknown_e4841.2bpp"
 Pic_e49d1: ; e49d1
-INCBIN "gfx/pikachu/unknown_e49d1.pic"
+INCBIN "gfx/pikachu/eeveesmile.pic"
 GFX_e4a99: ; e4a99
 INCBIN "gfx/pikachu/unknown_e4a99.2bpp"
 Pic_e4b39: ; e4b39
