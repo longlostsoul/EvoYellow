@@ -229,14 +229,14 @@ TitleScreen_PlacePikachu:
 	lb bc, 9, 12
 	call Bank3D_CopyBox
 	coord hl, 16, 10
-	ld [hl], $96
+	ld [hl], $b7
 	coord hl, 16, 11
-	ld [hl], $9d
+	ld [hl], $b7
 	coord hl, 16, 12
-	ld [hl], $a7
+	ld [hl], $b7
 	coord hl, 16, 13
-	ld [hl], $b1
-	;ld hl, TitleScreenPikachuEyesOAMData
+	ld [hl], $b7
+	ld hl, TitleScreenPikachuEyesOAMData
 	ld de, wOAMBuffer
 	ld bc, $20
 	call CopyData
@@ -273,13 +273,13 @@ Bank3D_CopyBox:
 
 TitleScreenPokemonLogoTilemap:
 ; 16x7 (xy)
-	db $00, $00, $00, $00, $00, $00, $49, $00, $72, $30, $00, $00, $00, $00, $00, $00
+	db $f4, $f4, $f4, $f4, $f4, $f4, $49, $f4, $72, $30, $f4, $f4, $f4, $f4, $f4, $f4
 	db $fd, $01, $02, $03, $04, $05, $06, $07, $08, $09, $0a, $0b, $f4, $0d, $0e, $0f
 	db $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $1a, $1b, $1c, $1d, $1e, $1f
 	db $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $2a, $2b, $2c, $2d, $2e, $2f
-	db $00, $31, $32, $33, $34, $35, $36, $37, $38, $39, $3a, $3b, $3c, $3d, $3e, $3f
-	db $00, $41, $42, $43, $44, $45, $46, $47, $48, $f4, $4a, $4b, $4c, $4d, $4e, $4f
-	db $00, $6a, $6b, $6c, $6d, $f4, $f4, $f4, $f4, $f4, $f4, $6e, $6f, $70, $71, $00
+	db $f4, $31, $32, $33, $34, $35, $36, $37, $38, $39, $3a, $3b, $3c, $3d, $3e, $3f
+	db $f4, $41, $42, $43, $44, $45, $46, $47, $48, $f4, $4a, $4b, $4c, $4d, $4e, $4f
+	db $f4, $6a, $6b, $6c, $6d, $f4, $f4, $f4, $f4, $f4, $f4, $6e, $6f, $70, $71, $f4
 
 Pointer_f4669:
 ; Unreferenced
@@ -292,24 +292,21 @@ TitleScreenPikaBubbleTilemap:
 	db $57, $58, $59, $5a, $5b, $5c, $5d
 	db $6d, $5e, $5f, $60, $61, $62, $63
 
-TitleScreenPikachuTilemap:
-; 12x9 (xy) ;about 4 until next row on my image
-	db $00, $00, $00, $00, $00, $00, $00, $00, $80, $81, $00, $00
-	db $00, $a8, $a9, $aa, $ab, $ac, $84, $85, $86, $87, $88, $00
-	db $00, $ae, $af, $b0, $b1, $b2, $8a, $8b, $8c, $8d, $8e, $8f
-	db $00, $b4, $b5, $b6, $b7, $b8, $90, $91, $92, $93, $94, $95
-	db $00, $ba, $bb, $bc, $bd, $be, $bf, $97, $98, $99, $9a, $9b
-  db $00, $00, $00, $00, $00, $00, $00, $9d, $9e, $9f, $a0, $a1
-	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $a6, $a5
-	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-	;db $00, $00, $00, $00, $00, $ae, $af, $8f, $a0, $a1, $a2, $a5
-	;db $00, $00, $00, $9c, $9d, $9e, $9f, $00, $00, $00, $00, $00
+TitleScreenPikachuTilemap: 
+; 12x9 (xy)
+	db $00, $80, $81, $00, $00, $00, $00, $00, $00, $82, $83, $00
+	db $00, $84, $85, $86, $87, $88, $00, $89, $8a, $8b, $8c, $b7
+	db $00, $00, $8d, $8e, $8f, $90, $91, $92, $93, $94, $00, $b7
+	db $00, $00, $00, $00, $95, $96, $97, $98, $99, $00, $00, $b7
+	db $00, $00, $00, $00, $9a, $9b, $9c, $9d, $9e, $00, $00, $b7
+	db $00, $00, $00, $9f, $a0, $a1, $a2, $a3, $a4, $00, $00, $b7
+	db $00, $00, $00, $a5, $a6, $a7, $a8, $a9, $aa, $00, $00, $b7
+	db $00, $00, $00, $ab, $ac, $ad, $ae, $af, $b0, $00, $00, $00
+	db $00, $00, $00, $b1, $b2, $b3, $b4, $b5, $b6, $00, $00, $00
 
-; f46f9 (3d:46f9)
 PokemonLogoGraphics:	     INCBIN "gfx/pokemon_logo.2bpp"
 PokemonLogoGraphicsEnd:
-YellowLogoGraphics:	      INCBIN "gfx/yellow_titlescreen.2bpp"
+YellowLogoGraphics:	      INCBIN "gfx/eevee_titlescreen.2bpp"
 YellowLogoGraphicsEnd:
 
 INCLUDE "engine/menu/link_menu.asm"
@@ -453,7 +450,7 @@ PrintStrengthTxt:
 	jp PrintText
 
 Text_f5b17:
-	TX_FAR _UsedStrengthText ; 2d:417e
+	TX_FAR _UsedStrengthText
 	TX_ASM
 	ld a, [wcf91]
 	call PlayCry
@@ -461,7 +458,7 @@ Text_f5b17:
 	jp TextScriptEnd
 
 Text_f5b28:
-	TX_FAR _CanMoveBouldersText ; 2d:4193
+	TX_FAR _CanMoveBouldersText
 	db "@"
 
 IsSurfingAllowed:
@@ -496,11 +493,11 @@ CoordsData_f5b64:
 	db $ff
 
 CurrentTooFastText:
-	TX_FAR _CurrentTooFastText ; 2d:41ab
+	TX_FAR _CurrentTooFastText
 	db "@"
 
 CyclingIsFunText:
-	TX_FAR _CyclingIsFunText ; 2d:41ca
+	TX_FAR _CyclingIsFunText
 	db "@"
 
 AddItemToInventory_:
