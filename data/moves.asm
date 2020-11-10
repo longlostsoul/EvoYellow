@@ -23,7 +23,8 @@ MoveEnd:
 	move SCRATCH,      SPEED_UP_SIDE_EFFECT,        40, NORMAL,   100, 35
 	move VICEGRIP,     NO_ADDITIONAL_EFFECT,        55, BUG,   100, 30
 	move GUILLOTINE,   OHKO_EFFECT,                  1, NORMAL,    30,  5
-	move RAZOR_WIND,   CHARGE_EFFECT,               120, FLYING,    75, 10 ;Maybe replace this one at some point, kind of an orphaned move at the moment isn't it, since the TM now points to dragon Twister?
+	move SPIKE_CANNON,   SPIKES_EFFECT,               20, GROUND,    100, 10 
+	;move RAZOR_WIND,   CHARGE_EFFECT,               120, FLYING,    75, 10 ; kind of an orphaned move at the moment, so replacing with spikes maybe?
 	move SWORDS_DANCE, ATTACK_UP2_EFFECT,            0, NORMAL,   100, 30
 	move CUT,          NO_ADDITIONAL_EFFECT,        50, STEEL,    95, 30
 	move GUST,         NO_ADDITIONAL_EFFECT,        40, FLYING,   100, 35 ;had accuracy-down side effect for awhile, decided to make it normal again.

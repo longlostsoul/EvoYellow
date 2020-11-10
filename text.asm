@@ -2465,6 +2465,13 @@ _TransformedText::
 	text "!"
 	prompt
 
+_SpikesText::
+  text "Spikes litter"
+  line"the ground"
+  cont "dangerously!"
+  prompt
+  
+
 _LightScreenProtectedText::
 	text "<USER>'s"
 	line "protected against"
