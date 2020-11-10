@@ -683,9 +683,11 @@ Mon090_EvosMoves:
 ;Learnset
 	db 18,SUPERSONIC
 	db 23,CLAMP
+	db 25,SPIKES
 	db 30,AURORA_BEAM
 	db 35,HIDDEN_POWER
 	db 39,LEER
+	db 40,HYDRO_PUMP
 	db 50,ICE_BEAM
 	db 0
 
@@ -757,7 +759,7 @@ Mon123_EvosMoves:
 	db 21,WING_ATTACK
 	db 25,AIR_CUTTER
 	db 29,SLASH
-	db 33,RAZOR_WIND
+	db 33,BUG_BUZZ;RAZOR_WIND
 	db 37,METAL_CLAW
 	db 41,X_SCISSOR
 	db 45,NIGHT_SLASH
@@ -1786,6 +1788,7 @@ Mon028_EvosMoves:
 	db 25,IRON_TAIL
 	db 27,POISON_FANG
 	;db 30,ICE_BEAM
+	db 30,SPIKES
 	db 36,SWIFT
 	db 38,DIG
 	db 42,IRON_DEFENSE
@@ -1803,6 +1806,8 @@ Mon138_EvosMoves:
 	db EV_LEVEL,40,OMASTAR
 	db 0
 ;Learnset
+  db 20,SPIKES
+  db 25,BUBBLEBEAM
   db 32,ROCK_SLIDE
 	db 34,HORN_ATTACK
 	db 39,LEER
@@ -1815,6 +1820,8 @@ Mon139_EvosMoves:
 ;Evolutions
 	db 0
 ;Learnset
+  db 25,BUBBLEBEAM
+  db 30,SPIKES
   db 32,ROCK_SLIDE
 	db 34,HORN_ATTACK
 	db 39,LEER
@@ -2388,6 +2395,7 @@ Mon091_EvosMoves:
 ;Evolutions
 	db 0
 ;Learnset
+  db 40,SPIKES
 	db 50,SPIKE_CANNON
 	db 0
 
@@ -3101,7 +3109,7 @@ Mon157_2EvosMoves:
 	db 10,AERIAL_ACE
 	db 16,MEGA_PUNCH
 	db 19,COUNTER
-	db 20,HIDDEN_POWER
+	db 20,SPIKES
 	db 25,FURY_ATTACK
 	db 28,CROSS_CHOP
 	db 31,PIN_MISSILE
@@ -3187,7 +3195,7 @@ Mon178_EvosMoves:
 	db 6,SAND_ATTACK
 	db 9,METAL_CLAW
 	db 12,AIR_CUTTER
-	db 15,HIDDEN_POWER
+	db 15,SPIKES
 	db 17,FURY_ATTACK
 	db 20,QUICK_ATTACK
 	db 23,SWIFT
@@ -3314,52 +3322,84 @@ Mon183_EvosMoves:
 	db 0
 	
 Mon184_EvosMoves:
+;Rockruff
+db EV_LEVEL,20,LYCANROC
+db 0
+;
+db 8,DOUBLE_TEAM
+db 10,ROCK_THROW
+db 16,GROWL
+db 20,BITE
+db 24,ROCK_TOMB
+db 28,ROAR
+db 32,ROCK_SLIDE
+db 40,CRUNCH
+db 45,METAL_CLAW
+db 50,POWER_GEM
+db 0
+
 ;SLUGMA
 ;Evolutions
-    db EV_LEVEL,38,MAGCARGO
-    db 0
+;    db EV_LEVEL,38,MAGCARGO
+;    db 0
 ;Learnset
-	db 1,SMOG
-    db 6,EMBER
-    db 8,ROCK_THROW
-    db 13,HARDEN
-    db 15,FIRE_SPIN
-    db 20,HAZE
-    db 22,ANCIENTPOWER
-    db 27,FLAME_WHEEL
-    db 29,ROCK_SLIDE
-    db 34,FLAMETHROWER
-    db 35,HIDDEN_POWER
-    db 36,AMNESIA
-    db 41,BODY_SLAM
-    db 43,MOONLIGHT
-    db 48,FIRE_BLAST
-    db 50,EARTH_POWER
-    db 0
+	;db 1,SMOG
+  ;  db 6,EMBER
+   ; db 8,ROCK_THROW
+   ; db 13,HARDEN
+   ; db 15,FIRE_SPIN
+   ; db 20,HAZE
+   ; db 22,ANCIENTPOWER
+   ; db 27,FLAME_WHEEL
+   ; db 29,ROCK_SLIDE
+   ; db 34,FLAMETHROWER
+   ; db 35,HIDDEN_POWER
+   ; db 36,AMNESIA
+   ; db 41,BODY_SLAM
+   ; db 43,MOONLIGHT
+   ; db 48,FIRE_BLAST
+   ; db 50,EARTH_POWER
+   ; db 0
     
     
 Mon185_EvosMoves:
+;lycanroc
+db 0
+;
+db 8,DOUBLE_TEAM
+db 10,ROCK_THROW
+db 16,GROWL
+db 20,BITE
+db 24,ROCK_TOMB
+db 28,ROAR
+db 32,ROCK_SLIDE
+db 40,CRUNCH
+db 45,METAL_CLAW
+db 50,POWER_GEM
+db 55,HYPER_VOICE
+db 0
+
 ;MAGCARGO
 ;Evolutions
-    db 0
+  ;  db 0
 ;Learnset
-	db 1,SMOG
-    db 6,EMBER
-    db 8,ROCK_THROW
-    db 13,HARDEN
-    db 15,FIRE_SPIN
-    db 20,HAZE
-    db 22,ANCIENTPOWER
-    db 27,FLAME_WHEEL
-    db 29,ROCK_SLIDE
-    db 34,FLAMETHROWER
-    db 36,AMNESIA
-    db 38,EARTHQUAKE
-    db 43,BODY_SLAM
-    db 47,MOONLIGHT
-    db 54,FIRE_BLAST
-    db 58,EARTH_POWER
-    db 0
+	;db 1,SMOG
+   ; db 6,EMBER
+   ; db 8,ROCK_THROW
+   ; db 13,HARDEN
+   ; db 15,FIRE_SPIN
+   ; db 20,HAZE
+    ;db 22,ANCIENTPOWER
+    ;db 27,FLAME_WHEEL
+    ;db 29,ROCK_SLIDE
+    ;db 34,FLAMETHROWER
+    ;db 36,AMNESIA
+    ;db 38,EARTHQUAKE
+    ;db 43,BODY_SLAM
+    ;db 47,MOONLIGHT
+    ;db 54,FIRE_BLAST
+    ;db 58,EARTH_POWER
+    ;db 0
     
     
 Mon186_EvosMoves:
@@ -3950,7 +3990,7 @@ ABSOL_moves:;MonStantler_Moves:
 	db 31,SAND_ATTACK
 	db 40,ZEN_HEADBUTT
 	db 45,SUCKER_PUNCH
-	db 45,RAZOR_WIND
+	db 45,AERIAL_ACE;RAZOR_WIND
 	db 49,HEX
 	db 0
 
@@ -4231,38 +4271,71 @@ XATU_moves:
 	db 0
 	
 REMORAID_moves:
-  db EV_LEVEL,20,OCTILLERY
-  db 0
-  ;
-	db 8,WATER_GUN
-	db 11,EMBER
+ ;actually carvanha now
+ db EV_LEVEL,20,SHARPEDO
+ db 0
+ ;moves
+ db 8,WATER_GUN
+	db 11,BITE
 	db 15,BUBBLE
 	db 18,WATER_PULSE
-	db 22,SMOKESCREEN
+	db 22,CRUNCH
 	db 25,SCREECH
 	db 29,POISON_FANG
 	db 32,ZEN_HEADBUTT
-	db 38,FLAMETHROWER
+	db 38,DARK_PULSE
 	db 43,SLASH
 	db 49,AMNESIA
 	db 50,HYDRO_PUMP
-	db 0
+ db 0
+ ; db EV_LEVEL,20,OCTILLERY
+ ; db 0
+  ;
+	;db 8,WATER_GUN
+	;db 11,EMBER
+	;db 15,BUBBLE
+	;db 18,WATER_PULSE
+	;db 22,SMOKESCREEN
+	;db 25,SCREECH
+	;db 29,POISON_FANG
+	;db 32,ZEN_HEADBUTT
+	;db 38,FLAMETHROWER
+	;db 43,SLASH
+	;db 49,AMNESIA
+	;db 50,HYDRO_PUMP
+	;db 0
 OCTILLERY_moves:
-  db 0
-  ;
-	db 8,WATER_GUN
-	db 11,EMBER
+;actually sharpedo now
+db 0
+;moves
+ db 8,WATER_GUN
+	db 11,BITE
 	db 15,BUBBLE
 	db 18,WATER_PULSE
-	db 22,SMOKESCREEN
+	db 22,CRUNCH
 	db 25,SCREECH
 	db 29,POISON_FANG
 	db 32,ZEN_HEADBUTT
-	db 38,FLAMETHROWER
+	db 38,DARK_PULSE
 	db 43,SLASH
 	db 49,AMNESIA
 	db 50,HYDRO_PUMP
-	db 0
+ db 0
+  ;db 0
+  ;
+	;db 8,WATER_GUN
+	;db 11,EMBER
+	;db 15,BUBBLE
+	;db 18,WATER_PULSE
+	;db 22,SMOKESCREEN
+	;db 25,SCREECH
+	;db 29,POISON_FANG
+	;db 32,ZEN_HEADBUTT
+	;db 38,FLAMETHROWER
+	;db 43,SLASH
+	;db 49,AMNESIA
+	;db 50,HYDRO_PUMP
+	;db 0
 	
 MR_Rime_moves:
 ;Evolutions
@@ -4296,14 +4369,15 @@ QWILFISH_moves:
   ;
 	db 8,WATER_GUN
 	db 11,POISON_STING
-	db 15,BUBBLE
-	db 18,WATER_PULSE
-	db 20,PIN_MISSILE
+	db 15,SPIKES
+	db 18,PIN_MISSILE
+	db 20,WATER_PULSE
 	db 22,SMOKESCREEN
 	db 25,MINIMIZE
 	db 29,POISON_JAB
 	db 32,SPIKE_CANNON
 	db 38,TOXIC
+	db 40,SPIKES
 	db 49,GUNK_SHOT
 	db 50,HYDRO_PUMP
 	db 0
@@ -4803,7 +4877,7 @@ Mon163_2EvosMoves:
 	db 21,METAL_CLAW
 	db 25,AIR_CUTTER
 	db 29,SLASH
-	db 33,RAZOR_WIND
+	db 33,BUG_BUZZ;RAZOR_WIND
 	db 37,IRON_DEFENSE
 	db 41,X_SCISSOR
 	db 45,NIGHT_SLASH
@@ -5164,35 +5238,65 @@ MonMANTINE:
 	db 0
   
 MonAIPOM:
-  	;Evolutions
-  db EV_ITEM,SHINY_STONE,1,AMBIPOM
-	db 0
+;Pineco
+   db EV_LEVEL,20,FORRETRESS
+   db 0
 ;Learnset
-  db 6,SAND_ATTACK
-	db 13,LICK
-	db 12,IRON_TAIL
-	db 18,HEADBUTT
-	db 25,DOUBLESLAP
-	db 30,FURY_SWIPES
-	db 38,SWIFT
-	db 43,SCREECH
-	db 50,AGILITY
+	db 8,SELFDESTRUCT
+	db 10,DIG ;basically protect substitute.
+	db 12,	TAKE_DOWN
+  db 18,	WITHDRAW
+  db 22,	BIDE
+  db 25, PIN_MISSILE
+  db 36, EXPLOSION
+  db 40, SPIKES
+  db 50, DOUBLE_EDGE
 	db 0
+  	;Evolutions
+;  db EV_ITEM,SHINY_STONE,1,AMBIPOM
+;	db 0
+;Learnset
+;  db 6,SAND_ATTACK
+;	db 13,LICK
+;	db 12,IRON_TAIL
+;	db 18,HEADBUTT
+;	db 25,DOUBLESLAP
+;	db 30,FURY_SWIPES
+;	db 38,SWIFT
+;	db 43,SCREECH
+;	db 50,AGILITY
+;	db 0
 	
 MonAMBIPOM:
-  	;Evolutions
-	db 0
+;Forretress
+   db 0
 ;Learnset
-  db 6,SAND_ATTACK
-	db 13,LICK
-	db 12,IRON_TAIL
-	db 18,HEADBUTT
-	db 25,DOUBLESLAP
-	db 30,FURY_SWIPES
-	db 38,SWIFT
-	db 43,SCREECH
-	db 50,AGILITY
+	;Learnset
+	db 8,SELFDESTRUCT
+	db 12, TAKE_DOWN
+  db 18, WITHDRAW
+  db 22, BIDE
+  db 25, PIN_MISSILE
+  db 36, SPIKES
+  db 40, BUG_BUZZ
+  db 45, DOUBLE_EDGE
+  db 47, EXPLOSION
+  db 50, FLASH_CANNON
+  db 55, EARTHQUAKE
 	db 0
+  	;Evolutions
+;	db 0
+;Learnset
+ ; db 6,SAND_ATTACK
+	;db 13,LICK
+;	db 12,IRON_TAIL
+	;db 18,HEADBUTT
+;	db 25,DOUBLESLAP
+	;db 30,FURY_SWIPES
+	;db 38,SWIFT
+	;db 43,SCREECH
+	;db 50,AGILITY
+	;db 0
   
 MonMUNCHLAX:
   	;Evolutions

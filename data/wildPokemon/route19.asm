@@ -10,6 +10,6 @@ Route19Mons:
 	db 15,STARYU
 	db 20,TENTACOOL
 	db 30,HORSEA
-	db 35,REMORAID
+	db 35,CARVANHA
 	db 40,LAPRAS
 

@@ -2,7 +2,7 @@ MansionMons3:
 	db $0A
 	db 40,VULPIX
 	db 40,RATICATE
-	db 32,SLUGMA
+	db 32,ROCKRUFF
 	db 35,GRIMER
 	db 43,VULPIX
 	db 43,RATICATE

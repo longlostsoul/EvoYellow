@@ -3,11 +3,11 @@ db 65 ; base hp
 db 65 ; base attack
 db 45 ; base defense
 db 95 ; base speed
-db 50 ; base special
+db 75 ; base special
 db BUG ; species type 1
 db FLYING ; species type 2
 db 46 ; catch rate
-db 160 ; base exp yield
+db 50 ; base exp yield
 INCBIN "pic/ymon/yanma.pic",0,1 ; 77, sprite dimensions
 dw YanmaPicFront
 dw YanmaPicBack

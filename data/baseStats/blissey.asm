@@ -4,11 +4,11 @@ db 255 ; base hp
 db 10 ; base attack
 db 10 ; base defense
 db 55 ; base speed
-db 135 ; base special
+db 100;75 ; base special
 db NORMAL ; species type 1
 db NORMAL ; species type 2
 db 34 ; catch rate, hp up
-db 255 ; base exp yield
+db 135 ; base exp yield / sp def if I ever split it
 INCBIN "pic/ymon/blissey.pic",0,1 ; 66, sprite dimensions
 dw BlisseyPicFront
 dw BlisseyPicBack

@@ -169,8 +169,8 @@ INCLUDE "data/baseStats/mismagius.asm"
 INCLUDE "data/baseStats/miltank.asm"
 INCLUDE "data/baseStats/chinchou.asm"
 INCLUDE "data/baseStats/lanturn.asm"
-INCLUDE "data/baseStats/slugma.asm"
-INCLUDE "data/baseStats/magcargo.asm"
+INCLUDE "data/baseStats/rockruff.asm";   earlier was slugma
+INCLUDE "data/baseStats/lycanroc.asm";magcargo
 INCLUDE "data/baseStats/tyrogue.asm"
 INCLUDE "data/baseStats/hitmontop.asm"
 INCLUDE "data/baseStats/murkrow.asm"
@@ -196,14 +196,12 @@ INCLUDE "data/baseStats/granbull.asm"
 INCLUDE "data/baseStats/larvitar.asm"
 INCLUDE "data/baseStats/pupitar.asm"
 INCLUDE "data/baseStats/tyranitar.asm"
-
-INCLUDE "data/baseStats/absol.asm";stantler
+INCLUDE "data/baseStats/absol.asm";earlier versions was stantler
 INCLUDE "data/baseStats/corsola.asm"
 INCLUDE "data/baseStats/hoothoot.asm"
 INCLUDE "data/baseStats/noctowl.asm"
 INCLUDE "data/baseStats/salandit.asm";sunkern
 INCLUDE "data/baseStats/salazzle.asm";sunflora
-
 INCLUDE "data/baseStats/HOPPIP.asm"
 INCLUDE "data/baseStats/JUMPLUFF.asm"
 INCLUDE "data/baseStats/SKIPLOOM.asm"
@@ -212,19 +210,17 @@ INCLUDE "data/baseStats/FLAAFFY.asm"
 INCLUDE "data/baseStats/AMPHAROS.asm"
 INCLUDE "data/baseStats/NATU.asm"
 INCLUDE "data/baseStats/XATU.asm"
-INCLUDE "data/baseStats/REMORAID.asm"
-INCLUDE "data/baseStats/OCTILLERY.asm"
+INCLUDE "data/baseStats/carvanha.asm" ;REMORAID
+INCLUDE "data/baseStats/sharpedo.asm" ;OCTILLERY
 INCLUDE "data/baseStats/MRRIME.asm";SENTRET
 INCLUDE "data/baseStats/SIRFETCHD.asm";FURRET
 INCLUDE "data/baseStats/QWILFISH.asm"
 INCLUDE "data/baseStats/CURSOLA.asm";DELIBIRD
-INCLUDE "data/baseStats/DUNSPARCE.asm"
+INCLUDE "data/baseStats/DUNSPARCE.asm";
 INCLUDE "data/baseStats/GIRAFARIG.asm"
 INCLUDE "data/baseStats/RIOLU.asm"
 INCLUDE "data/baseStats/LUCARIO.asm"
-
 INCLUDE "data/baseStats/sudowoodo.asm"
-
 INCLUDE "data/baseStats/politoed.asm"
 INCLUDE "data/baseStats/slowking.asm"
 INCLUDE "data/baseStats/bellossom.asm"
@@ -251,8 +247,8 @@ INCLUDE "data/baseStats/spinarak.asm"
 INCLUDE "data/baseStats/ariados.asm"
 INCLUDE "data/baseStats/mantyke.asm"
 INCLUDE "data/baseStats/mantine.asm"
-INCLUDE "data/baseStats/aipom.asm"
-INCLUDE "data/baseStats/ambipom.asm"
+INCLUDE "data/baseStats/pineco.asm";  earlier was aipom
+INCLUDE "data/baseStats/forretress.asm";ambipom
 INCLUDE "data/baseStats/munchlax.asm"
 INCLUDE "data/baseStats/smeargle.asm"
 INCLUDE "data/baseStats/suicune.asm"

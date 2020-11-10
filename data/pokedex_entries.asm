@@ -154,8 +154,8 @@ PokedexEntryPointers:
 	dw TaurosDexEntry;miltank
 	dw NewDexEntry ;chin
 	dw EvoDexEntry ;lan
-		dw NewDexEntry;slug
-  dw EvoDexEntry ;mag
+		dw NewDexEntry; rockruff /slug
+  dw EvoDexEntry ;   /mag
 	dw NewDexEntry ;ty
 	dw NewDexEntry;hitmontop
 	dw NewDexEntry ;murk
@@ -195,8 +195,8 @@ PokedexEntryPointers:
 	dw EvoDexEntry;sheep
 	dw NewDexEntry;natu
 	dw EvoDexEntry;xatu
-	dw NewDexEntry;rem
-	dw EvoDexEntry;oct
+	dw NewDexEntry; carvanha /rem
+	dw EvoDexEntry; /octillery
 	dw MrMimeDexEntry;Mr Rime, old sentret
 	dw FarfetchdDexEntry;SirFetchd old furretBERU
 	dw NewDexEntry;qwil
@@ -243,8 +243,8 @@ PokedexEntryPointers:
   dw EvoDexEntry;ARIADOS
   dw NewDexEntry;MANTYKE
   dw EvoDexEntry;MANTINE
-  dw NewDexEntry;AIPOM
-  dw EvoDexEntry;AMBIPOM
+  dw NewDexEntry; Pineco/was AIPOM
+  dw EvoDexEntry;  /AMBIPOM
   dw NewDexEntry;MUNCHLAX
   dw NewDexEntry;SMEARGLE
   dw NewLegendDexEntry;SUICUNE

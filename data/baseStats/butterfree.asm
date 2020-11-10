@@ -1,13 +1,13 @@
 db DEX_BUTTERFREE ; pokedex id
 db 60 ; base hp
 db 45 ; base attack
-db 50 ; base defense
-db 70 ; base speed
-db 80 ; base special
+db 55 ; base defense
+db 75 ; base speed
+db 100 ; base special ;boost to make more viable
 db BUG ; species type 1
 db FLYING ; species type 2
 db 46 ; catch rate
-db 161 ; base exp yield
+db 80 ; base exp yield
 INCBIN "pic/ymon/butterfree.pic",0,1 ; 77, sprite dimensions
 dw ButterfreePicFront
 dw ButterfreePicBack
