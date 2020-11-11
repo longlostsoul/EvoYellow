@@ -89,7 +89,7 @@ const_value = 0
 	const MIMIC_EFFECT               ; $52
 	const METRONOME_EFFECT           ; $53
 	const LEECH_SEED_EFFECT          ; $54
-	const SPLASH_EFFECT              ; $55
+	const WEATHER_EFFECT              ; $55
 	const DISABLE_EFFECT             ; $56
 	const ICE_FANG_EFFECT ;unused atm
 	const FIRE_FANG_EFFECT

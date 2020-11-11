@@ -14,7 +14,7 @@
 	dw AipomPicBack
 	; attacks known at lvl 0
 	db SCRATCH
-	db TAIL_WHIP
+	db LEER
 	db 0
 	db 0
 	db 0 ; growth rate

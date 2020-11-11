@@ -14,8 +14,8 @@ dw RaticatePicBack
 ; attacks known at lvl 0
 db TACKLE
 db TAIL_WHIP
+db LEER
 db QUICK_ATTACK
-db 0
 db 0 ; growth rate
 ; learnset
 	tmlearn 6,7,8

@@ -13,8 +13,8 @@ dw EeveePicFront
 dw EeveePicBack
 ; attacks known at lvl 0
 db TACKLE
-db TAIL_WHIP
-db LEECH_SEED
+db LEER
+db GROWL;LEECH_SEED let's go eevee had a move kinda like leech seed, idk.
 db 0
 db 0 ; growth rate
 ; learnset

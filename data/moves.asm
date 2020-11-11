@@ -50,11 +50,11 @@ MoveEnd:
 	move TAKE_DOWN,    RECOIL_EFFECT,               90, NORMAL,    85, 20
 	move THRASH,       THRASH_PETAL_DANCE_EFFECT,   90, NORMAL,   100, 20
 	move DOUBLE_EDGE,  RECOIL_EFFECT,              100, NORMAL,   100, 15
-	move TAIL_WHIP,    DEFENSE_DOWN1_EFFECT,         0, NORMAL,   100, 30 ;Tail whip and leer-
+	move TAIL_WHIP,    WEATHER_EFFECT,         0, NORMAL,   100, 30 ;Tail whip and leer-
 	move POISON_STING, POISON_SIDE_EFFECT1,         45, POISON,   100, 35
 	move TWINEEDLE,    TWINEEDLE_EFFECT,            35, BUG,      100, 20
 	move PIN_MISSILE,  TWO_TO_FIVE_ATTACKS_EFFECT,  25, BUG,       85, 20
-	move LEER,         DEFENSE_DOWN1_EFFECT,         0, NORMAL,   100, 30 ;-both do the same thing. maybe replace one then? Probably tail_whip, because fewer mons with tails.
+	move LEER,         DEFENSE_DOWN1_EFFECT,         0, NORMAL,   100, 30 ;-both do the same thing. so replacing tail whip with Sunny Day.
 	move BITE,         FLINCH_SIDE_EFFECT1,         60, DARK,   100, 25
 	move GROWL,        ATTACK_DOWN1_EFFECT,          0, NORMAL,   100, 40
 	move ROAR,         SWITCH_AND_TELEPORT_EFFECT,   0, NORMAL,   100, 20 ;Probably make sense to replace this, that or fix it to make it actually useful.
@@ -161,7 +161,7 @@ MoveEnd:
 	move SPORE,        SLEEP_EFFECT,                 0, GRASS,    100, 15
 	move FLASH,        ACCURACY_DOWN1_EFFECT,        0, STEEL,    100, 15
 	move PSYWAVE,      SPECIAL_DAMAGE_EFFECT,        1, PSYCHIC,   80, 15
-	move SPLASH,       SPLASH_EFFECT,                0, NORMAL,   100, 5
+	move SPLASH,       WEATHER_EFFECT,                0, NORMAL,   100, 5 ;Rain Dance?
 	move ACID_ARMOR,   DEFENSE_UP2_EFFECT,           0, POISON,   100, 20
 	move CRABHAMMER,   NO_ADDITIONAL_EFFECT,        90, WATER,     85, 10
 	move EXPLOSION,    EXPLODE_EFFECT,             170, NORMAL,   100,  5

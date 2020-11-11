@@ -97,6 +97,115 @@ DoSpikes:: ;hurts enemy, or should
  jp .no
 .no 
  ret
+ 
+ ;####WEATHER~! Rain Dance, Sunny Day
+ 
+GetWeather::
+
+	ld de, wPlayerSelectedMove
+	ld a, [H_WHOSETURN]
+	and a
+	jr z, .SunnyorRain
+	ld de, wEnemySelectedMove
+.SunnyorRain
+  ld a, [de]
+	cp SPLASH
+	jr nz, .light
+
+  ld a,7;it starts raining yay.
+	ld [wUnusedD366],a;just some flag I repurposed.
+	ret
+.light
+	ld a,3
+	ld [wUnusedD366],a
+	;do another one for sunny day.
+	ret
+	
+;DoWeather:: ;accuracy over-ride not actually present/correctly working yet.
+; ld a,[wUnusedD366] 
+; cp 0
+; jr nz, .cont
+; ret
+;.cont
+; ld a,[wMoveType]
+; cp ELECTRIC
+; ret
+
+
+WeatherBonus::
+ ld a,[wUnusedD366]
+ cp 0
+ jr z,.ret
+ cp 4
+ jr c, .sun
+ ld a,[wMoveType]
+ cp WATER
+ jr z, .cont
+ cp ELECTRIC
+ jr z, .cont
+ cp FLYING
+ jr z, .cont
+.sun
+ ld a,[wMoveType]
+ cp FIRE
+ jr z, .cont
+ cp GRASS
+ jr z, .cont
+.cont
+ ;bonus dmg
+ 	ld hl,wDamage + 1
+	ld a,[hld]
+	ld h,[hl]
+	ld l,a    ; hl = damage
+	ld b,h
+	ld c,l    ; bc = damage
+	srl b
+	rr c      ; bc = floor(0.5 * damage)
+	add hl,bc ; hl = floor(1.5 * damage)
+; store damage
+	ld a,h
+	ld [wDamage],a
+	ld a,l
+	ld [wDamage + 1],a
+	ld hl,wDamageMultipliers
+	set 7,[hl]
+.ret 
+ ret
+
+SubWeather:: ;last three turns?
+ ld a,1
+ ld b,a
+ ld a,[wUnusedD366] ;rainy
+ cp 4
+ jr c, .check ;if it is bigger than this, it's rainy. smaller is sunny.
+ sub b
+ ld [wUnusedD366],a
+ cp 4
+ jr nz, .rain ;if it is 4, 0 it out
+ ld a,0
+ ld [wUnusedD366],a
+ jr .rain
+.check
+ ld a, [wUnusedD366];sunny?
+ cp 0
+ jr z, .end
+ sub b ;subtract b from a
+ ld [wUnusedD366],a
+ ld hl, SunnyText
+ jp PrintText
+.rain
+ ld hl, WeatherRages
+ jp PrintText
+.end
+ ret
+
+WeatherRages:
+ TX_FAR _RainingText
+ db "@"
+
+SunnyText
+ TX_FAR _SunnyText
+ db "@"
 
 SpikesText:
 	TX_FAR _SpikesText

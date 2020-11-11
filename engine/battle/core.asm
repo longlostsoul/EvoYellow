@@ -18,7 +18,7 @@ ResidualEffects1:
 	db SUBSTITUTE_EFFECT
 	db MIMIC_EFFECT
 	db LEECH_SEED_EFFECT
-	db SPLASH_EFFECT
+	db WEATHER_EFFECT
 	db -1
 SetDamageEffects:
 ; moves that do damage but not through normal calculations
@@ -427,6 +427,7 @@ MainInBattleLoop:
 	ld a, [wEscapedFromBattle]
 	and a
 	ret nz ; return if pokedoll was used to escape from battle
+	callba SubWeather ;raindance yay
 	ld a, [wBattleMonStatus]
 	and (1 << FRZ) | SLP ; is mon frozen or asleep?
 	jr nz, .selectEnemyMove ; if so, jump
@@ -5595,8 +5596,11 @@ AdjustDamageForMoveType:
 .normalmove
   ld a,[wPlayerMoveType]
 	;usual type effectiveness
+	;
 	ld [wMoveType],a
 .contin
+
+  callba WeatherBonus
 	ld a,[H_WHOSETURN]
 	and a
 	jr z,.next
@@ -5768,12 +5772,17 @@ MoveHitTest:
 	ld a,[de]
 	cp a,SUCKER_PUNCH_EFFECT
 	jr nz,.swiftCheck
+	;callba DoWeather
+	;jr nz, .swiftCheck
 	call SuckerPunchHitTest
 	jp c,.moveMissed
+
 .swiftCheck
 	ld a,[de]
 	cp a,SWIFT_EFFECT
 	ret z ; Swift never misses (interestingly, Azure Heights lists this is a myth, but it appears to be true)
+	
+
 	call CheckTargetSubstitute ; substitute check (note that this overwrites a)
 	jr z,.checkForDigOrFlyStatus
 ; this code is buggy. it's supposed to prevent HP draining moves from working on substitutes.
@@ -5782,6 +5791,7 @@ MoveHitTest:
 	;jp z,.moveMissed
 	;cp a,DREAM_EATER_EFFECT
 	;jp z,.moveMissed
+
 .checkForDigOrFlyStatus
 	bit Invulnerable,[hl]
 	jp nz,.moveMissed
@@ -7272,7 +7282,7 @@ MoveEffectPointerTable:
 	 dw MimicEffect               ; MIMIC_EFFECT
 	 dw $0000                     ; METRONOME_EFFECT
 	 dw LeechSeedEffect           ; LEECH_SEED_EFFECT
-	 dw SplashEffect              ; SPLASH_EFFECT
+	 dw WeatherEffect              ; SPLASH_EFFECT
 	 dw DisableEffect             ; DISABLE_EFFECT
 	 dw FangAttacks               ; FIRE_FANG_EFFECT
 	 dw FangAttacks               ; ICE_FANG_EFFECT
@@ -8673,9 +8683,10 @@ MimicLearnedMoveText:
 LeechSeedEffect:
 	jpab LeechSeedEffect_
 
-SplashEffect:
+WeatherEffect:
 	call PlayCurrentMoveAnimation
-	jp PrintNoEffectText
+	callba GetWeather
+	jp PrintWeatherText
 
 DisableEffect:
 	call MoveHitTest
@@ -8786,12 +8797,12 @@ NothingHappenedText:
 	TX_FAR _NothingHappenedText
 	db "@"
 
-PrintNoEffectText:
-	ld hl, NoEffectText
+PrintWeatherText:
+	ld hl, WeatherText
 	jp PrintText
 
-NoEffectText:
-	TX_FAR _NoEffectText
+WeatherText:
+	TX_FAR _WeatherText
 	db "@"
 
 ConditionalPrintButItFailed:

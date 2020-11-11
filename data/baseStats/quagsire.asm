@@ -13,7 +13,7 @@ dw QuagsirePicFront
 dw QuagsirePicBack
 ; attacks known at lvl 0
 db TACKLE
-db TAIL_WHIP
+db SPLASH
 db BUBBLE
 db WATER_GUN
 db 3 ; growth rate
