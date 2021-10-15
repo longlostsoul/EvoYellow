@@ -131,7 +131,7 @@ MonsterNames:
 	db "Electrode@"
 	db "Clefable@@"
 	db "Weezing@@@"
-	db "Persian@@@"
+	db "Purrserker"
 	db "Marowak@@@"
 	db "Haunter@@@"
 	db "Abra@@@@@@"
