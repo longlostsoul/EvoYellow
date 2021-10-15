@@ -4,12 +4,12 @@ _MoveDeleterGreetingText::
 	para "Oh, yes, I'm the"
 	line "MOVE DELETER."
 
-	para "I can make"
-	line "#MON forget"
-	cont "moves."
+	para "But you don't"
+	line "need me, for"
+	cont "HM moves."
 
-	para "Shall I make a"
-	line "#MON forget?"
+	para "Mon should be"
+	line "able to forget."
 	done
 
 _MoveDeleterSaidYesText::
