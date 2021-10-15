@@ -34,7 +34,7 @@ const_value = 0
 	const THRASH_PETAL_DANCE_EFFECT  ; $1B
 	const SWITCH_AND_TELEPORT_EFFECT ; $1C
 	const TWO_TO_FIVE_ATTACKS_EFFECT ; $1D
-	const UNUSED_EFFECT_1E           ; $1E
+	const SPIKES_EFFECT;UNUSED_EFFECT_1E           ; $1E
 	const FLINCH_SIDE_EFFECT1        ; $1F
 	const SLEEP_EFFECT               ; $20
 	const POISON_SIDE_EFFECT2        ; $21
@@ -89,7 +89,7 @@ const_value = 0
 	const MIMIC_EFFECT               ; $52
 	const METRONOME_EFFECT           ; $53
 	const LEECH_SEED_EFFECT          ; $54
-	const SPLASH_EFFECT              ; $55
+	const WEATHER_EFFECT              ; $55
 	const DISABLE_EFFECT             ; $56
 	const ICE_FANG_EFFECT ;unused atm
 	const FIRE_FANG_EFFECT

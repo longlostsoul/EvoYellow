@@ -111,9 +111,16 @@ AIMoveChoiceModificationFunctionPointers:
 
 ; discourages moves that cause no damage but only a status ailment if player's mon already has one
 AIMoveChoiceModification1:
+  ld a, [wBattleMonType1] ;if it is this type, skip status check and discourage anyway. Tired of Erika trying to uselessly poison mah ivysaur.
+  cp POISON
+  jr z, .movebuffer
+  ld a, [wBattleMonType2]
+  cp POISON
+  jr z, .movebuffer
 	ld a, [wBattleMonStatus]
 	and a
 	ret z ; return if no status ailment on player's mon
+.movebuffer
 	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offest)
 	ld de, wEnemyMonMoves ; enemy moves
 	ld b, NUM_MOVES + 1
@@ -182,10 +189,21 @@ AIMoveChoiceModification2:
 	jr c, .preferMove
 	jr .nextMove
 .preferMove
+  ld a, [wEnemyMonMaxHP]  
+  ld b, a
+  ld a, [wEnemyMonHP]
+  cp b
+  jr nz, .discourage ;if it's damaged, don't spam status
 	dec [hl] ; slightly encourage this move
 	jr .nextMove
+.discourage
+  ld a, [wEnemyMovePower]
+	and a
+	jr nz, .nextMove
+	inc [hl] ;slightly discourage because it does no damage, hopefully?
+  jr .nextMove
 
-; encourages moves that are effective against the player's mon (even if non-damaging).
+; encourages moves that are effective against the player's mon (but try to check if non-damaging).
 ; discourage damaging moves that are ineffective or not very effective against the player's mon,
 ; unless there's no damaging move that deals at least neutral damage
 AIMoveChoiceModification3:
@@ -212,7 +230,10 @@ AIMoveChoiceModification3:
 	cp $10
 	jr z, .nextMove
 	jr c, .notEffectiveMove
-	dec [hl] ; sligthly encourage this move
+	ld a, [wEnemyMovePower]
+	and a
+	jr z, .nextMove ;no power, hopefully? so don't encourage extra.
+	dec [hl] ; slightly encourage this move
 	jr .nextMove
 .notEffectiveMove ; discourages non-effective moves if better moves are available
 	push hl
@@ -278,50 +299,50 @@ ReadMove:
 TrainerClassMoveChoiceModifications:
 	db 0      ; YOUNGSTER
 	db 1,0    ; BUG CATCHER
-	db 1,0    ; LASS
+	db 1,3,0    ; LASS
 	db 1,3,0  ; SAILOR
-	db 1,0    ; JR_TRAINER_M
-	db 1,0    ; JR_TRAINER_F
+	db 1,3,0    ; JR_TRAINER_M
+	db 1,3,0    ; JR_TRAINER_F
 	db 1,2,3,0; POKEMANIAC
-	db 1,2,0  ; SUPER_NERD
-	db 1,0    ; HIKER
-	db 1,0    ; BIKER
+	db 1,2,3,0  ; SUPER_NERD
+	db 1,3,0    ; HIKER
+	db 1,2,0    ; BIKER
 	db 1,3,0  ; BURGLAR
-	db 1,0    ; ENGINEER
+	db 1,2,3,0    ; ENGINEER
 	db 1,2,0  ; JUGGLER_X
 	db 1,3,0  ; FISHER
-	db 1,3,0  ; SWIMMER
-	db 0      ; CUE_BALL
-	db 1,0    ; GAMBLER
+	db 1,2,3,0  ; SWIMMER
+	db 3,0      ; CUE_BALL
+	db 1,3,0    ; GAMBLER
 	db 1,3,0  ; BEAUTY
-	db 1,2,0  ; PSYCHIC_TR
-	db 1,0    ; ROCKER
-	db 1,0    ; JUGGLER
-	db 1,0    ; TAMER
-	db 1,0    ; BIRD_KEEPER
-	db 1,0    ; BLACKBELT
-	db 1,0    ; SONY1
-	db 1,3,0  ; PROF_OAK
+	db 1,2,3,0  ; PSYCHIC_TR
+	db 1,3,0    ; ROCKER
+	db 1,3,0    ; JUGGLER
+	db 1,3,0    ; TAMER
+	db 1,3,0    ; BIRD_KEEPER
+	db 1,3,0    ; BLACKBELT
+	db 1,2,0    ; SONY1
+	db 1,2,3,0  ; PROF_OAK
 	db 1,2,0  ; CHIEF
-	db 1,2,0  ; SCIENTIST
+	db 1,2,3,0  ; SCIENTIST
 	db 1,3,0  ; GIOVANNI
-	db 1,0    ; ROCKET
+	db 1,2,3,0    ; ROCKET
 	db 1,3,0  ; COOLTRAINER_M
 	db 1,3,0  ; COOLTRAINER_F
-	db 1,0    ; BRUNO
-	db 1,0    ; BROCK
+	db 1,2,3,0    ; BRUNO
+	db 1,2,0    ; BROCK
 	db 1,3,0  ; MISTY
-	db 1,0    ; LT_SURGE
-	db 1,3,0  ; ERIKA
-	db 1,3,0  ; KOGA
-	db 1,0  ; BLAINE
-	db 1,0    ; SABRINA
-	db 1,2,0  ; GENTLEMAN
-	db 1,3,0  ; SONY2
-	db 1,3,0  ; SONY3
+	db 1,2,0    ; LT_SURGE
+	db 1,2,3,0  ; ERIKA
+	db 1,2,3,0  ; KOGA
+	db 1,3,0  ; BLAINE
+	db 1,3,0    ; SABRINA
+	db 1,2,3,0  ; GENTLEMAN
+	db 1,2,3,0  ; SONY2
+	db 1,2,3,0  ; SONY3
 	db 1,2,3,0; LORELEI
-	db 1,0    ; CHANNELER
-	db 1,0    ; AGATHA
+	db 1,2,3,0    ; CHANNELER
+	db 1,2,3,0    ; AGATHA
 	db 1,3,0  ; LANCE
 
 INCLUDE "engine/battle/trainer_pic_money_pointers.asm"
@@ -381,36 +402,36 @@ TrainerAIPointers:
 ; one entry per trainer class
 ; first byte, number of times (per Pokémon) it can occur
 ; next two bytes, pointer to AI subroutine for trainer class
-	dbw 3,GenericAI
-	dbw 3,GenericAI
-	dbw 3,GenericAI
-	dbw 3,GenericAI
-	dbw 3,GenericAI
-	dbw 3,GenericAI
-	dbw 3,GenericAI
-	dbw 3,GenericAI
-	dbw 3,GenericAI
-	dbw 3,GenericAI
-	dbw 3,GenericAI
-	dbw 3,GenericAI
+	dbw 1,GenericAI
+	dbw 1,GenericAI
+	dbw 1,GenericAI
+	dbw 1,GenericAI
+	dbw 1,GenericAI
+	dbw 1,GenericAI
+	dbw 1,GenericAI
+	dbw 1,GenericAI
+	dbw 1,GenericAI
+	dbw 1,GenericAI
+	dbw 1,GenericAI
+	dbw 1,GenericAI
 	dbw 3,JugglerAI ; juggler_x
-	dbw 3,GenericAI
-	dbw 3,GenericAI
-	dbw 3,GenericAI
-	dbw 3,GenericAI
-	dbw 3,GenericAI
-	dbw 3,GenericAI
-	dbw 3,GenericAI
+	dbw 1,GenericAI
+	dbw 1,GenericAI
+	dbw 1,GenericAI
+	dbw 1,GenericAI
+	dbw 1,GenericAI
+	dbw 1,GenericAI
+	dbw 1,GenericAI
 	dbw 3,JugglerAI ; juggler
-	dbw 3,GenericAI
-	dbw 3,GenericAI
+	dbw 1,GenericAI
+	dbw 1,GenericAI
 	dbw 2,BlackbeltAI ; blackbelt
-	dbw 3,GenericAI
-	dbw 3,GenericAI
+	dbw 1,GenericAI
+	dbw 1,GenericAI
 	dbw 1,GenericAI ; chief
-	dbw 3,GenericAI
+	dbw 1,GenericAI
 	dbw 1,GiovanniAI ; giovanni
-	dbw 3,GenericAI
+	dbw 1,GenericAI
 	dbw 2,CooltrainerMAI ; cooltrainerm
 	dbw 1,CooltrainerFAI ; cooltrainerf
 	dbw 2,BrunoAI ; bruno
@@ -421,16 +442,19 @@ TrainerAIPointers:
 	dbw 2,KogaAI ; koga
 	dbw 2,BlaineAI ; blaine
 	dbw 1,SabrinaAI ; sabrina
-	dbw 3,GenericAI
+	dbw 1,GenericAI
 	dbw 1,Sony2AI ; sony2
 	dbw 1,Sony3AI ; sony3
 	dbw 2,LoreleiAI ; lorelei
-	dbw 3,GenericAI
+	dbw 1,GenericAI
 	dbw 2,AgathaAI ; agatha
 	dbw 1,LanceAI ; lance
 
 JugglerAI:
 	cp $40
+	ret nc
+	ld a,$A
+	call AICheckIfHPBelowFraction
 	ret nc
 	jp AISwitchIfEnoughMons
 
@@ -442,6 +466,9 @@ BlackbeltAI:
 GiovanniAI:
 	cp $40
 	ret nc
+	ld a,$A
+	call AICheckIfHPBelowFraction
+	jp c,AIUseHyperPotion
 	jp AIUseGuardSpec
 
 CooltrainerMAI:
@@ -524,7 +551,7 @@ LoreleiAI:
 	ld a,5
 	call AICheckIfHPBelowFraction
 	ret nc
-	jp AIUseSuperPotion
+	jp AIUseHyperPotion
 
 BrunoAI:
 	cp $40
@@ -539,7 +566,7 @@ AgathaAI:
 	ld a,4
 	call AICheckIfHPBelowFraction
 	ret nc
-	jp AIUseSuperPotion
+	jp AIUseHyperPotion
 
 LanceAI:
 	cp $80
@@ -550,6 +577,17 @@ LanceAI:
 	jp AIUseHyperPotion
 
 GenericAI:
+  ld a,[wEnemyMonLevel]
+  cp 20
+  jr c, .default ;below, do not use super potions
+  cp $40
+  ;ld a,5
+	;call AICheckIfHPBelowFraction
+	;jp c,AISwitchIfEnoughMons ;doesn't check if mon is low health so kinda too dumb
+	ld a,$A
+	call AICheckIfHPBelowFraction
+	jp c,AIUseSuperPotion
+.default
 	and a ; clear carry
 	ret
 

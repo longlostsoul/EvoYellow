@@ -13,7 +13,7 @@ dw BlastoisePicFront
 dw BlastoisePicBack
 ; attacks known at lvl 0
 db TACKLE
-db TAIL_WHIP
+db LEER
 db BUBBLE
 db WATER_GUN
 db 3 ; growth rate

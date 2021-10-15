@@ -13,7 +13,7 @@ dw VaporeonPicFront
 dw VaporeonPicBack
 ; attacks known at lvl 0
 db TACKLE
-db TAIL_WHIP
+db SPLASH
 db QUICK_ATTACK
 db WATER_GUN
 db 0 ; growth rate

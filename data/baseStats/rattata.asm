@@ -13,7 +13,7 @@ dw RattataPicFront
 dw RattataPicBack
 ; attacks known at lvl 0
 db TACKLE
-db TAIL_WHIP
+db LEER
 db BITE
 db 0
 db 0 ; growth rate

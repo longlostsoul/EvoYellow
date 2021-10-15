@@ -13,7 +13,7 @@ dw WartortlePicFront
 dw WartortlePicBack
 ; attacks known at lvl 0
 db TACKLE
-db TAIL_WHIP
+db LEER
 db BUBBLE
 db 0
 db 3 ; growth rate

@@ -14,8 +14,8 @@
 	dw PinecoPicBack
 	; attacks known at lvl 0
 	db TACKLE
-	db 0 ; PROTECT
-	db 0 ;Spikes
+	db MIRROR_COAT ; PROTECT
+	db HARDEN ;Spikes
 	db 0
 	db 0 ; growth rate
 	; learnset

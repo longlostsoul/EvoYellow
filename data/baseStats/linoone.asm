@@ -14,7 +14,7 @@
 	; attacks known at lvl 0
 	db TACKLE
 	db GROWL
-	db TAIL_WHIP
+	db LEER
 	db HEADBUTT
 	db 0 ; growth rate
 	; learnset

@@ -2372,9 +2372,21 @@ _NothingHappenedText::
 	text "Nothing happened!"
 	prompt
 
-_NoEffectText::
-	text "No effect!"
+;_NoEffectText::
+	;text "No effect!"
+_WeatherText::
+  text "A great wind"
+  line "shifts clouds."
 	prompt
+
+_RainingText::
+ text "It's raining."
+ prompt
+ 
+_SunnyText::
+ text "It's sunny."
+ prompt
+
 
 _ButItFailedText::
 	text "But, it failed! "
@@ -2464,6 +2476,13 @@ _TransformedText::
 	TX_RAM wcd6d
 	text "!"
 	prompt
+
+_SpikesText::
+  text "Spikes litter"
+  line"the ground"
+  cont "dangerously!"
+  prompt
+  
 
 _LightScreenProtectedText::
 	text "<USER>'s"

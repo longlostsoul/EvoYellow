@@ -23,7 +23,8 @@ MoveEnd:
 	move SCRATCH,      SPEED_UP_SIDE_EFFECT,        40, NORMAL,   100, 35
 	move VICEGRIP,     NO_ADDITIONAL_EFFECT,        55, BUG,   100, 30
 	move GUILLOTINE,   OHKO_EFFECT,                  1, NORMAL,    30,  5
-	move RAZOR_WIND,   CHARGE_EFFECT,               120, FLYING,    75, 10 ;Maybe replace this one at some point, kind of an orphaned move at the moment isn't it, since the TM now points to dragon Twister?
+	move SPIKE_CANNON,   SPIKES_EFFECT,               20, GROUND,    100, 10 
+	;move RAZOR_WIND,   CHARGE_EFFECT,               120, FLYING,    75, 10 ; kind of an orphaned move at the moment, so replacing with spikes maybe?
 	move SWORDS_DANCE, ATTACK_UP2_EFFECT,            0, NORMAL,   100, 30
 	move CUT,          NO_ADDITIONAL_EFFECT,        50, STEEL,    95, 30
 	move GUST,         NO_ADDITIONAL_EFFECT,        40, FLYING,   100, 35 ;had accuracy-down side effect for awhile, decided to make it normal again.
@@ -49,11 +50,11 @@ MoveEnd:
 	move TAKE_DOWN,    RECOIL_EFFECT,               90, NORMAL,    85, 20
 	move THRASH,       THRASH_PETAL_DANCE_EFFECT,   90, NORMAL,   100, 20
 	move DOUBLE_EDGE,  RECOIL_EFFECT,              100, NORMAL,   100, 15
-	move TAIL_WHIP,    DEFENSE_DOWN1_EFFECT,         0, NORMAL,   100, 30 ;Tail whip and leer-
+	move TAIL_WHIP,    WEATHER_EFFECT,         0, NORMAL,   100, 30 ;Tail whip and leer-
 	move POISON_STING, POISON_SIDE_EFFECT1,         45, POISON,   100, 35
 	move TWINEEDLE,    TWINEEDLE_EFFECT,            35, BUG,      100, 20
 	move PIN_MISSILE,  TWO_TO_FIVE_ATTACKS_EFFECT,  25, BUG,       85, 20
-	move LEER,         DEFENSE_DOWN1_EFFECT,         0, NORMAL,   100, 30 ;-both do the same thing. maybe replace one then? Probably tail_whip, because fewer mons with tails.
+	move LEER,         DEFENSE_DOWN1_EFFECT,         0, NORMAL,   100, 30 ;-both do the same thing. so replacing tail whip with Sunny Day.
 	move BITE,         FLINCH_SIDE_EFFECT1,         60, DARK,   100, 25
 	move GROWL,        ATTACK_DOWN1_EFFECT,          0, NORMAL,   100, 40
 	move ROAR,         SWITCH_AND_TELEPORT_EFFECT,   0, NORMAL,   100, 20 ;Probably make sense to replace this, that or fix it to make it actually useful.
@@ -160,7 +161,7 @@ MoveEnd:
 	move SPORE,        SLEEP_EFFECT,                 0, GRASS,    100, 15
 	move FLASH,        ACCURACY_DOWN1_EFFECT,        0, STEEL,    100, 15
 	move PSYWAVE,      SPECIAL_DAMAGE_EFFECT,        1, PSYCHIC,   80, 15
-	move SPLASH,       SPLASH_EFFECT,                0, NORMAL,   100, 5
+	move SPLASH,       WEATHER_EFFECT,                0, NORMAL,   100, 5 ;Rain Dance?
 	move ACID_ARMOR,   DEFENSE_UP2_EFFECT,           0, POISON,   100, 20
 	move CRABHAMMER,   NO_ADDITIONAL_EFFECT,        90, WATER,     85, 10
 	move EXPLOSION,    EXPLODE_EFFECT,             170, NORMAL,   100,  5

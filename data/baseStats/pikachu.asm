@@ -1,13 +1,13 @@
 db DEX_PIKACHU ; pokedex id
-db 35 ; base hp
-db 55 ; base attack
-db 30 ; base defense
-db 90 ; base speed
-db 50 ; base special
+db 45 ; base hp ;partner pikachu stats
+db 80 ; base attack
+db 50 ; base defense
+db 120 ; base speed
+db 75 ; base special
 db ELECTRIC ; species type 1
 db ELECTRIC ; species type 2
 db 20 ; catch rate
-db 82 ; base exp yield
+db 60 ; base exp yield. if I ever do special defense split this will be the stat replaced.
 INCBIN "pic/ymon/pikachu.pic",0,1 ; 55, sprite dimensions
 dw PikachuPicFront
 dw PikachuPicBack

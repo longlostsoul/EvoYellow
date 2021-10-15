@@ -3,11 +3,11 @@ db DEX_OCTILLERY ; pokedex id
 	db 105 ; base attack
 	db 75 ; base defense
 	db 45 ; base speed
-	db 90 ; base special
+	db 105 ; base special
 	db WATER ; species type 1
 	db WATER ; species type 2
-	db 75 ; catch rate
-	db 164 ; base exp yield
+	db FULL_HEAL ; catch rate
+	db 75 ; base exp yield
 	INCBIN "pic/ymon/octillery.pic",0,1 ; sprite dimensions
 	dw OctilleryPicFront
 	dw OctilleryPicBack

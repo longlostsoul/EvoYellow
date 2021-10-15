@@ -23,7 +23,7 @@ _PhysicalSpecialSplit:: ;Determines if a move is Physical or Special
 	db PHYSICAL;SCRATCH      EQU $0A
 	db PHYSICAL;VICEGRIP     EQU $0B
 	db PHYSICAL;GUILLOTINE   EQU $0C
-	db SPECIAL ;RAZOR_WIND   EQU $0D
+	db OTHER_M ;SPIKES /originally special RAZOR_WIND   EQU $0D
 	db OTHER_M ;SWORDS_DANCE EQU $0E
 	db PHYSICAL;CUT          EQU $0F
 	db SPECIAL ;GUST         EQU $10
