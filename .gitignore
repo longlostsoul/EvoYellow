@@ -20,7 +20,7 @@
 *.pic
 
 # converted audio data
-*.pcm
+.pcm
 
 # swap files for vim
 .*.swp
