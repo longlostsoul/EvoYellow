@@ -625,10 +625,10 @@ INCLUDE "engine/battle/moveEffects/leech_seed_effect.asm"
 
 SECTION "Pics 3", ROMX, BANK[PICS_3]
 
-MeowthPicFront::      INCBIN "pic/ymon/meowthgalar.pic"
+MeowthPicFront::      INCBIN "pic/ymon/meowth.pic"
 MeowthPicBack::       INCBIN "pic/monback/meowthb.pic"
-PersianPicFront::     INCBIN "pic/ymon/purrserker.pic"
-PersianPicBack::      INCBIN "pic/monback/purrserkerb.pic"
+PersianPicFront::     INCBIN "pic/ymon/persian.pic"
+PersianPicBack::      INCBIN "pic/monback/persianb.pic"
 PsyduckPicFront::     INCBIN "pic/ymon/psyduck.pic"
 PsyduckPicBack::      INCBIN "pic/monback/psyduckb.pic"
 GolduckPicFront::     INCBIN "pic/ymon/golduck.pic"

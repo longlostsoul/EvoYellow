@@ -4,18 +4,18 @@ db 70 ; base attack
 db 65 ; base defense
 db 115 ; base speed
 db 75 ; base special
-db STEEL ; species type 1
-db STEEL ; species type 2
+db NORMAL ; species type 1
+db NORMAL ; species type 2
 db FULL_HEAL ; catch rate
 db 75 ; base exp yield / special defense. Stats boosted here for 'meowth starter version'
-INCBIN "pic/ymon/purrserker.pic",0,1 ; 77, sprite dimensions
+INCBIN "pic/ymon/persian.pic",0,1 ; 77, sprite dimensions
 dw PersianPicFront
 dw PersianPicBack
 ; attacks known at lvl 0
 db SCRATCH
 db CUT
 db BITE
-db METAL_CLAW
+db SCREECH
 db 0 ; growth rate
 ; learnset
 	tmlearn 6,7,8
