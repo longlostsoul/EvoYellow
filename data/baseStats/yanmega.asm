@@ -3,11 +3,11 @@ db 86 ; base hp
 db 76 ; base attack
 db 86 ; base defense
 db 95 ; base speed
-db 86 ; base special
+db 116 ; base special
 db BUG ; species type 1
-db DRAGON ; species type 2
+db DRAGON ; species type 2 ;originally flying, but, eh.
 db 46 ; catch rate
-db 160 ; base exp yield
+db 56 ; base exp yield
 INCBIN "pic/ymon/yanmega.pic",0,1 ; 77, sprite dimensions
 dw YanmegaPicFront
 dw YanmegaPicBack

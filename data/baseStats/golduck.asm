@@ -15,7 +15,7 @@ dw GolduckPicBack
 db SCRATCH
 db TAIL_WHIP
 db DISABLE
-db 0
+db LEER
 db 0 ; growth rate
 ; learnset
 	tmlearn 1,5,6,7,8

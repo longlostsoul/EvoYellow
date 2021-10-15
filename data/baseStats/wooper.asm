@@ -13,7 +13,7 @@ dw WooperPicFront
 dw WooperPicBack
 ; attacks known at lvl 0
 db BUBBLE
-db TAIL_WHIP
+db LEER
 db 0
 db 0
 db 3 ; growth rate

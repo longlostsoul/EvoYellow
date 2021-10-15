@@ -12,12 +12,12 @@ const_value = 1
 	const SCRATCH      ; 0a
 	const VICEGRIP     ; 0b
 	const GUILLOTINE   ; 0c
-	const RAZOR_WIND   ; 0d
+	const SPIKES;RAZOR_WIND   ; 0d
 	const SWORDS_DANCE ; 0e
 	const CUT          ; 0f
 	const GUST         ; 10
 	const WING_ATTACK  ; 11
-	const WHIRLWIND    ; 12 Maybe replace with Baton Pass at some point, roar does same thing as whirlwind anyway
+	const WHIRLWIND    ; 12 Maybe replace with Baton Pass at some point, roar does same thing as whirlwind anyway / Roost now.
 	const FLY          ; 13
 	const BIND         ; 14
 	const SLAM         ; 15

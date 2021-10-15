@@ -155,8 +155,8 @@ const_value = 1
   const MILTANK
   const CHINCHOU
   const LANTURN
-  const SLUGMA
-  const MAGCARGO
+  const ROCKRUFF;SLUGMA
+  const LYCANROC;MAGCARGO
   const TYROGUE
   const HITMONTOP
   const MURKROW
@@ -196,8 +196,8 @@ const_value = 1
  const AMPHAROS
  const NATU
  const XATU
- const REMORAID 
- const OCTILLERY
+ const CARVANHA;REMORAID 
+ const SHARPEDO;OCTILLERY
  const MR_RIME;RINRIN;SENTRET
  const SIRFETCHD;BERURUN;FURRET
  const QWILFISH
@@ -244,8 +244,8 @@ const_value = 1
   const ARIADOS
   const MANTYKE
   const MANTINE
-  const AIPOM
-  const AMBIPOM
+  const PINECO;AIPOM
+  const FORRETRESS;AMBIPOM
   const MUNCHLAX
   const SMEARGLE
   const SUICUNE

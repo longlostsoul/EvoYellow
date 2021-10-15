@@ -144,7 +144,7 @@ db OMASTAR
 db OMANYTE
 db SHELLDER
 db KABUTOPS
-db OCTILLERY
+;db OCTILLERY
 db CLOYSTER
 db KABUTO
 db $FF
@@ -166,6 +166,8 @@ db MAGIKARP
 db GOLDEEN
 db SEAKING
 db QWILFISH
+db CARVANHA
+db SHARPEDO
 db CHINCHOU
 db LANTURN
 db $FF
@@ -216,6 +218,8 @@ db RAIKOU
 db ARCANINE
 db FLAREON
 db ABSOL
+db ROCKRUFF
+db LYCANROC
 db $FF
 
 Pointer_BallSprites:
@@ -267,7 +271,6 @@ db $FF
 
 GetFirstMonSpecies:
 	ld hl, wPartySpecies
-	;add hl, bc ;why did I add zero originally?
 	ld a, [hl]
 	ret
 	
@@ -436,6 +439,14 @@ LoadPokeFollowSprite::
 	ld a, SPRITE_DOG
 	jr .resume
 .curMonNotThis6
+  call GetFirstMonSpecies
+	ld hl, Pointer_FishSprites
+	ld de, $1
+	call IsInArray
+	jr nc,  .curMonNotThis7
+	ld a, SPRITE_FISH
+	jr .resume2
+.curMonNotThis7
   call GetFirstMonSpecies
 	ld hl, Pointer_MeowthSprites
 	ld de, $1
@@ -719,6 +730,17 @@ CheckPikachuFaintedOrStatused::
 	call IsThisPartymonStarterPikachu_Party
 	pop hl
 	jr nc, .next
+  call CheckMonStatused
+.next
+	ld a, [wWhichPokemon]
+	inc a
+	ld [wWhichPokemon], a
+	jr .loop
+.dead_or_not_in_party
+	and a
+	ret
+
+CheckMonStatused:
 	ld a, [wWhichPokemon]
 	ld hl, wPartyMon1HP
 	ld bc, wPartyMon2 - wPartyMon1
@@ -732,20 +754,18 @@ CheckPikachuFaintedOrStatused::
 	and a
 	jr nz, .alive
 	jr .dead_or_not_in_party
-
-.next
-	ld a, [wWhichPokemon]
-	inc a
-	ld [wWhichPokemon], a
-	jr .loop
-
 .alive
 	scf
 	ret
-
 .dead_or_not_in_party
 	and a
 	ret
+	
+CheckFirstMonStatus::
+  ld a,0
+	ld [wWhichPokemon],a
+	call CheckMonStatused
+  ret
 
 IsSurfingPikachuInThePlayersParty:: ;actually you do not have to alter this one, you could keep surfchu a separate thing from starter. also useless now as I removed the check at the surfhouse so you can always play.
 	ld hl, wPartySpecies

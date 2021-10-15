@@ -165,8 +165,8 @@ const_value = 1
   const DEX_MILTANK
   const DEX_CHINCHOU
   const DEX_LANTURN
-  const DEX_SLUGMA
-  const DEX_MAGCARGO
+  const DEX_ROCKRUFF;SLUGMA
+  const DEX_LYCANROC;MAGCARGO
   const DEX_TYROGUE
   const DEX_HITMONTOP
   const DEX_MURKROW
@@ -206,8 +206,8 @@ const_value = 1
  const DEX_AMPHAROS
  const DEX_NATU
  const DEX_XATU
- const DEX_REMORAID 
- const DEX_OCTILLERY
+ const DEX_CARVANHA;REMORAID 
+ const DEX_SHARPEDO;OCTILLERY
  const DEX_MR_RIME;SENTRET
  const DEX_SIRFETCHD;FURRET
  const DEX_QWILFISH
@@ -243,8 +243,8 @@ const_value = 1
   const DEX_ARIADOS
   const DEX_MANTYKE
   const DEX_MANTINE
-  const DEX_AIPOM
-  const DEX_AMBIPOM
+  const DEX_PINECO;AIPOM
+  const DEX_FORRETRESS;AMBIPOM
   const DEX_MUNCHLAX
   const DEX_SMEARGLE;248
   const DEX_SUICUNE;249

@@ -13,7 +13,7 @@ dw ChanseyPicFront
 dw ChanseyPicBack
 ; attacks known at lvl 0
 db POUND
-db TAIL_WHIP
+db LEER
 db EGG_BOMB
 db 0
 db 4 ; growth rate

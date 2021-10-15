@@ -543,11 +543,11 @@ wPrinterSendDataSource2::
 	ds $140
 wPrinterSendDataSource1End:: ; c970
 
-wPrinterHandshake:: ; c970
+wPrinterHandshake:: ; c970 ;stole for spikes in reflect_light_screen_effect
 	ds 1
-wPrinterStatusFlags:: ; c971
+wPrinterStatusFlags:: ; c971 spikes up. seems to autoclear after battle which is nice.
 	ds 1
-wHandshakeFrameDelay:: ; c972
+wHandshakeFrameDelay:: ; c972 
 	ds 1
 wPrinterSerialFrameDelay:: ; c973
 	ds 1
@@ -557,7 +557,7 @@ wPrinterDataSize:: ; c976
 	dw
 wPrinterTileBuffer:: ; c978
 	ds SCREEN_HEIGHT * SCREEN_WIDTH
-wPrinterStatusIndicator:: ; cae0
+wPrinterStatusIndicator:: ; cae0 
 	ds 2
 wcae2:: ; cae2
 	ds 1
@@ -2576,7 +2576,6 @@ wUnusedD153:: ; d152
 	ds 1
 
 wBerryStepCounter::
-;	ds 2
 	ds 2
 
 wEvoStoneItemID:: ; d155
@@ -2697,7 +2696,7 @@ wXBlockCoord:: ; d363
 wLastMap:: ; d364
 	ds 1
 
-wUnusedD366:: ; d365
+wUnusedD366:: ; d365 weather?
 	ds 1
 
 wCurMapTileset:: ; d366

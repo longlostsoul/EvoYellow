@@ -2,7 +2,7 @@ Route7Mons:
 	db $0F
 	db 20,VULPIX;day
 	db 22,EKANS
-	db 20,AIPOM
+	db 18,PINECO
 	db 15,PIDGEOTTO;day
 	db 19,ABRA
 	db 26,ABRA

@@ -15,7 +15,7 @@ dw MarowakPicBack
 db BONE_CLUB
 db TAIL_WHIP
 db NIGHT_SHADE
-db 0
+db LEER
 db 0 ; growth rate
 ; learnset
 	tmlearn 1,5,6,7,8

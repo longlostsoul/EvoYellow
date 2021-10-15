@@ -364,8 +364,8 @@ EnemyBerries::
   jr z, .NoUseBerry
   ld a,0
   ld [wEnemyMonStatus],a
-  callab PrintHoldItemText2
-  jr .ContUseItem
+  ;callab PrintHoldItemText2
+  jr .ContUseItem2
 .IsItOther
   cp MAX_POTION ;leftovers
   jr nz, .super
@@ -403,6 +403,7 @@ EnemyBerries::
 	ld a,[wEnemyMonMaxHP+1] ; full restore instead
 .ContUseItem
 	ld [wEnemyMonHP+1],a
+.ContUseItem2
   ld a,MAX_HOLD
   ld [wEnemyMonCatchRate], a ;replace with diff item after use...doesn't seem to work permanently, but could do check after catching elsewhere and if this specific value turn it into 0. anyway, will make a poke easier to catch by at least 1. >_>
   callab PrintHoldItemText2

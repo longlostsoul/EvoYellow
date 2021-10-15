@@ -19,7 +19,7 @@ Confused               EQU 7
 UsingXAccuracy    EQU 0
 ProtectedByMist   EQU 1
 GettingPumped     EQU 2 ; Focus Energy
-;                 EQU 3 ; unused?
+;ProtectStatusUp      EQU 3 ; unused? Protect/
 HasSubstituteUp   EQU 4
 NeedsToRecharge   EQU 5 ; Hyper Beam
 UsingRage         EQU 6
@@ -31,3 +31,4 @@ HasLightScreenUp EQU 1
 HasReflectUp     EQU 2
 Transformed      EQU 3
 Safeguard EQU 4
+SpikesStatusUp      EQU 5

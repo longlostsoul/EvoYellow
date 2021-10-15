@@ -18,7 +18,7 @@ ResidualEffects1:
 	db SUBSTITUTE_EFFECT
 	db MIMIC_EFFECT
 	db LEECH_SEED_EFFECT
-	db SPLASH_EFFECT
+	db WEATHER_EFFECT
 	db -1
 SetDamageEffects:
 ; moves that do damage but not through normal calculations
@@ -427,6 +427,7 @@ MainInBattleLoop:
 	ld a, [wEscapedFromBattle]
 	and a
 	ret nz ; return if pokedoll was used to escape from battle
+	callba SubWeather ;raindance yay
 	ld a, [wBattleMonStatus]
 	and (1 << FRZ) | SLP ; is mon frozen or asleep?
 	jr nz, .selectEnemyMove ; if so, jump
@@ -1113,6 +1114,7 @@ ReplaceFaintedEnemyMon:
 	call LoadScreenTilesFromBuffer1
 .notLinkBattle
 	call EnemySendOut
+	callab DoSpikes
 	xor a
 	ld [wEnemyMoveNum], a
 	ld [wActionResultOrTookBattleTurn], a
@@ -2030,6 +2032,7 @@ SendOutMon:
 	ld a, [wcf91]
 	call PlayCry
 .done
+  callab DoEnemySpikes
 	call PrintEmptyString
 	jp SaveScreenTilesToBuffer1
 
@@ -4384,174 +4387,13 @@ CheckForDisobedience:
 	and a
 	ret
 ; compare the mon's original trainer ID with the player's ID to see if it was traded
+;removed for space and because, meh, don't care for it.
 .checkIfMonIsTraded
-	ld hl, wPartyMon1OTID
-	ld bc, wPartyMon2 - wPartyMon1
-	ld a, [wPlayerMonNumber]
-	call AddNTimes
-	ld a, [wPlayerID]
-	cp [hl]
-	jr nz, .monIsTraded
-	inc hl
-	ld a, [wPlayerID + 1]
-	cp [hl]
-	jp z, .canUseMove
-; it was traded
-.monIsTraded
-; what level might disobey?
-	ld hl, wObtainedBadges
-	bit 7, [hl]
-	ld a, 101
-	jr nz, .next
-	bit 5, [hl]
-	ld a, 70
-	jr nz, .next
-	bit 3, [hl]
-	ld a, 50
-	jr nz, .next
-	bit 1, [hl]
-	ld a, 30
-	jr nz, .next
-	ld a, 10
-.next
-	ld b, a
-	ld c, a
-	ld a, [wBattleMonLevel]
-	ld d, a
-	add b
-	ld b, a
-	jr nc, .noCarry
-	ld b, $ff ; cap b at $ff
-.noCarry
-	ld a, c
-	cp d
-	jp nc, .canUseMove
-.loop1
-	call BattleRandom
-	swap a
-	cp b
-	jr nc, .loop1
-	cp c
-	jp c, .canUseMove
-.loop2
-	call BattleRandom
-	cp b
-	jr nc, .loop2
-	cp c
-	jr c, .useRandomMove
-	ld a, d
-	sub c
-	ld b, a
-	call BattleRandom
-	swap a
-	sub b
-	jr c, .monNaps
-	cp b
-	jr nc, .monDoesNothing
-	ld hl, WontObeyText
-	call PrintText
-	call HandleSelfConfusionDamage
-	jp .cannotUseMove
-.monNaps
-	call BattleRandom
-	add a
-	swap a
-	and SLP ; sleep mask
-	jr z, .monNaps ; keep trying until we get at least 1 turn of sleep
-	ld [wBattleMonStatus], a
-	ld hl, BeganToNapText
-	jr .printText
-.monDoesNothing
-	call BattleRandom
-	and $3
-	ld hl, LoafingAroundText
-	and a
-	jr z, .printText
-	ld hl, WontObeyText
-	dec a
-	jr z, .printText
-	ld hl, TurnedAwayText
-	dec a
-	jr z, .printText
-	ld hl, IgnoredOrdersText
-.printText
-	call PrintText
-	jr .cannotUseMove
-.useRandomMove
-	ld a, [wBattleMonMoves + 1]
-	and a ; is the second move slot empty?
-	jr z, .monDoesNothing ; mon will not use move if it only knows one move
-	ld a, [wPlayerDisabledMoveNumber]
-	and a
-	jr nz, .monDoesNothing
-	ld a, [wPlayerSelectedMove]
-	cp STRUGGLE
-	jr z, .monDoesNothing ; mon will not use move if struggling
-; check if only one move has remaining PP
-	ld hl, wBattleMonPP
-	push hl
-	ld a, [hli]
-	and $3f
-	ld b, a
-	ld a, [hli]
-	and $3f
-	add b
-	ld b, a
-	ld a, [hli]
-	and $3f
-	add b
-	ld b, a
-	ld a, [hl]
-	and $3f
-	add b
-	pop hl
-	push af
-	ld a, [wCurrentMenuItem]
-	ld c, a
-	ld b, $0
-	add hl, bc
-	ld a, [hl]
-	and $3f
-	ld b, a
-	pop af
-	cp b
-	jr z, .monDoesNothing ; mon will not use move if only one move has remaining PP
-	ld a, $1
-	ld [wMonIsDisobedient], a
-	ld a, [wMaxMenuItem]
-	ld b, a
-	ld a, [wCurrentMenuItem]
-	ld c, a
-.chooseMove
-	call BattleRandom
-	and $3
-	cp b
-	jr nc, .chooseMove ; if the random number is greater than the move count, choose another
-	cp c
-	jr z, .chooseMove ; if the random number matches the move the player selected, choose another
-	ld [wCurrentMenuItem], a
-	ld hl, wBattleMonPP
-	ld e, a
-	ld d, $0
-	add hl, de
-	ld a, [hl]
-	and a ; does the move have any PP left?
-	jr z, .chooseMove ; if the move has no PP left, choose another
-	ld a, [wCurrentMenuItem]
-	ld c, a
-	ld b, $0
-	ld hl, wBattleMonMoves
-	add hl, bc
-	ld a, [hl]
-	ld [wPlayerSelectedMove], a
-	call GetCurrentMove
 .canUseMove
 	ld a, $1
 	and a; clear Z flag
 	ret
-.cannotUseMove
-	xor a ; set Z flag
-	ret
+
 
 LoafingAroundText:
 	TX_FAR _LoafingAroundText
@@ -5754,8 +5596,11 @@ AdjustDamageForMoveType:
 .normalmove
   ld a,[wPlayerMoveType]
 	;usual type effectiveness
+	;
 	ld [wMoveType],a
 .contin
+
+  callba WeatherBonus
 	ld a,[H_WHOSETURN]
 	and a
 	jr z,.next
@@ -5927,12 +5772,17 @@ MoveHitTest:
 	ld a,[de]
 	cp a,SUCKER_PUNCH_EFFECT
 	jr nz,.swiftCheck
+	;callba DoWeather
+	;jr nz, .swiftCheck
 	call SuckerPunchHitTest
 	jp c,.moveMissed
+
 .swiftCheck
 	ld a,[de]
 	cp a,SWIFT_EFFECT
 	ret z ; Swift never misses (interestingly, Azure Heights lists this is a myth, but it appears to be true)
+	
+
 	call CheckTargetSubstitute ; substitute check (note that this overwrites a)
 	jr z,.checkForDigOrFlyStatus
 ; this code is buggy. it's supposed to prevent HP draining moves from working on substitutes.
@@ -5941,6 +5791,7 @@ MoveHitTest:
 	;jp z,.moveMissed
 	;cp a,DREAM_EATER_EFFECT
 	;jp z,.moveMissed
+
 .checkForDigOrFlyStatus
 	bit Invulnerable,[hl]
 	jp nz,.moveMissed
@@ -6356,6 +6207,47 @@ ExecuteEnemyMoveDone:
 	ld b, $1
 	ret
 
+selfdamage:
+	ld hl, wBattleMonDefense
+	ld a, [hli]
+	push af
+	ld a, [hld]
+	push af
+	ld a, [wEnemyMonDefense]
+	ld [hli], a
+	ld a, [wEnemyMonDefense + 1]
+	ld [hl], a
+	ld hl, wEnemyMoveEffect
+	push hl
+	ld a, [hl]
+	push af
+	xor a
+	ld [hli], a
+	ld [wCriticalHitOrOHKO], a
+	ld a, 40
+	ld [hli], a
+	xor a
+	ld [hl], a
+	call GetDamageVarsForEnemyAttack
+	call CalculateDamage
+	pop af
+	pop hl
+	ld [hl], a
+	ld hl, wBattleMonDefense + 1
+	pop af
+	ld [hld], a
+	pop af
+	ld [hl], a
+	xor a
+	ld [wAnimationType], a
+	ld [H_WHOSETURN], a
+	ld a, POUND
+	call PlayMoveAnimation
+	ld a, $1
+	ld [H_WHOSETURN], a
+	call ApplyDamageToEnemyPokemon
+ ret
+
 ; checks for various status conditions affecting the enemy mon
 ; stores whether the mon cannot use a move this turn in Z flag
 CheckEnemyStatusConditions:
@@ -6457,45 +6349,8 @@ CheckEnemyStatusConditions:
 	and 1 << Confused ; if mon hurts itself, clear every other status from wEnemyBattleStatus1
 	ld [hl], a
 	ld hl, HurtItselfText
-	call PrintText
-	ld hl, wBattleMonDefense
-	ld a, [hli]
-	push af
-	ld a, [hld]
-	push af
-	ld a, [wEnemyMonDefense]
-	ld [hli], a
-	ld a, [wEnemyMonDefense + 1]
-	ld [hl], a
-	ld hl, wEnemyMoveEffect
-	push hl
-	ld a, [hl]
-	push af
-	xor a
-	ld [hli], a
-	ld [wCriticalHitOrOHKO], a
-	ld a, 40
-	ld [hli], a
-	xor a
-	ld [hl], a
-	call GetDamageVarsForEnemyAttack
-	call CalculateDamage
-	pop af
-	pop hl
-	ld [hl], a
-	ld hl, wBattleMonDefense + 1
-	pop af
-	ld [hld], a
-	pop af
-	ld [hl], a
-	xor a
-	ld [wAnimationType], a
-	ld [H_WHOSETURN], a
-	ld a, POUND
-	call PlayMoveAnimation
-	ld a, $1
-	ld [H_WHOSETURN], a
-	call ApplyDamageToEnemyPokemon
+	call PrintText 
+  call selfdamage
 	jr .monHurtItselfOrFullyParalysed
 .checkIfTriedToUseDisabledMove
 ; prevents a disabled move that was selected before being disabled from being used
@@ -7372,7 +7227,7 @@ MoveEffectPointerTable:
 	 dw ThrashPetalDanceEffect    ; THRASH_PETAL_DANCE_EFFECT
 	 dw SwitchAndTeleportEffect   ; SWITCH_AND_TELEPORT_EFFECT
 	 dw TwoToFiveAttacksEffect    ; TWO_TO_FIVE_ATTACKS_EFFECT
-	 dw TwoToFiveAttacksEffect    ; unused effect
+	 dw ReflectLightScreenEffect    ; unused effect / now spikes?
 	 dw FlinchSideEffect           ; FLINCH_SIDE_EFFECT1
 	 dw SleepEffect               ; SLEEP_EFFECT
 	 dw PoisonEffect              ; POISON_SIDE_EFFECT2
@@ -7427,7 +7282,7 @@ MoveEffectPointerTable:
 	 dw MimicEffect               ; MIMIC_EFFECT
 	 dw $0000                     ; METRONOME_EFFECT
 	 dw LeechSeedEffect           ; LEECH_SEED_EFFECT
-	 dw SplashEffect              ; SPLASH_EFFECT
+	 dw WeatherEffect              ; SPLASH_EFFECT
 	 dw DisableEffect             ; DISABLE_EFFECT
 	 dw FangAttacks               ; FIRE_FANG_EFFECT
 	 dw FangAttacks               ; ICE_FANG_EFFECT
@@ -8564,9 +8419,9 @@ ChargeMoveEffectText:
 	TX_FAR _ChargeMoveEffectText
 	TX_ASM
 	ld a, [wChargeMoveNum]
-	cp RAZOR_WIND
-	ld hl, MadeWhirlwindText
-	jr z, .gotText
+	;cp RAZOR_WIND
+	;ld hl, MadeWhirlwindText
+	;jr z, .gotText
 	cp SOLARBEAM
 	ld hl, TookInSunlightText
 	jr z, .gotText
@@ -8828,9 +8683,10 @@ MimicLearnedMoveText:
 LeechSeedEffect:
 	jpab LeechSeedEffect_
 
-SplashEffect:
+WeatherEffect:
 	call PlayCurrentMoveAnimation
-	jp PrintNoEffectText
+	callba GetWeather
+	jp PrintWeatherText
 
 DisableEffect:
 	call MoveHitTest
@@ -8941,12 +8797,12 @@ NothingHappenedText:
 	TX_FAR _NothingHappenedText
 	db "@"
 
-PrintNoEffectText:
-	ld hl, NoEffectText
+PrintWeatherText:
+	ld hl, WeatherText
 	jp PrintText
 
-NoEffectText:
-	TX_FAR _NoEffectText
+WeatherText:
+	TX_FAR _WeatherText
 	db "@"
 
 ConditionalPrintButItFailed:
