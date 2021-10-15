@@ -283,9 +283,6 @@ MapSpecificPikachuExpression:
   call IsPikachuFirst
   cp 133 ;eevee or sylveon check again.
   jr z, .Pika
-  callab CheckFirstMonStatus
-	ldpikaemotion a, PikachuEmotionSkull;28 if it's actually pikachu
-	jr c, .play_emotion
   call FirstPartymonHappy
   cp 1
   jr nc, .content ;bigger than
