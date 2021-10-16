@@ -1619,12 +1619,13 @@ Mon038_EvosMoves:
 ;Evolutions
 	db 0
 ;Learnset
-  db 43,LICK
-  db 50,NIGHT_SHADE
-  db 45,HYPNOSIS
-  db 48,FIRE_FANG
+  db 30,FLAMETHROWER
+  db 43,CONFUSE_RAY
+  db 45,FIRE_FANG
+  db 48,HEX
+  db 50,EXTRASENSORY
 	db 51,FLARE_BLITZ
-  db 52,DREAM_EATER
+  db 52,FEINT_ATTACK
 	db 0
 
 Mon025_EvosMoves:

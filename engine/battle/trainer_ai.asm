@@ -556,8 +556,13 @@ LoreleiAI:
 BrunoAI:
 	cp $40
 	ret nc
+	ld a,$A
+	call AICheckIfHPBelowFraction
+	jr c, .heal ;do not use defend if already super weak.
 	jp AIUseXDefend
-
+.heal
+  jp AIUseSuperPotion
+  
 AgathaAI:
 	cp $14
 	jp c,AISwitchIfEnoughMons

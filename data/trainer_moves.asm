@@ -91,9 +91,9 @@ SpecialTrainerMoves:
 	db LORELEI,$1
 	db 1,1,BLIZZARD
 	db 2,3,ICE_BEAM
-	db 3,1,PSYCHIC_M
-	db 3,2,LOVELY_KISS
-	db 4,3,SURF
+	db 3,3,SURF
+	db 4,1,PSYCHIC_M
+	db 4,2,LOVELY_KISS
 	db 5,3,BLIZZARD
 	db 0
 
@@ -114,8 +114,9 @@ SpecialTrainerMoves:
 	db 0
 
 	db AGATHA,$1
-	db 1,2,SUBSTITUTE
-	db 1,3,LICK
+	db 1,1,DREAM_EATER
+	db 1,2,SHADOW_BALL
+	db 1,3,HYPNOSIS
 	db 1,4,MEGA_DRAIN
 	db 2,2,TOXIC
 	db 2,4,LEECH_LIFE
@@ -126,16 +127,18 @@ SpecialTrainerMoves:
 
 	db LANCE,$1
 	db 1,1,DRAGON_RAGE
-	db 2,1,THUNDER_WAVE
+	db 2,2,THUNDER_WAVE
 	db 2,3,THUNDERBOLT
-	db 3,1,BUBBLEBEAM
-	db 3,2,WRAP
-	db 3,3,ICE_BEAM
+	db 2,1,BUBBLEBEAM
+	db 2,4,ICE_BEAM
+	db 3,3,EARTHQUAKE
 	db 4,1,EARTHQUAKE
 	db 4,2,TOXIC
 	db 4,3,FLY
+	db 5,1,FIRE_BLAST
+	db 5,2,FLY
 	db 6,1,BLIZZARD
-	db 6,2,FIRE_BLAST
+	db 6,2,HYPER_BEAM
 	db 6,3,THUNDER
 	db 0
 
