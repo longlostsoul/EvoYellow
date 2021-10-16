@@ -309,7 +309,7 @@ TrainerClassMoveChoiceModifications:
 	db 1,2,0    ; BIKER
 	db 1,3,0  ; BURGLAR
 	db 1,2,3,0    ; ENGINEER
-	db 1,2,0  ; JUGGLER_X
+	db 1,2,3,0  ; JUGGLER_X now RANDTRAINER I guess for battletower?
 	db 1,3,0  ; FISHER
 	db 1,2,3,0  ; SWIMMER
 	db 3,0      ; CUE_BALL

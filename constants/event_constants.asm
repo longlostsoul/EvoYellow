@@ -2312,7 +2312,7 @@ const_value = 0
 	const EVENT_905                                  ; 905, (D867, bit 5)
 	const EVENT_906                                  ; 906, (D867, bit 6)
 	const ELITE4_CHAMPION_EVENTS_END                 ; 907, (D867, bit 7)
-	const EVENT_908                                  ; 908, (D868, bit 0)
+	const EVENT_908                                  ; 908, (D868, bit 0) ;beat elite???
 	const EVENT_909                                  ; 909, (D868, bit 1)
 	const EVENT_90A                                  ; 90A, (D868, bit 2)
 	const EVENT_90B                                  ; 90B, (D868, bit 3)

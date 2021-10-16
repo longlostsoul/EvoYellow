@@ -64,9 +64,40 @@ ReadTrainer:
 	ld a,ENEMY_PARTY_DATA
 	ld [wMonDataLocation],a
 	push hl
-	call AddPartyMon
+	ld a,[wTrainerClass] ;BEGINNING OF RANDOMIZER TRAINER CODE 1.
+	cp RANDTRAINER
+  jr z, .pookachu
+  ;SetEvent EVENT_908
+  CheckEvent EVENT_908	;has elite 4 been beaten? if so, expand the random trainers list
+  jr z, .addmon ;if no, don't. However, this only works on very specific trainers, ones that have no level specified
+  ld a,[wTrainerClass]
+  cp COOLTRAINER_F
+  jr z, .pookachu
+  cp LASS
+  jr z, .pookachu
+  cp JUGGLER
+  jr z, .pookachu
+  cp SWIMMER
+  jr z, .pookachu
+  cp COOLTRAINER_M
+  jr z, .pookachu
+.addmon
+	call AddPartyMon ;ADDING a mon, whether random or not
+	ld a,ENEMY_PARTY_DATA
 	pop hl
 	jr .LoopTrainerData
+.pookachu
+  call Random
+  cp 250
+  jr c, .skippika 
+  ;ld a, 5
+	;ld [wCurEnemyLVL], a
+ 	ld a, PIKACHU;If we get an invalid number for our randomizer, get pika? 
+.skippika
+	ld [wd11e], a
+	ld [wcf91], a
+	jr .addmon ; END TRAINER RANDOMIZER
+	
 .SpecialTrainer
 ; if this code is being run:
 ; - each pokemon has a specific level
@@ -86,9 +117,26 @@ ReadTrainer:
 	ld a,ENEMY_PARTY_DATA
 	ld [wMonDataLocation],a
 	push hl
-	call AddPartyMon
+	ld a,[wTrainerClass] ;BEGINNING OF RANDOMIZER TRAINER CODE 2.
+	cp RANDTRAINER
+  jr z, .pookachu1
+  ; This only works on very specific trainers that have mon levels specified
+.addmon1
+	call AddPartyMon ;ADDING a mon, whether random or not
+	ld a,ENEMY_PARTY_DATA
 	pop hl
 	jr .SpecialTrainer
+.pookachu1
+  call Random
+  cp 250
+  jr c, .skippika1 
+  ;ld a, 5
+	;ld [wCurEnemyLVL], a
+ 	ld a, PIKACHU;If we get an invalid number for our randomizer, get pika? 
+.skippika1
+	ld [wd11e], a
+	ld [wcf91], a
+	jr .addmon1 ; END TRAINER RANDOMIZER
 .AddAdditionalMoveData
 ; does the trainer have additional move data?
 	ld a, [wTrainerClass]
@@ -154,6 +202,8 @@ ReadTrainer:
 	dec b
 	jr nz,.LastLoop ; repeat wCurEnemyLVL times
 	ret
+	
+
 	
 ModifyTrainerLevel: ;Pokemon Roaming Red, average trainer levels and make Elite still higher level, make things a little more balanced.
 	push af
