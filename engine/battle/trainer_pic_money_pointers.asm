@@ -37,8 +37,8 @@ TrainerPicAndMoneyPointers:
 	dw EngineerPic
 	money 5000
 
-	dw RedPicFront ;Juggler1
-	money 3500
+	dw ChiefPic ;Juggler1
+	money 4500
 
 	dw FisherPic
 	money 3500

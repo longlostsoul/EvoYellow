@@ -88,7 +88,7 @@ ReadTrainer:
 	jr .LoopTrainerData
 .pookachu
   call Random
-  cp 250
+  cp 248 ;last should be smeargle, so we do not gen legend dogs for this guy
   jr c, .skippika 
   ;ld a, 5
 	;ld [wCurEnemyLVL], a
@@ -245,44 +245,54 @@ ModifyTrainerLevel: ;Pokemon Roaming Red, average trainer levels and make Elite 
 	sub b	
 .doneApplyingVariance	
 	ld b, a 
-	ld a, [wCurOpponent];[wEngagedTrainerClass]
-	cp $E5 ; Giovanni
-	jp z, .applyPlusFive
-	cp $E6 ; ROCKET
+	ld a, [wTrainerClass];[wEngagedTrainerClass]
+	cp RANDTRAINER
+	jp z, .ApplyPlusTen
+	cp PROF_OAK
+	jp z, .ApplyPlusTen
+	cp SONY2
 	jp z, .applyPlusThree
-	cp $E7; Cooltrainer male
+	cp GIOVANNI ; Giovanni
+	jp z, .applyPlusFive
+	cp ROCKET ; ROCKET
 	jp z, .applyPlusThree
-	cp $E8 ; Cooltrainer female
+	cp COOLTRAINER_M; Cooltrainer male
 	jp z, .applyPlusThree
-	cp $E9 ; Bruno
+	cp COOLTRAINER_F ; Cooltrainer female
+	jp z, .applyPlusThree
+	cp BRUNO ; Bruno
 	jp z, .applyPlusFive
-	cp $EA ; Brock
+	cp BROCK ; Brock
+	jp z, .applyPlusThree
+	cp MISTY ; Misty
+	jp z, .applyPlusThree
+	cp LT_SURGE ; Lt. Surge
 	jp z, .applyPlusFive
-	cp $EB ; Misty
+	cp ERIKA ; Erika
 	jp z, .applyPlusFive
-	cp $EC ; Lt. Surge
+	cp KOGA ; Koga
 	jp z, .applyPlusFive
-	cp $ED ; Erika
+	cp BLAINE ; Blaine
 	jp z, .applyPlusFive
-	cp $EE ; Koga
+	cp SABRINA ; Sabrina
 	jp z, .applyPlusFive
-	cp $EF ; Blaine
+	cp SONY3 ; Rival Final
 	jp z, .applyPlusFive
-	cp $F0 ; Sabrina
+	cp LORELEI ; Lorelei
 	jp z, .applyPlusFive
-	cp $F3 ; Rival Final
+	cp AGATHA ; Agatha
 	jp z, .applyPlusFive
-	cp $F4 ; Lorelei
-	jp z, .applyPlusFive
-	cp $F6 ; Agatha
-	jp z, .applyPlusFive
-	cp $F7 ; Lance
+	cp LANCE ; Lance
 	jp z, .applyPlusFive
 	ld a, b
 	jp .doneApplyingBoost
 .applyPlusThree
 	ld a, b
 	add 3
+	jp .doneApplyingBoost
+.ApplyPlusTen
+	ld a, b
+	add 10
 	jp .doneApplyingBoost
 .applyPlusFive	
 	ld a, b

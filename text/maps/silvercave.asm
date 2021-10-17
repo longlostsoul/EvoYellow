@@ -3,20 +3,22 @@ _SilverCaveBattleText2::
 	done
 
 _SilverCaveEndBattleText2::
-	text "...Amazing."
+	text "Amazing."
 	prompt
 
 _SilverCaveAfterBattleText2::
-	text "...You've truly progressed as a trainer."
+	text "...I'm not yo"
+	line "dad."
 	done
 
 _SilverCaveBattleText1::
-	text "Did you come to"
-	line "explore too?"
+	text "Did you want to"
+	line "explore too???"
+	para "It's big in here!"
 	done
 
 _SilverCaveEndBattleText1::
-	text "Losing"
+	text "Loss"
 	line "stinks!"
 	prompt
 

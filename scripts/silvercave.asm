@@ -19,18 +19,18 @@ SilverCaveTextPointers:
 
 SilverCaveTrainerHeaders:
 SilverCaveTrainerHeader1:
-	dbEventFlagBit EVENT_BEAT_ROUTE_4_TRAINER_1 ;actually this one already exists elsewhere >_> don't feel like risking having it not work due to being on the 'wrong' spote or whatevs though, annoying thing. not that it worked well...
+	dbEventFlagBit EVENT_909 ;I believe this is free.
 	db ($2 << 4) ; trainer's view range, 4 << 4 for instance.
-	dwEventFlagAddress EVENT_BEAT_ROUTE_4_TRAINER_1
+	dwEventFlagAddress EVENT_909
 	dw SilverCaveBattleText1 ; TextBeforeBattle
 	dw SilverCaveAfterBattleText1 ; TextAfterBattle
 	dw SilverCaveEndBattleText1 ; TextEndBattle
 	dw SilverCaveEndBattleText1 ; TextEndBattle
 
 SilverCaveTrainerHeader2:
-	dbEventFlagBit EVENT_BEAT_ROUTE_4_TRAINER_0
+	dbEventFlagBit EVENT_90A
 	db ($0 << 4) ; trainer's view range
-	dwEventFlagAddress EVENT_BEAT_ROUTE_4_TRAINER_0
+	dwEventFlagAddress EVENT_90A
 	dw SilverCaveBattleText2 ; TextBeforeBattle
 	dw SilverCaveAfterBattleText2 ; TextAfterBattle
 	dw SilverCaveEndBattleText2 ; TextEndBattle
@@ -47,12 +47,12 @@ SilverCaveText2:
 	ld hl, SilverCaveTrainerHeader2
 SilverCaveTalkToTrainer:
 	call TalkToTrainer
-	SetEvent EVENT_BEAT_ROUTE_4_TRAINER_0
+	SetEvent EVENT_90A
 	jp TextScriptEnd	
 
 SilverCaveTalkToTrainer2:
 	call TalkToTrainer
-	SetEvent EVENT_BEAT_ROUTE_4_TRAINER_1
+	SetEvent EVENT_909
 	jp TextScriptEnd
 
 SilverCaveBattleText1:

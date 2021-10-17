@@ -819,6 +819,55 @@ OaksLabText3:
 .asm_1c9d9
 	ld hl, OaksLabText_1ca9f
 	call PrintText
+;copied from shinpokered - prof oak battle
+	CheckEvent EVENT_908	;has elite 4 been beaten?
+	jr z, .dexcheck	;if no then leave this section and do the pokedex check like normal
+	ResetEvent EVENT_909
+	ResetEvent EVENT_90A ;allow rebattle Mt Silver dudes if did already
+	call YesNoChoice	;else call a yes/no choice box
+	ld a, [wCurrentMenuItem]	;load the player choice
+	and a	;check the player choice
+	jr z, .dexcheck	;if yes, then check the pokedex like normal
+	ld hl, OaksLabText_challenge	;else ask if you want to challenge prof oak
+	call PrintText	;print the challenge text
+	call YesNoChoice	;prompt a yes/no choice
+	ld a, [wCurrentMenuItem]	;load the player choice
+	and a	;check the player choice
+	jp nz, .asm_1ca6f;if no, jump to generic text about coming to visit and end the conversation
+	;otherwise begin loading battle
+	ld hl, OaksLabText_prebattle	;load oak's pre battle text
+	call PrintText	;print the pre battle text
+	ld hl, wd72d;set the bits for triggering battle
+	set 6, [hl]	;
+	set 7, [hl]	;
+	ld hl, OakVictorySpeech	;load text for when you win
+	ld de, OakDefeatSpeech	;load text for when you lose
+	call SaveEndBattleTextPointers	;save the win/lose text
+	ld a, OPP_PROF_OAK	;load the trainer type
+	ld [wCurOpponent], a	;set as the current opponent
+	; can select oak's team based on the rival starter. however since this is yellow and you get every starter you may as well just give him one team with all the starters.
+	;ld a, [wRivalStarter]
+	;cp 1
+	;jr nz, .NotStarter2
+;	ld a, $2 	;then oak has venusaur
+	;jr .team_selected
+;.NotStarter2
+;	cp 2	
+;	jr nz, .NotStarter3 
+	ld a, $3 
+;	jr .team_selected
+;.NotStarter3	
+;	ld a, $1 	
+.team_selected
+	ld [wTrainerNo], a	;load oak's team
+	xor a
+	ld [hJoyHeld], a
+	;heal before the fight. should be after but doesn't seem to work that way.
+	predef HealParty
+	jp TextScriptEnd
+;Rate Pokedex
+.dexcheck
+
 	ld a, $1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	predef DisplayDexRating
@@ -1160,3 +1209,21 @@ OaksLabText9:
 OaksLabText_1c31d:
 	TX_FAR _OaksLabText_1d405
 	db "@"
+
+;;;;;;;;;;;;;;;;;;;;;;joenote - adding text for oak battle
+OaksLabText_challenge:
+	TX_FAR _OaksLabText_challenge
+	db "@"
+
+OaksLabText_prebattle:
+	TX_FAR _OaksLabText_prebattle
+	db "@"
+	
+OakVictorySpeech:
+	TX_FAR _OakVictorySpeech
+	db "@"
+
+OakDefeatSpeech:
+	TX_FAR _OakDefeatSpeech
+	db "@"
+	

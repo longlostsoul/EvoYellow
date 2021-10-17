@@ -399,3 +399,24 @@ _OaksLabText_1d405::
 	text "This is a free"
 	line "POKEMON hack."
 	done
+
+_OaksLabText_challenge::
+ text "I used to be champ"
+ line "and now you are."
+ cont "<PLAYER>! Fight me!"
+ done
+
+_OaksLabText_prebattle::
+ text "Excellent!"
+ done
+
+
+_OakVictorySpeech::
+ text "You've"
+ line "progressed."
+ prompt
+
+_OakDefeatSpeech::
+ text "You can "
+ line "do better."
+ prompt
