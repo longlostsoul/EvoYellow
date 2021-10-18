@@ -1951,80 +1951,14 @@ GetItemName::
 
 GetMachineName::
 ; copies the name of the TM/HM in [wd11e] to wcd6d
-;this experiment ultimately didn't work to give just the move names. although on further examination it doesn't actually seem to be the main source of the crashing, GetMoveName seems to be, it doesn't help it either. The crashfix for tms works for the normal version of this only.
- ; push hl
- ; push de
- ; push bc
- ; ld a,[wd11e]
- ; sub TM_01
- ; push af
-;	jr nc, .skipAdding
-;	add 55 ; if item is an HM, add 55
-;.skipAdding
-;	inc a
-;	ld [wd11e], a
-;	pop bc
-;  pop de
-;  pop hl
-;  callab TMToMove
-;  call GetMoveName
-  
-;  pop af
-	;switching tm names with move names will screw up pc, so be careful
-	push hl
-	push de
-	push bc
-	ld a, [wd11e]
-	push af
-	cp TM_01 ; is this a TM? [not HM]
-	jr nc, .WriteTM
-; if HM, then write "HM" and add 5 to the item ID, so we can reuse the
-; TM printing code
-	add 5
-	ld [wd11e], a
-	ld hl, HiddenPrefix ; points to "HM"
-	ld bc, 2
-	jr .WriteMachinePrefix
-.WriteTM
-	ld hl, TechnicalPrefix ; points to "TM"
-	ld bc, 2
-.WriteMachinePrefix
-	ld de, wcd6d
-	call CopyData
 
-; now get the machine number and convert it to text
-	ld a, [wd11e]
-	sub TM_01 - 1
-	ld b, "0"
-.FirstDigit
-	sub 10
-	jr c, .SecondDigit
-	inc b
-	jr .FirstDigit
-.SecondDigit
-	add 10
-	push af
-	ld a, b
-	ld [de], a
-	inc de
-	pop af
-	ld b, "0"
-	add b
-	ld [de], a
-	inc de
-	ld a, "@"
-	ld [de], a
-	pop af
-	ld [wd11e], a
-	pop bc
-	pop de
-	pop hl
+	callba WriteTMPrefix
+
 	ret
 
-TechnicalPrefix::
-	db "TM"
-HiddenPrefix::
-	db "HM"
+;HiddenPrefix::
+;	db "HM"
+
 
 ; sets carry if item is HM, clears carry if item is not HM
 ; Input: a = item ID
