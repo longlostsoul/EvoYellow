@@ -107,7 +107,7 @@ AIMoveChoiceModificationFunctionPointers:
 	dw AIMoveChoiceModification1
 	dw AIMoveChoiceModification2
 	dw AIMoveChoiceModification3
-	dw AIMoveChoiceModification4 ; unused, does nothing
+	dw AIMoveChoiceModification4 ; is unused, maybe try some switching code from shinpokered here
 
 ; discourages moves that cause no damage but only a status ailment if player's mon already has one
 AIMoveChoiceModification1:
@@ -200,16 +200,25 @@ AIMoveChoiceModification2:
   ld a, [wEnemyMovePower]
 	and a
 	jr nz, .nextMove
-	inc [hl] ;slightly discourage because it does no damage, hopefully?
+	;inc [hl] ;slightly discourage because it does no damage, hopefully?
+	ld a, [hl]
+	add $5 ; heavily discourage move because still using these too much
+	ld [hl], a
   jr .nextMove
 
 ; encourages moves that are effective against the player's mon (but try to check if non-damaging).
 ; discourage damaging moves that are ineffective or not very effective against the player's mon,
 ; unless there's no damaging move that deals at least neutral damage
 AIMoveChoiceModification3:
+  ld a, [wEnemyMonSpecies]
+  cp WOBBUFFET
+  jr z, .ret
 	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
 	ld de, wEnemyMonMoves ; enemy moves
 	ld b, NUM_MOVES + 1
+	jp .nextMove
+.ret
+ ret
 .nextMove
 	dec b
 	ret z ; processed all 4 moves
@@ -261,7 +270,10 @@ AIMoveChoiceModification3:
 	ld a, [wEnemyMoveType]
 	cp d
 	jr z, .loopMoves
+.dmging
 	ld a, [wEnemyMovePower]
+	cp 1
+	jr z,.loopMoves ;don't consider it a better move if it is set to 1 power, so less likely to spam fissure? this doesn't seem to help much though.
 	and a
 	jr nz, .betterMoveFound ; damaging moves of a different type are considered to be better moves
 	jr .loopMoves
@@ -274,8 +286,9 @@ AIMoveChoiceModification3:
 	pop hl
 	and a
 	jr z, .nextMove
-	inc [hl] ; sligthly discourage this move
+	inc [hl] ; slightly discourage this move
 	jr .nextMove
+ 
 AIMoveChoiceModification4:
 	ret
 
@@ -589,7 +602,7 @@ GenericAI:
   ;ld a,5
 	;call AICheckIfHPBelowFraction
 	;jp c,AISwitchIfEnoughMons ;doesn't check if mon is low health so kinda too dumb
-	ld a,$A
+	ld a,3
 	call AICheckIfHPBelowFraction
 	jp c,AIUseSuperPotion
 .default
