@@ -333,6 +333,7 @@ GyaradosSprite:       INCBIN "gfx/sprites/gyarados.2bpp"
 LaprasSprite:       INCBIN "gfx/sprites/lapras.2bpp"
 
 SECTION "bank07",ROMX,BANK[$07]
+INCLUDE "engine/overworld/emotion_bubbles.asm"
 
 INCLUDE "data/mapHeaders/cinnabarisland.asm"
 INCLUDE "data/mapObjects/cinnabarisland.asm"
@@ -801,7 +802,6 @@ INCLUDE "engine/battle/core.asm"
 SECTION "bank10",ROMX,BANK[$10]
 
 INCLUDE "engine/menu/pokedex.asm"
-INCLUDE "engine/overworld/emotion_bubbles.asm"
 INCLUDE "engine/trade.asm"
 INCLUDE "engine/intro.asm"
 INCLUDE "engine/trade2.asm"
@@ -2574,6 +2574,97 @@ SetLevel50:
 .ret
   ret
 
+
+AIGetTypeEffectiveness:
+  ld a,[wInGameTradeGiveMonName]
+  cp 2
+  jr z, .notenemyMove
+	ld a,[wEnemyMoveType]
+	ld d,a                 ; d = type of enemy move
+	ld hl,wBattleMonType
+	ld b,[hl]              ; b = type 1 of player's pokemon
+	inc hl
+	ld c,[hl]              ; c = type 2 of player's pokemon
+	ld a,$10
+	ld [wd11e],a           ; initialize [wd11e] to neutral effectiveness
+	ld hl,TypeEffects
+.loop
+	ld a,[hli]
+	cp a,$ff
+	ret z
+	cp d                   ; match the type of the move
+	jr nz,.nextTypePair1
+	ld a,[hli]
+	cp b                   ; match with type 1 of pokemon
+	jr z,.AImatchingPairFound
+	cp c                   ; or match with type 2 of pokemon
+	jr z,.AImatchingPairFound
+	jr .nextTypePair2
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+.AImatchingPairFound
+	ld a, [hl]	;get damage multiplier
+	cp $05	;is it halved?
+	jr nz, .AInothalf	;jump down of not half
+	ld a, [wTypeEffectiveness]	;else get the effectiveness multiplier
+	srl a	;halve the multiplier
+	ld [wTypeEffectiveness], a ; store damage multiplier
+	jr .nextTypePair2	;get next pair in list
+.AInothalf
+	cp $14	;is it double?
+	jr nz, .AImustbezero	;if not double either, it must be zero so skip ahead
+	ld a, [wTypeEffectiveness]	;else get the effectiveness multiplier
+	sla a	;double the multiplier
+	ld [wTypeEffectiveness], a ; store damage multiplier
+	jr .nextTypePair2	;get next pair in list
+.AImustbezero
+	ld a, [wTypeEffectiveness]	;else get the effectiveness multiplier
+	xor a	;clear a to 00
+	jr .done
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+.nextTypePair1
+	inc hl
+.nextTypePair2
+	inc hl
+	jr .loop
+.notenemyMove ;Get Player Move Type
+  ld a, [wPlayerMoveType]
+	ld d, a                    ; d = type of player move
+	ld hl, wEnemyMonType
+	ld b, [hl]                 ; b = type 1 of enemy's pokemon
+	inc hl
+	ld c, [hl]                 ; c = type 2 of enemy's pokemon
+	ld a, $10
+	ld [wTypeEffectiveness], a ; initialize to neutral effectiveness
+	ld hl, TypeEffects
+	jr .loop
+.done
+	;ld a, [wTrainerClass] ;lorelei can be like everyone else kthanks.
+	;cp LORELEI
+	;jr nz, .ok
+	;ld a, [wEnemyMonSpecies]
+	;cp DEWGONG
+	;jr nz, .ok
+	;call BattleRandom
+	;cp $66 ; 40 percent
+	;ret c
+;.ok
+
+	ld a,[hl]
+	ld [wd11e],a           ; store damage multiplier
+	ret
+
+CheckandResetSwitchBit:	
+	ld a, [wInGameTradeGiveMonSpecies] ;reused flag, should be fine to use I think.
+	bit 0, a	;check a for switch pkmn bit (sets or clears zero flag)
+	res 0, a ; clear the switch pkmn bit (does not affect flags)
+	res 0, a ; resets the switch pkmn bit (does not affect flags)
+	ld [wInGameTradeGiveMonSpecies], a
+	ret
+SetSwitchBit:	
+	ld a, [wInGameTradeGiveMonSpecies]
+	set 0, a ; sets the switch pkmn bit
+	ld [wInGameTradeGiveMonSpecies], a
+	ret
 
 SECTION "bank44",ROMX,BANK[$44]
 KingdraPicFront::      INCBIN "pic/ymon/kingdra.pic"

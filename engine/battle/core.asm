@@ -5702,50 +5702,6 @@ AdjustDamageForMoveType:
 .done
 	ret
 
-AIGetTypeEffectiveness:
-	ld a,[wEnemyMoveType]
-	ld d,a                 ; d = type of enemy move
-	ld hl,wBattleMonType
-	ld b,[hl]              ; b = type 1 of player's pokemon
-	inc hl
-	ld c,[hl]              ; c = type 2 of player's pokemon
-	ld a,$10
-	ld [wd11e],a           ; initialize [wd11e] to neutral effectiveness
-	ld hl,TypeEffects
-.loop
-	ld a,[hli]
-	cp a,$ff
-	ret z
-	cp d                   ; match the type of the move
-	jr nz,.nextTypePair1
-	ld a,[hli]
-	cp b                   ; match with type 1 of pokemon
-	jr z,.done
-	cp c                   ; or match with type 2 of pokemon
-	jr z,.done
-	jr .nextTypePair2
-.nextTypePair1
-	inc hl
-.nextTypePair2
-	inc hl
-	jr .loop
-
-.done
-	;ld a, [wTrainerClass] ;lorelei can be like everyone else kthanks.
-	;cp LORELEI
-	;jr nz, .ok
-	;ld a, [wEnemyMonSpecies]
-	;cp DEWGONG
-	;jr nz, .ok
-	;call BattleRandom
-	;cp $66 ; 40 percent
-	;ret c
-;.ok
-
-	ld a,[hl]
-	ld [wd11e],a           ; store damage multiplier
-	ret
-
 INCLUDE "data/type_effects.asm"
 
 ; some tests that need to pass for a move to hit

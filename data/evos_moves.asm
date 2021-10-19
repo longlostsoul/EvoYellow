@@ -2289,6 +2289,7 @@ Mon068_EvosMoves:
 	db 47,CROSS_CHOP
 	db 53,SUCKER_PUNCH
 	db 55,DYNAMICPUNCH
+	db 66,GIGA_IMPACT
 	db 0
 	
 Mon055_EvosMoves:
@@ -2450,6 +2451,7 @@ Mon091_EvosMoves:
 ;Learnset
   db 40,SPIKES
 	db 50,SPIKE_CANNON
+	db 56,ROCK_BLAST
 	DB 60,SPLASH;RAINDANCE
 	db 0
 
@@ -4042,6 +4044,7 @@ Mon212_EvosMoves:
 	db 44,IRON_DEFENSE
 	db 49,CRUNCH
 	db 50,EARTHQUAKE
+	db 55,POWER_GEM;should really be stone edge but close enough
 	db 57,GIGA_IMPACT
 	db 0
 
@@ -4979,6 +4982,9 @@ Mon164_2EvosMoves:
 ;Evolutions
 	db 0
 ;Learnset
+  db 1,FIRE_FANG
+  db 1,ICE_FANG
+  db 1,THUNDER_FANG
 	db 1,TACKLE
 	db 1,HARDEN
 	db 7,BIND
