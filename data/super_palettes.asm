@@ -2551,6 +2551,12 @@ GBCBasePalettes:
 	RGB 07, 11, 26
 	RGB 00, 00, 00
 	
+	;CURSOLA
+	RGB 31, 31, 31
+	RGB 08, 11, 18
+	RGB 19, 21, 31
+	RGB 00, 00, 00	
+	
 	;Pal Black Shiny
   RGB 31,31,31 ; PAL_SHINY
 	RGB 05, 05, 05

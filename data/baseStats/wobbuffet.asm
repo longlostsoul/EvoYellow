@@ -15,7 +15,7 @@ dw WobbuffetPicBack
 db COUNTER
 db MIRROR_COAT
 db BABYDOLLEYES
-db SPLASH
+db 0
 db 5 ; growth rate
 ; learnset
 	tmlearn 0

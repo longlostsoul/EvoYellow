@@ -1620,12 +1620,13 @@ Mon038_EvosMoves:
 ;Evolutions
 	db 0
 ;Learnset
-  db 43,LICK
-  db 50,NIGHT_SHADE
-  db 45,HYPNOSIS
-  db 48,FIRE_FANG
+  db 30,FLAMETHROWER
+  db 43,CONFUSE_RAY
+  db 45,FIRE_FANG
+  db 48,HEX
+  db 50,EXTRASENSORY
 	db 51,FLARE_BLITZ
-  db 52,DREAM_EATER
+  db 52,FEINT_ATTACK
 	db 0
 
 Mon025_EvosMoves:
@@ -2289,6 +2290,7 @@ Mon068_EvosMoves:
 	db 47,CROSS_CHOP
 	db 53,SUCKER_PUNCH
 	db 55,DYNAMICPUNCH
+	db 66,GIGA_IMPACT
 	db 0
 	
 Mon055_EvosMoves:
@@ -2450,6 +2452,7 @@ Mon091_EvosMoves:
 ;Learnset
   db 40,SPIKES
 	db 50,SPIKE_CANNON
+	db 56,ROCK_BLAST
 	DB 60,SPLASH;RAINDANCE
 	db 0
 
@@ -3837,15 +3840,15 @@ Mon204_EvosMoves:
 	db 14,METAL_CLAW
 	db 17,AIR_CUTTER
 	db 18,DIG
-	db 20,FURY_SWIPES
+	db 20,WING_ATTACK
 	db 22,ROCK_TOMB
 	db 25,HIDDEN_POWER
 	db 26,SLASH
-	db 27,ICE_BEAM
+	db 27,ICE_FANG
 	db 30,MUD_BOMB
 	db 34,IRON_DEFENSE
 	db 38,SWORDS_DANCE
-	db 42,WING_ATTACK
+	db 42,X_SCISSOR
 	db 46,EARTHQUAKE
 	db 50,ACROBATICS
 	db 0
@@ -3855,6 +3858,9 @@ Mon205_EvosMoves:
 ;Evolutions
 	db 0
 ;Learnset
+  db 1,THUNDER_FANG
+  ;db 1,ICE_FANG
+  db 1,POISON_JAB
 	db 3,SAND_ATTACK
 	db 5,POISON_STING
 	db 7,PIN_MISSILE
@@ -3863,16 +3869,16 @@ Mon205_EvosMoves:
 	db 14,METAL_CLAW
 	db 17,AIR_CUTTER
 	db 18,DIG
-	db 20,FURY_SWIPES
+	db 20,ACROBATICS
 	db 22,ROCK_TOMB
 	db 26,SLASH
-	db 27,ICE_BEAM
+	db 27,ICE_FANG
 	db 30,MUD_BOMB
-	db 34,IRON_DEFENSE
+	db 34,NIGHT_SLASH
 	db 38,SWORDS_DANCE
-	db 42,WING_ATTACK
+	db 42,AERIAL_ACE
 	db 46,EARTHQUAKE
-	db 50,ACROBATICS
+	db 50,X_SCISSOR
 	db 0
 	
 Mon206_EvosMoves:
@@ -3943,8 +3949,8 @@ Mon208_EvosMoves:
 	db 36,FIRE_FANG
 	db 36,ICE_FANG
 	db 36,THUNDER_FANG
-	db 41,DOUBLE_EDGE
-	db 44,MOONBLAST
+	db 41,MOONBLAST
+	db 44,DOUBLE_EDGE
 	db 49,CRUNCH
 	db 50,DAZZLINGLEAM
 	db 57,GIGA_IMPACT
@@ -3964,8 +3970,8 @@ Mon209_EvosMoves:
 	db 28,ZEN_HEADBUTT
 	db 33,DISARM_VOICE
 	db 36,SLASH
-	db 41,DOUBLE_EDGE
-	db 44,MOONBLAST
+	db 41,MOONBLAST
+	db 44,DOUBLE_EDGE
 	db 49,CRUNCH
 	db 50,DAZZLINGLEAM
 	db 57,GIGA_IMPACT
@@ -4042,6 +4048,7 @@ Mon212_EvosMoves:
 	db 44,IRON_DEFENSE
 	db 49,CRUNCH
 	db 50,EARTHQUAKE
+	db 55,POWER_GEM;should really be stone edge but close enough
 	db 57,GIGA_IMPACT
 	db 0
 
@@ -4743,7 +4750,7 @@ Mon173_EvosMoves:
 	db 0
 ;Learnset
 	db 1,QUICK_ATTACK
-	db 1,LEER
+	db 1,IRON_TAIL
 	db 5,THUNDERSHOCK
 	db 8,LOW_KICK
 	db 12,SWIFT
@@ -4979,6 +4986,9 @@ Mon164_2EvosMoves:
 ;Evolutions
 	db 0
 ;Learnset
+  db 1,FIRE_FANG
+  db 1,ICE_FANG
+  db 1,THUNDER_FANG
 	db 1,TACKLE
 	db 1,HARDEN
 	db 7,BIND

@@ -6,7 +6,7 @@ FemaleTrainerList::
 	db $FF
 
 EvilTrainerList::
-	db OPP_JUGGLER_X
+	;db OPP_JUGGLER_X
 	db OPP_GAMBLER
 	db OPP_ROCKER
 	db OPP_JUGGLER

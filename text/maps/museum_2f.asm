@@ -1,9 +1,33 @@
-_Museum2FText1::
+_MuseumChallenge::
 	text "MOON STONE?"
 
-	para "What's so special"
-	line "about it?"
+	para "I gotta steal-"
+	line "!"
+	
+	para "You didn't hear"
+	line "that, right?"
+	
+	para "I'm just an"
+	line "ordinary citizen!"
 	done
+	
+_MuseumPre::
+ text "You'll regret that!"
+ line "I'm calling backup!"
+ done
+	
+_MuseumDefeat::
+ text "Buzz off!"
+ done
+ 
+_MuseumVictory::
+ text "I give!"
+ done
+ 
+_MuseumBye::
+ text "I'll be good! I"
+ line "wasted my money..."
+ done
 
 _Museum2FText2::
 	text "July 20, 1969!"
@@ -34,7 +58,7 @@ _Museum2FText5::
 	done
 
 _Museum2FPikachuText1::
-	text "Your PIKACHU looks"
+	text "Your PKMN looks"
 	line "untamed."
 	cont "May I have it for"
 	cont "my daughter?"
@@ -42,7 +66,7 @@ _Museum2FPikachuText1::
 
 _Museum2FPikachuText2::
 	text "I'd like to get"
-	line "that PIKACHU off"
+	line "that PKMN off"
 	cont "you, but it's too"
 	cont "attached to you."
 	done

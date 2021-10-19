@@ -333,6 +333,7 @@ GyaradosSprite:       INCBIN "gfx/sprites/gyarados.2bpp"
 LaprasSprite:       INCBIN "gfx/sprites/lapras.2bpp"
 
 SECTION "bank07",ROMX,BANK[$07]
+INCLUDE "engine/overworld/emotion_bubbles.asm"
 
 INCLUDE "data/mapHeaders/cinnabarisland.asm"
 INCLUDE "data/mapObjects/cinnabarisland.asm"
@@ -801,7 +802,6 @@ INCLUDE "engine/battle/core.asm"
 SECTION "bank10",ROMX,BANK[$10]
 
 INCLUDE "engine/menu/pokedex.asm"
-INCLUDE "engine/overworld/emotion_bubbles.asm"
 INCLUDE "engine/trade.asm"
 INCLUDE "engine/intro.asm"
 INCLUDE "engine/trade2.asm"
@@ -2574,6 +2574,62 @@ SetLevel50:
 .ret
   ret
 
+AIGetTypeEffectiveness:
+	ld a,[wEnemyMoveType]
+	ld d,a                 ; d = type of enemy move
+	ld hl,wBattleMonType
+	ld b,[hl]              ; b = type 1 of player's pokemon
+	inc hl
+	ld c,[hl]              ; c = type 2 of player's pokemon
+	ld a,$10
+	ld [wd11e],a           ; initialize [wd11e] to neutral effectiveness
+	ld hl,TypeEffects
+.loop
+	ld a,[hli]
+	cp a,$ff
+	ret z
+	cp d                   ; match the type of the move
+	jr nz,.nextTypePair1
+	ld a,[hli]
+	cp b                   ; match with type 1 of pokemon
+	jr z,.done
+	cp c                   ; or match with type 2 of pokemon
+	jr z,.done
+	jr .nextTypePair2
+.nextTypePair1
+	inc hl
+.nextTypePair2
+	inc hl
+	jr .loop
+
+.done
+	;ld a, [wTrainerClass] ;lorelei can be like everyone else kthanks.
+	;cp LORELEI
+	;jr nz, .ok
+	;ld a, [wEnemyMonSpecies]
+	;cp DEWGONG
+	;jr nz, .ok
+	;call BattleRandom
+	;cp $66 ; 40 percent
+	;ret c
+;.ok
+
+	ld a,[hl]
+	ld [wd11e],a           ; store damage multiplier
+	ret
+
+CheckandResetSwitchBit:	
+	ld a, [wInGameTradeGiveMonSpecies] ;reused flag, should be fine to use I think.
+	bit 0, a	;check a for switch pkmn bit (sets or clears zero flag)
+	res 0, a ; clear the switch pkmn bit (does not affect flags)
+	res 0, a ; resets the switch pkmn bit (does not affect flags)
+	ld [wInGameTradeGiveMonSpecies], a
+	ret
+SetSwitchBit:	
+	ld a, [wInGameTradeGiveMonSpecies]
+	set 0, a ; sets the switch pkmn bit
+	ld [wInGameTradeGiveMonSpecies], a
+	ret
 
 SECTION "bank44",ROMX,BANK[$44]
 KingdraPicFront::      INCBIN "pic/ymon/kingdra.pic"
