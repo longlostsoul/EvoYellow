@@ -4,7 +4,9 @@ This is a disassembly of Pokémon Yellow with bonus features; Pikachu now evolve
 There is also now a minimalist version [**elsewhere**][minyellow], if you wanted JUST following, running, evolving Raichu, boy/girl choice, and 151 mons, you want the minimalist one.
 You do have my permission to use this for whatever you like.
 
-Version version 4:
+Use the UPS patches for the latest versions.
+
+Latest Version:
 + Play as girl or boy
 + Cute Raichu graphics when you evolve Pikachu, Eevee and Meowth instead in those versions.
 + Ride pokemon on a saddle
@@ -41,11 +43,14 @@ Version version 4:
 
 Known bugs:
 * #One person reported a crash after dig, which I haven't been able to replicate.
-* Mon follow sprites do not match party sprites. This isn't really a bug, I just never made that functionality because it was a pain, and follow sprites have different frames from party sprites anyway.
-* Diglett Cave might be green if you go into it from the same route as Viridian Forest, due to a palette over-ride quick fix for day-night.
-* (resolved?) The move tutor was buggy for awhile. Now it should be just annoying in a very large loop, but not buggy per say.
-* should be resolved: on eevee version (and as far as I could tell, only eevee version) there was a crash due to old man for some reason in Viridian city.
-* Should be resolved in version 3.5: there was an issue with using multiple TMs in a row causing crashes, especially Dark Pulse. Side effect of the fix is that you lose your position in the bag after canceling TM use, but that's pretty minor.
+* # Viewing lots of TMs by clicking 'use' and then canceling can cause crashes. To help avoid the need for this, I have modified TMs to often show their types, except for a couple rare ones.
+*Minor. Mon follow sprites do not match party sprites. This isn't really a bug, I just never made that functionality because it was a pain, and follow sprites have different frames from party sprites anyway.
+*Minor. Diglett Cave might be green if you go into it from the same route as Viridian Forest, due to a palette over-ride quick fix for day-night.
+x* (resolved) there was a spikes activating in cinnabar bug.
+x* (resolved?) The move tutor was buggy for awhile. Now it should be just annoying in a xvery large loop, but not buggy per say.
+x* (Resolved) Move deleter suffered from the same type of crash. Now HMs are just normally deletable so you don't need them.
+x* should be (resolved): on eevee version (and as far as I could tell, only eevee version) there was a crash due to old man for some reason in Viridian city.
+x* Should be (resolved) in version 3.5: there was an issue with using multiple TMs in a row causing crashes, especially Dark Pulse. Side effect of the fix is that you lose your position in the bag after canceling TM use, but that's pretty minor.
 *If you somehow manage to lose the first battle against ROCKET in the Mart, there's a bit of a lag before you end up back at your house. Just hit a and be patient; you won't have to refight them, either, just go straight to Oak.
 
 
