@@ -91,7 +91,7 @@ PewterGymTextPointers:
 PewterGymTrainerHeaders:
 PewterGymTrainerHeader0:
 	dbEventFlagBit EVENT_BEAT_PEWTER_GYM_TRAINER_0
-	db ($5 << 4) ; trainer's view range
+	db ($0 << 4) ; trainer's view range
 	dwEventFlagAddress EVENT_BEAT_PEWTER_GYM_TRAINER_0
 	dw PewterGymBattleText1 ; TextBeforeBattle
 	dw PewterGymAfterBattleText1 ; TextAfterBattle
