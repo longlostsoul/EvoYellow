@@ -231,16 +231,12 @@ AIMoveChoiceModification3:
 	push hl
 	push bc
 	push de
-	ld a,2
-	ld [wInGameTradeGiveMonName],a ;tempflag
 	callab AIGetTypeEffectiveness
-	ld a,0
-	ld [wInGameTradeGiveMonName],a
 	pop de
 	pop bc
 	pop hl
 	ld a, [wTypeEffectiveness]
-	cp $10 ;neutral
+	cp $10
 	jr z, .nextMove
 	jr c, .notEffectiveMove
 	ld a, [wEnemyMovePower]
@@ -294,52 +290,6 @@ AIMoveChoiceModification3:
 	jr .nextMove
  
 AIMoveChoiceModification4:
-;this unused routine now handles intelligent trainer switching
-	;use "call SetSwitchBit" to induce the trainer to switch pkmn. Code from shinpokered by jojobear13
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;switch if HP is low. lower HP has higher chance of switching
-	ld a, 3	;
-	call AICheckIfHPBelowFraction
-	jr nc, .skipSwitchHPend	;if hp not below 1/3 then skip to the end of this block
-	call Random	;put a random number in 'a' between 0 and 255
-	and $03	;use only bits 0 & 1 for a random number of 0 to 3
-	jp z, .setSwitch	;if zero flag is set, switch pkmn because 'a' is zero
-.skipSwitchHPend
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;switch if supereffective move is being used against enemy
-	ld a, [wPlayerMovePower]	;get the power of the player's move
-	cp $2	;regular damaging moves have power > 1
-	jr nc, .skipSwitchEffectiveEnd	;skip out if the move is not a normal damaging move
-	push hl
-	push bc
-	push de
-	ld a, 2	;set a to 2 this makes AIGetTypeEffectiveness compare player move to enemy pkmn types
-	ld [wInGameTradeGiveMonName],a ;temp flag
-	callab AIGetTypeEffectiveness
-	ld a,0
-	ld [wInGameTradeGiveMonName],a
-	pop de
-	pop bc
-	pop hl
-	ld a, [wTypeEffectiveness]	;get the multiplier effectiveness for the player's move
-	cp $14	;is it < 20?
-	jr c, .skipSwitchEffectiveEnd	;if so, skip to end of this block
-	push bc
-	ld a, [wPlayerMovePower]	;get the power of the player's move into a
-	srl a	;halve a
-	ld b, a	;put a into b
-	call Random	;put a random number in 'a' 
-	and $FF	;use only bits 0 to 7
-	cp b; see if a < b and set carry if true
-	pop bc
-	jp c, .setSwitch	;if carry flag is set, switch pkmn
-.skipSwitchEffectiveEnd
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-	jr .skipSwitchEnd	;jump to the end and get out of this line is reached.
-.setSwitch	;this line will only be reached if a switch is confirmed.
-	callba SetSwitchBit
-.skipSwitchEnd
 	ret
 
 ReadMove:
@@ -380,7 +330,7 @@ TrainerClassMoveChoiceModifications:
 	db 1,3,0  ; BEAUTY
 	db 1,2,3,0  ; PSYCHIC_TR
 	db 1,3,0    ; ROCKER
-	db 1,3,4,0    ; JUGGLER
+	db 1,3,0    ; JUGGLER
 	db 1,3,0    ; TAMER
 	db 1,3,0    ; BIRD_KEEPER
 	db 1,3,0    ; BLACKBELT
@@ -398,15 +348,15 @@ TrainerClassMoveChoiceModifications:
 	db 1,2,0    ; LT_SURGE
 	db 1,2,3,0  ; ERIKA
 	db 1,2,3,0  ; KOGA
-	db 1,3,4,0  ; BLAINE
-	db 1,3,4,0    ; SABRINA
+	db 1,3,0  ; BLAINE
+	db 1,3,0    ; SABRINA
 	db 1,2,3,0  ; GENTLEMAN
 	db 1,2,3,0  ; SONY2
-	db 1,2,3,4,0  ; SONY3
+	db 1,2,3,0  ; SONY3
 	db 1,2,3,0; LORELEI
-	db 1,2,3,4,0    ; CHANNELER
-	db 1,2,3,4,0    ; AGATHA
-	db 1,3,4,0  ; LANCE
+	db 1,2,3,0    ; CHANNELER
+	db 1,2,3,0    ; AGATHA
+	db 1,3,0  ; LANCE
 
 INCLUDE "engine/battle/trainer_pic_money_pointers.asm"
 
@@ -434,8 +384,6 @@ TrainerAI:
 	and 1 << UsingRage ; %1000000
 	jr nz, .done ; don't follow trainer ai if opponent is locked in rage
 	             ; note that this doesn't check for hyper beam recharge which can cause problems
-	;callab CheckandResetSwitchBit ;new switching mechanism, but currently makes everyone switch which I don't care for. here if you want it though.
-	;jp nz, AISwitchIfEnoughMons
 	ld a,[wTrainerClass] ; what trainer class is this?
 	dec a
 	ld c,a
@@ -516,9 +464,12 @@ TrainerAIPointers:
 	dbw 1,LanceAI ; lance
 
 JugglerAI:
-	callab CheckandResetSwitchBit
-	jp nz, AISwitchIfEnoughMons
-	ret
+	cp $40
+	ret nc
+	ld a,$A
+	call AICheckIfHPBelowFraction
+	ret nc
+	jp AISwitchIfEnoughMons
 
 BlackbeltAI:
 	cp $20
@@ -534,8 +485,6 @@ GiovanniAI:
 	jp AIUseGuardSpec
 
 CooltrainerMAI:
-  callab CheckandResetSwitchBit
-	jp nz, AISwitchIfEnoughMons
 	cp $40
 	ret nc
 	jp AIUseXAttack
@@ -576,17 +525,11 @@ ErikaAI:
 	jp AIUseSuperPotion
 
 KogaAI:
-  callab CheckandResetSwitchBit
-	jp nz, AISwitchIfEnoughMons
-	call Random
-	cp $10
+	cp $20
 	ret nc
 	jp AIUseXAttack
 
 BlaineAI:
-  callab CheckandResetSwitchBit
-	jp nz, AISwitchIfEnoughMons
-	call Random
 	cp $40
 	ret nc
 	ld a,$A
@@ -595,9 +538,6 @@ BlaineAI:
 	jp AIUseSuperPotion
 
 SabrinaAI:
-  callab CheckandResetSwitchBit
-	jp nz, AISwitchIfEnoughMons
-	call Random
 	cp $40
 	ret nc
 	jp AIUseXDefend
@@ -611,9 +551,6 @@ Sony2AI:
 	jp AIUsePotion
 
 Sony3AI:
-  callab CheckandResetSwitchBit
-	jp nz, AISwitchIfEnoughMons
-	call Random
 	cp $20
 	ret nc
 	ld a,5
@@ -622,8 +559,6 @@ Sony3AI:
 	jp AIUseFullRestore
 
 LoreleiAI:
-  ;callab CheckandResetSwitchBit ;her team isn't really balanced enough atm to benefit from switching much
-	;jp nz, AISwitchIfEnoughMons
 	cp $80
 	ret nc
 	ld a,5
@@ -642,9 +577,8 @@ BrunoAI:
   jp AIUseSuperPotion
   
 AgathaAI:
-	callab CheckandResetSwitchBit
-	jp nz, AISwitchIfEnoughMons
-	call Random
+	cp $14
+	jp c,AISwitchIfEnoughMons
 	cp $80
 	ret nc
 	ld a,4
@@ -653,9 +587,6 @@ AgathaAI:
 	jp AIUseHyperPotion
 
 LanceAI:
-  callab CheckandResetSwitchBit
-	jp nz, AISwitchIfEnoughMons
-	call Random
 	cp $80
 	ret nc
 	ld a,5
@@ -668,6 +599,9 @@ GenericAI:
   cp 20
   jr c, .default ;below, do not use super potions
   cp $40
+  ;ld a,5
+	;call AICheckIfHPBelowFraction
+	;jp c,AISwitchIfEnoughMons ;doesn't check if mon is low health so kinda too dumb
 	ld a,3
 	call AICheckIfHPBelowFraction
 	jp c,AIUseSuperPotion
@@ -950,8 +884,6 @@ AIIncreaseStat:
 	pop af
 	ld [hl],a
 	jp DecrementAICount
-	
-
 
 AIPrintItemUse:
 	ld [wAIItem],a

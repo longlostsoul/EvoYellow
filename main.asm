@@ -2574,11 +2574,7 @@ SetLevel50:
 .ret
   ret
 
-
 AIGetTypeEffectiveness:
-  ld a,[wInGameTradeGiveMonName]
-  cp 2
-  jr z, .notenemyMove
 	ld a,[wEnemyMoveType]
 	ld d,a                 ; d = type of enemy move
 	ld hl,wBattleMonType
@@ -2596,47 +2592,16 @@ AIGetTypeEffectiveness:
 	jr nz,.nextTypePair1
 	ld a,[hli]
 	cp b                   ; match with type 1 of pokemon
-	jr z,.AImatchingPairFound
+	jr z,.done
 	cp c                   ; or match with type 2 of pokemon
-	jr z,.AImatchingPairFound
+	jr z,.done
 	jr .nextTypePair2
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-.AImatchingPairFound
-	ld a, [hl]	;get damage multiplier
-	cp $05	;is it halved?
-	jr nz, .AInothalf	;jump down of not half
-	ld a, [wTypeEffectiveness]	;else get the effectiveness multiplier
-	srl a	;halve the multiplier
-	ld [wTypeEffectiveness], a ; store damage multiplier
-	jr .nextTypePair2	;get next pair in list
-.AInothalf
-	cp $14	;is it double?
-	jr nz, .AImustbezero	;if not double either, it must be zero so skip ahead
-	ld a, [wTypeEffectiveness]	;else get the effectiveness multiplier
-	sla a	;double the multiplier
-	ld [wTypeEffectiveness], a ; store damage multiplier
-	jr .nextTypePair2	;get next pair in list
-.AImustbezero
-	ld a, [wTypeEffectiveness]	;else get the effectiveness multiplier
-	xor a	;clear a to 00
-	jr .done
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 .nextTypePair1
 	inc hl
 .nextTypePair2
 	inc hl
 	jr .loop
-.notenemyMove ;Get Player Move Type
-  ld a, [wPlayerMoveType]
-	ld d, a                    ; d = type of player move
-	ld hl, wEnemyMonType
-	ld b, [hl]                 ; b = type 1 of enemy's pokemon
-	inc hl
-	ld c, [hl]                 ; c = type 2 of enemy's pokemon
-	ld a, $10
-	ld [wTypeEffectiveness], a ; initialize to neutral effectiveness
-	ld hl, TypeEffects
-	jr .loop
+
 .done
 	;ld a, [wTrainerClass] ;lorelei can be like everyone else kthanks.
 	;cp LORELEI
