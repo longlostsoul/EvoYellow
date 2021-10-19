@@ -100,6 +100,8 @@ SpecialTrainerMoves:
 	db 4,2,LOVELY_KISS
 	db 4,3,WATER_PULSE
 	db 4,4,ICE_PUNCH
+	db 5,1,PSYCHIC_M
+	db 5,2,SING
 	db 5,3,BLIZZARD
 	db 5,4,THUNDERBOLT
 	db 0
@@ -114,13 +116,14 @@ SpecialTrainerMoves:
 	db 3,1,DOUBLE_KICK
 	db 3,2,BIDE
 	db 3,4,DOUBLE_TEAM
-	db 4,1,ROCK_SLIDE
-	db 4,2,ICE_BEAM
+	db 4,1,IRON_TAIL
+	db 4,2,ICE_PUNCH
 	db 4,4,EARTHQUAKE
 	db 5,4,DYNAMICPUNCH
 	db 5,3,SHADOW_PUNCH
 	db 5,2,ICE_PUNCH
 	db,5,1,GIGA_IMPACT
+	db 6,4,GIGA_IMPACT
 	db 0
 
 	db AGATHA,$1
@@ -128,9 +131,10 @@ SpecialTrainerMoves:
 	db 1,2,SHADOW_BALL
 	db 1,3,HYPNOSIS
 	db 1,4,MEGA_DRAIN
-	db 2,2,TOXIC
-	db 2,4,LEECH_LIFE
-	db 3,2,FIRE_BLAST
+	db 2,1,TOXIC
+	db 2,3,EARTHQUAKE
+	db 2,4,X_SCISSOR
+	db 3,1,HYDRO_PUMP
 	db 4,1,CRUNCH
 	db,4,2,GUNK_SHOT
 	db 4,3,ICE_FANG
