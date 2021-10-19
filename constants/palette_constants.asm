@@ -208,6 +208,7 @@ const_value = 0
 	const PAL_DRAGONITE  ; $BC
 	const PAL_MEWTWO     ; $BD
 	const PAL_MEW        ; $BE
+	const PAL_CURSOLA
 	const PAL_SHINY
 	const PAL_MAREEP
 	const PAL_YOUNGSTER     ; $BF
