@@ -10,7 +10,9 @@ CeladonMansion2Object:
 	db $1 ; signs
 	db $9, $4, $1 ; CeladonMansion2Text1
 
-	db $0 ; objects
+	db $2 ; objects
+	object SPRITE_MEW, $1, $7, STAY, RIGHT, $1 ; person
+	object SPRITE_GIRL, $3, $4, STAY, RIGHT, $2 ; person
 
 	; warp-to
 	EVENT_DISP CELADON_MANSION_2_WIDTH, $1, $6 ; CELADON_MANSION_3
