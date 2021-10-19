@@ -15,7 +15,7 @@ ReflectLightScreenEffect_:
 	and a
 	jr z, .player
 	ld a,1
-	ld [wPrinterHandshake],a
+	ld [wSurfingMinigameTrickFlags],a
 	jr .spikes
 .player
   ld a,1
@@ -52,7 +52,7 @@ DoEnemySpikes::
 ; ld hl, wEnemyBattleStatus3
 ; bit SpikesStatusUp, [hl] ; check for Spikes from the enemy to hurt you. couldn't get it to work properly this way ehh.
  ;jr nz, .no
-  ld a, [wPrinterHandshake] ;temp flag I guess
+  ld a, [wSurfingMinigameTrickFlags] ;temp flag I guess
 	cp 1
 	jr nz, .no
 ; res SpikesStatusUp, [hl]

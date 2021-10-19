@@ -523,4 +523,251 @@ StolePokemon::
 .ret
   ret
 	
+;Trying to fix up TM/HMs to be less awful. Who knew simply moving the entire func would make it work better?
 
+ElectricPrefix::
+	db "Elec"
+WaterPrefix::
+	db "Watr"
+FirePrefix::
+	db "Fire"
+PsychicPrefix::
+	db "Psyk"
+DarkPrefix::
+	db "Dark"
+NormalPrefix::
+	db "Norm"
+DragonPrefix::
+	db "Drgn"
+	db "Norm"
+GhostPrefix::
+	db "Ghst"
+GrassPrefix::
+	db "Grss"
+FairyPrefix::
+	db "Fey "
+GroundPrefix::
+	db "Grnd"
+IcePrefix::
+	db "Ice "
+BugPrefix::
+	db "Bug "
+RockPrefix::
+	db "Rock"
+PoisonPrefix::
+	db "PSN "
+FlyingPrefix::
+	db "Flyn"
+	
+TechnicalPrefix::
+	db "Move"
+HiddenPrefix::
+	db "HM- "
+
+
+WriteTMPrefix::
+	push hl
+	push de
+	push bc
+	ld a, [wd11e]
+	push af
+;  callab TMToMove
+;  call GetMoveName
+	cp TM_01 ; is this a TM? [not HM]
+	jr nc, .WriteTM
+; if HM, then write "HM" and add 5 to the item ID, so we can reuse the
+; TM printing code
+	add 5
+	ld [wd11e], a
+	ld hl, HiddenPrefix ; points to "HM"
+	ld bc, 4
+	jp MNum;.WriteMachinePrefix
+.WriteGrass
+  ld hl, GrassPrefix
+	jp MNum
+.WriteFairy
+  ld hl, FairyPrefix
+	jp MNum
+.WriteRock
+  ld hl, RockPrefix
+	jp MNum
+.WritePoison
+  ld hl, PoisonPrefix
+	jp MNum
+.WriteBug
+  ld hl, BugPrefix
+	jp MNum
+.WriteFlying
+  ld hl, FlyingPrefix
+	jp MNum
+.WriteIce
+  ld hl, IcePrefix
+	jp MNum
+.WriteGhost
+  ld hl, GhostPrefix
+	jp MNum
+.WriteDragon
+  ld hl, DragonPrefix
+	jp MNum
+.WriteNormal
+  ld hl, NormalPrefix
+	jp MNum
+.WriteGround
+  ld hl, GroundPrefix
+	jp MNum
+.WriteDark
+  ld hl, DarkPrefix
+	jp .ldbc
+.WritePsychic
+  ld hl, PsychicPrefix
+	jp .ldbc
+.WriteWater
+  ld hl, WaterPrefix
+	jp .ldbc
+.WriteFire
+  ld hl, FirePrefix
+	jp .ldbc
+.WriteElectric
+  ld hl, ElectricPrefix
+	jp .ldbc
+.WriteTM
+  sub HM_01
+  ;dec a
+	ld c, a
+	ld b, 0
+	ld hl, TMShorthandList
+	add hl,bc
+	ld a, [hl]
+	ld b, a
+	cp FAIRY
+	jp z, .WriteFairy
+	cp GHOST
+	jp z, .WriteGhost
+	cp NORMAL
+	jp z, .WriteNormal
+	cp DRAGON
+	jp z, .WriteDragon
+	cp GRASS
+	jp z, .WriteGrass
+	cp FIRE
+	jp z, .WriteFire
+	cp WATER
+	jp z, .WriteWater
+	cp PSYCHIC
+	jp z, .WritePsychic
+	cp DARK
+	jp z, .WriteDark
+	cp ELECTRIC
+	jp z, .WriteElectric
+	cp ICE
+	jp z, .WriteIce
+	cp GROUND
+	jp z, .WriteGround
+	cp ROCK
+	jp z, .WriteRock
+	cp POISON
+	jp z, .WritePoison
+	cp BUG
+	jp z, .WriteBug
+	cp FLYING
+	jp z, .WriteFlying
+	ld hl, TechnicalPrefix ; points to "TM"
+.ldbc	
+MNum::
+
+	;ld bc, 2
+;.WriteMachinePrefix
+	;ld de, wcd6d
+	;call CopyData
+	
+	;ld hl, HiddenPrefix
+	ld bc, 4
+	ld de, wcd6d
+	call CopyData
+
+
+; now get the machine number and convert it to text
+	ld a, [wd11e]
+	sub TM_01 - 1
+	ld b, "0"
+.FirstDigit
+	sub 10
+	jr c, .SecondDigit
+	inc b
+	jr .FirstDigit
+.SecondDigit
+	add 10
+	push af
+	ld a, b
+	ld [de], a
+	inc de
+	pop af
+	ld b, "0"
+	add b
+	ld [de], a
+	inc de
+	ld a, "@"
+	ld [de], a
+	pop af
+	ld [wd11e], a
+	pop bc
+	pop de
+	pop hl
+	ret
+
+TMShorthandList::
+ DB STEEL ;cut
+ DB FLYING;fly
+ db WATER;surf
+ DB NORMAL;strength
+ db ELECTRIC;flash
+ db NORMAL;mega 01
+ DB DRAGON;razor/twister 02
+ DB NORMAL ;03, swords
+ db FLYING ;aerial ace 4
+ DB NORMAL ;hidden 05
+ DB POISON ;toxic 6
+  db STEEL ;iron7
+ DB NORMAL ;body8
+ DB NORMAL ;takedown9
+ db NORMAL;double edge10
+ db WATER ;bubble11
+ DB WATER;gun12
+ DB ICE;beam13
+ db ICE;blizz
+ DB NORMAL;hyper
+ DB POISON;jab
+  db FIGHTING;dynamic
+ DB FIGHTING;counter
+ DB FIGHTING;SEISMIC_TOSS
+ db NORMAL;rage
+  db GRASS ;giga
+ DB GRASS;solar
+ DB DRAGON;breath
+ db ELECTRIC;bolt
+ DB ELECTRIC;thunder
+ DB GROUND;earthquake
+ db GROUND 
+ DB GROUND;dig
+ DB PSYCHIC
+ db GHOST;shadowball
+  db NORMAL;mimic
+ DB NORMAL;double
+ DB PSYCHIC;reflect
+ db GROUND ;was bide, now mudslap
+ DB ICE ;Ice punch
+ db STEEL ;cannon
+ DB BUG ;x
+ DB FIRE;fireblast
+ db NORMAL;Swift
+ db DARK;pulse
+ DB NORMAL;softboil
+ DB GHOST
+ db FLYING
+ DB NORMAL ;rest
+ DB ELECTRIC
+ db PSYCHIC
+ DB NORMAL
+ DB ROCK ;48
+ db FAIRY;
+  db NORMAL ;sub

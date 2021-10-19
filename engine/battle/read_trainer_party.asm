@@ -64,9 +64,40 @@ ReadTrainer:
 	ld a,ENEMY_PARTY_DATA
 	ld [wMonDataLocation],a
 	push hl
-	call AddPartyMon
+	ld a,[wTrainerClass] ;BEGINNING OF RANDOMIZER TRAINER CODE 1.
+	cp RANDTRAINER
+  jr z, .pookachu
+  ;SetEvent EVENT_908
+  CheckEvent EVENT_908	;has elite 4 been beaten? if so, expand the random trainers list
+  jr z, .addmon ;if no, don't. However, this only works on very specific trainers, ones that have no level specified
+  ld a,[wTrainerClass]
+  cp COOLTRAINER_F
+  jr z, .pookachu
+  cp LASS
+  jr z, .pookachu
+  cp JUGGLER
+  jr z, .pookachu
+  cp SWIMMER
+  jr z, .pookachu
+  cp COOLTRAINER_M
+  jr z, .pookachu
+.addmon
+	call AddPartyMon ;ADDING a mon, whether random or not
+	ld a,ENEMY_PARTY_DATA
 	pop hl
 	jr .LoopTrainerData
+.pookachu
+  call Random
+  cp 248 ;last should be smeargle, so we do not gen legend dogs for this guy
+  jr c, .skippika 
+  ;ld a, 5
+	;ld [wCurEnemyLVL], a
+ 	ld a, PIKACHU;If we get an invalid number for our randomizer, get pika? 
+.skippika
+	ld [wd11e], a
+	ld [wcf91], a
+	jr .addmon ; END TRAINER RANDOMIZER
+	
 .SpecialTrainer
 ; if this code is being run:
 ; - each pokemon has a specific level
@@ -86,9 +117,26 @@ ReadTrainer:
 	ld a,ENEMY_PARTY_DATA
 	ld [wMonDataLocation],a
 	push hl
-	call AddPartyMon
+	ld a,[wTrainerClass] ;BEGINNING OF RANDOMIZER TRAINER CODE 2.
+	cp RANDTRAINER
+  jr z, .pookachu1
+  ; This only works on very specific trainers that have mon levels specified
+.addmon1
+	call AddPartyMon ;ADDING a mon, whether random or not
+	ld a,ENEMY_PARTY_DATA
 	pop hl
 	jr .SpecialTrainer
+.pookachu1
+  call Random
+  cp 250
+  jr c, .skippika1 
+  ;ld a, 5
+	;ld [wCurEnemyLVL], a
+ 	ld a, PIKACHU;If we get an invalid number for our randomizer, get pika? 
+.skippika1
+	ld [wd11e], a
+	ld [wcf91], a
+	jr .addmon1 ; END TRAINER RANDOMIZER
 .AddAdditionalMoveData
 ; does the trainer have additional move data?
 	ld a, [wTrainerClass]
@@ -155,6 +203,8 @@ ReadTrainer:
 	jr nz,.LastLoop ; repeat wCurEnemyLVL times
 	ret
 	
+
+	
 ModifyTrainerLevel: ;Pokemon Roaming Red, average trainer levels and make Elite still higher level, make things a little more balanced.
 	push af
 	push bc
@@ -195,44 +245,54 @@ ModifyTrainerLevel: ;Pokemon Roaming Red, average trainer levels and make Elite 
 	sub b	
 .doneApplyingVariance	
 	ld b, a 
-	ld a, [wCurOpponent];[wEngagedTrainerClass]
-	cp $E5 ; Giovanni
-	jp z, .applyPlusFive
-	cp $E6 ; ROCKET
+	ld a, [wTrainerClass];[wEngagedTrainerClass]
+	cp RANDTRAINER
+	jp z, .ApplyPlusTen
+	cp PROF_OAK
+	jp z, .ApplyPlusTen
+	cp SONY2
 	jp z, .applyPlusThree
-	cp $E7; Cooltrainer male
+	cp GIOVANNI ; Giovanni
+	jp z, .applyPlusFive
+	cp ROCKET ; ROCKET
 	jp z, .applyPlusThree
-	cp $E8 ; Cooltrainer female
+	cp COOLTRAINER_M; Cooltrainer male
 	jp z, .applyPlusThree
-	cp $E9 ; Bruno
+	cp COOLTRAINER_F ; Cooltrainer female
+	jp z, .applyPlusThree
+	cp BRUNO ; Bruno
 	jp z, .applyPlusFive
-	cp $EA ; Brock
+	cp BROCK ; Brock
+	jp z, .applyPlusThree
+	cp MISTY ; Misty
+	jp z, .applyPlusThree
+	cp LT_SURGE ; Lt. Surge
 	jp z, .applyPlusFive
-	cp $EB ; Misty
+	cp ERIKA ; Erika
 	jp z, .applyPlusFive
-	cp $EC ; Lt. Surge
+	cp KOGA ; Koga
 	jp z, .applyPlusFive
-	cp $ED ; Erika
+	cp BLAINE ; Blaine
 	jp z, .applyPlusFive
-	cp $EE ; Koga
+	cp SABRINA ; Sabrina
 	jp z, .applyPlusFive
-	cp $EF ; Blaine
+	cp SONY3 ; Rival Final
 	jp z, .applyPlusFive
-	cp $F0 ; Sabrina
+	cp LORELEI ; Lorelei
 	jp z, .applyPlusFive
-	cp $F3 ; Rival Final
+	cp AGATHA ; Agatha
 	jp z, .applyPlusFive
-	cp $F4 ; Lorelei
-	jp z, .applyPlusFive
-	cp $F6 ; Agatha
-	jp z, .applyPlusFive
-	cp $F7 ; Lance
+	cp LANCE ; Lance
 	jp z, .applyPlusFive
 	ld a, b
 	jp .doneApplyingBoost
 .applyPlusThree
 	ld a, b
 	add 3
+	jp .doneApplyingBoost
+.ApplyPlusTen
+	ld a, b
+	add 10
 	jp .doneApplyingBoost
 .applyPlusFive	
 	ld a, b

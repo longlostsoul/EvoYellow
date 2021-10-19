@@ -6,8 +6,14 @@ Route2HouseTextPointers:
 	dw Route2HouseText2
 
 Route2HouseText1:
-	TX_FAR _Route2HouseText1
-	db "@"
+	TX_ASM
+	ld a, $2
+	ld [wWhichTrade], a
+	predef DoInGameTradeDialogue
+	jp TextScriptEnd
+
+;	TX_FAR _Route2HouseText1
+;	db "@"
 
 Route2HouseText2:
 	TX_ASM

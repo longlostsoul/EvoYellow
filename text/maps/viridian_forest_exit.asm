@@ -1,11 +1,7 @@
 _ViridianForestExitText1::
-	text "Many #MON live"
-	line "only in forests "
-	cont "and caves."
-
-	para "You need to look"
-	line "everywhere to get"
-	cont "different kinds!"
+	text "Wouldn't it be"
+	line "nice to refight"
+	cont "lot of times?"
 	done
 
 _ViridianForestExitText2::

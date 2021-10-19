@@ -2849,6 +2849,11 @@ _CableClubNPCPleaseApplyHereHaveToSaveText::
 
 SECTION "Text 8", ROMX, BANK[TEXT_8]
 
+_RematchTrainerText::
+ text "Want to fight the"
+ line "trainers again?"
+ done
+
 _CableClubNPCPleaseWaitText::
 	text "Please wait.@@"
 
@@ -2856,10 +2861,6 @@ _CableClubNPCLinkClosedBecauseOfInactivityText::
 	text "The link has been"
 	line "closed because of"
 	cont "inactivity."
-
-	para "Please contact"
-	line "your friend and"
-	cont "come again!"
 	done
 
 _CableClubNPCPleaseComeAgainText::
@@ -2869,7 +2870,6 @@ _CableClubNPCPleaseComeAgainText::
 _CableClubNPCMakingPreparationsText::
 	text "We're making"
 	line "preparations."
-	cont "Please wait."
 	done
 
 _FlashLightsAreaText::
