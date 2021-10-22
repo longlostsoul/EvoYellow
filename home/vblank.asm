@@ -25,7 +25,8 @@ VBlank::
 	ld [rWY], a
 .ok
 
-	call AutoBgMapTransfer
+	;call AutoBgMapTransfer
+	call $1d57
 	call VBlankCopyBgMap
 	call RedrawRowOrColumn
 	call VBlankCopy
@@ -89,6 +90,7 @@ NOT_VBLANKED EQU 1
 .halt
 	halt
 	ld a, [H_VBLANKOCCURRED]
-	and a
-	jr nz, .halt
+	;and a
+	;jr nz, .halt
+	jp $3fa6
 	ret

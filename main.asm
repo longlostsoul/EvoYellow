@@ -67,6 +67,33 @@ INCLUDE "engine/menu/players_pc.asm"
 INCLUDE "engine/remove_pokemon.asm"
 INCLUDE "engine/display_pokedex.asm"
 
+HaxFunc4:
+	push af
+	ld a,[wCurMapTileset]
+	and a
+	jr nz,.label2
+	push bc
+	ld a,[$ff00+$49]
+	ld b,a
+	ld a,[$d35e]
+	cp b
+	jr nz,.label3
+.label1
+	pop bc
+.label2
+	pop af
+	and a
+	jp nz,$20af
+	ret
+.label3
+	ld [$ff00+$49],a
+	ld a,$2d
+	ld [$2000],a
+	jp $6200
+	ld a,[$ff00+$b8]
+	ld [$2000],a
+	jr .label1
+
 
 SECTION "bank03",ROMX,BANK[$03]
 
@@ -2751,3 +2778,240 @@ IsMonShiny:
 	ret
 	
 	;INCLUDE "engine/menu/item_descriptions.asm"
+	
+
+SECTION "bank45",ROMX,BANK[$45]
+	
+	;tried to put refresh window here, but ORG doesn't work
+RefreshWindow:
+	;ld a,[H_AUTOBGTRANSFERENABLED] ???
+	;and a
+	;ret z
+
+	ld hl,[sp+$00]
+	ld a,h
+	ld [$ff00+$bf],a
+	ld a,l
+	ld [$ff00+$c0],a	; Store stack pointer
+	ld a,[$ff00+$bb]
+	and a
+	jr z,label_000
+	dec a
+	jr z,label_001
+	ld hl,wTileMap+6*20*2
+	ld sp,hl
+	ld a,[$ff00+$bd]
+	ld h,a
+	ld a,[$ff00+$bc]
+	ld l,a
+	ld de,$0180
+	add hl,de
+	xor a
+	jr startCopy
+label_000:
+	ld hl,wTileMap
+	ld sp,hl
+	ld a,[$ff00+$bd]
+	ld h,a
+	ld a,[$ff00+$bc]
+	ld l,a
+	ld a,$01
+	jr startCopy
+label_001:
+	ld hl,wTileMap+6*20
+	ld sp,hl
+	ld a,[$ff00+$bd]
+	ld h,a
+	ld a,[$ff00+$bc]
+	ld l,a
+	ld de,$00c0
+	add hl,de
+	ld a,$02
+
+; sp now points to map data in wram, hl points to vram destination.
+startCopy:
+	ld [$ff00+$bb],a
+	ld b,$06
+
+drawRow:
+REPT 10
+	pop de
+	ld [hl],e
+	inc l
+	ld [hl],d
+	inc l
+ENDR
+
+	;jr nz,skipPalettes
+
+; BEGIN loading palettes
+
+	ld a,$02
+	ld [rSVBK],a	; Wram bank 2
+
+	; l -= 20; reload row
+	ld a,l
+	sub 20
+	ld l,a
+
+	add sp,-20	; reload row for next bank
+	ld a,$01
+	ld [rVBK],a
+	ld c,10
+
+drawPalette:
+REPT 10
+	pop de
+	ld c,e
+
+	ld d,$d2	; E is the tile number; palette # located at $d2XX
+	ld a,[de]
+	ldi [hl],a	; Store byte 1
+	ld e,c
+	ld a,[de]
+	ldi [hl],a	; Store byte 2
+ENDR
+
+	xor a
+	ld [rVBK],a
+	ld [rSVBK],a	; Reset gbc-only banks
+
+skipPalettes:
+
+	ld a,$0c
+	add l
+	ld l,a
+	jr nc,.noCarry
+	inc h
+.noCarry
+	dec b
+	jp nz,drawRow
+
+	ld a,[$ff00+$bf]
+	ld h,a
+	ld a,[$ff00+$c0]
+	ld l,a
+	ld sp,hl
+	ret z
+
+RefreshWindowInitial:
+label_011:
+	ld a,$02
+	ld [rSVBK],a
+	ld c,$0a
+label_012:
+	pop de
+label_013:
+	ld a,[rSTAT]
+	bit 1,a
+	jr nz,label_013
+	ld [hl],e
+	inc l
+	ld [hl],d
+	inc l
+	dec c
+	jr nz,label_012
+	ld c,$14
+label_014:
+	dec l
+	dec c
+	jr nz,label_014
+	add sp,-$14
+	ld a,$01
+	ld [$ff00+$4f],a
+	ld c,$0a
+label_015:
+	pop de
+	ld d,$d2
+label_016:
+	ld a,[$ff00+$41]
+	bit 1,a
+	jr nz,label_016
+	ld a,[de]
+	ldi [hl],a
+	add sp,-$02
+	pop de
+	ld e,d
+	ld d,$d2
+label_017:
+	ld a,[$ff00+$41]
+	bit 1,a
+	jr nz,label_017
+	ld a,[de]
+	ldi [hl],a
+	dec c
+	jr nz,label_015
+	xor a
+	ld [$ff00+$4f],a
+	ld [$ff00+$70],a
+	ld a,$0c
+	add l
+	ld l,a
+	jr nc,label_018
+	inc h
+label_018:
+	dec b
+	jr nz,label_011
+	ld a,[$ff00+$bf]
+	ld h,a
+	ld a,[$ff00+$c0]
+	ld l,a
+	ld sp,hl
+	ret
+
+; Refresh map colors
+	ORG $2f, $6000
+
+	ld a,$02
+	ld [$ff00+$70],a
+	ld a,$01
+	ld [$ff00+$4f],a
+	ld a,[hl]
+	push hl
+	ld h,$d2
+	ld l,a
+	ld a,[hl]
+	ld hl,$ff41
+label_019:
+	bit 1,[hl]
+	jr nz,label_019
+	ld [de],a
+	pop hl
+	xor a
+	ld [$ff00+$4f],a
+	ld a,[hli]
+	push hl
+	ld hl,$ff41
+label_020:
+	bit 1,[hl]
+	jr nz,label_020
+	ld [de],a
+	inc de
+	pop hl
+	ld a,$01
+	ld [$ff00+$4f],a
+	ld a,[hl]
+	push hl
+	ld h,$d2
+	ld l,a
+	ld a,[hl]
+	ld hl,$ff41
+label_021:
+	bit 1,[hl]
+	jr nz,label_021
+	ld [de],a
+	pop hl
+	xor a
+	ld [$ff00+$4f],a
+	ld [$ff00+$70],a
+	ld a,[hli]
+	add sp,$04
+	push af
+	add sp,-$02
+	push hl
+	ld hl,$ff41
+label_022:
+	bit 1,[hl]
+	jr nz,label_022
+	pop hl
+	ret

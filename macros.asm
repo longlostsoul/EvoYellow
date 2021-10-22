@@ -866,3 +866,9 @@ ANIM_OBJ_FIELD_C EQU $c
 ANIM_OBJ_FIELD_D EQU $d
 ANIM_OBJ_FIELD_E EQU $e
 ANIM_OBJ_FIELD_F EQU $f
+
+ORG: MACRO
+;	SECTION "ORG\@",DATA[\2],BANK[\1];this doesn't work Possibly meant to be some sort of bankswitch???
+	dw \2 ;
+	db \1 ;maybe???
+	ENDM 

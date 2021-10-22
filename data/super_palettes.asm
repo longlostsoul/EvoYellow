@@ -1,3 +1,4 @@
+;yellow has basic pals already
 SuperPalettes:
 	; PAL_ROUTE 1
 	RGB 31, 31, 31

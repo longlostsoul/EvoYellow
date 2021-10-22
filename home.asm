@@ -1,9 +1,20 @@
 
-; The rst vectors are unused.
-SECTION "rst 00", ROM0 [$00]
+; The rst vectors are originally unused. Porting some code from pokered color experimentally...
+SECTION "rst0",HOME[0]
+	db $FF
+RefreshMapColorsScrolling:
+	push af
+	ld a,$2f
+	jp $00f1
+
+SECTION "rst8",HOME[$8]
 	rst $38
-SECTION "rst 08", ROM0 [$08]
-	rst $38
+RefreshMapColors:
+	push af
+	ld a,$2c
+	jp $00f1
+
+
 SECTION "rst 10", ROM0 [$10]
 	rst $38
 SECTION "rst 18", ROM0 [$18]
@@ -18,6 +29,7 @@ SECTION "rst 38", ROM0 [$38]
 	rst $38
 
 ; Hardware interrupts
+; original red color changes this but we probably don't need to, since already color??
 SECTION "vblank", ROM0 [$40]
 	jp VBlank
 SECTION "hblank", ROM0 [$48]
@@ -28,6 +40,7 @@ SECTION "serial", ROM0 [$58]
 	jp Serial
 SECTION "joypad", ROM0 [$60]
 	reti
+
 
 
 SECTION "Home", ROM0
@@ -82,12 +95,13 @@ HideSprites::
 
 INCLUDE "home/copy.asm"
 
-
+;SECTION "initpalettes",HOME[$c0]
+;InitPalettes: we probably don't need this from the original?
 
 SECTION "Entry", ROM0 [$100]
 
-	nop
-	jp Start
+	db $18, $cf
+  db $18, $53
 
 
 SECTION "Header", ROM0 [$104]

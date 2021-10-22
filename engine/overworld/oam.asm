@@ -3,7 +3,7 @@ PrepareOAMData:
 ; sprites and write it to wOAMBuffer.
 ; Yellow code has been changed to use registers more efficiently
 ; as well as tweaking the code to show gbc palettes
-
+;so don't need to alter hopefully?
 	ld a, [wUpdateSpritesEnabled]
 	dec a
 	jr z, .updateEnabled
@@ -120,7 +120,7 @@ PrepareOAMData:
 .skipPriority
 	and $f0
 	bit 4, a ; OBP0 or OBP1
-	jr z, .spriteusesOBP0
+	jr z, .spriteusesOBP0;palettes??
 	or %100 ; palettes 4-7 are OBP1
 .spriteusesOBP0
 	ld [de], a

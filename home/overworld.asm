@@ -1578,10 +1578,12 @@ ScheduleColumnRedrawHelper::
 	ld de, wRedrawRowOrColumnSrcTiles
 	ld c, SCREEN_HEIGHT
 .loop
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hl]
+	;ld a, [hli]
+	;ld [de], a
+	;inc de
+	;ld a, [hl]
+	call $0001
+	nop
 	ld [de], a
 	inc de
 	ld a, 19
@@ -1645,6 +1647,24 @@ DrawTileBlock::
 	pop bc
 	dec c
 	jr nz, .loop
+	ret
+
+HaxFunc1: ; 1d57
+	ld a,BANK(RefreshWindow)
+	ld [$2000],a
+	call RefreshWindow
+	ld a,[H_LOADEDROMBANK]
+	ld [$2000],a
+	ret
+
+HaxFunc2: ; 1d65
+	ld a,BANK(RefreshWindowInitial)
+	ld [$2000],a
+	jp RefreshWindowInitial
+
+HaxFunc3: ; 1d6d
+	ld a,[H_LOADEDROMBANK]
+	ld [$2000],a
 	ret
 
 ; function to update joypad state and simulate button presses
@@ -2116,9 +2136,10 @@ CopyMapViewToVRAM2:
 .vramCopyLoop
 	ld c, 20
 .vramCopyInnerLoop
-	ld a, [hli]
-	ld [de], a
-	inc e
+	;ld a, [hli]
+	;ld [de], a
+	;inc e
+	call 0009
 	dec c
 	jr nz, .vramCopyInnerLoop
 	ld a, 32 - 20 ; total vram map width in tiles - screen width in tiles

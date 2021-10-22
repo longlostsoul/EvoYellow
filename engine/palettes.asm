@@ -1,3 +1,6 @@
+;palettes already in yellow
+;however, we might want to eidt the run palette command for maps???
+
 _RunPaletteCommand: ;remember to edit this file down below when adding new pokes, so their palettes display.
 	call GetPredefRegisters
 	ld a, b

@@ -215,7 +215,7 @@ VBlankCopyBgMap::
 	ld b,a
 	xor a
 	ld [H_VBCOPYBGSRC],a ; disable transfer so it doesn't continue next V-blank
-	jr TransferBgRows
+	jr TransferBgRows;jp JpPoint, but we don't seem to have this? Maybe I missed it.
 
 
 VBlankCopyDouble::
@@ -369,28 +369,35 @@ UpdateMovingBgTiles::
 
 	ld hl, vTileset + $14 * $10
 	ld c, $10
+	; HAX
+	ld a,$2c
+	ld [$2000],a
 
 	ld a, [wMovingBGTilesCounter2]
 	inc a
 	and 7
-	ld [wMovingBGTilesCounter2], a
-
-	and 4
-	jr nz, .left
-.right
-	ld a, [hl]
-	rrca
-	ld [hli], a
-	dec c
-	jr nz, .right
-	jr .done
-.left
-	ld a, [hl]
-	rlca
-	ld [hli], a
-	dec c
-	jr nz, .left
-.done
+;	ld [wMovingBGTilesCounter2], a
+;
+;	and 4
+;	jr nz, .left
+;.right
+;	ld a, [hl]
+;	rrca
+;	ld [hli], a
+;	dec c
+;	jr nz, .right
+;	jr .done
+;.left
+;	ld a, [hl]
+;	rlca
+;	ld [hli], a
+;	dec c
+;	jr nz, .left
+;.done
+  jp nz,$7000
+	jp $7080
+	ld a,[H_LOADEDROMBANK]
+	ld [$2000],a
 	ld a, [hTilesetType]
 	rrca
 	ret nc
