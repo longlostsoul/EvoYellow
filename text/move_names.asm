@@ -23,7 +23,7 @@ MoveNames::
 	db "VINE WHIP@"
 	db "STOMP@"
 	db "DOUBLE KICK@"
-	db "SKETCH@";"MEGA KICK@"
+	db "FAIRYWIND@";sketch for awhile. before "MEGA KICK@"
 	db "JUMP KICK@"
 	db "ROLLING KICK@"
 	db "SAND-ATTACK@"

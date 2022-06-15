@@ -75,12 +75,73 @@ BillsHouseText_f249d:
 	db "@"
 
 Func_f24a2:
-	ld hl, BillsHouseText_f24a9
+	ld hl, BillText_challenge	;ask if you want to challenge
+	call PrintText	;print the challenge text
+	call YesNoChoice	;prompt a yes/no choice
+	ld a, [wCurrentMenuItem]	;load the player choice
+	and a	;check the player choice
+	jp nz, .nope;if no, jump to generic text and end
+	ld hl, BillText_prebattle	;load oak's pre battle text
+	call PrintText	;print the pre battle text
+	
+	ld hl, BillText_challenge2	;ask if you want to challenge weak random or strong
+	call PrintText	;print the challenge text
+	call YesNoChoice	;prompt a yes/no choice
+	ld a, [wCurrentMenuItem]	;load the player choice
+	and a	;check the player choice
+	jp nz, .nope2;if no, jump to generic text and end
+	ld a, OPP_RANDTRAINER	;load the trainer type
+	ld [wCurOpponent], a	;set as the current opponent
+	ld a, $3
+	jp .loadteam
+.nope2
+ ld a, OPP_SUPER_NERD
+ 	ld [wCurOpponent], a	;set as the current opponent
+	ld a, $6
+.loadteam
+	ld [wTrainerNo], a	;load team
+
+
+	ld hl, wd72d;set the bits for triggering battle
+	set 6, [hl]	;
+	set 7, [hl]	;
+	ld hl, BillTextSpeech	;load text for when you win
+	ld de, BillDefeatSpeech	;load text for when you lose
+	call SaveEndBattleTextPointers	;save the win/lose text
+
+	xor a
+	ld [hJoyHeld], a
+	jp TextScriptEnd
+.nope
+	ld hl, BillsHouseText_checkpc
 	call PrintText
 	ret
 
-BillsHouseText_f24a9:
-	TX_FAR _BillsHouseText_1e8da
+
+	
+BillText_challenge:
+ TX_FAR	_BillText_challenge
+ db "@"
+
+BillText_challenge2:
+ TX_FAR	_BillText_challenge2
+ db "@"
+
+
+BillText_prebattle:
+	TX_FAR _BillText_prebattle
+	db "@"
+	
+BillTextSpeech:
+	TX_FAR _BillVictorySpeech
+	db "@"
+
+BillDefeatSpeech:
+	TX_FAR _BillDefeatSpeech
+	db "@"
+
+BillsHouseText_checkpc:;f24a9
+	TX_FAR _BillsHouseText_checkpc
 	db "@"
 
 Func_f24ae:

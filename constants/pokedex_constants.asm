@@ -241,12 +241,12 @@ const_value = 1
   const DEX_OBSTAGOON
   const DEX_SPINARAK
   const DEX_ARIADOS
-  const DEX_MANTYKE
+  const DEX_CELEBI
   const DEX_MANTINE
   const DEX_PINECO;AIPOM
   const DEX_FORRETRESS;AMBIPOM
   const DEX_MUNCHLAX
-  const DEX_SMEARGLE;248
+  const DEX_MIMIKYU;248
   const DEX_SUICUNE;249
   const DEX_ENTEI;250
   const DEX_RAIKOU;251

@@ -275,5 +275,5 @@ BillsHouseText2:
 
 BillsHouseText3:
 	TX_ASM
-	callba Func_f24a2
+	callba Func_f24a2;say checkpc
 	jp TextScriptEnd

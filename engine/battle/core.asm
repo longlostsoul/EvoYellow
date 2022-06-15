@@ -8616,19 +8616,19 @@ MimicEffect:
 	jp PrintButItFailedText_
 
 HandleSketch:
-  ld [wTemp],a
+ ; ld [wTemp],a
   ld a,[wPlayerSelectedMove]
-  CP SKETCH
-  jr nz, .done
-  ld a,[wFlag]
-	ld hl, wPartyMon1Moves;sketch
-	ld c, a
-	ld b, $0
-	add hl, bc
-	ld a, d
-	ld [hl], a
-.done
-  ld a,[wTemp]
+ ; CP SKETCH
+  ;jr nz, .done
+  ;ld a,[wFlag]
+	;ld hl, wPartyMon1Moves;sketch to first party. I mistakenly thought switching in battle would make you number one, but it doesn't. so this would need to check what party mon you actually are to work properly.
+	;ld c, a
+	;ld b, $0
+	;add hl, bc
+	;ld a, d
+	;ld [hl], a
+;.done
+ ; ld a,[wTemp]
   ld [wd11e], a
 	ret
 

@@ -2465,14 +2465,14 @@ LinoonePicFront::      INCBIN "pic/ymon/linoone.pic"
 LinoonePicBack::       INCBIN "pic/monback/linoone.pic"
 ObstagoonPicFront::      INCBIN "pic/ymon/obstagoon.pic"
 ObstagoonPicBack::       INCBIN "pic/monback/obstagoon.pic"
-SmearglePicFront::      INCBIN "pic/ymon/smeargle.pic"
-SmearglePicBack::       INCBIN "pic/monback/smeargleb.pic"
+MimikyuPicFront::      INCBIN "pic/ymon/mimikyu.pic"
+MimikyuPicBack::       INCBIN "pic/monback/mimikyu.pic"
 SpinarakPicFront::      INCBIN "pic/ymon/spinarak.pic";
 SpinarakPicBack::       INCBIN "pic/monback/spinarakb.pic"
 AriadosPicFront::      INCBIN "pic/ymon/ariados.pic"
 AriadosPicBack::       INCBIN "pic/monback/ariadosb.pic"
-MantykePicFront::      INCBIN "pic/ymon/mantyke.pic"
-MantykePicBack::       INCBIN "pic/monback/mantykeb.pic"
+CelebiPicFront::      INCBIN "pic/ymon/celebi.pic"
+CelebiPicBack::       INCBIN "pic/monback/celebib.pic"
 MantinePicFront::      INCBIN "pic/ymon/mantine.pic"
 MantinePicBack::       INCBIN "pic/monback/mantineb.pic"
 
@@ -2500,9 +2500,12 @@ MewRoam:
   ld a,[wBestFlag]
   cp 0
   jr nz, .nextSuicune
-  ld a,SUICUNE ;next time have SUICUNE
+  ld a,SUICUNE ;next time have SUICUNE for sure.
   ld [wBestFlag],a
-  ld a,FEAROW ;the infamous Yellow Fearow can now appear anywhere, very rarely.
+  call Random
+  cp 255
+  jr nz, .gotit ;extremely small chance of any pokemon. I decided could make more fun, and ensures mons are in the game in case I forgot to include one in the wild!
+  ld a,FEAROW ;the infamous Yellow Fearow.
   jp .gotit
 .nextSuicune
   cp SUICUNE
