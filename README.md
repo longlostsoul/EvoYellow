@@ -4,7 +4,11 @@ This is a disassembly of Pokémon Yellow with bonus features; Pikachu now evolve
 There is also now a minimalist version [**elsewhere**][minyellow], if you wanted JUST following, running, evolving Raichu, boy/girl choice, and 151 mons, you want the minimalist one.
 You do have my permission to use this for whatever you like.
 
-Use the UPS patches for the latest versions.
+Use the UPS patches for the latest versions. I used the UPSET program patcher. My deepest apologies for anyone having issues.
+
+For disassembling, I use a VERY old version of pokeyellow apparently, so one user found success using using an older version of rgbds.
+Another user also manually edited the sound file inclusions as they seemed to cause the compilation mismatch errors with the modern versions. I hope this helps!
+
 
 
 Latest Version:
