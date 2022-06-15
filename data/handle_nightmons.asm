@@ -306,7 +306,7 @@ Route2NightMons:
 	db 6, HOOTHOOT
 
 Route3NightMons:
-	db 9, SMEARGLE
+	db 9, HOOTHOOT
 	db 10, GLIGAR
 	db 12, CLEFAIRY
 

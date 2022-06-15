@@ -250,7 +250,7 @@ INCLUDE "data/baseStats/mantine.asm"
 INCLUDE "data/baseStats/pineco.asm";  earlier was aipom
 INCLUDE "data/baseStats/forretress.asm";ambipom
 INCLUDE "data/baseStats/munchlax.asm"
-INCLUDE "data/baseStats/smeargle.asm"
+INCLUDE "data/baseStats/mimikyu.asm" ;smeargle.asm"
 INCLUDE "data/baseStats/suicune.asm"
 INCLUDE "data/baseStats/entei.asm"
 INCLUDE "data/baseStats/raikou.asm"

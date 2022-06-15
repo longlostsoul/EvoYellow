@@ -14,10 +14,10 @@ dw MimikyuPicBack
 ; attacks known at lvl 0
 db LICK
 db CONFUSE_RAY
-db NIGHT_SHADE
+db TACKLE
 db 0
 db 3 ; growth rate
-; learnset
+; learnset // same as gengar atm.
 	tmlearn 1,5,6,8
 	tmlearn 9,10,15,16
 	tmlearn 17,18,19,20,21,24

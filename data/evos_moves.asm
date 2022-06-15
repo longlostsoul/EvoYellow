@@ -261,7 +261,7 @@ dw Mon164_2EvosMoves ;steelix
   dw MonAIPOM
   dw MonAMBIPOM
   dw MonMUNCHLAX
-  dw MonSMEARGLE
+  dw MonMimikyu
   dw MonSUICUNE
   dw MonENTEI
   dw MonRAIKOU
@@ -5417,19 +5417,18 @@ MonMUNCHLAX:
 	db 36,BODY_SLAM
 	db 0
   
-MonSMEARGLE:
+MonMimikyu:
   	;Evolutions
 	db 0
 ;Learnset
-  db 10,SKETCH
-  db 20,SKETCH
-  db 21,EXPLOSION
-  db 30,SKETCH 
-  db 31,SPORE ;make enemies more challenging without having to manually add over and over to the trainer special movesets.
-  db 40,SKETCH
-  db 50,SKETCH
-  db 60,SKETCH
-  db 70,SKETCH
+  DB 5,GROWL
+  db 15,NIGHT_SHADE
+	db 25,METAL_CLAW	
+	db 20,MOONBLAST
+	db 30,IRON_TAIL
+	db 35,ZEN_HEADBUTT
+	db 40,SHADOW_BALL
+	db 50,DAZZLINGLEAM
 	db 0
   
 MonSUICUNE:

@@ -248,7 +248,7 @@ db MEW        ; Mew
   db PINECO;AIPOM
   db PINECO;AIPOM;AMBIPOM
   db MUNCHLAX
-  db SMEARGLE
+  db MIMIKYU
   db SUICUNE
   db ENTEI
   db RAIKOU

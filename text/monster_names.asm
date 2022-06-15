@@ -265,7 +265,7 @@ MonsterNames:
   db "Pineco@@@@";"Aipom@@@@@"
   db "Forretress";"Ambipom@@@"
   db "Munchlax@@"
-  db "Smeargle@@"
+  db "Mimikyu@@@";"Smeargle@@"
   db "Suicune@@@"
   db "Entei@@@@@"
   db "Raikou@@@@"

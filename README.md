@@ -42,17 +42,24 @@ Latest Version:
 * Hold items (Keep in mind some were actually renamed) [**here**](engine/items/holditems.asm) and item list [**here**](constants/item_constants.asm)
 
 
-Known bugs:
+I apologize for not updating this very actively... It's just that I had most of the features I wanted so there wasn't much impetus, and more advanced features I'd kinda like are of the more tedious variety to implement.
+
+Known bugs: (# - game breaking. ! - somewhat important)
+* ! Mud slap can be a bit buggy and sometimes lower accuracy of both parties. Just switch. I might remove it in the future.
 * #One person reported a crash after dig, which I haven't been able to replicate.
 * # Viewing lots of TMs by clicking 'use' and then canceling can cause crashes. To help avoid the need for this, I have modified TMs to often show their types, except for a couple rare ones.
+*If you somehow manage to lose the first battle against ROCKET in the Mart, there's a bit of a lag before you end up back at your house. Just hit a and be patient; you won't have to refight them, either, just go straight to Oak.
 *Minor. Mon follow sprites do not match party sprites. This isn't really a bug, I just never made that functionality because it was a pain, and follow sprites have different frames from party sprites anyway.
 *Minor. Diglett Cave might be green if you go into it from the same route as Viridian Forest, due to a palette over-ride quick fix for day-night.
-x* (resolved) there was a spikes activating in cinnabar bug.
+
+resolved:
+* Smeargle's Sketch only worked properly if Smeargle was first mon in one test I did, so I'm removing Smeargle and replacing him with Mimikyu. If you desperately want to play him despite the bugs, he's in vers. 3.9.
+x* (resolved) there was a spikes activating in cinnabar bug, I don't thiiink any of the saved ipses I had up had it though but the github vers did.
 x* (resolved?) The move tutor was buggy for awhile. Now it should be just annoying in a xvery large loop, but not buggy per say.
 x* (Resolved) Move deleter suffered from the same type of crash. Now HMs are just normally deletable so you don't need them.
 x* should be (resolved): on eevee version (and as far as I could tell, only eevee version) there was a crash due to old man for some reason in Viridian city.
 x* Should be (resolved) in version 3.5: there was an issue with using multiple TMs in a row causing crashes, especially Dark Pulse. Side effect of the fix is that you lose your position in the bag after canceling TM use, but that's pretty minor.
-*If you somehow manage to lose the first battle against ROCKET in the Mart, there's a bit of a lag before you end up back at your house. Just hit a and be patient; you won't have to refight them, either, just go straight to Oak.
+
 
 
 It builds the following rom:

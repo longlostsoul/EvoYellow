@@ -247,7 +247,7 @@ const_value = 1
   const PINECO;AIPOM
   const FORRETRESS;AMBIPOM
   const MUNCHLAX
-  const SMEARGLE
+  const MIMIKYU
   const SUICUNE
   const ENTEI
   const RAIKOU

@@ -13,7 +13,7 @@
 	dw SmearglePicFront
 	dw SmearglePicBack
 	; attacks known at lvl 0
-	db SKETCH
+	db MIMIC
 	db SLEEP_POWDER;make them moar challenging
 	db LEECH_SEED;just so enemies don't all have nothing but sketch.
 	db QUICK_ATTACK

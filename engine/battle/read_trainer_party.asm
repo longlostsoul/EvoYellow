@@ -88,7 +88,7 @@ ReadTrainer:
 	jr .LoopTrainerData
 .pookachu
   call Random
-  cp 248 ;last should be smeargle, so we do not gen legend dogs for this guy
+  cp 248 ;last should be before legends, so we do not gen legend dogs for this guy
   jr c, .skippika 
   ;ld a, 5
 	;ld [wCurEnemyLVL], a
