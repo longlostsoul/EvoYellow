@@ -256,7 +256,7 @@ dw Mon164_2EvosMoves ;steelix
   dw MonOBSTAGOON
   dw MonSPINARAK
   dw MonARIADOS
-  dw MonMANTYKE
+  dw MonCelebi
   dw MonMANTINE
   dw MonAIPOM
   dw MonAMBIPOM
@@ -1041,6 +1041,7 @@ Mon113_EvosMoves:
 	db 44,DEFENSE_CURL
 	db 48,LIGHT_SCREEN
 	db 54,DOUBLE_EDGE
+	db 55,SOFTBOILED
 	db 0
 
 Mon067_EvosMoves:
@@ -2485,7 +2486,7 @@ Mon110_EvosMoves:
 	;Learnset
 	db 1,TACKLE
 	db 1,POISON_GAS
-	db 4,SMOG
+	db 4,FAIRYWIND
 	db 7,SMOKESCREEN
 	db 12,TAIL_WHIP;SUNNY
 	db 15,BIDE
@@ -3083,7 +3084,7 @@ Mon153_2EvosMoves:
 	db 9,METRONOME
 	db 13,LOVELY_KISS
 	db 15,WING_ATTACK
-	db 17,WITHDRAW
+	db 17,FAIRYWIND
 	db 21,BABYDOLLEYES
 	db 25,HYPER_VOICE
 	db 29,DOUBLE_TEAM
@@ -3104,7 +3105,7 @@ Mon154_2EvosMoves:
 	db 9,METRONOME
 	db 13,LOVELY_KISS
 	db 14,WING_ATTACK
-	db 17,WITHDRAW
+	db 17,FAIRYWIND
 	db 21,BABYDOLLEYES
 	db 25,AIR_SLASH
 	db 29,DOUBLE_TEAM
@@ -3567,7 +3568,7 @@ DB 7,	BUBBLE
 DB 10,	ROCK_THROW;Rollout	Rock	[Physical] 	30 	90
 DB 10,	DEFENSE_CURL;	Normal	[Status] 	— 	—
 DB 13,	BUBBLEBEAM	;Water	[Special] 	65 	100
-DB 15,	DISARM_VOICE
+DB 15,	FAIRYWIND
 DB 20, AQUA_TAIL	;Water	[Physical] 	90 	90
 	;PLAY ROUGH Fairy	[Physical] 	90 	90
 DB 25,SPLASH;RAINDANCE
@@ -4190,7 +4191,8 @@ HOPPIP_moves:
 ;Learnset
 	db 4,MOONLIGHT
 	db 5,TACKLE
-	db 10,ABSORB ;no fairy wind yet
+	db 8,ABSORB
+	db 10,FAIRYWIND
 	db 14,STUN_SPORE
 	db 16,SLEEP_POWDER
 	db 16,GUST
@@ -4210,10 +4212,10 @@ JUMPLUFF_moves:
 
 	db 0
 ;Learnset
-	db 10,ABSORB
-	db 14,STUN_SPORE
+	db 10,STUN_SPORE
+	db 14,GUST
 	db 16,SLEEP_POWDER
-	db 16,GUST
+	db 16,FAIRYWIND
 	db 20,MEGA_DRAIN
 	db 22,LEECH_SEED
 	db 20,POISONPOWDER
@@ -4232,7 +4234,7 @@ SKIPLOOM_moves:
 	db EV_LEVEL,27,JUMPLUFF
 	db 0
 ;Learnset
-	db 10,ABSORB ;no fairy wind yet
+	db 10,FAIRYWIND
 	db 14,STUN_SPORE
 	db 16,SLEEP_POWDER
 	db 16,GUST
@@ -5297,24 +5299,37 @@ MonARIADOS:
 	db 50,POISON_JAB
 	db 0
 	
-MonMANTYKE:
+MonCelebi:
+;evos
+ db 0
+ ;moves
+ db 15,LIGHT_SCREEN
+ db 20,MEGA_DRAIN
+ db 30,DOUBLE_EDGE
+ db 40,PSYCHIC
+ db 45,DAZZLINGLEAM
+ db 50,RECOVER
+ db 55,GIGA_DRAIN
+ db 0	
+	
+;MonMANTYKE:
   	;Evolutions
-  db EV_ITEM,FROST_STONE,1,MANTINE
-	db 0
+;  db EV_ITEM,FROST_STONE,1,MANTINE
+;	db 0
 ;Learnset
-  db 2,PSYBEAM
-  db 3, SUPERSONIC
-  db 5, BUBBLEBEAM
-  db 11, CONFUSE_RAY
-  db 14, WING_ATTACK
-  db 16,HEADBUTT
-  db 19,WATER_PULSE
-  db 25,TAKE_DOWN
-  db 30,AGILITY
-  db 36,AIR_SLASH
-  db 46,FLY
-  db 50,HYDRO_PUMP
-	db 0
+;  db 2,PSYBEAM
+;  db 3, SUPERSONIC
+;  db 5, BUBBLEBEAM
+;  db 11, CONFUSE_RAY
+;  db 14, WING_ATTACK
+;  db 16,HEADBUTT
+;  db 19,WATER_PULSE
+;  db 25,TAKE_DOWN
+;  db 30,AGILITY
+;  db 36,AIR_SLASH
+;  db 46,FLY
+;  db 50,HYDRO_PUMP
+;	db 0
 	
 MonMANTINE:
   	;Evolutions
@@ -5421,7 +5436,7 @@ MonMimikyu:
   	;Evolutions
 	db 0
 ;Learnset
-  DB 5,GROWL
+  DB 5,FAIRYWIND
   db 15,NIGHT_SHADE
 	db 25,METAL_CLAW	
 	db 20,MOONBLAST

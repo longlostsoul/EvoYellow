@@ -1,7 +1,7 @@
 Route2Mons:
 	db $19
 	db 3,FARFETCHD;day
-	db 5,MIMIKYU
+	db 5,POLIWAG
 	db 4,NIDORAN_F
 	db 4,PINECO;day
 	db 4,NIDORAN_M

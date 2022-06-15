@@ -169,8 +169,11 @@ _Route24DamianText1::
 	done
 
 _Route24DamianText2::
-	text "Take good care of"
-	line "my pokemon!@@"
+  text "I saw someone say"
+  line "they wanted to"
+	cont "abandon a MON"
+	cont "in a forest."
+	done
 
 _Route24DamianText3::
 	text "Oh... I'd better"

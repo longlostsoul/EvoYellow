@@ -241,7 +241,7 @@ const_value = 1
   const DEX_OBSTAGOON
   const DEX_SPINARAK
   const DEX_ARIADOS
-  const DEX_MANTYKE
+  const DEX_CELEBI
   const DEX_MANTINE
   const DEX_PINECO;AIPOM
   const DEX_FORRETRESS;AMBIPOM

@@ -260,7 +260,7 @@ MonsterNames:
   db "Obstagoon@"
   db "Spinarak@@"
   db "Ariados@@@"
-  db "Mantyke@@@"
+  db "Celebi@@@@"
   db "Mantine@@@"
   db "Pineco@@@@";"Aipom@@@@@"
   db "Forretress";"Ambipom@@@"

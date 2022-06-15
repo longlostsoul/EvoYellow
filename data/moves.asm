@@ -36,7 +36,7 @@ MoveEnd:
 	move VINE_WHIP,    NO_ADDITIONAL_EFFECT,        35, GRASS,    100, 10
 	move STOMP,        FLINCH_SIDE_EFFECT2,         65, NORMAL,   100, 20
 	move DOUBLE_KICK,  ATTACK_TWICE_EFFECT,         30, FIGHTING, 100, 30
-	move GUST,    DRAIN_HP_EFFECT,       40, FAIRY,    100,  10;fairy wind maybe? briefly SKETCH, was move MEGA_KICK,    NO_ADDITIONAL_EFFECT,       120, NORMAL,    75,  5
+	move GUST,    NO_ADDITIONAL_EFFECT,       40, FAIRY,    100,  10;fairy wind maybe? briefly SKETCH, was move MEGA_KICK,    NO_ADDITIONAL_EFFECT,       120, NORMAL,    75,  5
 	move JUMP_KICK,    JUMP_KICK_EFFECT,            70, FIGHTING,  95, 25
 	move ROLLING_KICK, FLINCH_SIDE_EFFECT2,         60, FIGHTING,  85, 15
 	move SAND_ATTACK,  ACCURACY_DOWN1_EFFECT,        0, NORMAL,   100, 15
@@ -256,7 +256,7 @@ MoveEnd:
 	move MEGA_PUNCH,   CONFUSION_SIDE_EFFECT,      100, FIGHTING,  50,  5 ; Dynamicpunch
 	move COUNTER,      NO_ADDITIONAL_EFFECT,        60, FIGHTING,  90, 10 ; Circle Throw
 	move KARATE_CHOP,  NO_ADDITIONAL_EFFECT,       100, FIGHTING,  85,  5 ; Cross Chop
-	move SKETCH,    SPEED_DOWN_SIDE_EFFECT,      65, FIGHTING, 100, 20 ; Low Sweep, MEGA_KICK animeffect
+	move FAIRYWIND,    SPEED_DOWN_SIDE_EFFECT,      65, FIGHTING, 100, 20 ; Low Sweep, MEGA_KICK animeffect
 	move SONICBOOM,    CONFUSION_SIDE_EFFECT,      110, FLYING,    85, 10 ; Hurricane
 	move TAIL_WHIP,    ATTACK_DOWN1_EFFECT,          0, FAIRY,    100, 30 ; Baby Doll Eyes
 	move BONEMERANG,   TWO_TO_FIVE_ATTACKS_EFFECT,  25, GROUND,    90, 10 ; Bone Rush

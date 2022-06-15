@@ -3,7 +3,7 @@ Route19Mons:
 
 	db $05
 	db 5,TENTACOOL
-	db 10,MANTYKE
+	db 10,MANTINE
 	db 15,KRABBY
 	db 15,MARILL
 	db 10,CHINCHOU

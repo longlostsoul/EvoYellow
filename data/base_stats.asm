@@ -245,7 +245,7 @@ INCLUDE "data/baseStats/linoone.asm"
 INCLUDE "data/baseStats/obstagoon.asm"
 INCLUDE "data/baseStats/spinarak.asm"
 INCLUDE "data/baseStats/ariados.asm"
-INCLUDE "data/baseStats/mantyke.asm"
+INCLUDE "data/baseStats/celebi.asm"
 INCLUDE "data/baseStats/mantine.asm"
 INCLUDE "data/baseStats/pineco.asm";  earlier was aipom
 INCLUDE "data/baseStats/forretress.asm";ambipom

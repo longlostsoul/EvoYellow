@@ -242,7 +242,7 @@ const_value = 1
   const OBSTAGOON
   const SPINARAK
   const ARIADOS
-  const MANTYKE
+  const CELEBI
   const MANTINE
   const PINECO;AIPOM
   const FORRETRESS;AMBIPOM

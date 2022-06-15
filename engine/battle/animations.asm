@@ -705,7 +705,7 @@ AnimationIdSpecialEffects:
 	db GUILLOTINE
 	dw AnimationFlashScreen
 
-	db SKETCH;MEGA_KICK
+	db FAIRYWIND;MEGA_KICK, was sketch for awhile
 	dw AnimationFlashScreen
 
 	db HEADBUTT
