@@ -84,9 +84,39 @@ _BillsHouseText_1e8cb::
 	cont "instead of me?"
 	done
 
-_BillsHouseText_1e8da::
+_BillsHouseText_checkpc:: ;1e8da
 	text "BILL: Look, bud,"
 	line "just check out"
 	cont "some of my rare"
 	cont "#MON on my PC!"
 	done
+
+
+_BillText_challenge::
+ text "I'm pretty darn"
+ line "tough. Would you"
+ cont "like to fight me?"
+ done
+
+_BillText_challenge2::
+ text "I have a weaker"
+ line "random team."
+ cont "Fight it instead?"
+ done
+
+
+_BillText_prebattle::
+ text "I'm one of the"
+ line "toughest fights"
+ cont "in the game!"
+ done
+
+_BillVictorySpeech::
+ text "Do "
+ line "you trade too?"
+ prompt
+
+_BillDefeatSpeech::
+ text "You stood"
+ line "no chance."
+ prompt

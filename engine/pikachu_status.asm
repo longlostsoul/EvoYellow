@@ -132,12 +132,12 @@ Pointer_PikaSprites:
 db PIKACHU
 db MARILL
 db AZUMARILL
+db MIMIKYU
 db $FF
 
 Pointer_SeelSprites:
 db SEEL
 db DEWGONG
-
 db $FF
 
 Pointer_ShellSprites:

@@ -4,8 +4,8 @@
 	db 100 ; base defense
 	db 100 ; base speed
 	db 100 ; base special
-	db PSYCHIC ; species type 1
-	db GRASS ; species type 2
+	db GRASS ; species type 1
+	db PSYCHIC ; species type 2
 	db 3 ; catch rate
 	db 64 ; base exp yield
 	INCBIN "pic/ymon/celebi.pic",0,1 ; 55, sprite dimensions
@@ -15,7 +15,7 @@
 	db RECOVER
 	db CONFUSION
 	db LEECH_SEED
-	db 0
+	db FAIRYWIND
 	db 3 ; growth rate
 	; learnset
 	tmlearn 3,6

@@ -24,7 +24,7 @@ const_value = 1
 	const VINE_WHIP    ; 16
 	const STOMP        ; 17
 	const DOUBLE_KICK  ; 18
-	const SKETCH;MEGA_KICK    ; 19
+	const FAIRYWIND;MEGA_KICK    ; 19
 	const JUMP_KICK    ; 1a
 	const ROLLING_KICK ; 1b
 	const SAND_ATTACK  ; 1c

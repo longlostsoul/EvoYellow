@@ -8,7 +8,7 @@ TowerMons7:
 	db 23,GASTLY
 	db 24,CUBONE
 	db 29,GASTLY
-	db 24,HAUNTER
+	db 24,MIMIKYU
 	db 29,HAUNTER
 	db $00
 
