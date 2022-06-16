@@ -10,7 +10,7 @@ WildDataPointers:
 	dw NoMons      ; CINNABAR_ISLAND
 	dw NoMons      ; INDIGO_PLATEAU
 	dw NoMons      ; SAFFRON_CITY
-	dw MtSilverMons      ; unused
+	dw MtSilverMons      ; was unused. Johto Falls.
 	dw Route1Mons  ; ROUTE_1
 	dw Route2Mons  ; ROUTE_2
 	dw Route3Mons  ; ROUTE_3
@@ -105,7 +105,7 @@ WildDataPointers:
 	dw NoMons
 	dw NoMons
 	dw SilverCaveMons ;silver
-	dw NoMons ;unused
+	dw MtSilverMons ;unused. now silver. Note that because this is past Red's House Map, wild mons will spawn as if a cave, anywhere randomly.
 	dw NoMons ;unused
 	dw PlateauMons1
 	dw NoMons

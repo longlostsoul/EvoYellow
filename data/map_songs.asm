@@ -10,7 +10,7 @@ MapSongBanks:
 	db MUSIC_CINNABAR, BANK(Music_Cinnabar) ; CINNABAR_ISLAND
 	db MUSIC_INDIGO_PLATEAU, BANK(Music_IndigoPlateau) ; INDIGO_PLATEAU
 	db MUSIC_CITIES1, BANK(Music_Cities1) ; SAFFRON_CITY
-	db MUSIC_CITIES1, BANK(Music_Cities1) ; unused
+	db MUSIC_CITIES1, BANK(Music_Cities1) ; unused. Johto Town
 	db MUSIC_ROUTES1, BANK(Music_Routes1) ; ROUTE_1
 	db MUSIC_ROUTES1, BANK(Music_Routes1) ; ROUTE_2
 	db MUSIC_ROUTES3, BANK(Music_Routes3) ; ROUTE_3
@@ -104,8 +104,8 @@ MapSongBanks:
 	db MUSIC_SS_ANNE, BANK(Music_SSAnne) ; SSAnne8
 	db MUSIC_SS_ANNE, BANK(Music_SSAnne) ; SSAnne9
 	db MUSIC_SS_ANNE, BANK(Music_SSAnne) ; SSAnne10
-	db MUSIC_DUNGEON2, BANK(Music_Dungeon2) ;unused
-	db MUSIC_DUNGEON2, BANK(Music_Dungeon2) ;unused
+	db MUSIC_DUNGEON2, BANK(Music_Dungeon2) ;was unused. Silver
+	db MUSIC_DUNGEON2, BANK(Music_Dungeon2) ;was unused. Silver
 	db MUSIC_SS_ANNE, BANK(Music_SSAnne) ;unused
 	db MUSIC_DUNGEON3, BANK(Music_Dungeon3) ; VictoryRoad1
 	db MUSIC_POKEMON_TOWER, BANK(Music_PokemonTower) ;unused
