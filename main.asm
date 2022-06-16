@@ -1718,7 +1718,7 @@ INCLUDE "data/mapObjects/mtsilver.asm"
 MtSilverBlocks: INCBIN "maps/mtsilver.20x9.overworld.blk" ;polishedmap compatibility.
 
 INCLUDE "data/mapHeaders/JohtoFalls.asm"
-;INCLUDE "scripts/JohtoFalls.asm"
+INCLUDE "scripts/JohtoFalls.asm"
 INCLUDE "data/mapObjects/JohtoFalls.asm"
 JohtoFallsBlocks: INCBIN "maps/JohtoFalls.20x10.overworld.blk" ;polishedmap compatibility.
 
