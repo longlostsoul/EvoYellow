@@ -16,6 +16,7 @@ SilverCaveScriptPointers:
 SilverCaveTextPointers:
 	dw SilverCaveText1
 	dw SilverCaveText2
+	dw PickUpItemText
 
 SilverCaveTrainerHeaders:
 SilverCaveTrainerHeader1:

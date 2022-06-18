@@ -82,6 +82,8 @@ FlyWarpDataPtr:
 	dw IndigoPlateauFlyWarp
 	db SAFFRON_CITY, 0
 	dw SaffronCityFlyWarp
+	db JOHTO_FALLS, 0
+	dw JohtoFlyWarp
 	db ROUTE_4, 0
 	dw Route4FlyWarp
 	db ROUTE_10, 0
@@ -113,6 +115,8 @@ IndigoPlateauFlyWarp:
 	FLYWARP_DATA INDIGO_PLATEAU_WIDTH,   6,  9
 SaffronCityFlyWarp:
 	FLYWARP_DATA SAFFRON_CITY_WIDTH,    30,  9
+JohtoFlyWarp:
+ FLYWARP_DATA 20,                    12,12
 Route4FlyWarp:
 	FLYWARP_DATA ROUTE_4_WIDTH,          6, 11
 Route10FlyWarp:

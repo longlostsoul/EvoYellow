@@ -225,6 +225,7 @@ INCLUDE "text/maps/agatha.asm"
 INCLUDE "text/maps/rock_tunnel_b2f.asm"
 INCLUDE "text/maps/seafoam_islands_b4f.asm"
 include "text/maps/silvercave.asm"
+include "text/maps/JohtoFalls.asm"
 include "text/maps/move_deleter.asm"
 include "text/maps/move_relearner.asm"
 

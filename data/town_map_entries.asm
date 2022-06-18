@@ -10,7 +10,7 @@ ExternalMapEntries:
 	EMAP $2,$F,CinnabarIslandName
 	EMAP $0,$2,IndigoPlateauName
 	EMAP $A,$5,SaffronCityName
-	EMAP $0,$0,PalletTownName ; unused
+	EMAP $0,$0,JohtoTownName ; was unused. We made a new town, so give it a name.
 	EMAP $2,$A,Route1Name
 	EMAP $2,$6,Route2Name
 	EMAP $4,$3,Route3Name
@@ -58,6 +58,7 @@ InternalMapEntries:
 	IMAP BILLS_HOUSE,               $C,$0,SeaCottageName
 	IMAP VERMILION_DOCK,            $A,$9,VermilionCityName
 	IMAP SS_ANNE_10,                $9,$A,SSAnneName
+	IMAP MT_SILVER_CAVE,           $0,$0,JohtoTownName ;We can have non-town locations have names on the map too. This one is located at 0,0 on the map menu, so it shows up on the veryyy top.
 	IMAP VICTORY_ROAD_1,            $0,$4,VictoryRoadName
 	IMAP HALL_OF_FAME,              $0,$2,PokemonLeagueName
 	IMAP UNDERGROUND_PATH_NS,       $A,$5,UndergroundPathName
