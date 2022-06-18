@@ -11,7 +11,7 @@ MapHeaderBanks::
 	db BANK(CinnabarIsland_h) ; CINNABAR_ISLAND
 	db BANK(IndigoPlateau_h) ; INDIGO_PLATEAU
 	db BANK(SaffronCity_h) ; SAFFRON_CITY
-	db BANK(MtSilver_h) ; unused mt silver
+	db BANK(JohtoFalls_h) ; was unused. now Johto.
 	db BANK(Route1_h) ; ROUTE_1
 	db BANK(Route2_h) ; ROUTE_2
 	db BANK(Route3_h) ; ROUTE_3
@@ -105,8 +105,8 @@ MapHeaderBanks::
 	db BANK(SSAnne8_h)
 	db BANK(SSAnne9_h)
 	db BANK(SSAnne10_h)
-	db BANK(MtSilverCave_h) ; unused silver cave
-	db $1d ; unused
+	db BANK(MtSilverCave_h) ; was unused. silver cave
+	db BANK(MtSilver_h) ; was unused. now mt silver 
 	db $1d ; unused
 	db BANK(VictoryRoad1_h)
 	db $1d ; unused

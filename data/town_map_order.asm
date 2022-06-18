@@ -46,4 +46,5 @@ TownMapOrder:
 	db VICTORY_ROAD_3
 	db INDIGO_PLATEAU
 	db POWER_PLANT
+	db JOHTO_FALLS ; Add to here if you want to show up on the map.
 TownMapOrderEnd:

@@ -126,6 +126,7 @@
 	const HS_SS_ANNE_10_ITEM_1            ; 77
 	const HS_SS_ANNE_10_ITEM_2            ; 78
 	const HS_SS_ANNE_10_ITEM_3            ; 79
+	const HS_SILVERCAVE_ITEM_1 ;didn't seem to be necessary but not a bad idea.
 	const HS_VICTORY_ROAD_3_ITEM_1        ; 7A
 	const HS_VICTORY_ROAD_3_ITEM_2        ; 7B
 	const HS_VICTORY_ROAD_3_BOULDER       ; 7C

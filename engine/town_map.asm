@@ -265,7 +265,7 @@ BuildFlyLocationsList:
 	ld e, a
 	ld a, [wTownVisitedFlag + 1]
 	ld d, a
-	ld bc, SAFFRON_CITY + 1
+	ld bc, JOHTO_FALLS + 1 ; Alter this carefully; all towns must be next to each other for the fly map to work. If something isn't a fly map, then you don't need to mess with this.
 .loop
 	srl d
 	rr e

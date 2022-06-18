@@ -48,15 +48,15 @@ MapHSPointers:
 	dw MapHS28 ;oak'slab
 	dw MapHSXX
 	dw MapHSMart;viridian pokemart
-	dw MapHSXX
-	dw MapHSXX
-	dw MapHS2D
-	dw MapHSXX
-	dw MapHSXX
-	dw MapHSXX
-	dw MapHSXX
-	dw MapHSXX
-	dw MapHS33
+	dw MapHSXX ;school
+	dw MapHSXX ;vhouse
+	dw MapHS2D ;gym
+	dw MapHSXX ;diglett
+	dw MapHSXX ;r2h
+	dw MapHSXX ;r2g
+	dw MapHSXX ; V Entrance
+	dw MapHSXX ;Viridian Forest
+	dw MapHS33 ; Museum
 	dw MapHS34
 	dw MapHSXX
 	dw MapHSXX
@@ -108,9 +108,9 @@ MapHSPointers:
 	dw MapHSXX
 	dw MapHSXX
 	dw MapHS66
-	dw MapHS67
-	dw MapHS68
-	dw MapHSXX
+	dw MapHS67 ;SS Anne
+	dw MapHS68 ;SS Anne
+	dw MapHSsilver ;Mt Silver Hopefully
 	dw MapHSXX
 	dw MapHSXX
 	dw MapHS6C
@@ -437,6 +437,8 @@ MapHS68:
 	db SS_ANNE_10, $09, Show
 	db SS_ANNE_10, $0A, Show
 	db SS_ANNE_10, $0B, Show
+MapHSsilver:
+  db MT_SILVER_CAVE, $03, Show
 MapHSC6:
 	db VICTORY_ROAD_3, $05, Show
 	db VICTORY_ROAD_3, $06, Show

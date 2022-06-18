@@ -21,6 +21,8 @@ IndigoPlateauName:
 	db "INDIGO PLATEAU@"
 SaffronCityName:
 	db "SAFFRON CITY@"
+JohtoTownName:
+  db "JOHTO@" ;actually New Bark Town. Needed step for naming your town / fly menus.
 Route1Name:
 	db "ROUTE 1@"
 Route2Name:

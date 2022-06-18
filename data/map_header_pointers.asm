@@ -11,7 +11,7 @@ MapHeaderPointers::
 	dw CinnabarIsland_h
 	dw IndigoPlateau_h
 	dw SaffronCity_h
-	dw MtSilver_h
+	dw JohtoFalls_h ;now a town in Johto, yay.
 	dw Route1_h
 	dw Route2_h
 	dw Route3_h
@@ -105,8 +105,8 @@ MapHeaderPointers::
 	dw SSAnne8_h
 	dw SSAnne9_h
 	dw SSAnne10_h
-	dw MtSilverCave_h ; unused silver cave
-	dw Lance_h ; unused
+	dw MtSilverCave_h ; unused. now silver cave
+	dw MtSilver_h ; was unused
 	dw Lance_h ; unused
 	dw VictoryRoad1_h
 	dw Lance_h ; unused
