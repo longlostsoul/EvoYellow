@@ -10,7 +10,9 @@ I have now created a new patch and I believe I found the problem. My computer's 
 
 
 For disassembling, I use a VERY old version of pokeyellow apparently, so one user found success using using an older version of rgbds,  0.2.5.
-Another user also manually edited the sound file inclusions as they seemed to cause the compilation mismatch errors with the modern versions. I hope this helps!
+Another user also manually edited the sound file inclusions as they seemed to cause the compilation mismatch errors with the modern versions.
+Someone also made a fork of it.
+ I hope this helps!
 
 At some point, I will try to get access to a more modern computer that isn't a bajillion years old so I can install a more modern version of things like rgbds and make this more widely available. In the meantime, I am incredibly sorry for the inconvenience!
 
@@ -23,12 +25,12 @@ Latest Version:
 + Press B to run
 + Can complete the Pokedex.
 + Optional Level Adjuster Mode, trainers will have their levels matched to your party's, although elite will be slightly higher. In this mode, you can also use surf on water without the move surf as soon as you want, so you can play the game in reverse order and fight Cinnabar first! (Seafoam is a bit of a pain, but you can get through it without Strength. Surf around Snorlax.)
-+ Refight gym leaders by talking to the gym guide (or in Celadon's case, the guy right outside the gym) -latest update 3.5 only-
++ Refight gym leaders by talking to the gym guide (or in Celadon's case, the guy right outside the gym) -Updates 3.5 and higher only-
 + Day and night system
 + Over 250 pokemon, many Johto but also new Kanto evolutions have been added. All Eeveelutions available. Put a pokemon in first slot to have it follow you.
 + Legend Dogs roam after special randomized Fearow encounter, Mew roams after enough badges as a very rare encounter.
-+ Snag balls have been coded in the latest version 3.5 which can catch the last MON of a trainer. This is intended for use in the Meowth hack or possibly a Colosseum centric style hack with Eevee (you are free to use this as a base if you want for your own hack or steal any of the code).
-+ Munchlax and Mantyke babymons can be gotten from daycare if you leave a parent mon there.
++ Snag balls have been coded in the version 3.5 which can catch the last MON of a trainer. This is intended for use in the Meowth hack or possibly a Colosseum centric style hack with Eevee (you are free to use this as a base if you want for your own hack or steal any of the code).
++ You can get a baby from the daycare if you leave a mon there. In older versions there were a few babymons, but I'm removing them for Celebi and Lugia.
 + Charmander is available earlier from a bugcatcher in Viridian.
 + More moves, like Crunch. Custom coding has been added for Sketch, Hidden Power and Mirror Move.
 + Some moves have been tweaked; Wrap no longer traps you forever, nor do you get stuck raging. Roar can switch trainer parties out now (if a little terribly, as it displays the wrong text 'trainer switched mons' for enemies).
@@ -37,7 +39,7 @@ Latest Version:
 + Different kinds of shinies, get Pink, Blue, Black, Orange/red
 + Hold items for Pokemon (very basic, use 'give' from item menu and 'take' from party menu): Berries and type-changing stones (Give moon stone to your meowth to make it part dark type like an Alolan Meowth!)
 + Very basic megas functionality for Charizard, Venusaur, and Blastoise.
-+ New Area, Mt. Silver
++ New Areas, Mt. Silver and I am slowly adding the rest of Johto as well. Kanto is fully complete/playable on its own, of course.
 + Slight difficulty curve adjustment in normal mode, with larger anime-inspired Teams for Gym Leaders, example: Brock has Vulpix, Misty has Corsola and Togekiss
 + OLDER versions (below 3.3) had type re-adjustments. In the new version, you can choose to adjust types by making your pokemon hold special stones!
 + Uses Dannye's Gen 2 Sprites version of the Yellow disassembly as a base; so, updated sprites. Exception is Yellow's Pikachu sprite; that one I revamped myself.
@@ -49,9 +51,6 @@ Latest Version:
 * Move alterations [**here**](data/moves.asm).
 * To see pokemon that come out at night [**here**](data/handle_nightmons.asm) and the rest in [**here**](data/wildPokemon)
 * Hold items (Keep in mind some were actually renamed) [**here**](engine/items/holditems.asm) and item list [**here**](constants/item_constants.asm)
-
-
-I apologize for not updating this very actively... It's just that I had most of the features I wanted so there wasn't much impetus, and more advanced features I'd kinda like are of the more tedious variety to implement.
 
 Known bugs: (# - game breaking. ! - somewhat important)
 * ! Mud slap can be a bit buggy and sometimes lower accuracy of both parties. Just switch. I might remove it in the future.
