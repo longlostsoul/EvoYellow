@@ -243,8 +243,8 @@ INCLUDE "data/baseStats/steelix.asm";237
 INCLUDE "data/baseStats/zigzagoon.asm"
 INCLUDE "data/baseStats/linoone.asm"
 INCLUDE "data/baseStats/obstagoon.asm"
-INCLUDE "data/baseStats/spinarak.asm"
-INCLUDE "data/baseStats/ariados.asm"
+INCLUDE "data/baseStats/joltik.asm"
+INCLUDE "data/baseStats/galvantula.asm"
 INCLUDE "data/baseStats/celebi.asm"
 INCLUDE "data/baseStats/mantine.asm"
 INCLUDE "data/baseStats/pineco.asm";  earlier was aipom

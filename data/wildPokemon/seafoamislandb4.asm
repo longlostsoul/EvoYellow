@@ -1,4 +1,4 @@
-IslandMonsB4:
+IslandMonsB4: ;removed due to space issues for Johto.
 	db $0A
 	db 36,GOLBAT
 	db 36,ZUBAT

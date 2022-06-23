@@ -1,0 +1,15 @@
+JohtoMons5:
+	db $0A
+	db 13,YANMA;day
+	db 15,DROWZEE
+	db 14,PINSIR
+	db 14,GROWLITHE;day
+	db 14,VENONAT
+	db 15,HOUNDOUR
+	db 16,MURKROW
+	db 15,SCYTHER
+	db 15,ABRA
+	db 15,PSYDUCK
+
+	db 0
+

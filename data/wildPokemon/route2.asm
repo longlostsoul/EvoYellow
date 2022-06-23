@@ -7,8 +7,8 @@ Route2Mons:
 	db 4,NIDORAN_M
 	db 5,SANDSHREW
 	db 6,PIDGEY
-	db 6,MANKEY
+	db 6,NATU
 	db 7,RATTATA
-	db 7,MANKEY
+	db 7,ZIGZAGOON
 	db $00
 

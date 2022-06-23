@@ -240,8 +240,8 @@ const_value = 1
 	  const ZIGZAGOON
   const LINOONE
   const OBSTAGOON
-  const SPINARAK
-  const ARIADOS
+  const JOLTIK
+  const GALVANTULA
   const CELEBI
   const MANTINE
   const PINECO;AIPOM

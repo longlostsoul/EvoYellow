@@ -1,0 +1,25 @@
+JohtoMons4:
+	db $0A
+	db 13,SNUBBULL;day
+	db 14,RATTATA
+	db 13,DROWZEE
+	db 14,SNUBBULL;day
+	db 11,DITTO
+	db 12,JIGGLYPUFF
+	db 12,PIDGEY
+	db 12,ABRA
+	db 12,HERACROSS
+	db 12,CORSOLA
+
+	db 0 ;$05
+	;db 5,WOOPER
+	;db 3,KRABBY
+	;db 2,POLIWAG
+	;db 3,MARILL
+	;db 5,MARILL
+;	db 6,POLIWAG
+;	db 10,MAGIKARP
+;	db 6,STARYU
+;	db 6,CHINCHOU
+;	db 8,HORSEA
+

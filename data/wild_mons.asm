@@ -10,7 +10,7 @@ WildDataPointers:
 	dw NoMons      ; CINNABAR_ISLAND
 	dw NoMons      ; INDIGO_PLATEAU
 	dw NoMons      ; SAFFRON_CITY
-	dw MtSilverMons      ; was unused. Johto Falls.
+	dw EarlyJohtoMons      ; was unused. Johto Falls.
 	dw Route1Mons  ; ROUTE_1
 	dw Route2Mons  ; ROUTE_2
 	dw Route3Mons  ; ROUTE_3
@@ -144,10 +144,10 @@ WildDataPointers:
 	dw TowerMons1
 	dw TowerMons2
 	dw TowerMons3
-	dw TowerMons4
-	dw TowerMons5
-	dw TowerMons6
-	dw TowerMons7
+	dw TowerMons3;4
+	dw TowerMons3;5
+	dw TowerMons3;6
+	dw TowerMons3;7
 	dw NoMons
 	dw NoMons
 	dw NoMons
@@ -158,10 +158,10 @@ WildDataPointers:
 	dw NoMons
 	dw NoMons
 	dw NoMons
-	dw IslandMonsB1
-	dw IslandMonsB2
+	dw IslandMons1;b1
+	dw IslandMons1;b2. cannibalizing for Johto. was fairly repetitive anyway.
 	dw IslandMonsB3
-	dw IslandMonsB4
+	dw IslandMonsB3;4
 	dw NoMons
 	dw NoMons
 	dw MansionMons1
@@ -286,10 +286,10 @@ INCLUDE "data/wildPokemon/route7.asm"
 INCLUDE "data/wildPokemon/pokemontower1.asm"
 INCLUDE "data/wildPokemon/pokemontower2.asm"
 INCLUDE "data/wildPokemon/pokemontower3.asm"
-INCLUDE "data/wildPokemon/pokemontower4.asm"
-INCLUDE "data/wildPokemon/pokemontower5.asm"
-INCLUDE "data/wildPokemon/pokemontower6.asm"
-INCLUDE "data/wildPokemon/pokemontower7.asm"
+;INCLUDE "data/wildPokemon/pokemontower4.asm"
+;INCLUDE "data/wildPokemon/pokemontower5.asm"
+;INCLUDE "data/wildPokemon/pokemontower6.asm"
+;INCLUDE "data/wildPokemon/pokemontower7.asm"
 INCLUDE "data/wildPokemon/route13.asm"
 INCLUDE "data/wildPokemon/route14.asm"
 INCLUDE "data/wildPokemon/route15.asm"
@@ -303,10 +303,10 @@ INCLUDE "data/wildPokemon/safarizone3.asm"
 INCLUDE "data/wildPokemon/route19.asm"
 INCLUDE "data/wildPokemon/route20.asm"
 INCLUDE "data/wildPokemon/seafoamisland1.asm"
-INCLUDE "data/wildPokemon/seafoamislandb1.asm"
-INCLUDE "data/wildPokemon/seafoamislandb2.asm"
+;INCLUDE "data/wildPokemon/seafoamislandb1.asm"
+;INCLUDE "data/wildPokemon/seafoamislandb2.asm"
 INCLUDE "data/wildPokemon/seafoamislandb3.asm"
-INCLUDE "data/wildPokemon/seafoamislandb4.asm"
+;INCLUDE "data/wildPokemon/seafoamislandb4.asm" ;johto now x_x
 INCLUDE "data/wildPokemon/mansion1.asm"
 INCLUDE "data/wildPokemon/mansion2.asm"
 INCLUDE "data/wildPokemon/mansion3.asm"
@@ -323,3 +323,11 @@ INCLUDE "data/wildPokemon/victoryroad1.asm"
 INCLUDE "data/wildPokemon/diglettscave.asm"
 INCLUDE "data/wildPokemon/silvercave.asm"
 INCLUDE "data/wildPokemon/mtsilver.asm"
+INCLUDE "data/wildPokemon/johto1.asm"
+INCLUDE "data/wildPokemon/johto2.asm"
+INCLUDE "data/wildPokemon/johto3.asm"
+INCLUDE "data/wildPokemon/johto4.asm"
+INCLUDE "data/wildPokemon/johto6.asm"
+INCLUDE "data/wildPokemon/johto5.asm"
+INCLUDE "data/wildPokemon/johto7.asm"
+INCLUDE "data/wildPokemon/johto8.asm"

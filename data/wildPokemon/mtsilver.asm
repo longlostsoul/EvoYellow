@@ -1,15 +1,15 @@
 MtSilverMons:
 	db $0A
-	db 7,SNEASEL
+	db 7,PHANPY ;day
 	db 6,EEVEE
-	db 2,WOOPER
+	db 2,WOBBUFFET
 	db 7,TEDDIURSA
-	db 3,PHANPY
+	db 3,DUNSPARCE
 	db 6,TYROGUE
-	db 3,YANMA
-	db 3,SNEASEL
+	db 3,HERACROSS
+	db 6,SNEASEL
 	db 8,HOUNDOUR
-	db 2,HERACROSS
+	db 2,ABSOL
 
 	db $05
 	db 25,CHINCHOU

@@ -1,0 +1,14 @@
+JohtoMons8:
+	db $0A
+	db 25,SKARMORY;day
+	db 24,GLIGAR
+	db 20,LICKITUNG
+	db 20,TANGELA;day
+	db 20,SWINNUB
+	db 24,JYNX
+	db 20,PHANPY
+	db 25,GRAVELER
+	db 20,SNEASEL
+	db 24,ONIX
+	db 0
+

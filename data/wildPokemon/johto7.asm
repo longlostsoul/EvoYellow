@@ -1,0 +1,14 @@
+JohtoMons7:
+	db $0A
+	db 13,SPEAROW;day
+	db 15,TAUROS
+	db 14,MILTANK
+	db 14,SNUBBULL;day
+	db 14,MAGNEMITE
+	db 15,MAREEP
+	db 16,SUDOWOODO
+	db 15,MEOWTH
+	db 15,FLAAFFY
+	db 15,FARFETCHD
+	db 0
+

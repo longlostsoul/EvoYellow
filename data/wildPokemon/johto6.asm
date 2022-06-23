@@ -1,0 +1,14 @@
+JohtoMons6:
+	db $0A
+	db 13,TOGEPI;day
+	db 15,GIRAFARIG
+	db 14,JIGGLYPUFF
+	db 14,BELLSPROUT;day
+	db 14,VULPIX
+	db 15,MAGMAR
+	db 16,SUDOWOODO
+	db 15,KOFFING
+	db 15,MISDREAVUS
+	db 15,GROWLITHE
+	db 0
+

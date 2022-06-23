@@ -38,7 +38,7 @@ NightWildMonPointers:
 	dw NoNightMons
 	dw NoNightMons
 	dw NoNightMons
-	dw NoNightMons
+	dw Route2NightMons
 	dw Route1NightMons  ; ROUTE_1
 	dw Route2NightMons  ; ROUTE_2
 	dw Route3NightMons  ; ROUTE_3
@@ -111,33 +111,33 @@ NightWildMonPointers:
 	dw NoNightMons
 	dw NoNightMons ; Rock Tunnel 1
 	dw NoNightMons ; Power Plant
-	dw NoNightMons
-	dw NoNightMons
-	dw NoNightMons
-	dw NoNightMons
-	dw NoNightMons
-	dw NoNightMons
-	dw NoNightMons
-	dw NoNightMons
-	dw NoNightMons
-	dw NoNightMons
-	dw NoNightMons
-	dw NoNightMons
-	dw NoNightMons
-	dw NoNightMons
-	dw NoNightMons
-	dw NoNightMons
-	dw NoNightMons
-	dw NoNightMons
-	dw NoNightMons
-	dw NoNightMons
-	dw NoNightMons
+	dw NoNightMons ;
+	dw NoNightMons;
+	dw NoNightMons;
+	dw NoNightMons;
+	dw NoNightMons;fanclub
+	dw NoNightMons;v
+	dw NoNightMons;v
+	dw NoNightMons;v
+	dw NoNightMons;v
+	dw NoNightMons;ss
+	dw NoNightMons;2
+	dw NoNightMons;3
+	dw NoNightMons;4
+	dw NoNightMons;5
+	dw NoNightMons;6
+	dw NoNightMons;7
+	dw NoNightMons;8
+	dw NoNightMons;9
+	dw NoNightMons;10
+	dw HighLevelNightMons
+	dw DiglettNightMons
 	dw NoNightMons
 	dw NoNightMons
 	dw NoNightMons
 	dw NoNightMons ; Victory Road
 	dw NoNightMons
-	dw NoNightMons;Route2NightMons
+	dw NoNightMons;use Route2NightMons?
 	dw NoNightMons;Route10NightMons
 	dw NoNightMons;Route12NightMons
 	dw NoNightMons
@@ -283,7 +283,7 @@ NoNightMons:
 ForestNightMons:
 	db 4, HOOTHOOT
 	db 5, PIKACHU
-	db 5, SPINARAK
+	db 5, JOLTIK
 
 DiglettNightMons:
 	db 20, ZUBAT
@@ -294,6 +294,11 @@ MtMoonNightMons:
 	db 9, ZUBAT
 	db 10, PARAS
 	db 12, CLEFAIRY
+
+;EarlyJohtoNightMons:
+; db 3, HOOTHOOT
+; db 4, ZUBAT
+; db 5, ZIGZAGOON ;need moar space
 
 Route1NightMons:
 	db 3, HOOTHOOT
