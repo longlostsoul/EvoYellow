@@ -122,10 +122,36 @@ PewterGymText1:
 	ld hl, PewterGymText_5c4bc
 	ld de, PewterGymText_5c4bc
 	call SaveEndBattleTextPointers
+	
+	;new difficulty code
+	call YesNoChoice	;call a yes/no choice box
+	ld a, [wCurrentMenuItem]	;load the player choice
+	and a	;check the player choice
+	jr z, .noask	;else then ask to do hardmode or super easy
+	ld hl, PewterGymText_easy
+	call PrintText
+	call YesNoChoice	;call a yes/no choice box
+	ld a, [wCurrentMenuItem]	;load the player choice
+	and a	;check the player choice
+	jr z, .hardmode
+	ld a, OPP_BROCK	;load the trainer type for other modes
+	ld [wCurOpponent], a	;set as the current opponent
+	ld a, $3 ;opp number
+	ld [wTrainerNo], a	;load easy team
+	jp .resume
+.noask
 	ld a, [H_SPRITEINDEX]
 	ld [wSpriteIndex], a
 	call EngageMapTrainer
 	call InitBattleEnemyParameters
+	jp .resume
+.hardmode
+	ld a, OPP_BROCK	;load the trainer type for other modes
+	ld [wCurOpponent], a	;set as the current opponent
+	ld a, $2 ;opp number
+	ld [wTrainerNo], a	;load alt team
+	
+.resume
 	ld a, $1
 	ld [wGymLeaderNo], a
 	xor a
@@ -138,6 +164,10 @@ PewterGymText1:
 
 PewterGymText_5c49e:
 	TX_FAR _PewterGymText_5c49e
+	db "@"
+
+PewterGymText_easy:
+	TX_FAR _PewterGymText_easy
 	db "@"
 
 PewterGymText_5c4a3:

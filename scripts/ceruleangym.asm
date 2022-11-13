@@ -123,10 +123,21 @@ CeruleanGymText1:
 	ld hl, CeruleanGymText_5c7d8
 	ld de, CeruleanGymText_5c7d8
 	call SaveEndBattleTextPointers
+	call YesNoChoice	;call a yes/no choice box
+	ld a, [wCurrentMenuItem]	;load the player choice
+	and a	;check the player choice
+	jr z, .hardmode
 	ld a, [H_SPRITEINDEX]
 	ld [wSpriteIndex], a
 	call EngageMapTrainer
 	call InitBattleEnemyParameters
+	jp .resume
+.hardmode
+	ld a, OPP_MISTY	;load the trainer type for other modes
+	ld [wCurOpponent], a	;set as the current opponent
+	ld a, $2 ;opp number
+	ld [wTrainerNo], a	;load alt team
+.resume
 	ld a, $2
 	ld [wGymLeaderNo], a
 	xor a

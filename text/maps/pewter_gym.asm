@@ -13,9 +13,14 @@ _PewterGymText_5c49e::
 
 	para "Do you still want"
 	line "to challenge me?"
-	cont "Fine then! Show"
-	cont "me your best!"
+	cont "What difficulty"
+	cont "do you want? Mid?"
 	done
+	
+_PewterGymText_easy::
+ text "Do you want hard"
+ line "mode difficulty?" 
+ done
 
 _PewterGymText_5c4a3::
 	text "There are all"

@@ -15,7 +15,7 @@ _CeruleanGymText_5c7be::
 	line "famous beauty, is"
 	cont "your host!"
 
-	para "Are you ready,"
+	para "Want easy mode,"
 	line "sweetie?"
 	done
 
