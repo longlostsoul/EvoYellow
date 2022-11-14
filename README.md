@@ -6,7 +6,8 @@ You do have my permission to use this for whatever you like.
 
 IMPORTANT:
 Some of the latest patches weren't working. The really old patches (3.3) seem to still be working though.
-I have now created a new patch and I believe I found the problem. My computer's memory file re-writing is apparently corrupted. So when I made a minor edit to the latest patch and re-made the file with the same name, the patch went from usable to corrupted. I created a brand new UPS patch with a different name and this one works.
+I have now created a new patch and I believe I found the problem. My computer's memory file re-writing is apparently corrupted. So when I made a minor edit to the latest patch and re-made the file with the same name, the patch went from usable to corrupted.
+Someone made a fixed patch, use that one. This one doesn't include the latest changes.
 
 
 For disassembling, I use a VERY old version of pokeyellow apparently, so one user found success using using an older version of rgbds,  0.2.5.
@@ -15,10 +16,14 @@ Someone also made a fork of it.
  I hope this helps!
 
 At some point, I will try to get access to a more modern computer that isn't a bajillion years old so I can install a more modern version of things like rgbds and make this more widely available. In the meantime, I am incredibly sorry for the inconvenience!
+I actually got a new computer and then... it died in a thunderstorm. x_x And now my original computer is periodically blue screening! My luck is not too good!
 
 
+Latest changes:
+A couple more hold items change types. I made it so you can ask Brock and Misty to give you an easier battle; this makes it more fun to re-fight them later.
+I added Joltik (replacing Spinarak) just for more electric and bug variety that doesn't completely suck, although my back sprites are fairly terrible.
 
-Latest Version:
+Features:
 + Play as girl or boy
 + Cute Raichu graphics when you evolve Pikachu, Eevee and Meowth instead in those versions.
 + Ride pokemon on a saddle

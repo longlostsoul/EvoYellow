@@ -116,9 +116,8 @@ StatusScreen:
 	coord hl, 19, 9
 	lb bc, 8, 6
 	call DrawLineBox ; Draws the box around types, ID No. and OT
-	coord hl, 10, 9
-	ld de, Type1Text
-	call PlaceString ; "TYPE1/"
+	callab TypeChangeFromScreen
+
 	coord hl, 11, 3
 	predef DrawHP
 	ld hl, wStatusScreenHPBarColor
@@ -138,7 +137,7 @@ StatusScreen:
 	ld b, SET_PAL_STATUS_SCREEN
 	call RunPaletteCommand
 	coord hl, 16, 6
-	ld de, wLoadedMonStatus
+	;ld de, wLoadedMonStatus
 	;call PrintStatusCondition
 	;jr nz, .StatusWritten
 	;coord hl, 16, 6
@@ -185,10 +184,15 @@ StatusScreen:
 	ld e, l
 	coord hl, 12, 16
 	call PlaceString ; OT
+	
+	;#####Attempting dynamic special def, maybe?
+	; it wasn't very cooperative -sigh-
+	;callba CalculateSpecialDEF
 	coord hl, 12, 14
 	ld de, wLoadedMonOTID
-	lb bc, LEADING_ZEROES | 2, 5
+	lb bc, LEADING_ZEROES | 2,5 ;for otid ;2,3 for a stat;
 	call PrintNumber ; ID Number
+	
 	call PrintShinySymbol
 	ld a, [wLoadedMonSpecies]
 	ld [wGenderTemp], a
@@ -255,27 +259,6 @@ NamePointers2:
 	dw wEnemyMonNicks
 	dw wBoxMonNicks
 	dw wDayCareMonName
-
-Type1Text:
-	db "TYPE1/", $4e
-
-Type2Text:
-	db "TYPE2/", $4e
-
-IDNoText:
-	db $73, "№", "/", $4e
-
-OTText:
-	db "OT/", $4e, "@"
-
-StatusText:
-	db "STATUS/@"
-
-;PokeHoldItemText:
-;	db "Item@"
-
-OKText:
-	db "OK@"
 
 ; Draws a line starting from hl high b and wide c
 DrawLineBox:
@@ -344,6 +327,8 @@ PrintStatsBox:
 	ld de, wLoadedMonSpeed
 	call PrintStat
 	ld de, wLoadedMonSpecial
+	;call PrintStat
+	;ld de, wLoadedMonSpecial
 	jp PrintNumber
 PrintStat:
 	push hl
@@ -357,6 +342,7 @@ StatsText:
 	db   "ATTACK"
 	next "DEFENSE"
 	next "SPEED"
+	;next "SPEC"
 	next "SPECIAL@"
 
 StatusScreen2:

@@ -1,17 +1,72 @@
-	;######Player Hold Item Script!####
+	;######Player Hold Item Script! also lower down TM rename####
 
 LoadPokeItem::
 	ld hl, wPartyMon1CatchRate
 	ld a, [wPlayerMonNumber]
 	ld bc, wPartyMon2 - wPartyMon1
 	call AddNTimes ;now HL should point to our chosen mon's catch rate.
-  ld a, [hl];[wBattleMonCatchRate] except that doesn't seem to update well, so we use this instead
+  ld a, [hl];[wBattleMonCatchRate] except that doesn't update out of battle, so we use this instead
   ret
   
-MegaForms::
+TypeChangeFromScreen::
+ ld a, [wLoadedMonCatchRate]
+ call TypeChanger
+ ld a, [wLoadedMonType]
+ ld b, a
+ ld a, [wBattleMonType]
+ cp b
+ jr nz, .nomatch
+ ld a, [wLoadedMonCatchRate]
+ cp 0
+ jr nz, .nomatch
+	coord hl, 10, 9
+	ld de, Type1Text
+	call PlaceString ; "TYPE1/"
+	ret
+.nomatch
+	coord hl, 10, 9
+	ld de, NotTypeText
+	call PlaceString ; "TYPE1/"
+ ret  
+ 
+ 
+Type1Text:
+	db "TYPE/", $4e
+Type2Text:
+	db "Type2/", $4e 
+IDNoText2:
+;	db "?", "/", $4e
+	db $73, "?", "/", $4e
+
+OTText2:
+	db "OT/", $4e, "@"
+
+NotTypeText:
+	db "ORIGINAL/", $4e 
+NotType2Text:
+  db "/", $4e
+  
+IDNoText:
+	db "Items may",$4e
+
+OTText:
+	db "alt types.", $4e, "@"
+
+StatusText:
+	db "STATUS/@"
+
+;PokeHoldItemText:
+;	db "Item@"
+
+OKText:
+	db "OK@"
+ 
+MegaForms:: ;and type changes. right now for you only not enemy
   ld a,0
   ld [wTemp4],a ;by default, no mega.
   call LoadPokeItem
+; fall through?
+TypeChanger::
   cp MOON_STONE
   jr z, .Darkify
   cp LOVE_STONE
@@ -39,22 +94,14 @@ MegaForms::
  ld [wBattleMonType],a
  jp .ret1
 .Fairy
- ld a, [wBattleMonSpecies]
- cp RAICHU
- jr z, .Psychicify
+ ;ld a, [wBattleMonSpecies]
  ld a, FAIRY
  ld [wBattleMonType],a
  ld a,DRAININGKISS
  ld [wBattleMonMoves],a
- ld a, [wBattleMonSpecies]
- cp RAPIDASH
- jr nz, .ret1
-.Psychicify
- ld a, PSYCHIC
- ld [wBattleMonType2],a
- ld [wBattleMonMoves],a
-.ret1
+; ld a, [wBattleMonSpecies]
  ;callab PrintHoldItemText
+.ret1
  ret
 .Ice
  ld a, ICE
@@ -120,7 +167,7 @@ MegaForms::
  ; cp BLASTOISE
  ; jr z, .Mega2
  ; cp CHARIZARD
-  jr nz, .noCharm
+  jr nz, .justDragon
   jp .Mega2
 .Water
   cp WATER_STONE
@@ -131,15 +178,28 @@ MegaForms::
 	ld [wBattleMonType],a
 	ld a, [wBattleMonSpecies]
   cp BLASTOISE
-  jr nz, .noStone
+  jr nz, .ret2
   ld a, BLASTOISE
   ld [wTemp4],a
 	;ld de, wBattleMonSpecies
 	;ld [de], a
 	jp .Mega2
+.MegaDragon
+	;ld a, CHARIZARD ;mega form or other form pic change. Seems to work well.
+	;ld [wTemp4],a
+	;ld de, wBattleMonSpecies ;put after copy data in LoadBattleMonFromParty if want to over-ride pic using species slot.
+	;ld [de], a
+	call Megastats
+.justDragon
+	ld a, DRACO_METEOR
+	ld [wBattleMonMoves],a
+	ld a, DRAGON
+	ld [wBattleMonType2],a
+.ret2
+  ret
 .Leaf
   cp LEAF_STONE
-  jr nz, .noStone
+  jr nz, .moreitems
   ld a, RAZOR_LEAF
 	ld [wBattleMonMoves],a
 	ld a, GRASS
@@ -153,6 +213,56 @@ MegaForms::
 	;ld de, wBattleMonSpecies
 	;ld [de], a
 	jp .Mega2
+.moreitems
+  CP MAX_REVIVE
+  jr nz, .Psychicify
+  ld a, GHOST
+	ld [wBattleMonType],a
+  jp .print
+.Psychicify
+  CP ETHER
+  jr nz, .notpsy
+  ld a, PSYCHIC
+	;ld [wBattleMonType],a
+  ld [wBattleMonType2],a
+  ld [wBattleMonMoves],a
+  jp .print
+.notpsy
+  CP SODA_POP
+  jr nz, .notpoison
+  ld a, POISON ;soda is bad for you folks.
+	ld [wBattleMonType],a
+  jp .print
+.notpoison
+  CP LEMONADE ;we all know it is the most mundane of drinks.
+  jr nz, .notnormal
+  ld a, NORMAL
+	ld [wBattleMonType],a
+  jp .print
+.notnormal
+  CP PROTEIN
+  jr nz, .notfight
+  ld a, FIGHTING
+	ld [wBattleMonType],a
+  jp .print
+.notfight
+  CP CARBOS
+  jr nz, .notfly
+  ld a, FLYING
+	ld [wBattleMonType],a
+  jp .print
+.notfly
+  CP CALCIUM
+  jr nz, .notground
+  ld a, GROUND
+	ld [wBattleMonType],a
+  jp .print
+.notground
+  CP IRON
+  jr nz, .noStone
+  ld a, STEEL
+	ld [wBattleMonType],a
+  jp .print
 ;.Jolt
   ;ld a, [wBattleMonSpecies]
   ;cp EEVEE
@@ -161,17 +271,7 @@ MegaForms::
 	;ld de, wBattleMonSpecies
 	;ld [de], a
 	;jp .print
-.MegaDragon
-	;ld a, CHARIZARD ;mega form or other form pic change. Seems to work well.
-	;ld [wTemp4],a
-	;ld de, wBattleMonSpecies ;put after copy data in LoadBattleMonFromParty if want to over-ride pic using species slot.
-	;ld [de], a
-	call Megastats
-.noCharm
-	ld a, DRACO_METEOR
-	ld [wBattleMonMoves],a
-	ld a, DRAGON
-	ld [wBattleMonType2],a
+
 .print
   ;callab PrintHoldItemText ;actually kinda obnoxious/pops up before the mon does, so maybe sometime later. good for testing though.
 .noStone
@@ -539,7 +639,6 @@ NormalPrefix::
 	db "Norm"
 DragonPrefix::
 	db "Drgn"
-	db "Norm"
 GhostPrefix::
 	db "Ghst"
 GrassPrefix::
