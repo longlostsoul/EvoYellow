@@ -20,8 +20,10 @@ I actually got a new computer and then... it died in a thunderstorm. x_x And now
 
 
 Latest changes:
-A couple more hold items change types. I made it so you can ask Brock and Misty to give you an easier battle; this makes it more fun to re-fight them later.
+A couple more hold items change types. 
+I made it so you can ask Brock and Misty to give you an easier battle; this makes it more fun to re-fight them later.
 I added Joltik (replacing Spinarak) just for more electric and bug variety that doesn't completely suck, although my back sprites are fairly terrible.
+A lot of stat changes, mostly to pokemon that got boosts to special defense in gen 2 and kinda suck in gen 1, and to sucky moves base power (like wrap, which due to no longer trapping is completely garbage without a power boost). Stats were leaked for Dudunsparce, Farigiraf, and Annihilape, so while those mons are not yet in, it would be fairly easy to add them.
 
 Features:
 + Play as girl or boy
@@ -37,16 +39,16 @@ Features:
 + Snag balls have been coded in the version 3.5 which can catch the last MON of a trainer. This is intended for use in the Meowth hack or possibly a Colosseum centric style hack with Eevee (you are free to use this as a base if you want for your own hack or steal any of the code).
 + You can get a baby from the daycare if you leave a mon there. In older versions there were a few babymons, but I'm removing them for Celebi and Lugia.
 + Charmander is available earlier from a bugcatcher in Viridian.
-+ More moves, like Crunch. Custom coding has been added for Sketch, Hidden Power and Mirror Move.
++ More moves, like Crunch. Custom coding has been added for Sketch, Hidden Power and Mirror Move. (Although the sketch one is not in use and a bit buggy someone might like to nick it and change it?)
 + Some moves have been tweaked; Wrap no longer traps you forever, nor do you get stuck raging. Roar can switch trainer parties out now (if a little terribly, as it displays the wrong text 'trainer switched mons' for enemies).
 + More types, Dark, Steel, Fairy
 + Slightly different TMs, to reflect the new types.
 + Different kinds of shinies, get Pink, Blue, Black, Orange/red
-+ Hold items for Pokemon (very basic, use 'give' from item menu and 'take' from party menu): Berries and type-changing stones (Give moon stone to your meowth to make it part dark type like an Alolan Meowth!)
++ Hold items for Pokemon (very basic, use 'give' from item menu and 'take' from party menu): Berries and type-changing stones (Give moon stone to your meowth to make it part dark type like an Alolan Meowth!), plus (latest version without patch only) Iron for Steel Type, Calcium Ground, Lemonade Fighting, Soda Pop for Poison, Max Revive for Ghost.
 + Very basic megas functionality for Charizard, Venusaur, and Blastoise.
 + New Areas, Mt. Silver and I am slowly adding the rest of Johto as well. Kanto is fully complete/playable on its own, of course.
-+ Slight difficulty curve adjustment in normal mode, with larger anime-inspired Teams for Gym Leaders, example: Brock has Vulpix, Misty has Corsola and Togekiss
-+ OLDER versions (below 3.3) had type re-adjustments. In the new version, you can choose to adjust types by making your pokemon hold special stones!
++ Slight difficulty curve adjustment in normal mode, with larger anime-inspired Teams for Gym Leaders, example: Brock has Vulpix, Misty has Corsola and Togekiss. Now in the latest version (not in patch 3.9!) Brock and Misty will ask you if you want easy or hard teams. 
++ OLDER versions (below 3.3) had type re-adjustments. In the new version, you can choose to adjust types by making your pokemon hold special stones or a few other items!
 + Uses Dannye's Gen 2 Sprites version of the Yellow disassembly as a base; so, updated sprites. Exception is Yellow's Pikachu sprite; that one I revamped myself.
 
 
@@ -58,20 +60,21 @@ Features:
 * Hold items (Keep in mind some were actually renamed) [**here**](engine/items/holditems.asm) and item list [**here**](constants/item_constants.asm)
 
 Known bugs: (# - game breaking. ! - somewhat important)
-* ! Mud slap can be a bit buggy and sometimes lower accuracy of both parties. Just switch. I might remove it in the future.
-* #One person reported a crash after dig, which I haven't been able to replicate.
-* # Viewing lots of TMs by clicking 'use' and then canceling can cause crashes. To help avoid the need for this, I have modified TMs to often show their types, except for a couple rare ones.
+*! Mud slap can be a bit buggy and sometimes lower accuracy of both parties. Just switch. I might remove it in the future.
+*#One person reported a crash after dig, which I haven't been able to replicate.
+*#Viewing lots of TMs by clicking 'use' and then canceling can cause crashes. To help avoid the need for this, I have modified TMs to often show their types, except for a couple rare ones.
 *If you somehow manage to lose the first battle against ROCKET in the Mart, there's a bit of a lag before you end up back at your house. Just hit a and be patient; you won't have to refight them, either, just go straight to Oak.
 *Minor. Mon follow sprites do not match party sprites. This isn't really a bug, I just never made that functionality because it was a pain, and follow sprites have different frames from party sprites anyway.
 *Minor. Diglett Cave might be green if you go into it from the same route as Viridian Forest, due to a palette over-ride quick fix for day-night.
 
 resolved:
-* Smeargle's Sketch only worked properly if Smeargle was first mon in one test I did, so I'm removing Smeargle and replacing him with Mimikyu. If you desperately want to play him despite the bugs, he's in vers. 3.9.
+* Smeargle's Sketch only worked properly if Smeargle was first mon in one test I did, so I'm removing Smeargle and replacing him with Mimikyu.
 x* (resolved) there was a spikes activating in cinnabar bug, I don't thiiink any of the saved ipses I had up had it though but the github vers did.
 x* (resolved?) The move tutor was buggy for awhile. Now it should be just annoying in a xvery large loop, but not buggy per say.
 x* (Resolved) Move deleter suffered from the same type of crash. Now HMs are just normally deletable so you don't need them.
 x* should be (resolved): on eevee version (and as far as I could tell, only eevee version) there was a crash due to old man for some reason in Viridian city.
 x* Should be (resolved) in version 3.5: there was an issue with using multiple TMs in a row causing crashes, especially Dark Pulse. Side effect of the fix is that you lose your position in the bag after canceling TM use, but that's pretty minor.
+* Pikachu briefly crashed when talked to, that should be gone, I was messing around with emotes and forgot to double check / accidentally included the code I was messing with in the same commit with code that did something else.
 
 
 
