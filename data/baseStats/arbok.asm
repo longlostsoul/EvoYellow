@@ -3,7 +3,7 @@ db 60 ; base hp
 db 95 ; base attack
 db 69 ; base defense
 db 80 ; base speed
-db 90 ; base special
+db 90 ; base special ;boosted to make more viable
 db POISON ; species type 1
 db POISON ; species type 2
 db 99 ; catch rate, hold sun stone

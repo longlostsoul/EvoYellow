@@ -240,7 +240,7 @@ const_value = 1
 	  const ZIGZAGOON
   const LINOONE
   const OBSTAGOON
-  const JOLTIK
+  const JOLTIK ;replacing spinarak
   const GALVANTULA
   const CELEBI
   const MANTINE
@@ -251,6 +251,7 @@ const_value = 1
   const SUICUNE
   const ENTEI
   const RAIKOU
+  ;annihilape? dudunsparce? farigiraf?
  ; const MEGA_CHARIZARD
  ; const MEGA_BLASTOISE
  ; const MEGA_VENUSAUR

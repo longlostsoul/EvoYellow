@@ -3,7 +3,7 @@ db 65 ; base hp
 db 80 ; base attack
 db 40 ; base defense
 db 80 ; base speed
-db 65 ; base special ;since no phys special split, boost special here to give it a little more of a fighting chance in battle when hit.
+db 75 ; base special ;since no phys special split, boost special here to give it a little more of a fighting chance in battle when hit.
 db BUG ; species type 1
 db POISON ; species type 2
 db 46 ; catch rate

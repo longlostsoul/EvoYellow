@@ -1,11 +1,11 @@
-db DEX_DUNSPARCE ; pokedex id
-	db 100 ; base hp
-	db 70 ; base attack
-	db 70 ; base defense
-	db 45 ; base speed
-	db 65 ; base special
+db DEX_DUDUNSPARCE ; pokedex id
+	db 125 ; base hp
+	db 100 ; base attack
+	db 80 ; base defense
+	db 55 ; base speed
+	db 75 ; base special
 	db NORMAL ; species type 1
-	db NORMAL ; species type 2
+	db DRAGON ; species type 2
 	db 190 ; catch rate
 	db 75 ; base exp yield
 	INCBIN "pic/ymon/dunsparce.pic",0,1 ; 77, sprite dimensions
@@ -13,8 +13,8 @@ db DEX_DUNSPARCE ; pokedex id
 	dw DunsparcePicBack
 	; attacks known at lvl 0
 	db RAGE
-	db 0
-	db 0
+	db HEADBUTT
+	db DRAGON_RAGE
 	db 0
 	db 0 ; growth rate
 	; learnset

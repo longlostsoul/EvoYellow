@@ -165,7 +165,7 @@ const_value = 1
   const DEX_MILTANK
   const DEX_CHINCHOU
   const DEX_LANTURN
-  const DEX_ROCKRUFF;SLUGMA
+  const DEX_ROCKRUFF;was SLUGMA
   const DEX_LYCANROC;MAGCARGO
   const DEX_TYROGUE
   const DEX_HITMONTOP
@@ -206,7 +206,7 @@ const_value = 1
  const DEX_AMPHAROS
  const DEX_NATU
  const DEX_XATU
- const DEX_CARVANHA;REMORAID 
+ const DEX_CARVANHA;was REMORAID 
  const DEX_SHARPEDO;OCTILLERY
  const DEX_MR_RIME;SENTRET
  const DEX_SIRFETCHD;FURRET
@@ -239,17 +239,18 @@ const_value = 1
   const DEX_ZIGZAGOON
   const DEX_LINOONE
   const DEX_OBSTAGOON
-  const DEX_SPINARAK
+  const DEX_SPINARAK ;actually joltik now
   const DEX_ARIADOS
   const DEX_CELEBI
   const DEX_MANTINE
-  const DEX_PINECO;AIPOM
+  const DEX_PINECO;was AIPOM
   const DEX_FORRETRESS;AMBIPOM
   const DEX_MUNCHLAX
   const DEX_MIMIKYU;248
   const DEX_SUICUNE;249
   const DEX_ENTEI;250
   const DEX_RAIKOU;251
+  ;Annihilape? Dundunsparce? Farigiraf?
  ; const DEX_MEGA_CHARIZARD
  ; const DEX_MEGA_BLASTOISE
  ; const DEX_MEGA_VENUSAUR

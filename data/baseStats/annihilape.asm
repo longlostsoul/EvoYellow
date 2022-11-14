@@ -1,19 +1,19 @@
-db DEX_PRIMEAPE ; pokedex id
-db 65 ; base hp
-db 105 ; base attack
-db 60 ; base defense
-db 95 ; base speed
-db 70 ; base special
+db DEX_ANNIHILAPE ; pokedex id
+db 110 ; base hp
+db 115 ; base attack
+db 80 ; base defense
+db 90 ; base speed
+db 80 ; base special
 db FIGHTING ; species type 1
-db FIGHTING ; species type 2
+db GHOST ; species type 2
 db FULL_HEAL ; catch rate
 db 149 ; base exp yield
 INCBIN "pic/ymon/primeape.pic",0,1 ; 77, sprite dimensions
 dw PrimeapePicFront
 dw PrimeapePicBack
 ; attacks known at lvl 0
-db SCRATCH
-db LEER
+db NIGHT_SLASH
+db HEX
 db LOW_KICK
 db KARATE_CHOP
 db 0 ; growth rate

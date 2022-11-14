@@ -12,11 +12,11 @@ endm
 
 	move POUND,        NO_ADDITIONAL_EFFECT,        45, NORMAL,   100, 35
 MoveEnd:
-	move KARATE_CHOP,  NO_ADDITIONAL_EFFECT,        50, FIGHTING,   100, 25
+	move KARATE_CHOP,  NO_ADDITIONAL_EFFECT,        60, FIGHTING,   100, 25 ;slightly boosted
 	move DOUBLESLAP,   TWO_TO_FIVE_ATTACKS_EFFECT,  15, FAIRY,    85, 10
 	move COMET_PUNCH,  TWO_TO_FIVE_ATTACKS_EFFECT,  18, FAIRY,    85, 15
 	move MEGA_PUNCH,   NO_ADDITIONAL_EFFECT,        80, NORMAL,    85, 20
-	move PAY_DAY,      PAY_DAY_EFFECT,              40, NORMAL,   100, 20
+	move PAY_DAY,      PAY_DAY_EFFECT,              55, STEEL,   100, 20 ;How is pelting someone with coins not steel type?
 	move FIRE_PUNCH,   BURN_SIDE_EFFECT1,           75, FIRE,     100, 15
 	move ICE_PUNCH,    FREEZE_SIDE_EFFECT,          75, ICE,      100, 15
 	move THUNDERPUNCH, PARALYZE_SIDE_EFFECT1,       75, ELECTRIC, 100, 15
@@ -27,18 +27,18 @@ MoveEnd:
 	;move RAZOR_WIND,   CHARGE_EFFECT,               120, FLYING,    75, 10 ; kind of an orphaned move at the moment, so replacing with spikes maybe?
 	move SWORDS_DANCE, ATTACK_UP2_EFFECT,            0, NORMAL,   100, 30
 	move CUT,          NO_ADDITIONAL_EFFECT,        50, STEEL,    95, 30
-	move GUST,         NO_ADDITIONAL_EFFECT,        40, FLYING,   100, 35 ;had accuracy-down side effect for awhile, decided to make it normal again.
+	move GUST,         NO_ADDITIONAL_EFFECT,        40, FLYING,   100, 35 ;had accuracy-down side effect for awhile, decided to make it none added again.
 	move WING_ATTACK,  NO_ADDITIONAL_EFFECT,        60, FLYING,   100, 35
 	move  WITHDRAW,  HEAL_EFFECT,   0, FLYING,    85, 20 ;Roost.old:WHIRLWIND,SWITCH_AND_TELEPORT_EFFECT
 	move FLY,          FLY_EFFECT,                  70, FLYING,    95, 15
-	move BIND,         TRAPPING_EFFECT,             90, NORMAL,    85, 20
+	move BIND,         TRAPPING_EFFECT,             90, NORMAL,    85, 20 ;trapping no longer actually stops you from moving so I boosted the power.
 	move SLAM,         NO_ADDITIONAL_EFFECT,        80, NORMAL,    75, 20
 	move VINE_WHIP,    NO_ADDITIONAL_EFFECT,        35, GRASS,    100, 10
 	move STOMP,        FLINCH_SIDE_EFFECT2,         65, NORMAL,   100, 20
 	move DOUBLE_KICK,  ATTACK_TWICE_EFFECT,         30, FIGHTING, 100, 30
 	move GUST,    NO_ADDITIONAL_EFFECT,       40, FAIRY,    100,  10;fairy wind maybe? briefly SKETCH, was move MEGA_KICK,    NO_ADDITIONAL_EFFECT,       120, NORMAL,    75,  5
-	move JUMP_KICK,    JUMP_KICK_EFFECT,            70, FIGHTING,  95, 25
-	move ROLLING_KICK, FLINCH_SIDE_EFFECT2,         60, FIGHTING,  85, 15
+	move JUMP_KICK,    JUMP_KICK_EFFECT,            75, FIGHTING,  95, 25 ;boosted
+	move ROLLING_KICK, FLINCH_SIDE_EFFECT2,         70, FIGHTING,  85, 15 ;boosted slightly
 	move SAND_ATTACK,  ACCURACY_DOWN1_EFFECT,        0, NORMAL,   100, 15
 	move HEADBUTT,     FLINCH_SIDE_EFFECT2,         70, NORMAL,   100, 15
 	move HORN_ATTACK,  NO_ADDITIONAL_EFFECT,        65, NORMAL,   100, 25
@@ -46,18 +46,18 @@ MoveEnd:
 	move HORN_DRILL,   OHKO_EFFECT,                  1, NORMAL,    30,  5
 	move TACKLE,       ATTACK_UP_SIDE_EFFECT,        40, NORMAL,    95, 15
 	move BODY_SLAM,    PARALYZE_SIDE_EFFECT2,       85, NORMAL,   100, 15
-	move WRAP,         TRAPPING_EFFECT,             60, NORMAL,    95, 20
+	move WRAP,         TRAPPING_EFFECT,             65, NORMAL,    95, 20 ;boosted and no longer really trapping
 	move TAKE_DOWN,    RECOIL_EFFECT,               90, NORMAL,    85, 20
 	move THRASH,       THRASH_PETAL_DANCE_EFFECT,   90, NORMAL,   100, 20
 	move DOUBLE_EDGE,  RECOIL_EFFECT,              100, NORMAL,   100, 15
-	move TAIL_WHIP,    WEATHER_EFFECT,         0, NORMAL,   100, 30 ;Tail whip and leer-
+	move TAIL_WHIP,    WEATHER_EFFECT,         0, NORMAL,   100, 10 ;Tail whip and leer-
 	move POISON_STING, POISON_SIDE_EFFECT1,         45, POISON,   100, 35
 	move TWINEEDLE,    TWINEEDLE_EFFECT,            35, BUG,      100, 20
 	move PIN_MISSILE,  TWO_TO_FIVE_ATTACKS_EFFECT,  25, BUG,       85, 20
 	move LEER,         DEFENSE_DOWN1_EFFECT,         0, NORMAL,   100, 30 ;-both do the same thing. so replacing tail whip with Sunny Day.
 	move BITE,         FLINCH_SIDE_EFFECT1,         60, DARK,   100, 25
 	move GROWL,        ATTACK_DOWN1_EFFECT,          0, NORMAL,   100, 40
-	move ROAR,         SWITCH_AND_TELEPORT_EFFECT,   0, NORMAL,   100, 20 ;Probably make sense to replace this, that or fix it to make it actually useful.
+	move ROAR,         SWITCH_AND_TELEPORT_EFFECT,   0, NORMAL,   100, 20 ;fixed it somewhat, still not great but it actually does something now
 	move SING,         SLEEP_EFFECT,                 0, NORMAL,    55, 15
 	move SUPERSONIC,   CONFUSION_EFFECT,             0, STEEL,    55, 20
 	move SONICBOOM,    SPECIAL_DAMAGE_EFFECT,        1, STEEL,    90, 20
@@ -78,7 +78,7 @@ MoveEnd:
 	move PECK,         SPEED_UP_SIDE_EFFECT,        35, FLYING,   100, 35
 	move DRILL_PECK,   NO_ADDITIONAL_EFFECT,        80, FLYING,   100, 20
 	move SUBMISSION,   RECOIL_EFFECT,               100, FIGHTING,  80, 25
-	move LOW_KICK,     FLINCH_SIDE_EFFECT2,         50, FIGHTING,  90, 20
+	move LOW_KICK,     FLINCH_SIDE_EFFECT2,         65, FIGHTING,  90, 20 ;boosted slightly
 	move COUNTER,      NO_ADDITIONAL_EFFECT,         1, FIGHTING, 100, 20
 	move SEISMIC_TOSS, SPECIAL_DAMAGE_EFFECT,        1, FIGHTING, 100, 20
 	move STRENGTH,     NO_ADDITIONAL_EFFECT,        80, NORMAL,   100, 15
@@ -94,7 +94,7 @@ MoveEnd:
 	move PETAL_DANCE,  THRASH_PETAL_DANCE_EFFECT,   70, GRASS,    100, 20
 	move STRING_SHOT,  SPEED_DOWN1_EFFECT,           0, BUG,       95, 40
 	move DRAGON_RAGE,  SPECIAL_DAMAGE_EFFECT,        50, DRAGON,   100, 10
-	move FIRE_SPIN,    TRAPPING_EFFECT,             55, FIRE,      80, 15
+	move FIRE_SPIN,    TRAPPING_EFFECT,             65, FIRE,      90, 15
 	move THUNDERSHOCK, PARALYZE_SIDE_EFFECT1,       40, ELECTRIC, 100, 30
 	move THUNDERBOLT,  PARALYZE_SIDE_EFFECT1,       95, ELECTRIC, 100, 15
 	move THUNDER_WAVE, PARALYZE_EFFECT,              0, ELECTRIC, 95, 20
@@ -112,7 +112,7 @@ MoveEnd:
 	move QUICK_ATTACK, NO_ADDITIONAL_EFFECT,        40, NORMAL,   100, 30
 	move RAGE,         RAGE_EFFECT,                 20, NORMAL,   100, 20
 	move TELEPORT,     SWITCH_AND_TELEPORT_EFFECT,   0, PSYCHIC,  100, 20
-	move NIGHT_SHADE,  SPECIAL_DOWN_SIDE_EFFECT,     60, GHOST,    100, 15
+	move NIGHT_SHADE,  SPECIAL_DOWN_SIDE_EFFECT,     65, GHOST,    100, 15
 	move MIMIC,        MIMIC_EFFECT,                 0, NORMAL,   100, 10
 	move SCREECH,      DEFENSE_DOWN2_EFFECT,         0, NORMAL,    85, 40
 	move DOUBLE_TEAM,  EVASION_UP1_EFFECT,           0, NORMAL,   100, 15
@@ -133,13 +133,13 @@ MoveEnd:
 	move MIRROR_MOVE,  MIRROR_MOVE_EFFECT,           0, FLYING,   100, 20
 	move SELFDESTRUCT, EXPLODE_EFFECT,             130, NORMAL,   100,  5
 	move EGG_BOMB,     NO_ADDITIONAL_EFFECT,       100, NORMAL,    75, 10
-	move LICK,         PARALYZE_SIDE_EFFECT2,       45, GHOST,    100, 30
-	move SMOG,         POISON_SIDE_EFFECT2,         30, POISON,    80, 20
+	move LICK,         PARALYZE_SIDE_EFFECT2,       50, GHOST,    100, 30
+	move SMOG,         POISON_SIDE_EFFECT2,         40, POISON,    80, 20
 	move SLUDGE,       POISON_SIDE_EFFECT2,         85, POISON,   100, 20
 	move BONE_CLUB,    FLINCH_SIDE_EFFECT1,         65, GROUND,    85, 20
 	move FIRE_BLAST,   BURN_SIDE_EFFECT2,          120, FIRE,      85,  5
 	move WATERFALL,    FLINCH_SIDE_EFFECT1,        80, WATER,    100, 15
-	move CLAMP,        TRAPPING_EFFECT,             35, WATER,     75, 10
+	move CLAMP,        TRAPPING_EFFECT,             95, WATER,     75, 10
 	move SWIFT,        SWIFT_EFFECT,                60, NORMAL,   100, 20
 	move SKULL_BASH,   CHARGE_EFFECT,              100, NORMAL,   100, 15
 	move SPIKE_CANNON, TWO_TO_FIVE_ATTACKS_EFFECT,  20, STEEL,   100, 15
@@ -227,7 +227,7 @@ MoveEnd:
 	move QUICK_ATTACK, VOLT_TACKLE_EFFECT,         120, ELECTRIC, 100, 15 ; Volt Tackle
 	move SURF,         ACCURACY_DOWN_SIDE_EFFECT,   90, WATER,     85, 10 ; Muddy Water
 	move GUST,         TRAPPING_EFFECT,             35, WATER,     85, 15 ; Whirlpool
-	move MEGA_DRAIN,   DRAIN_HP_EFFECT,             75, GRASS,    100, 10 ; Giga Drain
+	move MEGA_DRAIN,   DRAIN_HP_EFFECT,             80, GRASS,    100, 10 ; Giga Drain
 	move PETAL_DANCE,  NO_ADDITIONAL_EFFECT,        90, GRASS,    100, 15 ; Petal Blizzard
 	move CUT,          NO_ADDITIONAL_EFFECT,        90, GRASS,    100, 15 ; Leaf Blade
 	move ROCK_THROW,   RECOIL_EFFECT,              120, GRASS,    100, 15 ; Wood Hammer
